@@ -11,9 +11,12 @@ public class Move : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        int abcd1 = 0;
+        int abcd2 = 0;
+        int abcd3 = 0;
+        int abcd4 = 0;
+        int abcd5 = 0;
+        int abcd6 = 0;
 
-
-        transform.Translate(Vector3.up * Time.deltaTime*8f);
-
-	}
+    }
 }
