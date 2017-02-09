@@ -217,7 +217,7 @@ pip-log.txt
 
 Library
 Temp
-*. pidb
-*. unityproj
-* .. sln
-*. userprefs
+*.pidb
+*.unityproj
+*.sln
+*.userprefs
