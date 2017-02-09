@@ -107,6 +107,7 @@
     <Compile Include="Assets\Script\InGame\Skill\SkillManager.cs" />
     <Compile Include="Assets\Script\InGame\Skill\SkillSlot.cs" />
     <Compile Include="Assets\Script\InGame\UIShower.cs" />
+    <Compile Include="Assets\Script\InGame\UITextSet.cs" />
     <Compile Include="Assets\Script\InGame\UIprogress.cs" />
     <Compile Include="Assets\Script\InGame\UserKeyData.cs" />
     <Compile Include="Assets\Script\InGame\WallManager.cs" />
