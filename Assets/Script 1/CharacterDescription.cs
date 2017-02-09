@@ -6,6 +6,7 @@ public class CharacterDescription {
     public string[] CharacterName;
     public CharacterDescription()
     {
+        int abcd = 0; 
         CharacterName = new string[9];
         CharacterStr = new string[9];
         for (int i = 0; i < 9; i++)
