@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using PRIORITY = SelectState.PRIORITY;
+
 
 public class UserKeyData : MonoBehaviour { 
    

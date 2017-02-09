@@ -25,6 +25,7 @@ public class DashAnim : MonoBehaviour {
 	void LateUpdate () {
         MyTr.position = new Vector3(Mathf.Clamp(transform.position.x, -60.5f, 60.5f),
                                         MyTr.position.y, MyTr.position.z);
+        tempX = Mathf.Clamp(tempX, -60.5f,60.5f);
     }
     public void Stop()
     {
@@ -32,7 +33,6 @@ public class DashAnim : MonoBehaviour {
     }
     public void Dash(float Position, float _Time)
     {
-        Debug.Log(name + Position);
         MovePos.x = Position;
         TempTime = _Time;
         StartCoroutine(Dash());
@@ -49,16 +49,14 @@ public class DashAnim : MonoBehaviour {
             float TempSpeed = Mathf.Lerp(MaxSpeed, 0, LerpT);
             PrevPos.x += TempSpeed * Time.deltaTime;
             MyTr.position = PrevPos;
+            
+            tempX = MyTr.position.x;
             yield return null;
         }
-        tempX = MyTr.position.x;
     }
     public void Wait(float Position, float _Time)
     {
-    }
-    private IEnumerator Wait()
-    {
-        yield return null;
+        StopAllCoroutines();
         tempX = MyTr.position.x;
     }
     public void Knockback(float Position ,float  _Time)
@@ -79,8 +77,8 @@ public class DashAnim : MonoBehaviour {
             float TempSpeed = Mathf.Lerp(MaxSpeed, 0, LerpT);
             PrevPos.x += TempSpeed * Time.deltaTime;
             MyTr.position = PrevPos;
+            tempX = MyTr.position.x;
             yield return null;
         }
-        tempX = MyTr.position.x;
     }
 }

@@ -7,6 +7,9 @@ public class SkillSlot : MonoBehaviour {
     private EmptySlot[] SlotList;
     private const int SlotLength = 4;
     private List<Skill> PassiveSkillList;
+
+    public List<Skill> DebuffList;
+
     public int selectedSlot;    // 몇번 사용할껀지의 인덱스
     void Reset()
     {
@@ -22,6 +25,7 @@ public class SkillSlot : MonoBehaviour {
     }
 	void Awake(){
         PassiveSkillList = new List<Skill>();
+        DebuffList = new List<Skill>();
         SlotList = new EmptySlot[SlotLength];
 		for (int i = 0; i < SlotLength; i++) {
 			SlotList[i] = new EmptySlot();
@@ -38,7 +42,8 @@ public class SkillSlot : MonoBehaviour {
             Name = "Champion";
         codes = UserKeyData.ins.GetKeyData(Name);
         SkillSlot sk = this;
-        SkillList.ins.AddingSkill(ref sk);
+        SkillList.ins.AddingDefaultSkill(ref sk);
+        SkillList.ins.Skill_DefaultPassive(ref sk);
         for (int i = 0; i < SlotLength; i++)
         {
             SlotList[i].key = codes[i];
@@ -46,7 +51,10 @@ public class SkillSlot : MonoBehaviour {
                 SlotList[i].SetOrder(stat.Controller);
         }
     }
-
+    public void AddPassiveSlot(Skill sk)
+    {
+        PassiveSkillList.Add(sk);
+    }
     public EmptySlot GetSlot(string name)
     {
         int index = 0;
@@ -62,7 +70,17 @@ public class SkillSlot : MonoBehaviour {
     public void PassivesRun(string str)
     {
         for (int i = 0; i < SlotLength; i++)
+        {
             SlotList[i].RunPassive(str);
+        }
+        for (int i = 0; i < PassiveSkillList.Count; i++)
+        {
+            PassiveSkillList[i].RunPassive(str);
+        }
+        for (int i = 0; i < DebuffList.Count; i++)
+        {
+            DebuffList[i].RunPassive(str);
+        }
     }
     public bool KeyCheck()
     {
@@ -91,6 +109,24 @@ public class SkillSlot : MonoBehaviour {
     {
         selectedSlot = SlotLength;
     }
+    public Skill findSkill(string str)
+    {
+        for (int i = 0; i < SlotLength; i++)
+        {
+            if (SlotList[i].GetName() == str)
+            {
+                return SlotList[i].GetSkill();
+            }
+        }
+        for (int i = 0; i < PassiveSkillList.Count; i++)
+        {
+            if (PassiveSkillList[i].Name == str)
+            {
+                return PassiveSkillList[i];
+            }
+        }
+        return null;
+    }
 }
 public class EmptySlot
 {
@@ -107,10 +143,21 @@ public class EmptySlot
         TempSkill = skl;
         TempSkill.SkillNum = index;
     }
+    public Skill GetSkill()
+    {
+        return TempSkill;
+    }
     public bool UsingThis()
     {
         if (key == KeyCode.None || TempSkill == null) return false;
         bool keybool = Input.GetKeyDown(key);
+        if (gameManager.ins.Simulate)
+        {
+            if (Random.Range(0, 4) == 0)
+            {
+                keybool = true;
+            }
+        }
         bool SkillOn = TempSkill.isRun();
         return keybool && SkillOn;
     }
@@ -131,5 +178,9 @@ public class EmptySlot
     public void SetOrder(int or)
     {
         TempSkill.SetCharacter(or);
+    }
+    public string GetName()
+    {
+        return TempSkill.Name;
     }
 }

@@ -6,6 +6,8 @@ public class DamageCalculator : MonoBehaviour {
 
     public const int MULTIPLE = 0;
     public const int PLUS = 100;
+    public const string MULTIPLE_s = "Multiple";
+    public const string PLUS_s = "Plus";
     public static DamageCalculator ins = null;
     public int TempDamage;
     public float[] PlusDamage;
@@ -91,8 +93,6 @@ public class DamageCalculator : MonoBehaviour {
         }
         Result = (int)((float)Result * ResultMultiple);
         DamageReset();
-        if (Result != 0)
-            CameraEffectmanager.ins.Shake(SHAKEPOWER.BIG);
         return Result;
 
     }

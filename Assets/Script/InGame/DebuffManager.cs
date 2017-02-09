@@ -43,4 +43,8 @@ public class DebuffManager : MonoBehaviour {
         NextDown = true;
         NextDefence = false;
     }
+    public void OnDisable()
+    {
+        NextDisable = true;
+    }
 }
