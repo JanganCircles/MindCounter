@@ -1,7 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{28F29050-57C4-65A3-A235-3EC46324ECD5}") = "MindCounter_170202", "Assembly-CSharp.csproj", "{FF86A029-AD6A-96AF-8C6A-50C0F393E554}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindCounter_170202", "Assembly-CSharp.csproj", "{FF86A029-AD6A-96AF-8C6A-50C0F393E554}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
