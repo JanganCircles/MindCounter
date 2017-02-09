@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="MindCounter_170202.CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\InGame\UIprogress.cs">
+    <Files>
+      <File FileName="Assets\Script\InGame\UIprogress.cs" Line="23" Column="9" />
+      <File FileName="Assets\Script\InGame\gameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\InGame\CharacterStatus.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\InGame\SelectState.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\InGame\UIShower.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindCounter_170118.CSharp", "MindCounter_170118.CSharp.csproj", "{AA16AECA-8AF2-FBE6-3C43-5F8232B846E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA16AECA-8AF2-FBE6-3C43-5F8232B846E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA16AECA-8AF2-FBE6-3C43-5F8232B846E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA16AECA-8AF2-FBE6-3C43-5F8232B846E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA16AECA-8AF2-FBE6-3C43-5F8232B846E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
