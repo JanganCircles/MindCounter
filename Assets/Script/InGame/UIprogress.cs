@@ -11,7 +11,7 @@ public class UIprogress : MonoBehaviour {
     public float nowDistance = 0;
     public int setDistanceWarning = 200; // 벽 남은거리에 따른 경고 설정 
     public GameObject warning_img;
-    public GameObject countBoxMax , skillCount;
+    public GameObject countBoxMax , skillCount , skillCountClone;
     int[] countBoxMaxArg;
     int count = 0;
 
@@ -28,6 +28,7 @@ public class UIprogress : MonoBehaviour {
         tempBox = status.RSPTempCount.Length; // 카운트 현재 남은 개수 저장 
         nowDistance = status.WallDistance; // 벽의 거리 저장
         
+        
 
       /*int[] countBoxMaxArg = new int[maxBox]; // 카운트 최대 개수로 배열 만들어서 그만큼 오브젝트 만들꺼임  
       for (int i =0; i< maxBox; i++)
@@ -37,24 +38,28 @@ public class UIprogress : MonoBehaviour {
       }
       */
 
-        Vector3 ChamCountVect = new Vector3(-275, -46, 72); // 왼쪽 챔피언 박스 위치 28씩 증가 
-        Vector3 ChallCountVect = new Vector3(270, -46, 72);//오른쪽 챌린저 박스 위치 28씩 감소함 
+        Vector3 ChamCountVect = new Vector3(-275, -46, 0); // 왼쪽 챔피언 박스 위치 28씩 증가 
+        Vector3 ChallCountVect = new Vector3(270, -46, 0); //오른쪽 챌린저 박스 위치 28씩 감소함 
+        Vector3 test = new Vector3(242, -46, 0);
+        Quaternion zero = new Quaternion(0, 0, 0, 0);
+        skillCountClone = (GameObject)Instantiate(skillCount, test, zero);
+        
+
         for (int i=0; i <= status.RSPMaxCount.Length; i++)
         {
-            Debug.Log(i+ "ChamCountVect@@@@@@@@@");
-            Instantiate(countBoxMax).transform.TransformVector(ChamCountVect);
+            skillCountClone =(GameObject)Instantiate(skillCount, ChamCountVect, skillCount.transform.rotation);
             ChamCountVect.x += 28;
+            Debug.Log(i + "번째ChamCountVect는"+ ChamCountVect.x);
         }
         for (int i = 0; i <= status.RSPMaxCount.Length; i++)
         {
-            Debug.Log(i + "ChallCountVect!!!!!!!!");
-            Instantiate(countBoxMax).transform.TransformVector(ChallCountVect);
+            Instantiate(countBoxMax).transform.TransformVector(ChallCountVect);//얘도 장애다 
             ChallCountVect.x -= 28;
+            Debug.Log(i + "번째ChallCountVect는" + ChallCountVect.x);
         }
 
         nowHP = status.HP;
         maxHp = 800;//status.MaxHP;//속 0이라서 일단 임의의 값 줬음.
-        
 
         warning_img.SetActive(false);
         
