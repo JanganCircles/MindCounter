@@ -1363,7 +1363,7 @@ MonoBehaviour:
   KeyAllClick: 0
   Turn: 0
   TotalWinner: -1
-  Simulate: 1
+  Simulate: 0
 --- !u!114 &689993632
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,7 +30,10 @@ public class UIShower : MonoBehaviour {
         if (gameManager.ins.UIOpen)
         {
             for (int i = 0; i < 3; i++)
+            {
+                if (i > 0) str1 += "< ";
                 str1 += status.RSPTempCount[i].ToString() + " ";
+            }
             UITextSet.UIList[ControllerName + "Counter"] = str1;            //남은 카드 갯수
             UITextSet.UIList["InputKey"] = "";                              //입력문구
             UITextSet.UIList[ControllerName + "Stasis"] = SetTempStatis(Slots.GetPriority()); //상태(확인불가)

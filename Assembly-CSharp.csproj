@@ -46,22 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script 1\CharacterDescription.cs" />
-     <Compile Include="Assets\Script 1\CheckingScreenSize.cs" />
-     <Compile Include="Assets\Script 1\Manager\GameData.cs" />
-     <Compile Include="Assets\Script 1\Manager\GameStarter.cs" />
-     <Compile Include="Assets\Script 1\Manager\Utillity.cs" />
-     <Compile Include="Assets\Script 1\Menu\FadeIn.cs" />
-     <Compile Include="Assets\Script 1\Menu\FadeOut.cs" />
-     <Compile Include="Assets\Script 1\Menu\PlaySceneChange.cs" />
-     <Compile Include="Assets\Script 1\Menu\SelectedShip.cs" />
-     <Compile Include="Assets\Script 1\Menu\SelectsMenuCtrl.cs" />
-     <Compile Include="Assets\Script 1\Menu\UIDescription.cs" />
-     <Compile Include="Assets\Script 1\ObjectFooling.cs" />
-     <Compile Include="Assets\Script 1\UIControl\UIImageChanger.cs" />
-     <Compile Include="Assets\Script 1\UIControl\UIIsVisible.cs" />
-     <Compile Include="Assets\Script 1\UIControl\UINumberSet.cs" />
-     <Compile Include="Assets\Script 1\UIControl\UIProgressBar.cs" />
+     <Compile Include="Assets\Script\CharacterData.cs" />
+     <Compile Include="Assets\Script\CheckingScreenSize.cs" />
+     <Compile Include="Assets\Script\FadeIn.cs" />
+     <Compile Include="Assets\Script\FadeOut.cs" />
      <Compile Include="Assets\Script\InGame\AttackType.cs" />
      <Compile Include="Assets\Script\InGame\CameraController.cs" />
      <Compile Include="Assets\Script\InGame\CameraEffectmanager.cs" />
@@ -74,16 +62,33 @@
      <Compile Include="Assets\Script\InGame\SaveData.cs" />
      <Compile Include="Assets\Script\InGame\SelectCounter.cs" />
      <Compile Include="Assets\Script\InGame\SelectState.cs" />
+     <Compile Include="Assets\Script\InGame\Skill\CharacterSkillFunctions\BatManSkill.cs" />
+     <Compile Include="Assets\Script\InGame\Skill\CharacterSkillFunctions\CatSkill.cs" />
+     <Compile Include="Assets\Script\InGame\Skill\CharacterSkillFunctions\FencingMasterSkill.cs" />
+     <Compile Include="Assets\Script\InGame\Skill\CharacterSkillFunctions\GauntletGirlSkill.cs" />
+     <Compile Include="Assets\Script\InGame\Skill\CharacterSkillFunctions\GolemSkill.cs" />
+     <Compile Include="Assets\Script\InGame\Skill\CharacterSkillFunctions\GolliathSkill.cs" />
+     <Compile Include="Assets\Script\InGame\Skill\CharacterSkillFunctions\MonkSkill.cs" />
+     <Compile Include="Assets\Script\InGame\Skill\CharacterSkillFunctions\ShieldWorriorSkill.cs" />
+     <Compile Include="Assets\Script\InGame\Skill\CharacterSkillFunctions\StreetFighterSkill.cs" />
+     <Compile Include="Assets\Script\InGame\Skill\DebuffSkillFunctions\DebuffSkillList.cs" />
+     <Compile Include="Assets\Script\InGame\Skill\DebuffSkillFunctions\DebuffSkill_GolemMagma.cs" />
      <Compile Include="Assets\Script\InGame\Skill\SkillFunctions\SkillDefault.cs" />
      <Compile Include="Assets\Script\InGame\Skill\SkillList.cs" />
      <Compile Include="Assets\Script\InGame\Skill\SkillManager.cs" />
      <Compile Include="Assets\Script\InGame\Skill\SkillSlot.cs" />
      <Compile Include="Assets\Script\InGame\UIShower.cs" />
-     <Compile Include="Assets\Script\InGame\UITextSet.cs" />
      <Compile Include="Assets\Script\InGame\UIprogress.cs" />
      <Compile Include="Assets\Script\InGame\UserKeyData.cs" />
      <Compile Include="Assets\Script\InGame\WallManager.cs" />
      <Compile Include="Assets\Script\InGame\gameManager.cs" />
+     <Compile Include="Assets\Script\Manager\GameData.cs" />
+     <Compile Include="Assets\Script\SceneChanger.cs" />
+     <Compile Include="Assets\Script\SelectsMenuCtrl.cs" />
+     <Compile Include="Assets\Script\UtilityStandard\ObjectFooling.cs" />
+     <Compile Include="Assets\Script\UtilityStandard\UIImageChanger.cs" />
+     <Compile Include="Assets\Script\UtilityStandard\UIIsVisible.cs" />
+     <Compile Include="Assets\Script\UtilityStandard\UITextSet.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
