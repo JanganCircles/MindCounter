@@ -41,59 +41,47 @@ public class CharacterData : MonoBehaviour {
         {
             case StreetFighter:
                 {
-                    Stat.RSPSet(5, 2, 3);
                 }
                 break;
             case ShieldWorrier:
                 {
-                    Stat.RSPSet(4, 3, 3);
                 }
                 break;
             case FencingMaster:
                 {
-                    Stat.RSPSet(4, 2, 4);
                 }
                 break;
             case BatMan:
                 {
-                    Stat.RSPSet(6, 2, 2);
                 }
                 break;
             case Golliath:
                 {
-                    Stat.RSPSet(3, 5, 2);
                 }
                 break;
             case GauntletsMan:
                 {
-                    Stat.RSPSet(2, 5, 3);
                 }
                 break;
             case Golem:
                 {
-                    Stat.RSPSet(3, 4, 3);
                 }
                 break;
             case Cat:
                 {
-                    Stat.RSPSet(2, 2, 6);
-                    Stat.HP = Stat.MaxHP = 250;
                 }
                 break;
             case Monk:
                 {
-                    Stat.RSPSet(5, 3, 2);
                 }
                 break;
             case Assassin:
                 {
-                    Stat.RSPSet(2, 4, 4);
                 }
                 break;
             case dibidibidip:
                 {
                     //보류
-                    Stat.RSPSet(4, 3, 3);
                 }
                 break;
         }

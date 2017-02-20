@@ -5,7 +5,7 @@ public class SkillSlot : MonoBehaviour {
 
     public string[] SlotName;
     private EmptySlot[] SlotList;
-    private const int SlotLength = 4;
+    private const int SlotLength = 5;
     private List<Skill> PassiveSkillList;
 
     public List<Skill> DebuffList;
@@ -14,11 +14,11 @@ public class SkillSlot : MonoBehaviour {
     void Reset()
     {
         SlotName = new string[SlotLength];
-        SlotName[0] = "압박";
-        SlotName[1] = "화력";
-        SlotName[2] = "연속";
+        SlotName[0] = "약";
+        SlotName[1] = "중";
+        SlotName[2] = "강";
         SlotName[3] = "가드";
-        SlotName[4] = "도발";//여기서부터 미구현
+        SlotName[4] = "회복";//여기서부터 미구현
         SlotName[5] = "특수1";
         SlotName[6] = "특수2";
         SlotName[7] = "특수3";

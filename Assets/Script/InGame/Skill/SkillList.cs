@@ -29,13 +29,41 @@ public class SkillList : MonoBehaviour {
         AddSkill_Rock(ref List);
         AddSkill_Scissors(ref List);
         AddSkill_Paper(ref List);
+        AddSkill_Energy(ref List);
 
     }
+    //회복
+    private void AddSkill_Energy(ref SkillSlot List)
+    {
+
+        CharacterStatus Orderstat;//스텟받아올 변수
+        Skill Energy = new Skill(Priority.ENERGY, "Energy");//우선순위 = 가드, 이름 Guard설정
+        Energy.PassiveCount.Add("Switch", 0);         //패시브카운트에 "RSPATTACK"추가
+
+        Energy.ActiveSkillSet(delegate (Skill skil)
+        {//사용시
+            skil.PassiveCount["Switch"] = 1;
+        });//액티브 스킬 사용
+
+        Energy.AddPassive(delegate (Skill skl)
+        {//체크
+            Orderstat = gameManager.ins.UserStatus[skl.Order];
+            if (skl.PassiveCount["Switch"] == 1)
+            {
+                skl.PassiveCount["Switch"] = 0;
+                Orderstat.CostPlus(5);
+            }
+        }, "Decision");//시작시 발동
+
+        List.GetSlot("회복").SkillChange(Energy);
+    }
+
     //가드
     private void AddSkill_Guard(ref SkillSlot List)
     {
         CharacterStatus Orderstat;//스텟받아올 변수
         Skill guard = new Skill(Priority.GUARD, "Guard");//우선순위 = 가드, 이름 Guard설정
+        guard.PassiveCount.Add("Cost", 1);         //패시브카운트에 "Cost"추가
 
         guard.ActiveSkillSet(delegate (Skill skil)
            {//사용시
@@ -43,6 +71,7 @@ public class SkillList : MonoBehaviour {
                SaveData.ins.AddData(SaveData.TYPE.GUARD, Orderstat.Controller, SaveData.Try, 1);
                Orderstat.Guard = true;
                Orderstat.AttackType = -1;
+               Orderstat.Cost -= (int)skil.PassiveCount["Cost"];                                        //코스트4
            });//액티브 스킬 사용
 
         guard.AddPassive(delegate (Skill skil)
@@ -51,12 +80,6 @@ public class SkillList : MonoBehaviour {
                if (Orderstat.Guard)
                {
                    SaveData.ins.AddData(SaveData.TYPE.GUARD, Orderstat.Controller, SaveData.Success, 1);
-                   DebuffManager.ins.Clean();
-                   DebuffManager.ins.NextDisable = false;
-                   if (Orderstat.Defence)
-                       DebuffManager.ins.OnDefence();
-                   if (Orderstat.Down)
-                       DebuffManager.ins.OnDown();
                    if (Orderstat.WallDistance == 0)
                    {
                        DamageCalculator.ins.AddDamage("Multiple", 0.5f, "GuardBlock");
@@ -69,16 +92,7 @@ public class SkillList : MonoBehaviour {
                    }
                }
            }, "Hit");//피격시 발동
-
-        guard.AddPassive(delegate (Skill skl)
-        {//사후처리
-            Orderstat = gameManager.ins.UserStatus[skl.Order];
-            if (Orderstat.Guard)
-            {
-                for (int i = 0; i < 3; i++)
-                    Orderstat.RSPPlus(i);
-            }
-        }, "End");//시작시 발동
+        
         guard.AddPassive(delegate (Skill skl)
         {//사후처리
             Orderstat = gameManager.ins.UserStatus[skl.Order];
@@ -95,9 +109,10 @@ public class SkillList : MonoBehaviour {
     {
         CharacterStatus Orderstat;
 
-        Skill NewSkill = new Skill(Priority.ROCK, "압박");     //우선순위 = 압박, 이름 압박설정
+        Skill NewSkill = new Skill(Priority.ROCK, "중");     //우선순위 = 압박, 이름 압박설정
         NewSkill.PassiveCount.Add("RSPATTACK", Stop);         //패시브카운트에 "RSPATTACK"추가
-        NewSkill.PassiveCount.Add("Damage", 50);         //패시브카운트에 "RSPATTACK"추가
+        NewSkill.PassiveCount.Add("Damage", 5);         //패시브카운트에 "RSPATTACK"추가
+        NewSkill.PassiveCount.Add("Cost", 4);         //패시브카운트에 "Cost"추가
 
         NewSkill.ActiveSkillSet(delegate (Skill skl)
         {//사용시
@@ -105,7 +120,7 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             skl.PassiveCount["RSPATTACK"] = Run;
             Orderstat.AttackType = Priority.ROCK;
-            Orderstat.RSPTempCount[skl.SkillNum]--;
+            Orderstat.Cost -= (int)skl.PassiveCount["Cost"];                                        //코스트4
 
             SaveData.ins.AddData(SaveData.TYPE.ROCK, Orderstat.Controller, SaveData.Try, 1);//저장용
         });     //액티브 스킬 사용
@@ -116,9 +131,8 @@ public class SkillList : MonoBehaviour {
             Debug.Log((int)skl.PassiveCount["RSPATTACK"] + " " + Run + "맞음?");
             if ((int)skl.PassiveCount["RSPATTACK"] == Run)//키누른게 이 함수가 맞는지 체크
             {
-                DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);             //데미지 50
-                DebuffManager.ins.OnDefence();                  //디버프설정-방어
-                WallManager.ins.Move((int)skl.PassiveCount["Damage"], Orderstat.Enemy());    //벽이동
+                DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);             //데미지 5
+                WallManager.ins.Move((int)skl.PassiveCount["Damage"] * 20, Orderstat.Enemy());    //벽이동
 
                 SaveData.ins.AddData(SaveData.TYPE.ROCK, Orderstat.Controller, SaveData.Success, 1);//저장용
             }
@@ -127,24 +141,25 @@ public class SkillList : MonoBehaviour {
 
         NewSkill.AddPassive(Skill_UseRSPEnd, "End");           //종료시 발동
 
-        List.GetSlot("압박").SkillChange(NewSkill);//인자로 받은 리스트에 추가
+        List.GetSlot("중").SkillChange(NewSkill);//인자로 받은 리스트에 추가
     }
     //화력
     private void AddSkill_Scissors(ref SkillSlot List)
     {
         CharacterStatus Orderstat;
         
-        Skill NewSkill = new Skill(Priority.SCISSOR, "화력");
+        Skill NewSkill = new Skill(Priority.SCISSOR, "약");
         NewSkill.PassiveCount.Add("RSPATTACK", Stop);
-        NewSkill.PassiveCount.Add("Damage", 100);         //패시브카운트에 "RSPATTACK"추가
+        NewSkill.PassiveCount.Add("Damage", 2);         //패시브카운트에 "RSPATTACK"추가
+        NewSkill.PassiveCount.Add("Cost", 2);         //패시브카운트에 "Cost"추가
 
         NewSkill.ActiveSkillSet(delegate (Skill skl)
         {//사용시
-            Debug.Log("CallThis - Skill_UseRock");
+            Debug.Log("CallThis - Skill_UseScissors");
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             skl.PassiveCount["RSPATTACK"] = Run;
             Orderstat.AttackType = Priority.SCISSOR;
-            Orderstat.RSPTempCount[skl.SkillNum]--;
+            Orderstat.Cost -= (int)skl.PassiveCount["Cost"];
 
             SaveData.ins.AddData(SaveData.TYPE.SCISSOR, Orderstat.Controller, SaveData.Try, 1);//저장용
         });
@@ -154,25 +169,25 @@ public class SkillList : MonoBehaviour {
             Debug.Log((int)skl.PassiveCount["RSPATTACK"] + " " + Run + "맞음?");
             if ((int)skl.PassiveCount["RSPATTACK"] == Run)//키누른게 이 함수가 맞는지 체크
             {
-                DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);         //데미지 100
-                DebuffManager.ins.OnDown();                  //디버프설정-다운
-                WallManager.ins.Move((int)skl.PassiveCount["Damage"], Orderstat.Enemy());//벽이동
+                DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);         //데미지 2
+                WallManager.ins.Move((int)skl.PassiveCount["Damage"] * 50, Orderstat.Enemy());//벽이동
 
                 SaveData.ins.AddData(SaveData.TYPE.SCISSOR, Orderstat.Controller, SaveData.Success, 1);//저장용
             }
             skl.PassiveCount["RSPATTACK"] = Stop;
         }, "Attack");
         NewSkill.AddPassive(Skill_UseRSPEnd, "End");
-        List.GetSlot("화력").SkillChange(NewSkill);
+        List.GetSlot("약").SkillChange(NewSkill);
     }
     //연속
     private void AddSkill_Paper(ref SkillSlot List)
     {//위와 동일
         CharacterStatus Orderstat;
 
-        Skill NewSkill = new Skill(Priority.PAPER, "연속");
+        Skill NewSkill = new Skill(Priority.PAPER, "강");
         NewSkill.PassiveCount.Add("RSPATTACK", Stop);
-        NewSkill.PassiveCount.Add("Damage", 40);         //패시브카운트에 "RSPATTACK"추가
+        NewSkill.PassiveCount.Add("Damage", 8);         //패시브카운트에 "RSPATTACK"추가
+        NewSkill.PassiveCount.Add("Cost", 6);         //패시브카운트에 "Cost"추가
 
         NewSkill.ActiveSkillSet(delegate (Skill skl)
         {//사용시
@@ -180,7 +195,7 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             skl.PassiveCount["RSPATTACK"] = Run;
             Orderstat.AttackType = Priority.PAPER;
-            Orderstat.RSPTempCount[skl.SkillNum]--;
+            Orderstat.Cost -= (int)skl.PassiveCount["Cost"];
 
             SaveData.ins.AddData(SaveData.TYPE.PAPER, Orderstat.Controller, SaveData.Try, 1);//저장용
         });
@@ -191,14 +206,12 @@ public class SkillList : MonoBehaviour {
             if ((int)skl.PassiveCount["RSPATTACK"] == Run)//키누른게 이 함수가 맞는지 체크
             {
                 bool EnemyGuard = gameManager.ins.UserStatus[Orderstat.Enemy()].Guard;
-                DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);
-                DebuffManager.ins.OnDefence();
-                DebuffManager.ins.NextDisable = true;
-                WallManager.ins.Move((int)skl.PassiveCount["Damage"], Orderstat.Enemy());
                 if (EnemyGuard)
                 {
-                    Orderstat.RSPTempCount[2] = 0;
+                    gameManager.ins.UserStatus[Orderstat.Enemy()].Guard = false;
                 }
+                DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);
+                WallManager.ins.Move((int)skl.PassiveCount["Damage"] * 50, Orderstat.Enemy());
                 SaveData.ins.AddData(SaveData.TYPE.PAPER, Orderstat.Controller, SaveData.Success, 1);//저장용
                 skl.PassiveCount["RSPATTACK"] = Stop;
             }
@@ -206,12 +219,10 @@ public class SkillList : MonoBehaviour {
         NewSkill.AddPassive(delegate(Skill skl)
         {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
-            if(skl.PassiveCount["RSPATTACK"] == Run)
-                Orderstat.RSPTempCount[2] = 0;
             skl.PassiveCount["RSPATTACK"] = Stop;
         }
         , "End");
-        List.GetSlot("연속").SkillChange(NewSkill);
+        List.GetSlot("강").SkillChange(NewSkill);
     }
     public void Skill_UseRSPEnd(Skill skl)
     {
@@ -243,28 +254,10 @@ public class SkillList : MonoBehaviour {
 
         Skill DefencePlus = new Skill("DefencePlusDamage");//방어추뎀
         DefencePlus.SetCharacter(List.GetComponent<CharacterStatus>().Controller);
-        DefencePlus.AddPassive(
-           delegate (Skill skil)
-           {
-               OrderStat = gameManager.ins.UserStatus[skil.Order];
-               Enemy = gameManager.ins.UserStatus[OrderStat.Enemy()];
-               if(Enemy.Defence)//방어시 10%
-                   DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, 1.1f, "Defence");
-           }
-           , "Attack");
         List.AddPassiveSlot(DefencePlus);
 
         Skill DownPlus = new Skill("DownPlusDamage");//다운추뎀
         DownPlus.SetCharacter(List.GetComponent<CharacterStatus>().Controller);
-        DownPlus.AddPassive(
-           delegate (Skill skil)
-           {
-               OrderStat = gameManager.ins.UserStatus[skil.Order];
-               Enemy = gameManager.ins.UserStatus[OrderStat.Enemy()];
-               if (Enemy.Down)//다운시 20%
-                   DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, 1.2f, "Down");
-           }
-           , "Attack");
         List.AddPassiveSlot(DownPlus);
     } 
 
@@ -314,10 +307,10 @@ public class StackSkill : Skill {
 public class Priority
 {
     public const int NONE = 0;
-    public const int PROVOKE = 1;
+    public const int ENERGY = 1;
     public const int GUARD = 2;
-    public const int ROCK = 3;
-    public const int SCISSOR = 4;
+    public const int SCISSOR = 3;
+    public const int ROCK = 4;
     public const int PAPER = 5;
 }
 public class Skill {
@@ -372,17 +365,9 @@ public class Skill {
         if (Order == -1 || isRunning == false) return false;
         CharacterStatus stat = gameManager.ins.UserStatus[Order];
 
-        if (SkillNum >= 0 && SkillNum <= 2)
+        if (PassiveCount.ContainsKey("Cost"))
         {
-            return stat.RSPTempCount[SkillNum] != 0;
-        }
-        else if (SkillNum == 3)
-        {
-            return !stat.Down;
-        }
-        else if (SkillNum <= 5)
-        {
-            return stat.SpecialPower > Cost;
+            return stat.Cost >= PassiveCount["Cost"];
         }
         return true;
     }

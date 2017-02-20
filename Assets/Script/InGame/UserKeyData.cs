@@ -9,8 +9,8 @@ public class UserKeyData : MonoBehaviour {
     public KeyCode[] Challenger;
 
 
-    public const int Rock = 0;
-    public const int Scissors = 1;
+    public const int Scissors = 0;
+    public const int Rock = 1;
     public const int Paper = 2;
     public const int Guard = 3;
     public const int Provoke = 4;
@@ -45,8 +45,8 @@ public class UserKeyData : MonoBehaviour {
         Debug.Log("123");
         Champion = new KeyCode[8];
         Challenger = new KeyCode[8];
-        Champion[Rock] = KeyCode.A;
-        Champion[Scissors] = KeyCode.S;
+        Champion[Scissors] = KeyCode.A;
+        Champion[Rock] = KeyCode.S;
         Champion[Paper] = KeyCode.D;
         Champion[Guard] = KeyCode.F;
         Champion[Provoke] = KeyCode.Q;
@@ -55,8 +55,8 @@ public class UserKeyData : MonoBehaviour {
         Champion[Sp3] = KeyCode.R;
 
 
-        Challenger[Rock] = KeyCode.H;
-        Challenger[Scissors] = KeyCode.J;
+        Challenger[Scissors] = KeyCode.H;
+        Challenger[Rock] = KeyCode.J;
         Challenger[Paper] = KeyCode.K;
         Challenger[Guard] = KeyCode.L;
         Challenger[Provoke] = KeyCode.Y;

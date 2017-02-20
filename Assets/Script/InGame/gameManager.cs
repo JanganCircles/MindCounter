@@ -98,16 +98,7 @@ public class gameManager : MonoBehaviour
             UIOpen = false;
             TempStep = STEP.START;// 실행단계
             SkillManager.ins.RunPassives("Start");// 시작시 패시브 발동
-
-            for (int i = 0; i < 2; i++)// 방어체크 - 게임에 영향 x
-            {
-                if (UserStatus[i].Defence)
-                {
-                    SaveData.ins.AddData(SaveData.TYPE.STILL, (i + 1)%2, 1);
-                    break;
-                }
-            }
-
+            
             Dash(Dashs);//돌진애니메이션
             yield return new WaitForSeconds(0.25f);//입력대기
             Time.timeScale = 0.05f;//슬로우
@@ -136,16 +127,16 @@ public class gameManager : MonoBehaviour
                 SkillManager.ins.RunPassives("Drow");//비길때 패시브 발동
                 for (int i = 0; i < 2; i++)
                 {
-                    DebuffManager.Cleaner(i); 
                     Dashs[i].Knockback((WallManager.ins.DashPivotX + 50f * CharacterDirection(i)) * 0.1f, 0.5f);//서로넉백
                 }
             }
             else
             {//판가름 남.
+                SaveData.ins.AddData(SaveData.TYPE.STILL, Winner, 1);//데이터 저장
+
                 int Loser = UserStatus[Winner].Enemy();//패자
                 SkillManager.ins.RunPassives("Attack", Winner);//승자 어택
                 SkillManager.ins.RunPassives("Hit", Loser);//데미지
-                DebuffManager.Cleaner(Winner);             //승자 디버프 제거(방어,다운)
 
                 int damage = DamageCalculator.ins.Calculate();//데미지 계산
 
@@ -153,20 +144,15 @@ public class gameManager : MonoBehaviour
                 Debug.Log(damage + "최종 데미지");
                 Debug.Log((Winner == 0 ? "챔피언" : "챌린저") + "승");
 
-                Shake(damage);                                 //지진
+                Shake(damage * 16);                                 //지진
                 UserStatus[Loser].HpDown(damage);              //HP깎고
                 UITextSet.UIList["Damage"] = damage.ToString();//최종 데미지 UI
 
-                ComboFunc(Winner);                             //콤보설정
-
-                DebuffManager.ins.SetDebuff(Loser);//디버프설정
+                //ComboFunc(Winner);                             //콤보설정
+                
                 WallManager.ins.SetPivot();//벽과의 거리 설정
 
-                float KnockPlus;
-                if (UserStatus[Loser].Down || UserStatus[Loser].Disable || UserStatus[Loser].Defence)
-                    KnockPlus = 0f;
-                else
-                    KnockPlus = 25f;
+                float KnockPlus = 25f;
                 Dashs[Loser].Knockback((WallManager.ins.DashPivotX+ KnockPlus * CharacterDirection(Loser)) * 0.1f, 0.5f);
 
             }
@@ -201,7 +187,6 @@ public class gameManager : MonoBehaviour
         }
         if (Combo == 8)
         {
-            UserStatus[winner].RSPSet(UserStatus[winner].RSPMaxCount[0], UserStatus[winner].RSPMaxCount[1], UserStatus[winner].RSPMaxCount[2]);
         }
     }
     IEnumerator KeyCheck()//키확인 함수
@@ -212,14 +197,7 @@ public class gameManager : MonoBehaviour
         bool[] CheckingOK = new bool[2];
         for (int i = 0; i < 2; i++)
         {
-            CheckingOK[i] = UserStatus[i].Disable;
-            if (UserStatus[i].RSPTempCount[0] == 0 && UserStatus[i].RSPTempCount[2] == 0 && UserStatus[i].RSPTempCount[1] == 0 &&
-                UserStatus[i].Down)
-            {
-                CheckingOK[i] = true;
-                for (int j = 0; j < 3; j++)
-                    UserStatus[i].RSPTempCount[j] += 1;
-            }
+            CheckingOK[i] = false;
         }
         while (Num < WaitTime && !(CheckingOK[CHAMPION] && CheckingOK[CHALLANGER]))
         {
@@ -306,8 +284,7 @@ public class gameManager : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            UserStatus[i].CheckDie();
-            if (UserStatus[i].Life == 0)
+            if (UserStatus[i].HP <= 0)
                 return true;
         }
         return false;
@@ -318,7 +295,7 @@ public class gameManager : MonoBehaviour
         bool RSPCheck = true;
         for (int i = 0; i < 2; i++)
         {
-            if (!(Prioritys[i] >= Priority.ROCK && Prioritys[i] <= Priority.PAPER))
+            if (!(Prioritys[i] >= Priority.SCISSOR && Prioritys[i] <= Priority.PAPER))
             {
                 RSPCheck = false;
                 break;
@@ -328,13 +305,13 @@ public class gameManager : MonoBehaviour
         {
             if (Prioritys[CHAMPION] == Prioritys[CHALLANGER])
             {
-                isRSPDrow();//같은거냄
+                Winner = DROW;
             }
             else
             {
                 isCounter = true;
-                if ((Prioritys[CHAMPION] != Priority.ROCK && Prioritys[CHAMPION] - Prioritys[CHALLANGER] == 1) ||
-                         Prioritys[CHAMPION] == Priority.ROCK && Prioritys[CHAMPION] - Prioritys[CHALLANGER] == -2)
+                if ((Prioritys[CHAMPION] != Priority.SCISSOR && Prioritys[CHAMPION] - Prioritys[CHALLANGER] == 1) ||
+                         Prioritys[CHAMPION] == Priority.SCISSOR && Prioritys[CHAMPION] - Prioritys[CHALLANGER] == -2)
                 {
                     Winner = CHAMPION;//카운터
                 }
@@ -360,14 +337,5 @@ public class gameManager : MonoBehaviour
             }
         }
 
-    }
-    void isRSPDrow()
-    {
-        if (UserStatus[CHAMPION].Down || UserStatus[CHAMPION].Defence)
-            Winner = CHALLANGER;
-        else if (UserStatus[CHALLANGER].Down || UserStatus[CHALLANGER].Defence)
-            Winner = CHAMPION;
-        else
-            Winner = DROW;
     }
 }

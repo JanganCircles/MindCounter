@@ -138,17 +138,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: 0
-  Life: 1
-  MaxHP: 800
-  HP: 800
-  Down: 0
-  Disable: 0
-  Defence: 0
+  MaxHP: 20
+  HP: 20
   Guard: 0
   WallDistance: 600
-  RSPTempCount: 030000000300000003000000
   AttackType: 0
-  RSPMaxCount: 030000000300000003000000
+  MaxCost: 15
+  Cost: 7
   SpecialPower: 500
 --- !u!4 &4654586
 Transform:
@@ -198,14 +194,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SlotName:
-  - "\uC555\uBC15"
-  - "\uD654\uB825"
-  - "\uC5F0\uC18D"
+  - "\uC57D"
+  - "\uC911"
+  - "\uAC15"
   - "\uAC00\uB4DC"
-  - "\uB3C4\uBC1C"
-  - "\uD2B9\uC2181"
-  - "\uD2B9\uC2182"
-  - "\uD2B9\uC2183"
+  - "\uD68C\uBCF5"
   selectedSlot: 0
 --- !u!114 &4654590
 MonoBehaviour:
@@ -236,8 +229,7 @@ MonoBehaviour:
   CharHPblank: {fileID: 0}
   nowHP: 0
   maxHp: 0
-  maxBox: 0
-  tempBox: 0
+  Cost: 0
   floatHP: 0
   nowDistance: 0
   setDistanceWarning: 200
@@ -543,7 +535,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'ChallangerCounter
+
+'
 --- !u!222 &131754804
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -836,7 +830,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'ChampionStasis
+
+'
 --- !u!222 &378287627
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1289,7 +1285,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'ChallangerDebuff
+
+'
 --- !u!222 &537505768
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1307,7 +1305,6 @@ GameObject:
   - component: {fileID: 689993629}
   - component: {fileID: 689993631}
   - component: {fileID: 689993633}
-  - component: {fileID: 689993632}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1364,20 +1361,6 @@ MonoBehaviour:
   Turn: 0
   TotalWinner: -1
   Simulate: 0
---- !u!114 &689993632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 689993628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6887fca657a20e5499e91d61305676df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextDown: 0
-  NextDefence: 0
-  NextDisable: 0
 --- !u!114 &689993633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1619,7 +1602,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: ChallangerStasis
 --- !u!222 &802713321
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1779,17 +1762,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: 0
-  Life: 1
-  MaxHP: 800
-  HP: 800
-  Down: 0
-  Disable: 0
-  Defence: 0
+  MaxHP: 20
+  HP: 20
   Guard: 0
   WallDistance: 600
-  RSPTempCount: 030000000300000003000000
   AttackType: 0
-  RSPMaxCount: 030000000300000003000000
+  MaxCost: 15
+  Cost: 7
   SpecialPower: 500
 --- !u!114 &941890100
 MonoBehaviour:
@@ -1838,14 +1817,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SlotName:
-  - "\uC555\uBC15"
-  - "\uD654\uB825"
-  - "\uC5F0\uC18D"
+  - "\uC57D"
+  - "\uC911"
+  - "\uAC15"
   - "\uAC00\uB4DC"
-  - "\uB3C4\uBC1C"
-  - "\uD2B9\uC2181"
-  - "\uD2B9\uC2182"
-  - "\uD2B9\uC2183"
+  - "\uD68C\uBCF5"
   selectedSlot: 0
 --- !u!114 &941890104
 MonoBehaviour:
@@ -1876,8 +1852,7 @@ MonoBehaviour:
   CharHPblank: {fileID: 0}
   nowHP: 0
   maxHp: 0
-  maxBox: 0
-  tempBox: 0
+  Cost: 0
   floatHP: 0
   nowDistance: 0
   setDistanceWarning: 200
@@ -2030,7 +2005,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WallDistance
+  m_Text: 'ChampionHp
+
+'
 --- !u!222 &1147152486
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2373,7 +2350,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: ChallangerWallDistance
 --- !u!222 &1256887570
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2906,7 +2883,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WallDistance
+  m_Text: ChampionWallDistance
 --- !u!222 &1384354470
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2995,7 +2972,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WallDistance
+  m_Text: ChampionDebuff
 --- !u!222 &1481085425
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3226,7 +3203,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WallDistance
+  m_Text: 'ChampionCounter
+
+'
 --- !u!222 &1648868722
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3383,7 +3362,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'ChallangerHp
+
+'
 --- !u!222 &1849855112
 CanvasRenderer:
   m_ObjectHideFlags: 0

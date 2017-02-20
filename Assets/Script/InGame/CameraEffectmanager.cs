@@ -30,15 +30,15 @@ public class CameraEffectmanager : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.Q)) { //테스트 한다고 써놓은것들
-			StartCoroutine( ShakeCam (Power, Time));
-		}
-		if (Input.GetKeyDown(KeyCode.W) ) {
-			StartCoroutine( ShakeCam (Power * 5, Time));
-		}
-		if (Input.GetKeyDown(KeyCode.E) ) {
-			StartCoroutine( ShakeCam (Power * 10, Time));
-        }
+		//if (Input.GetKey (KeyCode.Q)) { //테스트 한다고 써놓은것들
+		//	StartCoroutine( ShakeCam (Power, Time));
+		//}
+		//if (Input.GetKeyDown(KeyCode.W) ) {
+		//	StartCoroutine( ShakeCam (Power * 5, Time));
+		//}
+		//if (Input.GetKeyDown(KeyCode.E) ) {
+		//	StartCoroutine( ShakeCam (Power * 10, Time));
+        //}
         if (self.x != transform.position.x)
         {
             Vector3 v = Vector3.zero;

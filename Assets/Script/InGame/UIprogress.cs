@@ -6,7 +6,7 @@ public class UIprogress : MonoBehaviour {
     public GameObject CharHPred, CharHPblank;
     public int nowHP = 0;
     public int maxHp = 0;
-    public int maxBox,tempBox = 0; 
+    public int Cost = 0;
     public float floatHP = 0f;
     public float nowDistance = 0;
     public int setDistanceWarning = 200; // 벽 남은거리에 따른 경고 설정 
@@ -24,8 +24,6 @@ public class UIprogress : MonoBehaviour {
     }
     void Start ()
     {
-        maxBox = status.RSPMaxCount.Length;// 카운트 최대 개수 저장 
-        tempBox = status.RSPTempCount.Length; // 카운트 현재 남은 개수 저장 
         nowDistance = status.WallDistance; // 벽의 거리 저장
         
         
@@ -44,20 +42,20 @@ public class UIprogress : MonoBehaviour {
         Quaternion zero = new Quaternion(0, 0, 0, 0);
         skillCountClone = (GameObject)Instantiate(skillCount, test, zero);
         
-
-        for (int i=0; i <= status.RSPMaxCount.Length; i++)
-        {
-            skillCountClone =(GameObject)Instantiate(skillCount, ChamCountVect, skillCount.transform.rotation);
-            ChamCountVect.x += 28;
-            Debug.Log(i + "번째ChamCountVect는"+ ChamCountVect.x);
-        }
-        for (int i = 0; i <= status.RSPMaxCount.Length; i++)
-        {
-            Instantiate(countBoxMax).transform.TransformVector(ChallCountVect);//얘도 장애다 
-            ChallCountVect.x -= 28;
-            Debug.Log(i + "번째ChallCountVect는" + ChallCountVect.x);
-        }
-
+        /* 2017_02_21 에러로 주석처리
+         *for (int i=0; i <= status.RSPMaxCount.Length; i++)
+         *{
+         *    skillCountClone =(GameObject)Instantiate(skillCount, ChamCountVect, skillCount.transform.rotation);
+         *    ChamCountVect.x += 28;
+         *    Debug.Log(i + "번째ChamCountVect는"+ ChamCountVect.x);
+         *}
+         *for (int i = 0; i <= status.RSPMaxCount.Length; i++)
+         *{
+         *    Instantiate(countBoxMax).transform.TransformVector(ChallCountVect);//얘도 장애다 
+         *    ChallCountVect.x -= 28;
+         *    Debug.Log(i + "번째ChallCountVect는" + ChallCountVect.x);
+         *}
+         */
         nowHP = status.HP;
         maxHp = 800;//status.MaxHP;//속 0이라서 일단 임의의 값 줬음.
 
@@ -97,20 +95,23 @@ public class UIprogress : MonoBehaviour {
     IEnumerator Countbox()
     {
 
-        
-        //--
-        while (true)
-        {
-            for (int i = 0; i < status.RSPMaxCount.Length; i++)
-            {
-                if (status.RSPTempCount[i] == 0)
-                {
-                    skillCount.SetActive(false);
-                }
-                //Debug.Log(countBoxMaxArg[i]);
-            }
-            yield return new WaitForSeconds(0.1f);
-        }
+        yield break;
+       /*
+        * 2017_02_21 에러로인해 주석처리(RSPTempCount 삭제함)
+        * 
+        *while (true)
+        *{
+        *    for (int i = 0; i < status.RSPMaxCount.Length; i++)
+        *    {
+        *        if (status.RSPTempCount[i] == 0)
+        *        {
+        *            skillCount.SetActive(false);
+        *        }
+        *        //Debug.Log(countBoxMaxArg[i]);
+        *    }
+        *    yield return new WaitForSeconds(0.1f);
+        *}
+        */
     }
     void WallDistance()
     {

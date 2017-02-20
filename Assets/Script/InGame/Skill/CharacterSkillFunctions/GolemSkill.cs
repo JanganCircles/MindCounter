@@ -12,17 +12,6 @@ public class GolemSkill : SkillBase {
     Skill Golliath_Passive(int Order)
     {
         Skill MagmaPunch = new Skill("MagmaPunch");
-        MagmaPunch.SetCharacter(Order);
-        MagmaPunch.AddPassive(
-           delegate (Skill skil)
-           {
-               int Enemy = gameManager.ins.UserStatus[Order].Enemy();
-               if (gameManager.ins.UserStatus[Enemy].Guard) return;
-               SkillSlot OrderSlot = gameManager.ins.UserSlot[Order];
-               float PowerDamage = OrderSlot.findSkill("압박").PassiveCount["Damage"] / 2f;
-               SkillManager.ins.DebuffSkillSet(Enemy, DebuffSkillList.LIST.GOLEMMAGMA, 2, PowerDamage);
-           }, "Attack");
-        ;
         return MagmaPunch;
     }
 

@@ -13,23 +13,6 @@ public class ShieldWorriorSkill : SkillBase {
     {
         //다운무효 , 피격데미지 10%감소
         Skill Indomitable = new Skill("Indomitable");
-        Indomitable.SetCharacter(Order);
-        CharacterStatus OrderStat;
-        Indomitable.PassiveCount.Add("DamageDecrease", 0.9f);
-        Indomitable.AddPassive(
-           delegate (Skill skil)
-           {
-               DamageCalculator.ins.AddDamage("Multiple", skil.PassiveCount["DamageDecrease"], "DamageDecrease");
-           }, "Hit");
-
-        Indomitable.AddPassive(
-           delegate (Skill skil)
-           {
-               OrderStat = gameManager.ins.UserStatus[skil.Order];
-               if (OrderStat.Down)
-                   OrderStat.Down = false;
-           }
-           , "End");
         return Indomitable;
     }
 

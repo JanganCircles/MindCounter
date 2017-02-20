@@ -13,21 +13,6 @@ public class GolliathSkill : SkillBase {
     {
         //증뎀10% , 피격데미지 10%감소
         Skill SuperMuscle = new Skill("SuperMuscle");
-        SuperMuscle.SetCharacter(Order);
-        SuperMuscle.PassiveCount.Add("DamageDecrease", 0.9f);
-        SuperMuscle.PassiveCount.Add("DamageIncrease", 1.1f);
-        SuperMuscle.AddPassive(
-           delegate (Skill skil)
-           {
-               DamageCalculator.ins.AddDamage("Multiple", skil.PassiveCount["DamageDecrease"], "DamageDecrease");
-           }, "Hit");
-
-        SuperMuscle.AddPassive(
-           delegate (Skill skil)
-           {
-               DamageCalculator.ins.AddDamage("Multiple", skil.PassiveCount["DamageIncrease"], "DamageIncrease");
-           }, "Attack");
-        ;
         return SuperMuscle;
     }
 
