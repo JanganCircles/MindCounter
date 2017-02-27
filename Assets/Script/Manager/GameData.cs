@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class GameData : MonoBehaviour {
+    public bool OnePlayer;          //혼자하냐
+    public bool isOnline;           //온라인이냐
     public string TempSceneName;    //바꿀씬
     public static GameData ins { get; set; }//인스턴스
     private int[] PlayerCharacter = null;//현재 캐릭터
@@ -53,6 +55,9 @@ public class GameData : MonoBehaviour {
                 break;
             case "Main"://메인씬일떄
                 {
+                    if (isOnline)
+                    {
+                    }
                     if (ins.PlayerCharacter == null)//캐릭터가 없으면?
                     {
                         ins.PlayerCharacter = new int[2];

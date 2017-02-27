@@ -40,6 +40,7 @@ public class SkillSlot : MonoBehaviour {
             Name = "Challanger";
         else
             Name = "Champion";
+        UserKeyData.ins.SettingKey(stat.Controller,GameData.ins.OnePlayer ? 1 : 2);
         codes = UserKeyData.ins.GetKeyData(Name);
         SkillSlot sk = this;
         SkillList.ins.AddingDefaultSkill(ref sk);

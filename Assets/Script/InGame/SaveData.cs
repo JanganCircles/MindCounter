@@ -65,16 +65,16 @@ public class SaveData : MonoBehaviour {
         int Champ = gameManager.CHAMPION;
         int Chall = gameManager.CHALLANGER;
 
-        Debug.Log("챔피언 압박 " + GetPersent(RockData[Champ + Try] ,RockData[Champ + Success]) + "% " + RockData[Champ + Success] + "/" + RockData[Champ + Try]);
-        Debug.Log("챔피언 화력 " + GetPersent(ScissorData[Champ + Try] , ScissorData[Champ + Success]) + "% " + ScissorData[Champ + Success] + "/" + ScissorData[Champ + Try]);
-        Debug.Log("챔피언 연속 " + GetPersent(PaperData[Champ + Try] , PaperData[Champ + Success]) + "% " + PaperData[Champ + Success] + "/" + PaperData[Champ + Try]);
+        Debug.Log("챔피언 약 " + GetPersent(ScissorData[Champ + Try], ScissorData[Champ + Success]) + "% " + ScissorData[Champ + Success] + "/" + ScissorData[Champ + Try]);
+        Debug.Log("챔피언 중 " + GetPersent(RockData[Champ + Try] ,RockData[Champ + Success]) + "% " + RockData[Champ + Success] + "/" + RockData[Champ + Try]);
+        Debug.Log("챔피언 강 " + GetPersent(PaperData[Champ + Try] , PaperData[Champ + Success]) + "% " + PaperData[Champ + Success] + "/" + PaperData[Champ + Try]);
         Debug.Log("챔피언 공격턴유지율 " + GetPersent(Turn,StillAttack[Champ]) + "% " + StillAttack[Champ] + "/" + Turn);
         Debug.Log("챔피언 가드율 " + GetPersent(GuardPersent[Champ + Try], GuardPersent[Champ + Success]) + "% " + GuardPersent[Champ + Success] + "/" + GuardPersent[Champ + Try]);
         Debug.Log("챔피언 크리티컬횟수 " + CriticalHit[Champ] + "회");
         Debug.Log("-----------");
-        Debug.Log("챌린저 압박 " + GetPersent(RockData[Chall + Try] , RockData[Chall + Success]) + "% " + RockData[Chall + Success] + "/" + RockData[Chall + Try]);
-        Debug.Log("챌린저 화력 " + GetPersent(ScissorData[Chall + Try] , ScissorData[Chall + Success]) + "% " + ScissorData[Chall + Success] + "/" + ScissorData[Chall + Try]);
-        Debug.Log("챌린저 연속 " + GetPersent(PaperData[Chall + Try] , PaperData[Chall + Success]) + "% " + PaperData[Chall + Success] + "/" + PaperData[Chall + Try]);
+        Debug.Log("챌린저 약 " + GetPersent(ScissorData[Chall + Try], ScissorData[Chall + Success]) + "% " + ScissorData[Chall + Success] + "/" + ScissorData[Chall + Try]);
+        Debug.Log("챌린저 중 " + GetPersent(RockData[Chall + Try] , RockData[Chall + Success]) + "% " + RockData[Chall + Success] + "/" + RockData[Chall + Try]);
+        Debug.Log("챌린저 강 " + GetPersent(PaperData[Chall + Try] , PaperData[Chall + Success]) + "% " + PaperData[Chall + Success] + "/" + PaperData[Chall + Try]);
         Debug.Log("챌린저 공격턴유지율 " + GetPersent(Turn,StillAttack[Chall]) + "% " + StillAttack[Chall] + "/" + Turn);
         Debug.Log("챌린저 가드율 " + GetPersent(GuardPersent[Chall + Try] , GuardPersent[Chall + Success]) + "% " + GuardPersent[Chall + Success] + "/" + GuardPersent[Chall + Try]);
         Debug.Log("챌린저 크리티컬횟수 " + CriticalHit[Chall] + "회");

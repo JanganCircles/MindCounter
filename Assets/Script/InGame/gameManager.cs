@@ -26,6 +26,8 @@ public class gameManager : MonoBehaviour
     public int TotalWinner = -1;            //최종승자(챔피언or챌린저)
     public bool Simulate;                   //AI사용
 
+    public GameObject KeyController;        //키입력 받는 오브젝트
+
     public enum STEP : int                  //진행상황 열거자
     {
         START = 0, KEYCHECK = 1, DECISION = 2, HITDAMAGE = 3, END = 4
@@ -63,7 +65,7 @@ public class gameManager : MonoBehaviour
     void Update()
     {
         //게임끝났냐
-        if (DieCheck())
+        if (DieCheck() && TotalWinner == -1)
         {
             TotalWinner = UserStatus[CHALLANGER].HP <= 0 ? CHAMPION : CHALLANGER;
             SaveData.ins.ShowDebug();
@@ -78,6 +80,18 @@ public class gameManager : MonoBehaviour
             Dashs[i] = UserStatus[i].gameObject.GetComponent<DashAnim>();// 돌진관련변수 - 초기화
         }
         
+        Debug.Log(KeyController);
+        if (KeyController != null)
+        {
+            KeyController.SetActive(true);
+            if (GameData.ins.isOnline)
+            {
+                KeyController.GetComponent<OfflineController>().enabled = false;
+            }
+            else
+                KeyController.GetComponent<OnlineController>().enabled = false;
+        }
+
         WallManager.ins.SetPivot();//벽과의 거리 설정
         yield return new WaitForSeconds(0.1f);// 스타트 함수 대기
         GameData.ins.InitPlayer();            // 플레이어 초기화
@@ -189,6 +203,7 @@ public class gameManager : MonoBehaviour
         {
         }
     }
+    //이부분 바꿔야한다.
     IEnumerator KeyCheck()//키확인 함수
     {
         KeyAllClick = false;
