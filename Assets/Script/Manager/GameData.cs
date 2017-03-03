@@ -79,6 +79,9 @@ public class GameData : MonoBehaviour {
                 //여기다 하면 돼.
                 //*참고 ins. 으로 사용해야함.
                 break;
+            case "SelectScene"://온라인로비씬일때
+                
+                break;
         }
     }
     

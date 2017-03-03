@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 
 public class OnlineController : NetworkBehaviour {
     public int UserCtrl;
+    public bool isOk;
 	// Use this for initialization
 	void Start () {
 		
