@@ -112,10 +112,11 @@ MonoBehaviour:
   m_ShowLobbyGUI: 1
   m_MaxPlayers: 4
   m_MaxPlayersPerConnection: 1
-  m_MinPlayers: 0
+  m_MinPlayers: 2
   m_LobbyPlayerPrefab: {fileID: 114578265060891924, guid: 2026ee00ecd11244283460f890ff992f,
     type: 2}
-  m_GamePlayerPrefab: {fileID: 0}
+  m_GamePlayerPrefab: {fileID: 1215963759764524, guid: d07045a3b3a42984eba1d8b3634c62d3,
+    type: 2}
   m_LobbyScene: SelectScene
   m_PlayScene: Main
   lobbySlots: []
