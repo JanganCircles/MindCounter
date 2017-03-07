@@ -79,7 +79,7 @@ public class gameManager : MonoBehaviour
         for (int i = 0; i < 2; i++) { 
             Dashs[i] = UserStatus[i].gameObject.GetComponent<DashAnim>();// 돌진관련변수 - 초기화
         }
-        InputController IControl;
+        InputController IControl = KeyController.GetComponent<OfflineController>();
         if (KeyController != null)
         {
             IControl = KeyController.GetComponent<OfflineController>();
@@ -89,12 +89,12 @@ public class gameManager : MonoBehaviour
                 KeyController.GetComponent<OfflineController>().enabled = false;
                 IControl = KeyController.GetComponent<OnlineController>();
             }
-        }
-        else
-        {
-            Debug.Log("오프라인");
-            KeyController.GetComponent<OnlineController>().enabled = false;
-            IControl = KeyController.GetComponent<OfflineController>();
+            else
+            {
+                Debug.Log("오프라인");
+                KeyController.SetActive(true);
+                KeyController.GetComponent<OnlineController>().enabled = false;
+            }
         }
         WallManager.ins.SetPivot();//벽과의 거리 설정
         yield return new WaitForSeconds(0.1f);// 스타트 함수 대기

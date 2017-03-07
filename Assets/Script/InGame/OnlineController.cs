@@ -13,9 +13,13 @@ public class OnlineController : NetworkBehaviour, InputController {
 
     void Awake ()
     {
-        UserCtrl = LobbyManager.ins.UserNumber ;
     }
-	
+    void Start()
+    {
+        Debug.Log("a");
+        if (GameData.ins.isOnline)
+            UserCtrl = LobbyManager.ins.UserNumber;
+    }
     public bool CheckingRunEffect()
     {
         return RunEffect;

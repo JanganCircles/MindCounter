@@ -64,6 +64,12 @@ public class GameData : MonoBehaviour {
                         ins.isOnline = true;
                         ins.OnePlayer = true;
                     }
+                    else
+                    { 
+                        Debug.Log("오프라인임");
+                        ins.isOnline = false;
+                        ins.OnePlayer = false;
+                    }
                     if (ins.PlayerCharacter == null)//캐릭터가 없으면?
                     {
                         ins.PlayerCharacter = new int[2];
