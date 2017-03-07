@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4328935019430800}
   - component: {fileID: 114953643753931310}
+  - component: {fileID: 114572632655041932}
   m_Layer: 0
   m_Name: GamePlayer
-  m_TagString: Untagged
+  m_TagString: OnlinePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +41,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114572632655041932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1215963759764524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f4013f2cdf1a34aa823301f834a31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Select: 0
+  Ready: 0
+  KeyCheck: 0
+  UserID: 0
 --- !u!114 &114953643753931310
 MonoBehaviour:
   m_ObjectHideFlags: 1

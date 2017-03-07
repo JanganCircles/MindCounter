@@ -79,19 +79,23 @@ public class gameManager : MonoBehaviour
         for (int i = 0; i < 2; i++) { 
             Dashs[i] = UserStatus[i].gameObject.GetComponent<DashAnim>();// 돌진관련변수 - 초기화
         }
-        
-        Debug.Log(KeyController);
+        InputController IControl;
         if (KeyController != null)
         {
-            KeyController.SetActive(true);
+            IControl = KeyController.GetComponent<OfflineController>();
             if (GameData.ins.isOnline)
             {
+                Debug.Log("온라인모드");
                 KeyController.GetComponent<OfflineController>().enabled = false;
+                IControl = KeyController.GetComponent<OnlineController>();
             }
-            else
-                KeyController.GetComponent<OnlineController>().enabled = false;
         }
-
+        else
+        {
+            Debug.Log("오프라인");
+            KeyController.GetComponent<OnlineController>().enabled = false;
+            IControl = KeyController.GetComponent<OfflineController>();
+        }
         WallManager.ins.SetPivot();//벽과의 거리 설정
         yield return new WaitForSeconds(0.1f);// 스타트 함수 대기
         GameData.ins.InitPlayer();            // 플레이어 초기화
@@ -106,6 +110,8 @@ public class gameManager : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);// 게임 시작전 딜레이
 
+
+
         while (true)// 게임시작 루프
         {
             isCounter = false;
@@ -119,9 +125,11 @@ public class gameManager : MonoBehaviour
             UIOpen = false;
             TempStep = STEP.KEYCHECK;// 키확인단계
             SkillManager.ins.RunPassives("KeyCheck");//키입력시 패시브 발동
-            StartCoroutine(KeyCheck());
-
-            while (!KeyAllClick)
+            IControl.CheckingKey();
+          // StartCoroutine(KeyCheck());
+            
+           // while (!KeyAllClick)
+                while (!IControl.CheckingRunEffect())
             {
                 //키체크가 끝날때까지 무한 루프
                 yield return null;

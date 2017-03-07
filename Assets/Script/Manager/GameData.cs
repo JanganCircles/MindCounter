@@ -55,8 +55,14 @@ public class GameData : MonoBehaviour {
                 break;
             case "Main"://메인씬일떄
                 {
-                    if (isOnline)
+                    GameObject gm = null;
+                    gm = GameObject.Find("NetWorkLobby");
+                    Debug.Log(gm);
+                    if (gm != null)
                     {
+                        Debug.Log("온라인임");
+                        ins.isOnline = true;
+                        ins.OnePlayer = true;
                     }
                     if (ins.PlayerCharacter == null)//캐릭터가 없으면?
                     {

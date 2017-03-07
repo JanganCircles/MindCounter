@@ -6,6 +6,10 @@ public class SkillSlot : MonoBehaviour {
     public string[] SlotName;
     private EmptySlot[] SlotList;
     private const int SlotLength = 5;
+    public int slotLength {
+        get {
+            return SlotLength;
+        } }
     private List<Skill> PassiveSkillList;
 
     public List<Skill> DebuffList;
@@ -101,7 +105,7 @@ public class SkillSlot : MonoBehaviour {
     }
     public bool RunActive()
     {
-        if (selectedSlot == -1)
+        if (selectedSlot == -1 || selectedSlot == SlotLength )
             return false;
         SlotList[selectedSlot].RunActive();
         return true;

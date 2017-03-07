@@ -130,22 +130,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114011479592215062, guid: 5cc47a274ed45724ca2c91324ca16708,
-        type: 2}
-      propertyPath: m_MaxPlayersPerConnection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114011479592215062, guid: 5cc47a274ed45724ca2c91324ca16708,
-        type: 2}
-      propertyPath: m_MinPlayers
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114011479592215062, guid: 5cc47a274ed45724ca2c91324ca16708,
-        type: 2}
-      propertyPath: m_GamePlayerPrefab
-      value: 
-      objectReference: {fileID: 1215963759764524, guid: d07045a3b3a42984eba1d8b3634c62d3,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5cc47a274ed45724ca2c91324ca16708, type: 2}
   m_IsPrefabParent: 0
