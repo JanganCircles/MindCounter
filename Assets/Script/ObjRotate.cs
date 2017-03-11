@@ -28,7 +28,7 @@ public class ObjRotate : MonoBehaviour {
     }
     IEnumerator Rotations()
     {
-        yield return new WaitForSeconds(StartTime+1f);
+        yield return new WaitForSeconds(StartTime+0.2f);
         float TempTime = 0.0f;
         while (TempTime < RotationTime)
         {

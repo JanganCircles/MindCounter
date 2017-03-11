@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 7167fb6231894c74ab9b1c7179e4a5e8
-timeCreated: 1489261468
+timeCreated: 1489263052
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - GmObj: {fileID: 1815179346657834, guid: 9a977362353f3f046b4e7dd1895cf69f, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
