@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterData : MonoBehaviour {
-    public static CharacterData ins;
+public class CharacterStatusSetup: MonoBehaviour {
+    public static CharacterStatusSetup ins;
 
     const int StreetFighter = 0; //권투맨
     const int ShieldWorrier = 1; //실드맨

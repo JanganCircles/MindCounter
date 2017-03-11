@@ -67,6 +67,8 @@ public class OnlineKeyInput : NetworkBehaviour
         float LimitTimes = 5.0f;
         while (LimitTimes > TempTimes)
         {
+            UITextSet.UIList["WaitingTimer"] = (Mathf.Round(TempTimes / 0.01f) * .01).ToString();
+
             yield return null;
             TempTimes += Time.unscaledDeltaTime;
         }

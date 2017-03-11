@@ -91,6 +91,7 @@
     <Compile Include="Assets\Script\InGame\CharacterStatus.cs" />
     <Compile Include="Assets\Script\InGame\DamageCalculator.cs" />
     <Compile Include="Assets\Script\InGame\DashAnim.cs" />
+    <Compile Include="Assets\Script\InGame\GameValueInfo.cs" />
     <Compile Include="Assets\Script\InGame\MovementManager.cs" />
     <Compile Include="Assets\Script\InGame\OfflineController.cs" />
     <Compile Include="Assets\Script\InGame\OnlineController.cs" />

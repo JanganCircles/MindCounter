@@ -8,7 +8,7 @@ public class GameData : MonoBehaviour {
     public string TempSceneName;    //바꿀씬
     public static GameData ins { get; set; }//인스턴스
     private int[] PlayerCharacter = null;//현재 캐릭터
-    public CharacterData.Charas[] Characters = null;//현재 캐릭터(에디터 보여주기용)
+    public CharacterStatusSetup.Charas[] Characters = null;//현재 캐릭터(에디터 보여주기용)
     // Use this for initialization
     void Reset()
     {
@@ -38,7 +38,7 @@ public class GameData : MonoBehaviour {
     {
         for (int i = 0; i < 2; i++)
         {
-            Characters[i] = (CharacterData.Charas)PlayerCharacter[i];//캐릭터 번호 저장
+            Characters[i] = (CharacterStatusSetup.Charas)PlayerCharacter[i];//캐릭터 번호 저장
         }
     }
     public void PlayGame(ref int Red, ref int Blue)

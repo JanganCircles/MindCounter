@@ -101,7 +101,7 @@ public class gameManager : MonoBehaviour
         GameData.ins.InitPlayer();            // 플레이어 초기화
         for (int i = 0; i < 2; i++)
         {
-            CharacterData.SetupStat(i, (int)GameData.ins.Characters[i]);
+            CharacterStatusSetup.SetupStat(i, (int)GameData.ins.Characters[i]);
             if (!SkillManager.ins.CharacterSkillSetup(i))
             {
                 Debug.Log("에러 - 제작되지 않은 캐릭터로 초기화");
