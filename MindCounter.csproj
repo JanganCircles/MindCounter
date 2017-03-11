@@ -115,6 +115,7 @@
     <Compile Include="Assets\Script\InGame\gameManager.cs" />
     <Compile Include="Assets\Script\Manager\GameData.cs" />
     <Compile Include="Assets\Script\NetWorkingScript\LobbyManager.cs" />
+    <Compile Include="Assets\Script\ObjCopy.cs" />
     <Compile Include="Assets\Script\OnlineKeyInput.cs" />
     <Compile Include="Assets\Script\SceneChanger.cs" />
     <Compile Include="Assets\Script\SelectsMenuCtrl.cs" />
