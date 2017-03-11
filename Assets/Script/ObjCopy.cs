@@ -5,8 +5,9 @@ using UnityEngine;
 public class ObjCopy : MonoBehaviour {
     public Vector2 Direction;
     public Vector2 Amount;
-    public GameObject GmObj;
     public Vector2 Interval;
+    public float RotateInterval;
+    public GameObject GmObj;
     // Use this for initialization
     void Start () {
         Vector3 MotherPos = transform.position;
@@ -18,7 +19,7 @@ public class ObjCopy : MonoBehaviour {
             {
                 TempPos.x = MotherPos.x + (Interval.x * j);
                 TempPos.z = MotherPos.z + (Interval.y * i);
-                Instantiate(GmObj, MotherPos + TempPos,Quaternion.identity);
+                Instantiate(GmObj, MotherPos + TempPos,Quaternion.identity).SendMessage("SetupStartTime", RotateInterval* j);
             }
         }
 	}
