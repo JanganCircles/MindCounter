@@ -46,7 +46,9 @@ public class OfflineController : MonoBehaviour, InputController
                 }
             }
             Num += Time.unscaledDeltaTime;
-            yield return null;
+            UITextSet.UIList["WaitingTimer"] = (Mathf.Round(Num / 0.01f) * .01).ToString();
+            yield return null;                           //체력
+
         }
         RunEffect = true;
     }

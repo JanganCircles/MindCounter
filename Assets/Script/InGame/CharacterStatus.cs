@@ -13,19 +13,16 @@ public class CharacterStatus : MonoBehaviour {
     public int AttackType;          //공격타입
     public int MaxCost;             //최대 코스트
     public int Cost;                //현재 코스트
-
-    public int SpecialPower;        //특수사용하는데 필요한 자원
+    
 
     public const int ROCK   = 0;
     public const int SCISSOR = 1;
     public const int PAPER  = 2;
     void Reset()
     {
-        Cost = 7;
-        MaxCost = 15;
-        SpecialPower = 500;
+        Cost = (MaxCost = CharacterData.Mp) / 2;
         Guard = false;
-        HP = MaxHP = 20;
+        HP = MaxHP = CharacterData.Hp;
         WallDistance = 600;
     }
     public void HpDown(int Damage)

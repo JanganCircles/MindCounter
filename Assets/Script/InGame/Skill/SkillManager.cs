@@ -48,23 +48,23 @@ public class SkillManager : MonoBehaviour {
     }
     public bool CharacterSkillSetup(int index)//캐릭터 스킬 초기화
     {
-        CharacterData.Charas CharacterNumber = GameData.ins.Characters[index];
+        CharacterStatusSetup.Charas CharacterNumber = GameData.ins.Characters[index];
         SkillSlot SkSlotRef = gameManager.ins.UserSlot[index];
         SkillBase Passives = null;
         switch (CharacterNumber)
         {
-            case CharacterData.Charas.StreetFighter: Passives = new StreetFighterSkill(); break;
-            case CharacterData.Charas.ShieldWorrier: Passives = new ShieldWorriorSkill(); break;
-            case CharacterData.Charas.FencingMaster: Passives = new FencingMasterSkill(); break;
-            case CharacterData.Charas.BatMan: Passives = new BatManSkill(); break;
-            case CharacterData.Charas.Golliath: Passives = new GolliathSkill(); break;
-            case CharacterData.Charas.GauntletsMan:Passives = new GauntletGirlSkill(); break;
-            case CharacterData.Charas.Golem: Passives = new GolemSkill(); break;
-            case CharacterData.Charas.Cat: Passives = new CatSkill(); break;
-            case CharacterData.Charas.Monk: Passives = new MonkSkill(); break;
-            case CharacterData.Charas.Assassin:
+            case CharacterStatusSetup.Charas.StreetFighter: Passives = new StreetFighterSkill(); break;
+            case CharacterStatusSetup.Charas.ShieldWorrier: Passives = new ShieldWorriorSkill(); break;
+            case CharacterStatusSetup.Charas.FencingMaster: Passives = new FencingMasterSkill(); break;
+            case CharacterStatusSetup.Charas.BatMan: Passives = new BatManSkill(); break;
+            case CharacterStatusSetup.Charas.Golliath: Passives = new GolliathSkill(); break;
+            case CharacterStatusSetup.Charas.GauntletsMan:Passives = new GauntletGirlSkill(); break;
+            case CharacterStatusSetup.Charas.Golem: Passives = new GolemSkill(); break;
+            case CharacterStatusSetup.Charas.Cat: Passives = new CatSkill(); break;
+            case CharacterStatusSetup.Charas.Monk: Passives = new MonkSkill(); break;
+            case CharacterStatusSetup.Charas.Assassin:
                 break;
-            case CharacterData.Charas.dibidibidip:
+            case CharacterStatusSetup.Charas.dibidibidip:
                 break;
             default: return false;
         }
