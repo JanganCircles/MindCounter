@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageData {
-    public const int Weak    = 20;
-    public const int Middle  = 50;
-    public const int Strong  = 80;
+    public const int Weak    = 40;
+    public const int Middle  = 80;
+    public const int Strong  = 150;
 }
 public class CostData
 {

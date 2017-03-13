@@ -12,8 +12,25 @@ public class StreetFighterSkill : SkillBase
     }
     public Skill StFighter_Passive(int Order)
     {
-        //적 방어시 카운터치면 상대방 무력화
+        //적이 가드면 50%확률로 치명타
         Skill PerpectCounter = new Skill("PerpectCounter");//초기화
+        PerpectCounter.AddPassive(
+           delegate (Skill skil)
+           {
+               CharacterStatus EnemyStat = skil.GetEnemy();
+               
+
+               Debug.Log("스트리트 파이터 스킬 들어옴");
+               if (EnemyStat.Guard )
+               {
+                   if (UnityEngine.Random.Range(0, 2) == 0)//50%
+                   {
+                       EnemyStat.Guard = false;
+                       DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, 1.5f, "Critical");
+                   }
+               }
+               CharacterStatus OrderStat = gameManager.ins.UserStatus[Order];
+           }, "Decision");
         return PerpectCounter;
     }
 

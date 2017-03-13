@@ -248,7 +248,7 @@ public class SkillList : MonoBehaviour {
                OrderStat = gameManager.ins.UserStatus[skil.Order];
                if (Random.Range(0, (100 / skil.PassiveCount["Critical"])) < 1)//5%
                {
-                   DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, 2f, "Critical");
+                   DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, 1.5f, "Critical");
                    SaveData.ins.AddData(SaveData.TYPE.CRITICAL, skil.Order, 1);
                }
            }
@@ -340,6 +340,14 @@ public class Skill {
     public void ActiveSkillSet(Active actives)
     {
         TempActive = actives;
+    }
+    public static CharacterStatus GetEnemy(Skill skil)
+    {
+        return gameManager.ins.UserStatus[gameManager.ins.UserStatus[skil.Order].Enemy()];
+    }
+    public CharacterStatus GetEnemy()
+    {
+        return gameManager.ins.UserStatus[gameManager.ins.UserStatus[Order].Enemy()];
     }
     public Skill(string _Name)
     {
