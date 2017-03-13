@@ -31,3 +31,7 @@ public class KnockBackData
     public const int Middle = 250;
     public const int Strong = 400;
 }
+public class ProbabilityData
+{
+    public const int Critical = 5;
+}

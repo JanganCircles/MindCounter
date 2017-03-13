@@ -12,6 +12,23 @@ public class GolemSkill : SkillBase {
     Skill Golliath_Passive(int Order)
     {
         Skill MagmaPunch = new Skill("MagmaPunch");
+        MagmaPunch.SetCharacter(Order);
+        MagmaPunch.PassiveCount.Add("ManaDamage", 0f);
+        MagmaPunch.AddPassive(
+           delegate (Skill skil)
+           {
+               if (MagmaPunch.PassiveCount.ContainsKey("ManaDamage"))
+               {
+                   MagmaPunch.PassiveCount["ManaDamage"] = skil.GetOrder().Cost * 0.3f;
+               }
+           }, "KeyCheck");
+
+        MagmaPunch.AddPassive(
+           delegate (Skill skil)
+           {
+               DamageCalculator.ins.AddDamage(DamageCalculator.PLUS_s, MagmaPunch.PassiveCount["ManaDamage"], "ManaPunch");
+           }, "Attack");
+        ;
         return MagmaPunch;
     }
 

@@ -12,8 +12,19 @@ public class CatSkill : SkillBase {
     public Skill Cat_Passive(int Order)
     {
         //5콤보시 1라이프
-        Skill EternalLife = new Skill("EternalLife");//초기화
-        return EternalLife;
+        Skill Blooding = new Skill("Blooding");//초기화
+        Blooding.SetCharacter(Order);
+        Blooding.AddPassive(
+           delegate (Skill skil)
+           {
+               int Enemy = gameManager.ins.UserStatus[Order].Enemy();
+               if (gameManager.ins.UserStatus[Enemy].Guard) return;
+               SkillSlot OrderSlot = gameManager.ins.UserSlot[Order];
+               float PowerDamage = 30;
+               SkillManager.ins.DebuffSkillSet(Enemy, DebuffSkillList.LIST.Blooding, 3, PowerDamage);
+           }, "Attack");
+        ;
+        return Blooding;
     }
 
 }

@@ -7,7 +7,7 @@ public class DebuffSkillList
 {
     public enum LIST
     {
-        GOLEMMAGMA,
+        Blooding,
         NONE
         
     }

@@ -27,10 +27,10 @@ public class SkillManager : MonoBehaviour {
     }
     public void RunPassives(string str)
     {
+        Debug.Log(str + "실행");
         for (int i = 0; i < 2; i++)
         {
-            if(Slots[i] != null)
-            Slots[i].PassivesRun(str);
+            RunPassives(str,i);
         }
     }
     public Skill GetSkill(int index, string name)
@@ -83,7 +83,7 @@ public class SkillManager : MonoBehaviour {
         DebuffBase Debuffs = null;
         switch (Debuff)
         {
-            case DebuffSkillList.LIST.GOLEMMAGMA:
+            case DebuffSkillList.LIST.Blooding:
                 Debuffs = new DebuffSkill_GolemMagma();
                 break;
             case DebuffSkillList.LIST.NONE:

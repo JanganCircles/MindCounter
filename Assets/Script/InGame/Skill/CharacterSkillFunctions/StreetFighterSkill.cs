@@ -14,9 +14,12 @@ public class StreetFighterSkill : SkillBase
     {
         //적이 가드면 50%확률로 치명타
         Skill PerpectCounter = new Skill("PerpectCounter");//초기화
+        Debug.Log("스트리트 파이터 스킬 초기화");
+        PerpectCounter.SetCharacter(Order);
         PerpectCounter.AddPassive(
            delegate (Skill skil)
            {
+               Skill sk = SkillManager.ins.GetSkill(Order, "Critical");
                CharacterStatus EnemyStat = skil.GetEnemy();
                
 
@@ -26,11 +29,20 @@ public class StreetFighterSkill : SkillBase
                    if (UnityEngine.Random.Range(0, 2) == 0)//50%
                    {
                        EnemyStat.Guard = false;
-                       DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, 1.5f, "Critical");
+                       sk.PassiveCount["Critical"] = 100;
                    }
                }
                CharacterStatus OrderStat = gameManager.ins.UserStatus[Order];
-           }, "Decision");
+           }, "Attack");
+        PerpectCounter.AddPassive(
+           delegate (Skill skil)
+           {
+               Skill sk = SkillManager.ins.GetSkill(Order, "Critical");
+               if (sk.PassiveCount["Critical"] == 100)
+               {
+                   sk.PassiveCount["Critical"] = ProbabilityData.Critical;
+               }
+           }, "End");
         return PerpectCounter;
     }
 

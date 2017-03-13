@@ -23,7 +23,7 @@ public class DebuffSkill_GolemMagma : DebuffBase {
         Magma.AddPassive(
            delegate (Skill skil)
            {
-               Debug.Log("마그마 디버프 들어옴?");
+               Debug.Log("출혈 디버프 들어옴?");
                if (!Magma.StackMinus())
                {
                    gameManager.ins.UserSlot[Order].DebuffList.Remove(skil);

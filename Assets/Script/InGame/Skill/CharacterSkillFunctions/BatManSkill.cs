@@ -14,18 +14,21 @@ public class BatManSkill : SkillBase
     {
         //압박 3회 성공즉시 화력데미지만큼 추가 데미지
         StackSkill ThreeOut = new StackSkill(3,"ThreeOut");//
-       // ThreeOut.AddPassive(
-       //    delegate (Skill skil)
-       //    {
-       //        Debug.Log("마그마 디버프 들어옴?");
-       //        if (!ThreeOut.StackMinus())
-       //        {
-       //            gameManager.ins.UserSlot[Order].DebuffList.Remove(skil);
-       //            return;
-       //        }
-       //        CharacterStatus OrderStat = gameManager.ins.UserStatus[Order];
-       //        OrderStat.HpDown(Value[1]);
-       //    }, "Decision");
+        ThreeOut.SetCharacter(Order);
+
+        ThreeOut.AddPassive(
+           delegate (Skill skil)
+           {
+               CharacterStatus EnemyStat = skil.GetEnemy();
+               if (!EnemyStat.Guard)
+               {
+                   if (UnityEngine.Random.Range(0, 2) == 0)//50%
+                   {
+                       WallManager.ins.Move(WallManager.ins.PivotMove * 3);
+                   }
+               }
+           }, "Attack");
+        ;
         return ThreeOut;
     }
 

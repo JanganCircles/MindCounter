@@ -25,6 +25,7 @@ public class SkillList : MonoBehaviour {
     }
     public void AddingDefaultSkill(ref SkillSlot List)//기본스킬추가
     {
+        Debug.Log("abcd");
         AddSkill_Guard(ref List);
         AddSkill_Rock(ref List);
         AddSkill_Scissors(ref List);
@@ -208,11 +209,6 @@ public class SkillList : MonoBehaviour {
             Debug.Log((int)skl.PassiveCount["RSPATTACK"] + " " + Run + "맞음?");
             if ((int)skl.PassiveCount["RSPATTACK"] == Run)//키누른게 이 함수가 맞는지 체크
             {
-                bool EnemyGuard = gameManager.ins.UserStatus[Orderstat.Enemy()].Guard;
-                if (EnemyGuard)
-                {
-                    gameManager.ins.UserStatus[Orderstat.Enemy()].Guard = false;
-                }
                 DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);
                 WallManager.ins.Move((int)skl.PassiveCount["KnockBack"], Orderstat.Enemy());    //벽이동
                 SaveData.ins.AddData(SaveData.TYPE.PAPER, Orderstat.Controller, SaveData.Success, 1);//저장용
@@ -240,11 +236,12 @@ public class SkillList : MonoBehaviour {
         CharacterStatus OrderStat;
         CharacterStatus Enemy;
         Skill Critical = new Skill("Critical");//치명타
-        Critical.PassiveCount.Add("Critical", 5);
+        Critical.PassiveCount.Add("Critical", ProbabilityData.Critical);
         Critical.SetCharacter(List.GetComponent<CharacterStatus>().Controller);
         Critical.AddPassive(
            delegate (Skill skil)
            {
+               Debug.Log("크리티컬");
                OrderStat = gameManager.ins.UserStatus[skil.Order];
                if (Random.Range(0, (100 / skil.PassiveCount["Critical"])) < 1)//5%
                {
@@ -340,6 +337,14 @@ public class Skill {
     public void ActiveSkillSet(Active actives)
     {
         TempActive = actives;
+    }
+    public static CharacterStatus GetOrder(Skill skil)
+    {
+        return gameManager.ins.UserStatus[skil.Order];
+    }
+    public CharacterStatus GetOrder()
+    {
+        return gameManager.ins.UserStatus[Order];
     }
     public static CharacterStatus GetEnemy(Skill skil)
     {
