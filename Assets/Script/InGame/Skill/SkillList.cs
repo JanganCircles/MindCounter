@@ -15,10 +15,9 @@ public class SkillList : MonoBehaviour {
         if(ins == null)
             ins = this;
     }
-    void Start () {
-
-	}
-	
+    void Start()
+    {
+    }
 	// Update is called once per frame
 	void Update () {
 
@@ -88,8 +87,6 @@ public class SkillList : MonoBehaviour {
                    else
                    {
                        DamageCalculator.ins.AddDamage("Multiple", 0, "GuardBlock");
-                       WallManager.ins.ResetPivot();
-                       WallManager.ins.Move(KnockBackData.Guard, Orderstat.Controller);
                    }
                }
            }, "Hit");//피격시 발동

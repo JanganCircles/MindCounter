@@ -28,8 +28,8 @@ public class KnockBackData
     public const int Guard  = 100;
     //임시로 데미지의 5배로 설정.
     public const int Weak   = 100;
-    public const int Middle = 250;
-    public const int Strong = 400;
+    public const int Middle = 200;
+    public const int Strong = 300;
 }
 public class ProbabilityData
 {

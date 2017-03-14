@@ -40,7 +40,6 @@ public class UIprogress : MonoBehaviour {
         Vector3 ChallCountVect = new Vector3(270, -46, 0); //오른쪽 챌린저 박스 위치 28씩 감소함 
         Vector3 test = new Vector3(242, -46, 0);
         Quaternion zero = new Quaternion(0, 0, 0, 0);
-        skillCountClone = (GameObject)Instantiate(skillCount, test, zero);
         
         /* 2017_02_21 에러로 주석처리
          *for (int i=0; i <= status.RSPMaxCount.Length; i++)
