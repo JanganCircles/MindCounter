@@ -19,8 +19,8 @@ public class UITextSet : MonoBehaviour {
         {
             Name = name;
         }
-
-        UIList.Add(Name, "");
+        if (!UIList.ContainsKey(name)) 
+            UIList.Add(Name, "");
     }
     public static void Release()
     {

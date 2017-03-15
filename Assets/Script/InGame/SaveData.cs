@@ -65,12 +65,14 @@ public class SaveData : MonoBehaviour {
     }
     public void ShowResultData()
     {
-        ResultPanel.SetActive(true);
-        SetResultPanel();
+        StartCoroutine(SetResultPanel());
         ShowDebug();
     }
-    public void SetResultPanel()
+    IEnumerator SetResultPanel()
     {
+        yield return new WaitForSeconds(0.5f);
+        ResultPanel.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
         string[] User = { "Champ","Chall" };
         string[] Type = {"Weak","Middle","Strong","Guard", "Success", "Critical","Name" };
         for (int i = 0; i < 2; i++)
@@ -87,7 +89,6 @@ public class SaveData : MonoBehaviour {
                                                                            DataArr[j][i + Success] + "/" + DataArr[j][i + Try];
             }
             UITextSet.UIList[TextName[(int)TYPE.STILL]] = GetPersent(Turn,StillAttack[i]) + "% " + StillAttack[i] + "/" + Turn;
-            UITextSet.UIList[TextName[(int)TYPE.GUARD]]    = GetPersent(GuardPersent[i + Try] , GuardPersent[i + Success]) + "% " + GuardPersent[i + Success] + "/" + GuardPersent[i + Try];
             UITextSet.UIList[TextName[(int)TYPE.CRITICAL]] = CriticalHit[i] + "회";
             UITextSet.UIList[TextName[(int)TYPE.NAME]] = i == 0 ? "챔피언" : "챌린저";
     }
