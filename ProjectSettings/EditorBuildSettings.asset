@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SelectScene.unity
+    path: Assets/Scenes/CharacterSelect.unity
   - enabled: 1
-    path: Assets/Main.unity
+    path: Assets/Scenes/Main.unity
   - enabled: 1
-    path: Assets/CharacterSelect.unity
+    path: Assets/Scenes/SelectScene.unity

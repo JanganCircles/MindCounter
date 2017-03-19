@@ -69,6 +69,7 @@
      <Compile Include="Assets\Script\InGame\MovementManager.cs" />
      <Compile Include="Assets\Script\InGame\OfflineController.cs" />
      <Compile Include="Assets\Script\InGame\OnlineController.cs" />
+     <Compile Include="Assets\Script\InGame\ResultButtonFunc.cs" />
      <Compile Include="Assets\Script\InGame\SaveData.cs" />
      <Compile Include="Assets\Script\InGame\SelectCounter.cs" />
      <Compile Include="Assets\Script\InGame\SelectState.cs" />
