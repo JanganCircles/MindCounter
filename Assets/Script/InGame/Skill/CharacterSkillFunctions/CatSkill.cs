@@ -20,7 +20,7 @@ public class CatSkill : SkillBase {
                int Enemy = gameManager.ins.UserStatus[Order].Enemy();
                if (gameManager.ins.UserStatus[Enemy].Guard) return;
                SkillSlot OrderSlot = gameManager.ins.UserSlot[Order];
-               float PowerDamage = 30;
+               float PowerDamage = DamageData.Cat_Blooding;
                SkillManager.ins.DebuffSkillSet(Enemy, DebuffSkillList.LIST.Blooding, 3, PowerDamage);
            }, "Attack");
         ;
