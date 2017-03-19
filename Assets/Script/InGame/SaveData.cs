@@ -61,6 +61,7 @@ public class SaveData : MonoBehaviour {
 
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     public void ShowResultData()
     {
         StartCoroutine(SetResultPanel());
@@ -91,6 +92,8 @@ public class SaveData : MonoBehaviour {
             UITextSet.UIList[TextName[(int)TYPE.NAME]] = i == 0 ? "챔피언" : "챌린저";
     }
     }
+=======
+>>>>>>> parent of c093f00... 결과창 유니티에 보여주기
 =======
 >>>>>>> parent of c093f00... 결과창 유니티에 보여주기
     public void ShowDebug()
