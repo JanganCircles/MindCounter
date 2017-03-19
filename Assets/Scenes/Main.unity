@@ -3988,16 +3988,20 @@ Prefab:
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[1]
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[0]
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 7
 =======
       value: 1
 >>>>>>> origin/master
+=======
+      value: 0
+>>>>>>> parent of 15cfbf2... Material 변경
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
