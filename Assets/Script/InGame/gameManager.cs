@@ -68,7 +68,7 @@ public class gameManager : MonoBehaviour
         if (DieCheck() && TotalWinner == -1)
         {
             TotalWinner = UserStatus[CHALLANGER].HP <= 0 ? CHAMPION : CHALLANGER;
-            SaveData.ins.ShowDebug();
+            SaveData.ins.ShowResultData();
             StopAllCoroutines();
         }
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class SaveData : MonoBehaviour {
 
@@ -15,14 +16,16 @@ public class SaveData : MonoBehaviour {
     private float[] GuardPersent;
     private int Turn;
     public Dictionary<TYPE, float[]> Data;
-    public enum TYPE
+    public GameObject ResultPanel = null;
+    public enum TYPE : int
     {
-        ROCK        ,
         SCISSOR     ,
+        ROCK        ,
         PAPER       ,
+        GUARD       ,
         STILL       ,
         CRITICAL    ,
-        GUARD       
+        NAME
     }
     void Awake()
     {
@@ -60,8 +63,6 @@ public class SaveData : MonoBehaviour {
         Turn = gameManager.ins.Turn;
 
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
     public void ShowResultData()
     {
         StartCoroutine(SetResultPanel());
@@ -92,19 +93,15 @@ public class SaveData : MonoBehaviour {
             UITextSet.UIList[TextName[(int)TYPE.NAME]] = i == 0 ? "챔피언" : "챌린저";
     }
     }
-=======
->>>>>>> parent of c093f00... 결과창 유니티에 보여주기
-=======
->>>>>>> parent of c093f00... 결과창 유니티에 보여주기
     public void ShowDebug()
     {
         int Champ = gameManager.CHAMPION;
         int Chall = gameManager.CHALLANGER;
 
-        Debug.Log("챔피언 약 " + GetPersent(ScissorData[Champ + Try], ScissorData[Champ + Success]) + "% " + ScissorData[Champ + Success] + "/" + ScissorData[Champ + Try]);
-        Debug.Log("챔피언 중 " + GetPersent(RockData[Champ + Try] ,RockData[Champ + Success]) + "% " + RockData[Champ + Success] + "/" + RockData[Champ + Try]);
-        Debug.Log("챔피언 강 " + GetPersent(PaperData[Champ + Try] , PaperData[Champ + Success]) + "% " + PaperData[Champ + Success] + "/" + PaperData[Champ + Try]);
-        Debug.Log("챔피언 공격턴유지율 " + GetPersent(Turn,StillAttack[Champ]) + "% " + StillAttack[Champ] + "/" + Turn);
+        Debug.Log("챔피언 약 " + GetPersent(ScissorData[Champ + Try], ScissorData[Champ + Success]) + "%   " + ScissorData[Champ + Success] + "/" + ScissorData[Champ + Try]);
+        Debug.Log("챔피언 중 " + GetPersent(RockData[Champ + Try] ,RockData[Champ + Success]) + "%   " + RockData[Champ + Success] + "/" + RockData[Champ + Try]);
+        Debug.Log("챔피언 강 " + GetPersent(PaperData[Champ + Try] , PaperData[Champ + Success]) + "%   " + PaperData[Champ + Success] + "/" + PaperData[Champ + Try]);
+        Debug.Log("챔피언 공격턴유지율 " + GetPersent(Turn,StillAttack[Champ]) + "%   " + StillAttack[Champ] + "/" + Turn);
         Debug.Log("챔피언 가드율 " + GetPersent(GuardPersent[Champ + Try], GuardPersent[Champ + Success]) + "% " + GuardPersent[Champ + Success] + "/" + GuardPersent[Champ + Try]);
         Debug.Log("챔피언 크리티컬횟수 " + CriticalHit[Champ] + "회");
         Debug.Log("-----------");
@@ -112,7 +109,7 @@ public class SaveData : MonoBehaviour {
         Debug.Log("챌린저 중 " + GetPersent(RockData[Chall + Try] , RockData[Chall + Success]) + "% " + RockData[Chall + Success] + "/" + RockData[Chall + Try]);
         Debug.Log("챌린저 강 " + GetPersent(PaperData[Chall + Try] , PaperData[Chall + Success]) + "% " + PaperData[Chall + Success] + "/" + PaperData[Chall + Try]);
         Debug.Log("챌린저 공격턴유지율 " + GetPersent(Turn,StillAttack[Chall]) + "% " + StillAttack[Chall] + "/" + Turn);
-        Debug.Log("챌린저 가드율 " + GetPersent(GuardPersent[Chall + Try] , GuardPersent[Chall + Success]) + "% " + GuardPersent[Chall + Success] + "/" + GuardPersent[Chall + Try]);
+        Debug.Log("챌린저 가드율 "         + GetPersent(GuardPersent[Chall + Try] , GuardPersent[Chall + Success]) + "% " + GuardPersent[Chall + Success] + "/" + GuardPersent[Chall + Try]);
         Debug.Log("챌린저 크리티컬횟수 " + CriticalHit[Chall] + "회");
     }
     public int GetPersent(float Max,float Value)
