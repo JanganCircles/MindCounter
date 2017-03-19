@@ -6,9 +6,6 @@ public class DamageData {
     public const int Weak    = 40;
     public const int Middle  = 80;
     public const int Strong  = 150;
-
-    public const int Cat_Blooding = 30;//원래 30
-         
 }
 public class CostData
 {
