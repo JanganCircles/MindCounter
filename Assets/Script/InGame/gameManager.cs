@@ -40,7 +40,6 @@ public class gameManager : MonoBehaviour
         Winner = -1;
         Combo = 0;
         UserStatus = new CharacterStatus[2];
-        Debug.Log(GameObject.Find("Champion"));
         UserStatus[CHAMPION] = GameObject.Find("Champion").GetComponent<CharacterStatus>();
         UserStatus[CHALLANGER] = GameObject.Find("Challanger").GetComponent<CharacterStatus>();
         UserStatus[CHAMPION].Controller = CHAMPION;
@@ -69,8 +68,7 @@ public class gameManager : MonoBehaviour
         if (DieCheck() && TotalWinner == -1)
         {
             TotalWinner = UserStatus[CHALLANGER].HP <= 0 ? CHAMPION : CHALLANGER;
-            //결과창 보여주자
-            SaveData.ins.ShowResultData();
+            SaveData.ins.ShowDebug();
             StopAllCoroutines();
         }
 
