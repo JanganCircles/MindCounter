@@ -3988,7 +3988,7 @@ Prefab:
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[1]
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
@@ -3996,16 +3996,22 @@ Prefab:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of e8078f8... Error
       value: 7
 =======
       value: 1
 >>>>>>> origin/master
+<<<<<<< HEAD
 =======
       value: 0
 >>>>>>> parent of 15cfbf2... Material 변경
 =======
       value: 3
 >>>>>>> parent of c093f00... 결과창 유니티에 보여주기
+=======
+>>>>>>> parent of e8078f8... Error
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
