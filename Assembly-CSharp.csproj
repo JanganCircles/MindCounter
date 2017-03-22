@@ -54,8 +54,10 @@
      <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+     <Compile Include="Assets\Script\AudioVisualizer.cs" />
      <Compile Include="Assets\Script\CharacterData.cs" />
      <Compile Include="Assets\Script\CheckingScreenSize.cs" />
+     <Compile Include="Assets\Script\ExcelRoader.cs" />
      <Compile Include="Assets\Script\FadeIn.cs" />
      <Compile Include="Assets\Script\FadeOut.cs" />
      <Compile Include="Assets\Script\InGame\AttackType.cs" />
@@ -221,6 +223,9 @@
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="ExcelToObject">
+ <HintPath>C:/Users/admin/Documents/GitHub/MindCounter/Assets/Projectdll/ExcelToObject.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

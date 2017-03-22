@@ -22,7 +22,7 @@ public class CharacterStatus : MonoBehaviour {
     {
         Cost = (MaxCost = CharacterData.Mp) / 2;
         Guard = false;
-        HP = MaxHP = CharacterData.Hp;
+        SetMaxHP(false, CharacterData.Hp);
         WallDistance = 600;
     }
     public void HpDown_Debuff(int Damage)
@@ -37,6 +37,19 @@ public class CharacterStatus : MonoBehaviour {
     {
         HP -= Damage;
         
+    }
+    public void SetMaxHP(bool isGameRunning,int _MaxHP)
+    {
+        if (isGameRunning)
+        {
+            float PerHp = HP / (float)MaxHP;
+            MaxHP += _MaxHP;
+            MaxHP = (int)((float)MaxHP *PerHp);
+        }
+        else
+        {
+            HP = MaxHP = _MaxHP;
+        }
     }
     public void CostPlus(int Number)
     {

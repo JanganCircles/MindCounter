@@ -57,6 +57,7 @@ public class CharacterStatusSetup: MonoBehaviour {
                 break;
             case Golliath:
                 {
+                    Stat.SetMaxHP(false, 2000);
                 }
                 break;
             case GauntletsMan:

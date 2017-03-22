@@ -42,7 +42,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: 0
   MaxHP: 1000
-  HP: 2
+  HP: 1000
   Guard: 0
   WallDistance: 600
   AttackType: 0
@@ -2860,7 +2860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: 0
   MaxHP: 1000
-  HP: 155
+  HP: 1000
   Guard: 0
   WallDistance: 600
   AttackType: 0
@@ -3988,12 +3988,12 @@ Prefab:
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[1]
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[0]
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
