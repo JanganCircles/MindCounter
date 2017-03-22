@@ -1977,7 +1977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &711475157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2775,7 +2775,7 @@ GameObject:
   - component: {fileID: 934008514}
   - component: {fileID: 934008515}
   m_Layer: 5
-  m_Name: Champion
+  m_Name: ChampionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2860,7 +2860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: 0
   MaxHP: 1000
-  HP: 1000
+  HP: 155
   Guard: 0
   WallDistance: 600
   AttackType: 0
@@ -3084,7 +3084,7 @@ GameObject:
   - component: {fileID: 1011922373}
   - component: {fileID: 1011922374}
   m_Layer: 5
-  m_Name: Challanger
+  m_Name: ChallangerPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3988,34 +3988,12 @@ Prefab:
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[1]
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[0]
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of e8078f8... Error
-      value: 7
-=======
       value: 1
->>>>>>> origin/master
-<<<<<<< HEAD
-=======
-      value: 0
->>>>>>> parent of 15cfbf2... Material 변경
-=======
-      value: 3
->>>>>>> parent of c093f00... 결과창 유니티에 보여주기
-=======
->>>>>>> parent of e8078f8... Error
-=======
-      value: 3
->>>>>>> parent of c093f00... 결과창 유니티에 보여주기
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
@@ -5815,6 +5793,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 114311169839982576, guid: e93f2d249e6ab514f84662afa9b914b1,
+        type: 2}
+      propertyPath: ResultPanel
+      value: 
+      objectReference: {fileID: 711475156}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e93f2d249e6ab514f84662afa9b914b1, type: 2}
   m_IsPrefabParent: 0

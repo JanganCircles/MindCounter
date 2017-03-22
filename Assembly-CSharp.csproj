@@ -103,6 +103,7 @@
      <Compile Include="Assets\Script\UtilityStandard\ObjectFooling.cs" />
      <Compile Include="Assets\Script\UtilityStandard\UIImageChanger.cs" />
      <Compile Include="Assets\Script\UtilityStandard\UIIsVisible.cs" />
+     <Compile Include="Assets\Script\UtilityStandard\UITextEffect.cs" />
      <Compile Include="Assets\Script\UtilityStandard\UITextSet.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

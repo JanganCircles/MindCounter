@@ -25,6 +25,14 @@ public class CharacterStatus : MonoBehaviour {
         HP = MaxHP = CharacterData.Hp;
         WallDistance = 600;
     }
+    public void HpDown_Debuff(int Damage)
+    {
+        HP -= Damage;
+        if (HP <= 0)
+        {
+            HP = 1;
+        }
+    }
     public void HpDown(int Damage)
     {
         HP -= Damage;

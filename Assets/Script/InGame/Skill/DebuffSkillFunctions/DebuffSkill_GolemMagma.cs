@@ -30,7 +30,7 @@ public class DebuffSkill_GolemMagma : DebuffBase {
                    return;
                }
                CharacterStatus OrderStat = gameManager.ins.UserStatus[Order];
-               OrderStat.HpDown(Value[1]);
+               OrderStat.HpDown_Debuff(Value[1]);
            }, "Decision");
         return Magma;
     }
