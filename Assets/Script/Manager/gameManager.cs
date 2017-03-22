@@ -252,7 +252,8 @@ public class gameManager : MonoBehaviour
             else
             {
                 float DashCorrection = i == CHALLANGER ? 0.5f : -0.5f;
-                dashs[i].Dash(DashCorrection + DashPivot, 1);
+                if (DashCorrection < 0) DashCorrection = 0;
+                 dashs[i].Dash(DashCorrection + DashPivot, 1);
             }
         }
     }

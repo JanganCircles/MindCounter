@@ -86,7 +86,6 @@ public class UIprogress : MonoBehaviour {
         while (true)
         {
             nowHP = status.HP;
-            CharHPred.transform.localScale = new Vector3(floatHP, CharHPred.transform.localScale.y, CharHPred.transform.localScale.z);
             yield return new WaitForSeconds(0.1f);
         }
     }

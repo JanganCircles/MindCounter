@@ -32,11 +32,13 @@ public class CharacterStatus : MonoBehaviour {
         {
             HP = 1;
         }
+        HPProgressBar();
     }
     public void HpDown(int Damage)
     {
         HP -= Damage;
-        
+        HPProgressBar();
+
     }
     public void SetMaxHP(bool isGameRunning,int _MaxHP)
     {
@@ -50,6 +52,7 @@ public class CharacterStatus : MonoBehaviour {
         {
             HP = MaxHP = _MaxHP;
         }
+        HPProgressBar();
     }
     public void CostPlus(int Number)
     {
@@ -61,5 +64,12 @@ public class CharacterStatus : MonoBehaviour {
     public int Enemy()
     {
         return (Controller + 1) % 2;
+    }
+    public void HPProgressBar()
+    {
+        Vector2 Hps = new Vector2();
+        Hps.x = HP;
+        Hps.y = MaxHP;
+        UIProgressBar.SetData((Controller == 0 ? "Champion" : "Challanger") + "HP",Hps);
     }
 }
