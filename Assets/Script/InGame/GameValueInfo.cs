@@ -20,7 +20,7 @@ public class CostData
 }
 public class CharacterData
 {
-    public const int Hp = 1000;
+    public const int Hp = 1800;
     public const int Mp = 200;
 }
 public class KnockBackData

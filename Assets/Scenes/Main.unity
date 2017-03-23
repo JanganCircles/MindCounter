@@ -137,10 +137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: 0
-  MaxHP: 1000
-  HP: 1000
+  MaxHP: 1800
+  HP: 1800
   Guard: 0
-  WallDistance: 600
+  WallDistance: 0
   AttackType: 0
   MaxCost: 200
   Cost: 100
@@ -3053,10 +3053,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: 0
-  MaxHP: 1000
-  HP: 1000
+  MaxHP: 1800
+  HP: 1800
   Guard: 0
-  WallDistance: 600
+  WallDistance: 0
   AttackType: 0
   MaxCost: 200
   Cost: 100
@@ -4182,12 +4182,12 @@ Prefab:
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[1]
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[0]
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}

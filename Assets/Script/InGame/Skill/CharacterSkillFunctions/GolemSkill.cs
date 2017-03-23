@@ -19,14 +19,14 @@ public class GolemSkill : SkillBase {
            {
                if (MagmaPunch.PassiveCount.ContainsKey("ManaDamage"))
                {
-                   MagmaPunch.PassiveCount["ManaDamage"] = skil.GetOrder().Cost * 0.3f;
+                   MagmaPunch.PassiveCount["ManaDamage"] = (float)skil.GetOrder().Cost / (float)skil.GetOrder().MaxCost;
                }
            }, "KeyCheck");
 
         MagmaPunch.AddPassive(
            delegate (Skill skil)
            {
-               DamageCalculator.ins.AddDamage(DamageCalculator.PLUS_s, MagmaPunch.PassiveCount["ManaDamage"], "ManaPunch");
+               DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, 1f + MagmaPunch.PassiveCount["ManaDamage"], "ManaPunch");
            }, "Attack");
         ;
         return MagmaPunch;

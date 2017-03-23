@@ -66,6 +66,7 @@ public class CharacterStatusSetup: MonoBehaviour {
                 break;
             case Golem:
                 {
+                    Stat.SetMaxHP(false, 1500);
                 }
                 break;
             case Cat:

@@ -18,8 +18,8 @@ public class CatSkill : SkillBase {
            delegate (Skill skil)
            {
                int Enemy = gameManager.ins.UserStatus[Order].Enemy();
-               if (gameManager.ins.UserStatus[Enemy].Guard) return;
                SkillSlot OrderSlot = gameManager.ins.UserSlot[Order];
+               if (gameManager.ins.UserStatus[Enemy].Guard || OrderSlot.GetPriority() != Priority.PAPER) return;
                float PowerDamage = 30;
                SkillManager.ins.DebuffSkillSet(Enemy, DebuffSkillList.LIST.Blooding, 3, PowerDamage);
            }, "Attack");
