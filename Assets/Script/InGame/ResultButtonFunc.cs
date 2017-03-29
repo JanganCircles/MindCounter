@@ -25,6 +25,6 @@ public class ResultButtonFunc : MonoBehaviour {
     }
     public void ToMain()
     {
-        Debug.Log("투메인");
+        SceneManager.LoadScene("MainManu");
     }
 }
