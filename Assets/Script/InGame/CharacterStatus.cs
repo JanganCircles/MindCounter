@@ -67,9 +67,27 @@ public class CharacterStatus : MonoBehaviour {
     }
     public void HPProgressBar()
     {
+        StartCoroutine(HPDownAnimation());
+    }
+    public IEnumerator HPDownAnimation()
+    {
+        string ProgressBarName = (Controller == 0 ? "Champion" : "Challanger") + "HP";
         Vector2 Hps = new Vector2();
+        Vector2 YellowHps = new Vector2();
+        YellowHps = UIProgressBar.GetData(ProgressBarName);
         Hps.x = HP;
         Hps.y = MaxHP;
-        UIProgressBar.SetData((Controller == 0 ? "Champion" : "Challanger") + "HP",Hps);
+        UIProgressBar.SetData(ProgressBarName, Hps);
+        ProgressBarName += "Y";
+
+        Debug.Log("노란x"+YellowHps);
+        Debug.Log("빨간x" + Hps);
+        while (YellowHps.x > Hps.x)
+        {
+            Debug.Log("여기 드어옵니까");
+            YellowHps.x--;
+            UIProgressBar.SetData(ProgressBarName, YellowHps);
+            yield return null;
+        }
     }
 }
