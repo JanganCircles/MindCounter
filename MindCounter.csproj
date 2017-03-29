@@ -73,6 +73,9 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="ExcelToObject">
+      <HintPath>Assets\Projectdll\ExcelToObject.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="MindCounter.Plugins.csproj">
@@ -89,8 +92,10 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\Script\AudioVisualizer.cs" />
     <Compile Include="Assets\Script\CharacterData.cs" />
     <Compile Include="Assets\Script\CheckingScreenSize.cs" />
+    <Compile Include="Assets\Script\ExcelRoader.cs" />
     <Compile Include="Assets\Script\FadeIn.cs" />
     <Compile Include="Assets\Script\FadeOut.cs" />
     <Compile Include="Assets\Script\InGame\AttackType.cs" />
@@ -101,7 +106,6 @@
     <Compile Include="Assets\Script\InGame\DashAnim.cs" />
     <Compile Include="Assets\Script\InGame\GameValueInfo.cs" />
     <Compile Include="Assets\Script\InGame\Graphic\Noise.cs" />
-    <Compile Include="Assets\Script\InGame\MovementManager.cs" />
     <Compile Include="Assets\Script\InGame\OfflineController.cs" />
     <Compile Include="Assets\Script\InGame\OnlineController.cs" />
     <Compile Include="Assets\Script\InGame\ResultButtonFunc.cs" />
@@ -127,8 +131,9 @@
     <Compile Include="Assets\Script\InGame\UIprogress.cs" />
     <Compile Include="Assets\Script\InGame\UserKeyData.cs" />
     <Compile Include="Assets\Script\InGame\WallManager.cs" />
-    <Compile Include="Assets\Script\InGame\gameManager.cs" />
+    <Compile Include="Assets\Script\MainManuUI\MainManuSceneMove.cs" />
     <Compile Include="Assets\Script\Manager\GameData.cs" />
+    <Compile Include="Assets\Script\Manager\gameManager.cs" />
     <Compile Include="Assets\Script\NetWorkingScript\LobbyManager.cs" />
     <Compile Include="Assets\Script\ObjCopy.cs" />
     <Compile Include="Assets\Script\ObjRotate.cs" />
@@ -138,6 +143,8 @@
     <Compile Include="Assets\Script\UtilityStandard\ObjectFooling.cs" />
     <Compile Include="Assets\Script\UtilityStandard\UIImageChanger.cs" />
     <Compile Include="Assets\Script\UtilityStandard\UIIsVisible.cs" />
+    <Compile Include="Assets\Script\UtilityStandard\UIProgressBar.cs" />
+    <Compile Include="Assets\Script\UtilityStandard\UITextEffect.cs" />
     <Compile Include="Assets\Script\UtilityStandard\UITextSet.cs" />
   </ItemGroup>
   <ItemGroup>
