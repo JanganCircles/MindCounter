@@ -92,12 +92,9 @@ public class CharacterStatus : MonoBehaviour {
         if (isYellowCanSee)
             yield break;
         isYellowCanSee = true;
-        Debug.Log("노란x"+YellowHps);
-        Debug.Log("빨간x" + Hps);
         while (YellowHps.x > HP)
         {
-            Debug.Log("여기 드어옵니까");
-            YellowHps.x--;
+            YellowHps.x-=0.5f;
             UIProgressBar.SetData(ProgressBarName, YellowHps);
             yield return null;
         }

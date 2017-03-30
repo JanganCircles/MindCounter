@@ -127,11 +127,10 @@ public class SkillList : MonoBehaviour {
         NewSkill.AddPassive(delegate (Skill skl)
         {//공격시
             Orderstat = gameManager.ins.UserStatus[skl.Order];
-            Debug.Log((int)skl.PassiveCount["RSPATTACK"] + " " + Run + "맞음?");
             if ((int)skl.PassiveCount["RSPATTACK"] == Run)//키누른게 이 함수가 맞는지 체크
             {
                 DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);             //데미지 5
-                WallManager.ins.Move((int)skl.PassiveCount["KnockBack"] , Orderstat.Enemy());    //벽이동
+                WallManager.ins.Move((int)(skl.PassiveCount["KnockBack"]* gameManager.ins.TimingWeight[skl.Order]) , Orderstat.Enemy());    //벽이동
 
                 SaveData.ins.AddData(SaveData.TYPE.ROCK, Orderstat.Controller, SaveData.Success, 1);//저장용
             }
@@ -166,11 +165,10 @@ public class SkillList : MonoBehaviour {
         NewSkill.AddPassive(delegate (Skill skl)
         {//공격시
             Orderstat = gameManager.ins.UserStatus[skl.Order];
-            Debug.Log((int)skl.PassiveCount["RSPATTACK"] + " " + Run + "맞음?");
             if ((int)skl.PassiveCount["RSPATTACK"] == Run)//키누른게 이 함수가 맞는지 체크
             {
                 DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);         //데미지 2
-                WallManager.ins.Move((int)skl.PassiveCount["KnockBack"], Orderstat.Enemy());    //벽이동
+                WallManager.ins.Move((int)(skl.PassiveCount["KnockBack"] * gameManager.ins.TimingWeight[skl.Order]), Orderstat.Enemy());    //벽이동
 
                 SaveData.ins.AddData(SaveData.TYPE.SCISSOR, Orderstat.Controller, SaveData.Success, 1);//저장용
             }
@@ -203,11 +201,10 @@ public class SkillList : MonoBehaviour {
         NewSkill.AddPassive(delegate (Skill skl)
         {//공격시
             Orderstat = gameManager.ins.UserStatus[skl.Order];
-            Debug.Log((int)skl.PassiveCount["RSPATTACK"] + " " + Run + "맞음?");
             if ((int)skl.PassiveCount["RSPATTACK"] == Run)//키누른게 이 함수가 맞는지 체크
             {
                 DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);
-                WallManager.ins.Move((int)skl.PassiveCount["KnockBack"], Orderstat.Enemy());    //벽이동
+                WallManager.ins.Move((int)(skl.PassiveCount["KnockBack"] * gameManager.ins.TimingWeight[skl.Order]), Orderstat.Enemy());    //벽이동
                 SaveData.ins.AddData(SaveData.TYPE.PAPER, Orderstat.Controller, SaveData.Success, 1);//저장용
                 skl.PassiveCount["RSPATTACK"] = Stop;
             }

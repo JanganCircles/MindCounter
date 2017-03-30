@@ -11,8 +11,10 @@ public class gameManager : MonoBehaviour
 
     public CharacterStatus[] UserStatus;    //캐릭터 스텟
     public SkillSlot[] UserSlot;            //스킬슬롯
+    public float[] TimingWeight;            //잘맞았냐
 
-    
+
+
     public bool UIOpen = false;             //유아이 보여주기
     public int Combo;                       //현재 콤보
     public int ComboContinues;              //현재 콤보중인 사람
@@ -52,7 +54,7 @@ public class gameManager : MonoBehaviour
         UserSlot = new SkillSlot[2];
         UserSlot[CHAMPION] = GameObject.Find("Champion").GetComponent<SkillSlot>();
         UserSlot[CHALLANGER] = GameObject.Find("Challanger").GetComponent<SkillSlot>();
-
+        TimingWeight = new float[2];
 
         if (ins == null)
             ins = this;
@@ -140,7 +142,9 @@ public class gameManager : MonoBehaviour
                 //키체크가 끝날때까지 무한 루프
                 yield return null;
             }
-            float[] CatchTiming = IControl.GetCatchTime();
+            float[] TimingArr= IControl.GetCatchTime();
+            for (int i = 0; i < 2; i++)
+                CatchTiming(TimingArr[i], i);
             Time.timeScale = 1;//평소대로
             //판정
             TempStep = STEP.DECISION;// 판정단계
@@ -167,6 +171,7 @@ public class gameManager : MonoBehaviour
                 SkillManager.ins.RunPassives("Attack", Winner);//승자 어택
                 SkillManager.ins.RunPassives("Hit", Loser);//데미지
 
+                DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, TimingWeight[Winner], "RhythmWeight");
                 int damage = DamageCalculator.ins.Calculate();//데미지 계산
 
                 //
@@ -178,11 +183,24 @@ public class gameManager : MonoBehaviour
                 UITextSet.UIList["Damage"] = damage.ToString();//최종 데미지 UI
 
                 //ComboFunc(Winner);                             //콤보설정
-                
+                bool LoserConer = UserStatus[Loser].WallDistance == 0;
                 WallManager.ins.SetPivot();//벽과의 거리 설정
 
-                float KnockPlus = 25f;
-                Dashs[Loser].Knockback((WallManager.ins.DashPivotX+ KnockPlus * CharacterDirection(Loser)) * 0.1f, 0.5f);
+                float KnockPlus = 50f;
+                if (damage == 0)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        Dashs[i].Knockback((WallManager.ins.DashPivotX + 50f * CharacterDirection(i)) * 0.1f, 0.5f);//서로넉백
+                    }
+                }
+                else if (LoserConer)
+                {
+                    KnockPlus = 85f;
+                    Dashs[Winner].Knockback(((WallManager.ins.DashPivotX + KnockPlus * CharacterDirection(Winner)) * 0.1f), 0.5f);
+                }
+                else
+                    Dashs[Loser].Knockback(((WallManager.ins.DashPivotX + KnockPlus * CharacterDirection(Loser)) * 0.1f * TimingWeight[Winner]), 0.5f);
 
             }
             TempStep = STEP.END;//스탭변경 - 종료
@@ -198,24 +216,28 @@ public class gameManager : MonoBehaviour
             }
         }
     }
-    void CatchTiming(float _Time)
+    void CatchTiming(float _Time,int Index)
     {
-        float PrimeNumber = 4.0f;
+        const float PrimeNumber = 2.0f;
         _Time = Mathf.Abs(_Time - PrimeNumber);
         if (_Time < 0.2f)
         {
             //Perfect
+            TimingWeight[Index] = 1.2f;
         }
         else if (_Time < 0.5f)
         {
             //Good
+            TimingWeight[Index] = 1f;
         }
         else if (_Time < 0.8f)
         {
+            TimingWeight[Index] = 0.7f;
             //Bad
         }
         else
         {
+            TimingWeight[Index] = 0;
             //실패
         }
 
@@ -270,16 +292,20 @@ public class gameManager : MonoBehaviour
     } // 20170330 사용 x
     public void Dash(DashAnim[] dashs)//달려드는함수
     {
-        float DashPivot = WallManager.ins.DashPivotX / 10f;
+        float DashPivot =  WallManager.ins.DashPivotX / 10f;
 
+        Debug.Log(WallManager.ins.DashPivotX + "WallManager.ins.DashPivotX");
         for (int i = 0; i < 2; i++)
         {
-            if (Mathf.Abs(dashs[i].tempX * 10 - WallManager.ins.WallPivot) < 10)
+           // if (Mathf.Abs(dashs[i].tempX * 10 - WallManager.ins.WallPivot) < 10)
+            // {
+            //     Debug.Log("Wait실행됨");
+            //     dashs[i].Wait(DashPivot + i == CHALLANGER ? 0.5f : -0.5f, 1);
+            // }
+            // else
+            if(true)
             {
-                dashs[i].Wait(DashPivot + i == CHALLANGER ? 0.5f : -0.5f, 1);
-            }
-            else
-            {
+                Debug.Log("Dash실행됨");
                 float DashCorrection = i == CHALLANGER ? 0.5f : -0.5f;
                 if (DashCorrection < 0) DashCorrection = 0;
                  dashs[i].Dash(DashCorrection + DashPivot, 1);

@@ -2295,6 +2295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UserStatus: []
   UserSlot: []
+  TimingWeight: []
   UIOpen: 0
   Combo: 0
   ComboContinues: 0
@@ -4347,12 +4348,12 @@ Prefab:
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[1]
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[0]
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
@@ -5963,6 +5964,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114205940684267342, guid: 87df2698e12baac4989d656c837897c1,
+        type: 2}
+      propertyPath: KeyCatchTime.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4320095693801870, guid: 87df2698e12baac4989d656c837897c1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
