@@ -32,6 +32,11 @@ public class gameManager : MonoBehaviour
     {
         START = 0, KEYCHECK = 1, DECISION = 2, HITDAMAGE = 3, END = 4
     }
+
+    public enum KEYDECISION : int
+    {
+        PERPECT = 0, GOOD = 1, BAD = 2, MISS = 0
+    }
     // Use this for initialization
     void Awake()
     {
@@ -126,14 +131,16 @@ public class gameManager : MonoBehaviour
             TempStep = STEP.KEYCHECK;// 키확인단계
             SkillManager.ins.RunPassives("KeyCheck");//키입력시 패시브 발동
             IControl.CheckingKey();
+            float[] KeyCatchTime = IControl.GetCatchTime();
           // StartCoroutine(KeyCheck());
-            
-           // while (!KeyAllClick)
-                while (!IControl.CheckingRunEffect())
+
+            // while (!KeyAllClick)
+            while (!IControl.CheckingRunEffect())
             {
                 //키체크가 끝날때까지 무한 루프
                 yield return null;
             }
+            float[] CatchTiming = IControl.GetCatchTime();
             Time.timeScale = 1;//평소대로
             //판정
             TempStep = STEP.DECISION;// 판정단계
@@ -191,7 +198,29 @@ public class gameManager : MonoBehaviour
             }
         }
     }
-    
+    void CatchTiming(float _Time)
+    {
+        float PrimeNumber = 4.0f;
+        _Time = Mathf.Abs(_Time - PrimeNumber);
+        if (_Time < 0.2f)
+        {
+            //Perfect
+        }
+        else if (_Time < 0.5f)
+        {
+            //Good
+        }
+        else if (_Time < 0.8f)
+        {
+            //Bad
+        }
+        else
+        {
+            //실패
+        }
+
+    }
+
      void ComboFunc(int winner)
     {
         int enemy = UserStatus[winner].Enemy();
@@ -210,7 +239,7 @@ public class gameManager : MonoBehaviour
         if (Combo == 8)
         {
         }
-    }
+    }//콤보, 20170330 사용x
     //이부분 바꿔야한다.
     IEnumerator KeyCheck()//키확인 함수
     {
@@ -238,7 +267,7 @@ public class gameManager : MonoBehaviour
             yield return null;
         }
         KeyAllClick = true;
-    }
+    } // 20170330 사용 x
     public void Dash(DashAnim[] dashs)//달려드는함수
     {
         float DashPivot = WallManager.ins.DashPivotX / 10f;

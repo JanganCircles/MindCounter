@@ -5,6 +5,7 @@ using UnityEngine;
 public class OfflineController : MonoBehaviour, InputController
 {
     public bool RunEffect = false;
+    public float[] KeyCatchTime  = { 0,0};
     // Use this for initialization
     void Start () {
 		
@@ -23,6 +24,10 @@ public class OfflineController : MonoBehaviour, InputController
         RunEffect = false;
         StartCoroutine(IECheckingKey());
     }
+    public float[] GetCatchTime()
+    {
+        return KeyCatchTime;
+    }
     IEnumerator IECheckingKey()
     {
         RunEffect = false;
@@ -31,6 +36,7 @@ public class OfflineController : MonoBehaviour, InputController
         bool[] CheckingOK = new bool[2];
         for (int i = 0; i < 2; i++)
         {
+            KeyCatchTime[i] = 5f;
             CheckingOK[i] = false;
         }
         while (Num < WaitTime && !(CheckingOK[gameManager.CHAMPION] && CheckingOK[gameManager.CHALLANGER]))
@@ -42,7 +48,10 @@ public class OfflineController : MonoBehaviour, InputController
                     CheckingOK[i] = gameManager.ins.UserSlot[i].KeyCheck();//두 플레이어 키 체크
 
                     if (CheckingOK[i])
+                    {
                         gameManager.ins.UserSlot[i].RunActive();
+                        KeyCatchTime[i] = Num;
+                    }
                 }
             }
             Num += Time.unscaledDeltaTime;

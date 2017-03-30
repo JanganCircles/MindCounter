@@ -21,7 +21,8 @@ public class SelectsMenuCtrl : MonoBehaviour {
     private bool AllOK;                     //두 캐릭터 전부 준비 되었는가.
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         PlayerSelect = new bool[2];
         MoveOK = new bool[2];
         LockOn = new bool[2];

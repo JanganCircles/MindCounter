@@ -20,6 +20,11 @@ public class OnlineController : NetworkBehaviour, InputController {
         if (GameData.ins.isOnline)
             UserCtrl = LobbyManager.ins.UserNumber;
     }
+    public float[] GetCatchTime()
+    {
+        float[] fNum = { 1, 2 };
+        return fNum;
+    }
     public bool CheckingRunEffect()
     {
         return RunEffect;
@@ -70,4 +75,5 @@ public interface InputController
 {
     void CheckingKey();
     bool CheckingRunEffect();
+    float[] GetCatchTime();
 }

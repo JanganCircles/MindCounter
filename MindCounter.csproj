@@ -96,6 +96,8 @@
     <Compile Include="Assets\Script\CharacterData.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\SelectsMenuCtrl.cs" />
     <Compile Include="Assets\Script\CheckingScreenSize.cs" />
+    <Compile Include="Assets\Script\Effects\EffectBase.cs" />
+    <Compile Include="Assets\Script\Effects\EffectManager.cs" />
     <Compile Include="Assets\Script\ExcelRoader.cs" />
     <Compile Include="Assets\Script\FadeIn.cs" />
     <Compile Include="Assets\Script\FadeOut.cs" />
