@@ -39,6 +39,15 @@ public class UIProgressBar : MonoBehaviour
             ProgressBarList[Name] = vec;
         }
     }
+    public static Vector2 GetData(string Name)
+    {
+        if (ProgressBarList.ContainsKey(Name))
+        {
+            Debug.Log(Name + ProgressBarList[Name]);
+            return ProgressBarList[Name];
+        }
+        return Vector2.zero;
+    }
     public static void Release()
     {
         if (ProgressBarList != null)
@@ -64,7 +73,7 @@ public class UIProgressBar : MonoBehaviour
             else
                 wh.y = Maximum * Per;
             rectTr.sizeDelta = wh;
-            yield return new WaitForSeconds(0.1f);
+            yield return null;
         }
     }
 }

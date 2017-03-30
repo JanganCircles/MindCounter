@@ -38,7 +38,7 @@ public class UITextSet : MonoBehaviour {
     {
         StartCoroutine("TextCheck");//텍스트 값 변경해주는 코루틴을 실행.
     }
-
+    
     IEnumerator TextCheck()
     {
         while (true)

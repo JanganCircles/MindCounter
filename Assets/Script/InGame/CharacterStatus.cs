@@ -18,12 +18,22 @@ public class CharacterStatus : MonoBehaviour {
     public const int ROCK   = 0;
     public const int SCISSOR = 1;
     public const int PAPER  = 2;
+
+    private bool isYellowCanSee;
     void Reset()
     {
+        isYellowCanSee = false;
         Cost = (MaxCost = CharacterData.Mp) / 2;
         Guard = false;
         SetMaxHP(false, CharacterData.Hp);
         WallDistance = 600;
+    }
+    void Start()
+    {
+        Vector2 Hps = new Vector2();
+        Hps.x = HP;
+        Hps.y = MaxHP;
+        UIProgressBar.SetData((Controller == 0 ? "Champion" : "Challanger") + "HP", Hps);
     }
     public void HpDown_Debuff(int Damage)
     {
@@ -67,9 +77,30 @@ public class CharacterStatus : MonoBehaviour {
     }
     public void HPProgressBar()
     {
+        StartCoroutine(HPDownAnimation());
+    }
+    public IEnumerator HPDownAnimation()
+    {
+        string ProgressBarName = (Controller == 0 ? "Champion" : "Challanger") + "HP";
         Vector2 Hps = new Vector2();
+        Vector2 YellowHps = new Vector2();
+        YellowHps = UIProgressBar.GetData(ProgressBarName);
         Hps.x = HP;
         Hps.y = MaxHP;
-        UIProgressBar.SetData((Controller == 0 ? "Champion" : "Challanger") + "HP",Hps);
+        UIProgressBar.SetData(ProgressBarName, Hps);
+        ProgressBarName += "Y";
+        if (isYellowCanSee)
+            yield break;
+        isYellowCanSee = true;
+        Debug.Log("노란x"+YellowHps);
+        Debug.Log("빨간x" + Hps);
+        while (YellowHps.x > HP)
+        {
+            Debug.Log("여기 드어옵니까");
+            YellowHps.x--;
+            UIProgressBar.SetData(ProgressBarName, YellowHps);
+            yield return null;
+        }
+        isYellowCanSee = false;
     }
 }
