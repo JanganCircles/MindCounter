@@ -56,7 +56,10 @@
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
      <Compile Include="Assets\Script\AudioVisualizer.cs" />
      <Compile Include="Assets\Script\CharacterData.cs" />
+     <Compile Include="Assets\Script\CharacterSelectUI\SelectsMenuCtrl.cs" />
      <Compile Include="Assets\Script\CheckingScreenSize.cs" />
+     <Compile Include="Assets\Script\Effects\EffectBase.cs" />
+     <Compile Include="Assets\Script\Effects\EffectManager.cs" />
      <Compile Include="Assets\Script\ExcelRoader.cs" />
      <Compile Include="Assets\Script\FadeIn.cs" />
      <Compile Include="Assets\Script\FadeOut.cs" />
@@ -89,6 +92,7 @@
      <Compile Include="Assets\Script\InGame\Skill\SkillList.cs" />
      <Compile Include="Assets\Script\InGame\Skill\SkillManager.cs" />
      <Compile Include="Assets\Script\InGame\Skill\SkillSlot.cs" />
+     <Compile Include="Assets\Script\InGame\UIMoveImage.cs" />
      <Compile Include="Assets\Script\InGame\UIShower.cs" />
      <Compile Include="Assets\Script\InGame\UIprogress.cs" />
      <Compile Include="Assets\Script\InGame\UserKeyData.cs" />
@@ -101,7 +105,6 @@
      <Compile Include="Assets\Script\ObjRotate.cs" />
      <Compile Include="Assets\Script\OnlineKeyInput.cs" />
      <Compile Include="Assets\Script\SceneChanger.cs" />
-     <Compile Include="Assets\Script\SelectsMenuCtrl.cs" />
      <Compile Include="Assets\Script\UtilityStandard\ObjectFooling.cs" />
      <Compile Include="Assets\Script\UtilityStandard\UIImageChanger.cs" />
      <Compile Include="Assets\Script\UtilityStandard\UIIsVisible.cs" />

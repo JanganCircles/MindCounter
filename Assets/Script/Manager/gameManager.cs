@@ -8,6 +8,7 @@ public class gameManager : MonoBehaviour
     public const int CHAMPION = 0;          //상수_챔피언
     public const int CHALLANGER = 1;        //상수_챌린저
     public const int DROW = -1;             //상수_비겼다.
+    public const int PRIMETIME = 2;         //퍼펙트시간
 
     public CharacterStatus[] UserStatus;    //캐릭터 스텟
     public SkillSlot[] UserSlot;            //스킬슬롯
@@ -131,6 +132,7 @@ public class gameManager : MonoBehaviour
             Time.timeScale = 0.05f;//슬로우
             UIOpen = false;
             TempStep = STEP.KEYCHECK;// 키확인단계
+            UIMoveImage.BarMove();
             SkillManager.ins.RunPassives("KeyCheck");//키입력시 패시브 발동
             IControl.CheckingKey();
             float[] KeyCatchTime = IControl.GetCatchTime();
@@ -218,8 +220,7 @@ public class gameManager : MonoBehaviour
     }
     void CatchTiming(float _Time,int Index)
     {
-        const float PrimeNumber = 2.0f;
-        _Time = Mathf.Abs(_Time - PrimeNumber);
+        _Time = Mathf.Abs(_Time - PRIMETIME);
         if (_Time < 0.2f)
         {
             //Perfect

@@ -22,7 +22,7 @@ public class BatManSkill : SkillBase
                CharacterStatus EnemyStat = skil.GetEnemy();
                if (!EnemyStat.Guard)
                {
-                   if (UnityEngine.Random.Range(0, 1) == 0)//50%
+                   if (UnityEngine.Random.Range(0, 2) == 0)//50%
                    {
                        WallManager.ins.Move((int)((float)WallManager.ins.PivotMove * 3f * gameManager.ins.TimingWeight[skil.Order]));
                    }
