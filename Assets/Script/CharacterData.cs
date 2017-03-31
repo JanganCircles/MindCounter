@@ -8,16 +8,13 @@ public class CharacterStatusSetup: MonoBehaviour {
     const int StreetFighter = 0; //권투맨
     const int ShieldWorrier = 1; //실드맨
     const int FencingMaster = 2; //펜싱맨
-
     const int BatMan = 3;        //빠따맨
-    const int Golliath = 4;      //헐크
+    const int Golem = 4;         //골렘
     const int GauntletsMan = 5;  //바이
-
-    const int Golem = 6;         //빅-골렘
-    const int Cat = 7;           //떼껄룩
-    const int Monk = 8;          //수도사
-
-    const int Assassin = 9;      //암살자 공간상 안들어감
+    const int Cat = 6;           //고양이
+    const int Random = 7;        //랜덤
+    const int Assassin = 8;      //암살자
+        
     const int dibidibidip= 10;   //외계인 넌그냥..
 
     public enum Charas : int
@@ -26,12 +23,11 @@ public class CharacterStatusSetup: MonoBehaviour {
         ShieldWorrier = 1,
         FencingMaster = 2,
         BatMan = 3,
-        Golliath = 4,
+        Golem = 4,
         GauntletsMan = 5,
-        Golem = 6,
-        Cat = 7,
-        Monk = 8,
-        Assassin = 9,
+        Cat = 6,
+        Random = 7,
+        Assassin = 8,
         dibidibidip = 10
     }
     public static void SetupStat(int Index,int CharacterNum)
@@ -55,11 +51,6 @@ public class CharacterStatusSetup: MonoBehaviour {
                 {
                 }
                 break;
-            case Golliath:
-                {
-                    Stat.SetMaxHP(false, 2000);
-                }
-                break;
             case GauntletsMan:
                 {
                 }
@@ -70,10 +61,6 @@ public class CharacterStatusSetup: MonoBehaviour {
                 }
                 break;
             case Cat:
-                {
-                }
-                break;
-            case Monk:
                 {
                 }
                 break;

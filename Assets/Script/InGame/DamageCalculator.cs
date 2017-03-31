@@ -84,11 +84,13 @@ public class DamageCalculator : MonoBehaviour {
         int MultipleIndex = GetIndex(MULTIPLE);
         for (int i = PLUS; i < PlusIndex; i++)
         {
+            Debug.Log((int)PlusDamage[i] + " + ");
             Result += (int)PlusDamage[i];
         }
         float ResultMultiple = 1;
         for (int i = MULTIPLE; i < MultipleIndex; i++)
         {
+            Debug.Log(PlusDamage[i] + " * ");
             ResultMultiple *= PlusDamage[i];
         }
         Result = (int)((float)Result * ResultMultiple);

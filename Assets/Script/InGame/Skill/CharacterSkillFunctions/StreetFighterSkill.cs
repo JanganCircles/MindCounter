@@ -28,12 +28,13 @@ public class StreetFighterSkill : SkillBase
                {
                    if (UnityEngine.Random.Range(0, 2) == 0)//50%
                    {
+                       Debug.Log("크리100%");
                        EnemyStat.Guard = false;
                        sk.PassiveCount["Critical"] = 100;
                    }
                }
                CharacterStatus OrderStat = gameManager.ins.UserStatus[Order];
-           }, "Attack");
+           }, "Decision");
         PerpectCounter.AddPassive(
            delegate (Skill skil)
            {

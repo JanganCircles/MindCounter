@@ -8,7 +8,7 @@ public class gameManager : MonoBehaviour
     public const int CHAMPION = 0;          //상수_챔피언
     public const int CHALLANGER = 1;        //상수_챌린저
     public const int DROW = -1;             //상수_비겼다.
-    public const int PRIMETIME = 2;         //퍼펙트시간
+    public const int PRIMETIME = 4;         //퍼펙트시간
 
     public CharacterStatus[] UserStatus;    //캐릭터 스텟
     public SkillSlot[] UserSlot;            //스킬슬롯
@@ -295,7 +295,6 @@ public class gameManager : MonoBehaviour
     {
         float DashPivot =  WallManager.ins.DashPivotX / 10f;
 
-        Debug.Log(WallManager.ins.DashPivotX + "WallManager.ins.DashPivotX");
         for (int i = 0; i < 2; i++)
         {
            // if (Mathf.Abs(dashs[i].tempX * 10 - WallManager.ins.WallPivot) < 10)

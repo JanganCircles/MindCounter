@@ -21,7 +21,7 @@ public class GauntletGirlSkill : SkillBase {
                CharacterStatus OrderStat = skil.GetOrder();
 
 
-               Debug.Log("펜싱맨 스킬 들어옴");
+               Debug.Log("건틀릿 스킬 들어옴");
                if (OrderStat.Guard)
                {
                    OverCharge.StackSet(1);
@@ -33,7 +33,7 @@ public class GauntletGirlSkill : SkillBase {
                CharacterStatus OrderStat = skil.GetOrder();
 
 
-               Debug.Log("펜싱맨 스킬 들어옴");
+               Debug.Log("건틀릿 스킬 들어옴");
                if (OverCharge.TempStack == OverCharge.MaxStack)
                {
                    DamageCalculator.ins.AddDamage(DamageCalculator.PLUS_s, DamageData.Strong, "OverCharge");

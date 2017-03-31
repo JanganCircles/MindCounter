@@ -33,7 +33,6 @@ public class DashAnim : MonoBehaviour {
     }
     public void Dash(float Position, float _Time)
     {
-        Debug.Log(Position);
         MovePos.x = Position;
         TempTime = _Time;
         StartCoroutine(Dash());

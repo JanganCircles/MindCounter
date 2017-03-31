@@ -57,13 +57,10 @@ public class SkillManager : MonoBehaviour {
             case CharacterStatusSetup.Charas.ShieldWorrier: Passives = new ShieldWorriorSkill(); break;
             case CharacterStatusSetup.Charas.FencingMaster: Passives = new FencingMasterSkill(); break;
             case CharacterStatusSetup.Charas.BatMan: Passives = new BatManSkill(); break;
-            case CharacterStatusSetup.Charas.Golliath: Passives = new GolliathSkill(); break;
             case CharacterStatusSetup.Charas.GauntletsMan:Passives = new GauntletGirlSkill(); break;
             case CharacterStatusSetup.Charas.Golem: Passives = new GolemSkill(); break;
             case CharacterStatusSetup.Charas.Cat: Passives = new CatSkill(); break;
-            case CharacterStatusSetup.Charas.Monk: Passives = new MonkSkill(); break;
-            case CharacterStatusSetup.Charas.Assassin:
-                break;
+            case CharacterStatusSetup.Charas.Assassin: Passives = new AssassinSkill(); break;
             case CharacterStatusSetup.Charas.dibidibidip:
                 break;
             default: return false;
