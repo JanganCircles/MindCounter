@@ -8,7 +8,7 @@ public class gameManager : MonoBehaviour
     public const int CHAMPION = 0;          //상수_챔피언
     public const int CHALLANGER = 1;        //상수_챌린저
     public const int DROW = -1;             //상수_비겼다.
-    public const int PRIMETIME = 4;         //퍼펙트시간
+    public const int PRIMETIME = 3;         //퍼펙트시간
 
     public CharacterStatus[] UserStatus;    //캐릭터 스텟
     public SkillSlot[] UserSlot;            //스킬슬롯
@@ -221,17 +221,17 @@ public class gameManager : MonoBehaviour
     void CatchTiming(float _Time,int Index)
     {
         _Time = Mathf.Abs(_Time - PRIMETIME);
-        if (_Time < 0.2f)
+        if (_Time < 0.1f)
         {
             //Perfect
             TimingWeight[Index] = 1.2f;
         }
-        else if (_Time < 0.5f)
+        else if (_Time < 0.25f)
         {
             //Good
             TimingWeight[Index] = 1f;
         }
-        else if (_Time < 0.8f)
+        else if (_Time < 0.4f)
         {
             TimingWeight[Index] = 0.7f;
             //Bad

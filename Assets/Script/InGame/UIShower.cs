@@ -21,6 +21,7 @@ public class UIShower : MonoBehaviour {
 
         UITextSet.UIList["Combo"] = (gameManager.ins.ComboContinues == 0 ? "챔피언 " : "챌린저 ") + gameManager.ins.Combo.ToString()+ "콤보" + (gameManager.ins.Combo >=8 ? "!!" : "");         //벽까지 남은 거리
 
+        UITextSet.UIList[ControllerName + "Judgement"] = gameManager.ins.TimingWeight[status.Controller].ToString();
         UITextSet.UIList[ControllerName + "Hp"] = status.HP.ToString();                              //체력
         UITextSet.UIList[ControllerName + "WallDistance"] = status.WallDistance.ToString();         //벽까지 남은 거리
         string str0 = "";
