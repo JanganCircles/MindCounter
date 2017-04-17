@@ -50,10 +50,15 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             if (skl.PassiveCount["Switch"] == 1)
             {
-                skl.PassiveCount["Switch"] = 0;
                 Orderstat.CostPlus(CostData.EnergyRecovery);
             }
         }, "Decision");//시작시 발동
+        Energy.AddPassive(delegate (Skill skl)
+        {
+            if (skl.PassiveCount["Switch"] == 1)
+                skl.PassiveCount["Switch"] = 0;
+        }
+        ,"End");
 
         List.GetSlot("회복").SkillChange(Energy);
     }

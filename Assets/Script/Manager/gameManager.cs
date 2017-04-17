@@ -83,6 +83,7 @@ public class gameManager : MonoBehaviour
     }
     IEnumerator GamePlay()
     {
+        Item.GetItem(Item.ITEMCODE.armor_L);
         DashAnim[] Dashs = new DashAnim[2]; // 돌진관련 변수
         for (int i = 0; i < 2; i++) { 
             Dashs[i] = UserStatus[i].gameObject.GetComponent<DashAnim>();// 돌진관련변수 - 초기화

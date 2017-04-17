@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterStatusSetup: MonoBehaviour {
+public class CharacterStatusSetup {
     public static CharacterStatusSetup ins;
 
     const int StreetFighter = 0; //권투맨

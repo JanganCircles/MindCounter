@@ -14,6 +14,4 @@ public class ExcelRoader : MonoBehaviour {
 	void Update () {
 		
 	}
-    [DllImport("ExcelToObject")]
-    private static extern void ExcelGetter(string Path);
 }

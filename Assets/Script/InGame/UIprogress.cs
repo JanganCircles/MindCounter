@@ -3,7 +3,7 @@ using System.Collections;
 
 public class UIprogress : MonoBehaviour {
     private CharacterStatus status;
-    public GameObject CharHPred, CharHPblank;
+    public GameObject CharHP_red, CharHP_blank;
     public int nowHP = 0;
     public int maxHp = 0;
     public int Cost = 0;
