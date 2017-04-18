@@ -62,7 +62,7 @@ public class FencingMasterSkill : SkillBase
                if (EagleEyes.TempStack == EagleEyes.MaxStack)
                {
                    Debug.Log("펜싱선수 패시브 종료");
-                   sk.PassiveCount["Critical"] = ProbabilityData.Critical;
+                   sk.PassiveCount["Critical"] = sk.PassiveCount["MaxCritical"];
                    EagleEyes.StackSet(0);
                }
            }, "End");

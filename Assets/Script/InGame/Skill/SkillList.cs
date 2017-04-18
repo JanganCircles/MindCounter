@@ -236,6 +236,7 @@ public class SkillList : MonoBehaviour {
         CharacterStatus Enemy;
         Skill Critical = new Skill("Critical");//치명타
         Critical.PassiveCount.Add("Critical", ProbabilityData.Critical);
+        Critical.PassiveCount.Add("BaseCritical", ProbabilityData.Critical);
         Critical.SetCharacter(List.GetComponent<CharacterStatus>().Controller);
         Critical.AddPassive(
            delegate (Skill skil)

@@ -13,8 +13,9 @@ public class CharacterStatus : MonoBehaviour {
     public int AttackType;          //공격타입
     public int MaxCost;             //최대 코스트
     public int Cost;                //현재 코스트
-    
 
+
+    public bool usingPotion;        //현재턴에 포션을 사용했는가.
     public const int ROCK   = 0;
     public const int SCISSOR = 1;
     public const int PAPER  = 2;
@@ -34,6 +35,11 @@ public class CharacterStatus : MonoBehaviour {
         Hps.x = HP;
         Hps.y = MaxHP;
         UIProgressBar.SetData((Controller == 0 ? "Champion" : "Challanger") + "HP", Hps);
+        usingPotion = false;
+    }
+    public void TurnStart()
+    {
+        usingPotion = false;
     }
     public void HpDown_Debuff(int Damage)
     {

@@ -41,7 +41,7 @@ public class StreetFighterSkill : SkillBase
                Skill sk = SkillManager.ins.GetSkill(Order, "Critical");
                if (sk.PassiveCount["Critical"] == 100)
                {
-                   sk.PassiveCount["Critical"] = ProbabilityData.Critical;
+                   sk.PassiveCount["Critical"] = sk.PassiveCount["MaxCritical"];
                }
            }, "End");
         return PerpectCounter;

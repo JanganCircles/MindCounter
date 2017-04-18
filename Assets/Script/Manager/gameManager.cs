@@ -10,6 +10,10 @@ public class gameManager : MonoBehaviour
     public const int DROW = -1;             //상수_비겼다.
     public const int PRIMETIME = 3;         //퍼펙트시간
 
+    public const float PERPECT = 1.2f;      //퍼펙트_계수
+    public const float GOOD = 1.0f;         //굿_계수
+    public const float BAD = 0.7f;          //배드_계수
+
     public CharacterStatus[] UserStatus;    //캐릭터 스텟
     public SkillSlot[] UserSlot;            //스킬슬롯
     public float[] TimingWeight;            //잘맞았냐
@@ -83,7 +87,7 @@ public class gameManager : MonoBehaviour
     }
     IEnumerator GamePlay()
     {
-        Item.GetItem(Item.ITEMCODE.armor_L);
+        Item.GetItem(Item.ITEMCODE.bible_M);
         DashAnim[] Dashs = new DashAnim[2]; // 돌진관련 변수
         for (int i = 0; i < 2; i++) { 
             Dashs[i] = UserStatus[i].gameObject.GetComponent<DashAnim>();// 돌진관련변수 - 초기화
@@ -121,6 +125,7 @@ public class gameManager : MonoBehaviour
 
 
 
+        SkillManager.ins.RunPassives("GameStart");// 게임처음시작
         while (true)// 게임시작 루프
         {
             isCounter = false;
@@ -216,6 +221,7 @@ public class gameManager : MonoBehaviour
             for (int i = 0; i < 2; i++)
             {
                 UserSlot[i].SelectReset();
+                UserStatus[i].TurnStart();
             }
         }
     }
