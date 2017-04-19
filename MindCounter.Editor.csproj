@@ -145,7 +145,6 @@
     <Compile Include="Assets\z_AnotherAsset\Standard Assets\Editor\Water\Water4\WaterEditorUtility.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Resources\Item.txt" />
     <None Include="Assets\z_AnotherAsset\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\z_AnotherAsset\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\z_AnotherAsset\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

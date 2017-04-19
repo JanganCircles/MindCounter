@@ -16,6 +16,7 @@ public class CharacterStatus : MonoBehaviour {
 
 
     public bool usingPotion;        //현재턴에 포션을 사용했는가.
+    public bool isSuperArmor;       //슈아인가(넉백안됨)
     public const int ROCK   = 0;
     public const int SCISSOR = 1;
     public const int PAPER  = 2;
@@ -40,6 +41,7 @@ public class CharacterStatus : MonoBehaviour {
     public void TurnStart()
     {
         usingPotion = false;
+        isSuperArmor = false;
     }
     public void HpDown_Debuff(int Damage)
     {
@@ -62,7 +64,7 @@ public class CharacterStatus : MonoBehaviour {
         {
             float PerHp = HP / (float)MaxHP;
             MaxHP += _MaxHP;
-            MaxHP = (int)((float)MaxHP *PerHp);
+            HP = (int)((float)MaxHP *PerHp);
         }
         else
         {

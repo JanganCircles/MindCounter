@@ -4,13 +4,25 @@ using System.Collections.Generic;
 
 public class DamageCalculator : MonoBehaviour {
 
+    public struct DAMAGE_DEBUG
+    {
+        public float Damage;
+        public string name;
+        public DAMAGE_DEBUG(float _Dmg,string _name)
+        {
+            Damage = _Dmg;
+            name = _name;
+        }
+    }
     public const int MULTIPLE = 0;
     public const int PLUS = 100;
     public const string MULTIPLE_s = "Multiple";
     public const string PLUS_s = "Plus";
     public static DamageCalculator ins = null;
     public int TempDamage;
+    public int PrevDamage;
     public float[] PlusDamage;
+    public DAMAGE_DEBUG[] DebugOnlyChecking;
     public Dictionary<string, int> StringToIndex;
     // Use this for initialization
 
@@ -21,6 +33,8 @@ public class DamageCalculator : MonoBehaviour {
      */
     void Awake()
     {
+        DebugOnlyChecking = new DAMAGE_DEBUG[200];
+        PrevDamage = 0;
         PlusDamage = new float[200];
         for (int i = 0; i < 200; i++)
             PlusDamage[i] = float.MaxValue;
@@ -51,20 +65,26 @@ public class DamageCalculator : MonoBehaviour {
         }
         indexer_1 = GetIndex(indexer_0);
         PlusDamage[indexer_1] = Damage;
+        DebugOnlyChecking[indexer_1] = new DAMAGE_DEBUG(Damage,DamageName);
+
         if (StringToIndex.ContainsKey(DamageName))
         {
             StringToIndex[DamageName] = indexer_1;
         }
         else
+        {
             StringToIndex.Add(DamageName, indexer_1);
+        }
     }
     void DamageReset()
     {
+        PrevDamage = TempDamage;
         TempDamage = 0;
         for (int i = 0; i < 200; i++)
         {
             PlusDamage[i] = float.MaxValue;
         }
+        DebugOnlyChecking = new DAMAGE_DEBUG[200];
 
     }
     int GetIndex(int index)
@@ -84,16 +104,17 @@ public class DamageCalculator : MonoBehaviour {
         int MultipleIndex = GetIndex(MULTIPLE);
         for (int i = PLUS; i < PlusIndex; i++)
         {
-            Debug.Log((int)PlusDamage[i] + " + ");
+            Debug.Log(DebugOnlyChecking[i].Damage + " + " + DebugOnlyChecking[i].name);
             Result += (int)PlusDamage[i];
         }
         float ResultMultiple = 1;
         for (int i = MULTIPLE; i < MultipleIndex; i++)
         {
-            Debug.Log(PlusDamage[i] + " * ");
+            Debug.Log(DebugOnlyChecking[i].Damage + " * " + DebugOnlyChecking[i].name);
             ResultMultiple *= PlusDamage[i];
         }
         Result = (int)((float)Result * ResultMultiple);
+        PrevDamage = Result;
         DamageReset();
         return Result;
 

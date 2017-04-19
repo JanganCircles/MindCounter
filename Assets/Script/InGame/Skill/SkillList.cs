@@ -374,7 +374,14 @@ public class Skill {
     }
     public void AddPassive(Active pas, string str)//패시브함수, 발동할상태
     {
-        PassiveList.Add(str, pas);
+        if (PassiveList.ContainsKey(str))
+        {
+            PassiveList[str] += pas;
+        }
+        else
+        {
+            PassiveList.Add(str, pas);
+        }
     }
     virtual public bool isRun()//돌아갈 수 있는가
     {

@@ -5,7 +5,8 @@ public class SkillSlot : MonoBehaviour {
 
     public string[] SlotName;
     private EmptySlot[] SlotList;
-    private const int SlotLength = 5;
+    private Item.ItemData[] Items = null;
+    private const int SlotLength = 7;
     public int slotLength {
         get {
             return SlotLength;
@@ -23,8 +24,8 @@ public class SkillSlot : MonoBehaviour {
         SlotName[2] = "강";
         SlotName[3] = "가드";
         SlotName[4] = "회복";//여기서부터 미구현
-        SlotName[5] = "특수1";
-        SlotName[6] = "특수2";
+        SlotName[5] = "아이템0";
+        SlotName[6] = "아이템1";
         SlotName[7] = "특수3";
     }
 	void Awake(){
@@ -36,6 +37,21 @@ public class SkillSlot : MonoBehaviour {
 		}
 		
 	}
+    public void SetItem(Item.ItemData item)
+    {
+        int index;
+        if (Items == null)
+        {
+            Items = new Item.ItemData[2];
+            index = 0;
+        }
+        else
+        {
+            index = 1;
+        }
+        Items[index] = item;
+        GetSlot("아이템" + index.ToString()).SkillChange(Items[index].skill);
+    }
 	void Start () {
         CharacterStatus stat =  GetComponent<CharacterStatus>();
         KeyCode[] codes;
@@ -49,6 +65,19 @@ public class SkillSlot : MonoBehaviour {
         SkillSlot sk = this;
         SkillList.ins.AddingDefaultSkill(ref sk);
         SkillList.ins.Skill_DefaultPassive(ref sk);
+
+        //아이템은 여기 들어와야한다
+        // SetItem(Item.GetItem(Item.ITEMCODE.armor_L));
+        if (stat.Controller == gameManager.CHALLANGER)
+        {
+            SetItem(Item.GetItem(Item.ITEMCODE.russianroulette_L));
+            SetItem(Item.GetItem(Item.ITEMCODE.russianroulette_S));
+        }
+        else
+        {
+            SetItem(Item.GetItem(Item.ITEMCODE.doubleaxe_L));
+            SetItem(Item.GetItem(Item.ITEMCODE.doubleaxe_S));
+        }
         for (int i = 0; i < SlotLength; i++)
         {
             SlotList[i].key = codes[i];
@@ -146,6 +175,10 @@ public class EmptySlot
     {
         Reset();
         TempSkill = skl;
+        if (skl == null)
+        {
+            int abc = 0;
+        }
         TempSkill.SkillNum = index;
     }
     public Skill GetSkill()

@@ -116,7 +116,7 @@
     <Compile Include="Assets\Script\InGame\Skill\CharacterSkillFunctions\StreetFighterSkill.cs" />
     <Compile Include="Assets\Script\InGame\Skill\DebuffSkillFunctions\DebuffSkillList.cs" />
     <Compile Include="Assets\Script\InGame\Skill\DebuffSkillFunctions\DebuffSkill_GolemMagma.cs" />
-    <Compile Include="Assets\Script\InGame\Skill\ItemSkill\Item.cs" />
+    <Compile Include="Assets\Script\InGame\Skill\Item.cs" />
     <Compile Include="Assets\Script\InGame\Skill\SkillFunctions\SkillDefault.cs" />
     <Compile Include="Assets\Script\InGame\Skill\SkillList.cs" />
     <Compile Include="Assets\Script\InGame\Skill\SkillManager.cs" />
@@ -283,7 +283,6 @@
     <Compile Include="Assets\z_AnotherAsset\Standard Assets\Vehicles\Car\Scripts\WheelEffects.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Resources\Item.txt" />
     <None Include="Assets\z_AnotherAsset\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\z_AnotherAsset\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\z_AnotherAsset\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

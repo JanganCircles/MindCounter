@@ -33,5 +33,5 @@ public class KnockBackData
 }
 public class ProbabilityData
 {
-    public const int Critical = 5;
+    public const int Critical = 100;
 }

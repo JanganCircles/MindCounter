@@ -161,6 +161,8 @@ MonoBehaviour:
   AttackType: 0
   MaxCost: 200
   Cost: 100
+  usingPotion: 0
+  isSuperArmor: 0
 --- !u!4 &4654586
 Transform:
   m_ObjectHideFlags: 0
@@ -203,6 +205,8 @@ MonoBehaviour:
   - "\uAC15"
   - "\uAC00\uB4DC"
   - "\uD68C\uBCF5"
+  - "\uC544\uC774\uD15C0"
+  - "\uC544\uC774\uD15C1"
   selectedSlot: 0
 --- !u!114 &4654590
 MonoBehaviour:
@@ -1063,6 +1067,97 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 226288113}
+--- !u!1 &231487639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 231487640}
+  - component: {fileID: 231487643}
+  - component: {fileID: 231487642}
+  - component: {fileID: 231487641}
+  m_Layer: 5
+  m_Name: ChallangerJudgement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &231487640
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 231487639}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0816585, y: 1.0816585, z: 1.0816585}
+  m_Children: []
+  m_Father: {fileID: 1016314364}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 150, y: -160}
+  m_SizeDelta: {x: 160, y: 23.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &231487641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 231487639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ae27ec9791bf642beacd1b3225b491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CHTemp
+  useName: 1
+  TargetTxt: {fileID: 231487642}
+--- !u!114 &231487642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 231487639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Judgement
+
+'
+--- !u!222 &231487643
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 231487639}
 --- !u!1 &327843327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,9 +1459,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'ChampionStasis
-
-'
+  m_Text: ChampionStasis
 --- !u!222 &378287627
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3433,6 +3526,8 @@ MonoBehaviour:
   AttackType: 0
   MaxCost: 200
   Cost: 100
+  usingPotion: 0
+  isSuperArmor: 0
 --- !u!114 &941890100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3474,6 +3569,8 @@ MonoBehaviour:
   - "\uAC15"
   - "\uAC00\uB4DC"
   - "\uD68C\uBCF5"
+  - "\uC544\uC774\uD15C0"
+  - "\uC544\uC774\uD15C1"
   selectedSlot: 0
 --- !u!114 &941890104
 MonoBehaviour:
@@ -3816,6 +3913,8 @@ Transform:
   - {fileID: 458933803}
   - {fileID: 118426331}
   - {fileID: 1515608738}
+  - {fileID: 1440950778}
+  - {fileID: 231487640}
   m_Father: {fileID: 1312919403}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5407,6 +5506,97 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436158388}
+--- !u!1 &1440950777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1440950778}
+  - component: {fileID: 1440950781}
+  - component: {fileID: 1440950780}
+  - component: {fileID: 1440950779}
+  m_Layer: 5
+  m_Name: ChampionJudgement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1440950778
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1440950777}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0816585, y: 1.0816585, z: 1.0816585}
+  m_Children: []
+  m_Father: {fileID: 1016314364}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -150.00002, y: -161.7}
+  m_SizeDelta: {x: 160, y: 23.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1440950779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1440950777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ae27ec9791bf642beacd1b3225b491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CHTemp
+  useName: 1
+  TargetTxt: {fileID: 1440950780}
+--- !u!114 &1440950780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1440950777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Judgement
+
+'
+--- !u!222 &1440950781
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1440950777}
 --- !u!1 &1481085421
 GameObject:
   m_ObjectHideFlags: 0
@@ -6400,6 +6590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TempDamage: 0
+  PrevDamage: 0
   PlusDamage: []
 --- !u!4 &1918519086
 Transform:

@@ -87,7 +87,11 @@ public class gameManager : MonoBehaviour
     }
     IEnumerator GamePlay()
     {
-        Item.GetItem(Item.ITEMCODE.bible_M);
+        for (Item.ITEMCODE i = 0; i < Item.ITEMCODE.randomBox_L; i++)//아이템 확인
+        {
+            if (i == Item.ITEMCODE.randomBox_L || i == Item.ITEMCODE.randomBox_M || i == Item.ITEMCODE.randomBox_S) continue;
+            Item.GetItem(i);
+        }
         DashAnim[] Dashs = new DashAnim[2]; // 돌진관련 변수
         for (int i = 0; i < 2; i++) { 
             Dashs[i] = UserStatus[i].gameObject.GetComponent<DashAnim>();// 돌진관련변수 - 초기화
@@ -189,8 +193,8 @@ public class gameManager : MonoBehaviour
                 Shake(damage * 16);                                 //지진
                 UserStatus[Loser].HpDown(damage);              //HP깎고
                 UITextSet.UIList["Damage"] = damage.ToString();//최종 데미지 UI
-
                 //ComboFunc(Winner);                             //콤보설정
+                SkillManager.ins.RunPassives("WallSetting");//벽이동 전 패시브 발동
                 bool LoserConer = UserStatus[Loser].WallDistance == 0;
                 WallManager.ins.SetPivot();//벽과의 거리 설정
 
@@ -202,7 +206,7 @@ public class gameManager : MonoBehaviour
                         Dashs[i].Knockback((WallManager.ins.DashPivotX + 50f * CharacterDirection(i)) * 0.1f, 0.5f);//서로넉백
                     }
                 }
-                else if (LoserConer)
+                else if (LoserConer || UserStatus[Loser].isSuperArmor)
                 {
                     KnockPlus = 85f;
                     Dashs[Winner].Knockback(((WallManager.ins.DashPivotX + KnockPlus * CharacterDirection(Winner)) * 0.1f), 0.5f);
