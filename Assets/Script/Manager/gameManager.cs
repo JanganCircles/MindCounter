@@ -8,7 +8,7 @@ public class gameManager : MonoBehaviour
     public const int CHAMPION = 0;          //상수_챔피언
     public const int CHALLANGER = 1;        //상수_챌린저
     public const int DROW = -1;             //상수_비겼다.
-    public const int PRIMETIME = 3;         //퍼펙트시간
+    public const int PRIMETIME = 1;         //퍼펙트시간
 
     public const float PERPECT = 1.2f;      //퍼펙트_계수
     public const float GOOD = 1.0f;         //굿_계수
@@ -195,18 +195,20 @@ public class gameManager : MonoBehaviour
                 UITextSet.UIList["Damage"] = damage.ToString();//최종 데미지 UI
                 //ComboFunc(Winner);                             //콤보설정
                 SkillManager.ins.RunPassives("WallSetting");//벽이동 전 패시브 발동
+                Loser = UserStatus[Winner].Enemy();//패자
                 bool LoserConer = UserStatus[Loser].WallDistance == 0;
+                float pMove = WallManager.ins.PivotMove;
                 WallManager.ins.SetPivot();//벽과의 거리 설정
 
                 float KnockPlus = 50f;
-                if (damage == 0)
+                if (pMove == 0)
                 {
                     for (int i = 0; i < 2; i++)
                     {
                         Dashs[i].Knockback((WallManager.ins.DashPivotX + 50f * CharacterDirection(i)) * 0.1f, 0.5f);//서로넉백
                     }
                 }
-                else if (LoserConer || UserStatus[Loser].isSuperArmor)
+                else if (LoserConer || UserStatus[Loser].isSuperArmor )
                 {
                     KnockPlus = 85f;
                     Dashs[Winner].Knockback(((WallManager.ins.DashPivotX + KnockPlus * CharacterDirection(Winner)) * 0.1f), 0.5f);
@@ -219,7 +221,7 @@ public class gameManager : MonoBehaviour
             SkillManager.ins.RunPassives("End");////종료
 
             Debug.Log("끝");
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.75f);
             Debug.Log("한바퀴");
             Turn++;
             for (int i = 0; i < 2; i++)

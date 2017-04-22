@@ -306,16 +306,17 @@ public class Item  {
     {
         TempSkill.PassiveCount.Add("Shield", 0);
         TempSkill.PassiveCount.Add("Damage", 0);
+        TempSkill.PassiveCount.Add("ShieldMultiple", shieldValue);
         TempSkill.AddPassive(delegate (Skill skill)
         {
-                TempSkill.PassiveCount["Shield"] = 0;
+            skill.PassiveCount["Shield"] = 0;
         }, "Start");
         TempSkill.AddPassive(delegate (Skill skill)
         {
             if (skill.GetOrder().Guard)
             {
-                TempSkill.PassiveCount["Shield"] = 1;
-                TempSkill.PassiveCount["Damage"] = DamageCalculator.ins.TempDamage;
+                skill.PassiveCount["Shield"] = 1;
+                skill.PassiveCount["Damage"] = DamageCalculator.ins.TempDamage;
             }
         }, "Hit");
         TempSkill.AddPassive(delegate (Skill skill)
@@ -323,10 +324,10 @@ public class Item  {
             if(skill.PassiveCount["Shield"] == 1)
             {
                 WallManager.ins.ResetPivot();
-                WallManager.ins.Move((int)TempSkill.PassiveCount["Damage"] * shieldValue, skill.GetOrder().Enemy() );
-
+                WallManager.ins.Move((int)(skill.PassiveCount["Damage"] * skill.PassiveCount["ShieldMultiple"]), skill.GetOrder().Enemy() );
+                gameManager.ins.Winner = 1 - gameManager.ins.Winner;
             }
-        },"Wallsetting");
+        }, "WallSetting");
     }
     public static void Add_MaxHp( int HPValue)
     {

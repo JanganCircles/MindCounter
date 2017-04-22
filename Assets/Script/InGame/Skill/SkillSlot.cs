@@ -70,7 +70,7 @@ public class SkillSlot : MonoBehaviour {
         // SetItem(Item.GetItem(Item.ITEMCODE.armor_L));
         if (stat.Controller == gameManager.CHALLANGER)
         {
-            SetItem(Item.GetItem(Item.ITEMCODE.russianroulette_L));
+            SetItem(Item.GetItem(Item.ITEMCODE.shield_L));
             SetItem(Item.GetItem(Item.ITEMCODE.russianroulette_S));
         }
         else
