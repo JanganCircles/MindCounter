@@ -128,7 +128,7 @@ public class Item  {
             }
             TurnNum = int.Parse(Str);
             TempSkill = new StackSkill(UsingNum,TempName);
-            //OptionSetting(TempStr, 6);
+            OptionSetting(TempStr, 6);
             //파싱한 내용 따라서 구현
 
         }
@@ -158,7 +158,7 @@ public class Item  {
             string Str = lstr[index];
             string Key = "";
             string ValueStr = "";
-            double Value ;
+            double Value = 0.0f;
             foreach (char e in Str)
             {
                 if (!('A' <= e && e <= 'Z'))
@@ -168,7 +168,8 @@ public class Item  {
                 else
                     Key += e;
             }
-            Value = double.Parse(ValueStr);
+            if(ValueStr != "")
+                Value = double.Parse(ValueStr);
             switch (Key)
             {
                 case "PDMG": { Potion_DamageUp((int)Value); } break;
@@ -208,7 +209,7 @@ public class Item  {
 
         s.ActiveSkillSet(delegate (Skill skill)
         {            //체크
-            s.PassiveCount["Count"] = 1;
+            skill.PassiveCount["Count"] = 1;
         });
         s.AddPassive(delegate (Skill skill)
         {
@@ -219,26 +220,15 @@ public class Item  {
         }, "Attack");
         s.AddPassive(delegate (Skill skill)
         {
-            s.PassiveCount["Count"] = 0;
+            skill.PassiveCount["Count"] = 0;
         }, "End");
     }
     public static void Potion_CostHeal( int Cost)
     {
         StackSkill s = TempSkill as StackSkill;
-        if (s == null) return;
-        s.ActiveSkillSet(delegate (Skill skill)
-        {
-            if (s.TempStack != 0)
-            {
-                s.StackMinus();
-                skill.GetOrder().CostPlus(Cost);
-            }
-        });
-        TempSkill = s;
-    }
-    public static void Potion_HpHeal( int Heal)
-    {
-        StackSkill s = TempSkill as StackSkill;
+        s.PassiveCount.Add("CostHeal", Cost);
+        s.isUseTurn = false;
+        s.isUseToStack = true;
         if (s == null) return;
         s.ActiveSkillSet(delegate (Skill skill)
         {
@@ -246,8 +236,26 @@ public class Item  {
             {
                 s.StackMinus();
                 CharacterStatus Stat = skill.GetOrder();
-                Stat.HP += Heal;
-                if (Stat.MaxHP > Stat.HP)
+                skill.GetOrder().CostPlus((int)skill.PassiveCount["CostHeal"]);
+            }
+        });
+        TempSkill = s;
+    }
+    public static void Potion_HpHeal( int Heal)
+    {
+        StackSkill s = TempSkill as StackSkill;
+        s.PassiveCount.Add("Heal", Heal);
+        s.isUseTurn = false;
+        s.isUseToStack = true;
+        if (s == null) return;
+        s.ActiveSkillSet(delegate (Skill skill)
+        {
+            if (s.TempStack != 0)
+            {
+                s.StackMinus();
+                CharacterStatus Stat = skill.GetOrder();
+                Stat.HpDown(-(int)s.PassiveCount["Heal"]);
+                if (Stat.MaxHP < Stat.HP)
                     Stat.HP = Stat.MaxHP;
 
             }
@@ -343,11 +351,13 @@ public class Item  {
     }
     public static void Add_BaseCriRate( int Crirate)
     {
+        TempSkill.PassiveCount.Add("CriRate", Crirate);
         TempSkill.AddPassive(delegate (Skill skill)
         {
             //체크
             Skill sk = SkillManager.ins.GetSkill(skill.Order, "Critical");
-            sk.PassiveCount["BaseCritical"] += Crirate;
+            sk.PassiveCount["BaseCritical"] += skill.PassiveCount["CriRate"];
+            sk.PassiveCount["Critical"] = sk.PassiveCount["BaseCritical"];
         }, "GameStart");//시작시 발동
     }
     public static void Add_Damage( string Stasis, float Damage)

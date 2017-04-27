@@ -241,10 +241,10 @@ public class SkillList : MonoBehaviour {
         Critical.AddPassive(
            delegate (Skill skil)
            {
-               Debug.Log("크리티컬");
                OrderStat = gameManager.ins.UserStatus[skil.Order];
                if (Random.Range(0, (100 / skil.PassiveCount["Critical"])) < 1)//5%
                {
+                   Debug.Log("크리티컬");
                    DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, 1.5f, "Critical");
                    SaveData.ins.AddData(SaveData.TYPE.CRITICAL, skil.Order, 1);
                }
@@ -267,6 +267,7 @@ public class StackSkill : Skill {
     
     public int MaxStack = 0;
     public int TempStack;
+    public bool isUseToStack = false;
 
     public void ChangeMaxStack(int num)
     {
@@ -303,6 +304,25 @@ public class StackSkill : Skill {
             TempStack--;
         return true;
     }
+    override public bool RunActive()//액티브함수실행
+    {
+        if (Order != -1)
+        {
+            if (isUseToStack && TempStack == 0)
+            {
+                return false;
+            }
+            else
+            {
+                TempActive(this);
+                if (isUseToStack)
+                    StackMinus();
+
+                return isUseTurn;
+            }
+        }
+        return false;
+    }
 }
 public class Priority
 {
@@ -314,21 +334,23 @@ public class Priority
     public const int PAPER = 5;
 }
 public class Skill {
-
+                               //돌아갈 수 있는가
+    public string Name;              
     public int Order = -1;
     protected int Enemy;
-    public delegate void Active(Skill This);   //액티브delegate
-    public Active TempActive = null;                                                   //현재 액티브
+    public delegate void Active(Skill This);                                   //액티브delegate
+    public Active TempActive = null;                                           //현재 액티브
     public Dictionary<string, Active> PassiveList;                             //패시브들
-    public Dictionary<string, float> PassiveCount;                              //패시브에 사용할 실수 값
-    public int Priority = 0;                            //해당 액티브의 우선순위 값
+    public Dictionary<string, float> PassiveCount;                             //패시브에 사용할 실수 값
+    public int Priority = 0;                                                   //해당 액티브의 우선순위 값
     public int Cost;
-    public int SkillNum;                                //뭐하는스킬인가 0~2 RSP 3 가드 4 도발 5~7 스페셜
-    public bool isRunning = true;                                  //돌아갈 수 있는가
-    public string Name;                     //이름
+    public int SkillNum;                                                       //뭐하는스킬인가 0~2 RSP 3 가드 4 도발 5~7 스페셜
+    public bool isRunning = true;                                              //이름
+    public bool isUseTurn = false;
     public Skill(int Pri, string _Name )
     {
         //생성자
+        isUseTurn = true;
         Name = _Name;
         Priority = Pri;
         PassiveList = new Dictionary<string, Active>();
@@ -394,10 +416,14 @@ public class Skill {
         }
         return true;
     }
-    virtual public void RunActive()//액티브함수실행
+    virtual public bool RunActive()//액티브함수실행
     {
-        if(Order != -1)
-           TempActive(this);
+        if (Order != -1)
+        {
+            TempActive(this);
+            return isUseTurn;
+        }
+        return false;
     }
     virtual public void RunPassive(string str)//해당 패시브 실행
     {

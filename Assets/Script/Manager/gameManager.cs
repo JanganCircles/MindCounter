@@ -221,7 +221,7 @@ public class gameManager : MonoBehaviour
             SkillManager.ins.RunPassives("End");////종료
 
             Debug.Log("끝");
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(0.25f);
             Debug.Log("한바퀴");
             Turn++;
             for (int i = 0; i < 2; i++)
@@ -234,7 +234,7 @@ public class gameManager : MonoBehaviour
     void CatchTiming(float _Time,int Index)
     {
         _Time = Mathf.Abs(_Time - PRIMETIME);
-        if (_Time < 0.1f)
+        if (_Time < 0.02f)
         {
             //Perfect
             TimingWeight[Index] = 1.2f;

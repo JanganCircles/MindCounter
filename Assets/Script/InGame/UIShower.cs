@@ -27,9 +27,9 @@ public class UIShower : MonoBehaviour {
         string str0 = "";
 ///        str0 = (status.Disable ? "무력화" : "") + (status.Defence ? "방어" : "") + (status.Down ? "다운" : "");
         UITextSet.UIList[ControllerName + "Debuff"] = str0;                              //디버프 상태
+        UITextSet.UIList[ControllerName + "Counter"] = status.Cost.ToString() + " / " + status.MaxCost.ToString();            //남은 코스트
         if (gameManager.ins.UIOpen)
         {
-            UITextSet.UIList[ControllerName + "Counter"] = status.Cost.ToString() + " / " + status.MaxCost.ToString();            //남은 카드 갯수
             UITextSet.UIList["InputKey"] = "";                              //입력문구
             UITextSet.UIList[ControllerName + "Stasis"] = SetTempStatis(Slots.GetPriority()); //상태(확인불가)
         }

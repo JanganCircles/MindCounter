@@ -68,15 +68,15 @@ public class SkillSlot : MonoBehaviour {
 
         //아이템은 여기 들어와야한다
         // SetItem(Item.GetItem(Item.ITEMCODE.armor_L));
-        if (stat.Controller == gameManager.CHALLANGER)
+        if (stat.Controller == gameManager.CHAMPION)
         {
-            SetItem(Item.GetItem(Item.ITEMCODE.shield_L));
-            SetItem(Item.GetItem(Item.ITEMCODE.russianroulette_S));
+            SetItem(Item.GetItem(Item.ITEMCODE.hpup_L));
+            SetItem(Item.GetItem(Item.ITEMCODE.wand_S));
         }
         else
         {
-            SetItem(Item.GetItem(Item.ITEMCODE.doubleaxe_L));
-            SetItem(Item.GetItem(Item.ITEMCODE.doubleaxe_S));
+            SetItem(Item.GetItem(Item.ITEMCODE.aura_L));
+            SetItem(Item.GetItem(Item.ITEMCODE.shortsword_L));
         }
         for (int i = 0; i < SlotLength; i++)
         {
@@ -136,8 +136,7 @@ public class SkillSlot : MonoBehaviour {
     {
         if (selectedSlot == -1 || selectedSlot == SlotLength )
             return false;
-        SlotList[selectedSlot].RunActive();
-        return true;
+        return SlotList[selectedSlot].RunActive();
     }
     public void SelectReset()
     {
@@ -208,10 +207,12 @@ public class EmptySlot
 		if(TempSkill != null)
       	  TempSkill.RunPassive(str);
     }
-    public void RunActive()
+    public bool RunActive()
     {
         if (TempSkill != null)
-            TempSkill.RunActive();
+            return TempSkill.RunActive();
+        else
+            return false;
     }
     public void SetOrder(int or)
     {

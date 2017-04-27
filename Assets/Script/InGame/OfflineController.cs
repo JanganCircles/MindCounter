@@ -47,11 +47,14 @@ public class OfflineController : MonoBehaviour, InputController
                 {
                     CheckingOK[i] = gameManager.ins.UserSlot[i].KeyCheck();//두 플레이어 키 체크
 
-                    if (CheckingOK[i])
+                    if (CheckingOK[i] && gameManager.ins.UserSlot[i].RunActive())
                     {
-                        gameManager.ins.UserSlot[i].RunActive();
+
                         KeyCatchTime[i] = Num;
                     }
+                    else
+                        CheckingOK[i] = false;
+
                 }
             }
             Num += Time.unscaledDeltaTime;
