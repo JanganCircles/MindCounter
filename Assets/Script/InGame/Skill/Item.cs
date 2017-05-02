@@ -201,7 +201,7 @@ public class Item  {
 
         }
     }
-    public static void Potion_DamageUp( float Damage)
+    public static void Potion_DamageUp( float Damage)//됨
     {
         StackSkill s = TempSkill as StackSkill;
         if (s == null) return;
@@ -209,7 +209,11 @@ public class Item  {
 
         s.ActiveSkillSet(delegate (Skill skill)
         {            //체크
-            skill.PassiveCount["Count"] = 1;
+            if (s.TempStack != 0 && skill.PassiveCount["Count"] != 1)
+            {
+                skill.PassiveCount["Count"] = 1;
+                s.StackMinus();
+            }
         });
         s.AddPassive(delegate (Skill skill)
         {
@@ -223,35 +227,43 @@ public class Item  {
             skill.PassiveCount["Count"] = 0;
         }, "End");
     }
-    public static void Potion_CostHeal( int Cost)
+    public static void Potion_CostHeal( int Cost)//됨
     {
         StackSkill s = TempSkill as StackSkill;
         s.PassiveCount.Add("CostHeal", Cost);
+        s.PassiveCount.Add("Using", 0);
         s.isUseTurn = false;
         s.isUseToStack = true;
         if (s == null) return;
         s.ActiveSkillSet(delegate (Skill skill)
         {
-            if (s.TempStack != 0)
+            if (s.TempStack != 0 && skill.PassiveCount["Using"] != 1)
             {
+                skill.PassiveCount["Using"] = 1;
                 s.StackMinus();
                 CharacterStatus Stat = skill.GetOrder();
                 skill.GetOrder().CostPlus((int)skill.PassiveCount["CostHeal"]);
             }
         });
+        s.AddPassive(delegate (Skill skill)
+        {
+            skill.PassiveCount["Using"] = 0;
+        }, "End");
         TempSkill = s;
     }
-    public static void Potion_HpHeal( int Heal)
+    public static void Potion_HpHeal( int Heal)//됨
     {
         StackSkill s = TempSkill as StackSkill;
         s.PassiveCount.Add("Heal", Heal);
+        s.PassiveCount.Add("Using", 0);
         s.isUseTurn = false;
         s.isUseToStack = true;
         if (s == null) return;
         s.ActiveSkillSet(delegate (Skill skill)
         {
-            if (s.TempStack != 0)
+            if (s.TempStack != 0 && skill.PassiveCount["Using"] != 1)
             {
+                skill.PassiveCount["Using"] = 1;
                 s.StackMinus();
                 CharacterStatus Stat = skill.GetOrder();
                 Stat.HpDown(-(int)s.PassiveCount["Heal"]);
@@ -260,39 +272,55 @@ public class Item  {
 
             }
         });
+        s.AddPassive(delegate (Skill skill)
+        {
+            skill.PassiveCount["Using"] = 0;
+        }, "End");
         TempSkill = s;
     }
-    public static void Potion_SuperArmor( )
+    public static void Potion_SuperArmor( )//됨
     {
         StackSkill s = TempSkill as StackSkill;
+        s.PassiveCount.Add("Using", 0);
         if (s == null) return;
         s.ActiveSkillSet(delegate (Skill skill)
         {
-            if (s.TempStack != 0)
+            if (s.TempStack != 0 && skill.PassiveCount["Using"] != 1)
             {
-                s.StackMinus();
+                skill.PassiveCount["Using"] = 1;
                 CharacterStatus Stat = skill.GetOrder();
+                s.StackMinus();
+                Debug.Log("슈아 사용함");
                 Stat.isSuperArmor = true;
 
             }
         });
+        s.AddPassive(delegate (Skill skill)
+        {
+            CharacterStatus Stat = skill.GetOrder();
+
+            skill.PassiveCount["Using"] = 0;
+            Stat.isSuperArmor = false;
+        }, "End");
         TempSkill = s;
     }
-    public static void Potion_Perfect()
+    public static void Potion_Perfect()///~
     {
         StackSkill s = TempSkill as StackSkill;
         if (s == null) return;
         s.PassiveCount.Add("Using",0);
         s.ActiveSkillSet(delegate (Skill skill)
         {
-            s.PassiveCount["Using"] = 1;
+            if (skill.PassiveCount["Using"] == 1) return;
+            s.StackMinus();
+            skill.PassiveCount["Using"] = 1;
         });
         s.AddPassive(delegate (Skill skill)
         {
-            if (s.PassiveCount["Using"] == 1)
+            if (skill.PassiveCount["Using"] == 1)
             {
-                gameManager.ins.TimingWeight[s.Order] = gameManager.PERPECT;
-                s.PassiveCount["Using"] = 0;
+                gameManager.ins.TimingWeight[skill.Order] = gameManager.PERPECT;
+                skill.PassiveCount["Using"] = 0;
             }
         }, "Decision");
 

@@ -251,14 +251,24 @@ public class SkillList : MonoBehaviour {
            }
            , "Attack");
         List.AddPassiveSlot(Critical);
+        
+        Skill SuperArmor = new Skill("SuperArmor");
+        SuperArmor.SetCharacter(List.GetComponent<CharacterStatus>().Controller);
+        SuperArmor.PassiveCount.Add("isHit", 0);
+        SuperArmor.AddPassive(delegate (Skill skill)
+        {
+            skill.PassiveCount["isHit"] = 1;
+        }, "Hit");
+        SuperArmor.AddPassive(delegate (Skill skill) 
+        {
+            if (gameManager.ins.UserStatus[skill.Order].isSuperArmor && skill.PassiveCount["isHit"] == 1)
+            {
+                WallManager.ins.ResetPivot();
+            }
 
-        Skill DefencePlus = new Skill("DefencePlusDamage");//방어추뎀
-        DefencePlus.SetCharacter(List.GetComponent<CharacterStatus>().Controller);
-        List.AddPassiveSlot(DefencePlus);
-
-        Skill DownPlus = new Skill("DownPlusDamage");//다운추뎀
-        DownPlus.SetCharacter(List.GetComponent<CharacterStatus>().Controller);
-        List.AddPassiveSlot(DownPlus);
+            skill.PassiveCount["isHit"] = 0;
+        }, "WallSetting");
+        List.AddPassiveSlot(SuperArmor);
     } 
 
 }

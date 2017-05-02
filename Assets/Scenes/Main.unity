@@ -207,7 +207,7 @@ MonoBehaviour:
   - "\uD68C\uBCF5"
   - "\uC544\uC774\uD15C0"
   - "\uC544\uC774\uD15C1"
-  UseItem: 0
+  UseItem: 31
   EqulpmentItem: 21
   selectedSlot: 0
 --- !u!114 &4654590
@@ -3573,7 +3573,7 @@ MonoBehaviour:
   - "\uD68C\uBCF5"
   - "\uC544\uC774\uD15C0"
   - "\uC544\uC774\uD15C1"
-  UseItem: 0
+  UseItem: 30
   EqulpmentItem: 37
   selectedSlot: 0
 --- !u!114 &941890104

@@ -210,6 +210,8 @@ public class gameManager : MonoBehaviour
                 }
                 else if (LoserConer || UserStatus[Loser].isSuperArmor )
                 {
+                    if (UserStatus[Loser].isSuperArmor)
+                        Debug.Log("맞은사람이 슈아임.");
                     KnockPlus = 85f;
                     Dashs[Winner].Knockback(((WallManager.ins.DashPivotX + KnockPlus * CharacterDirection(Winner)) * 0.1f), 0.5f);
                 }
