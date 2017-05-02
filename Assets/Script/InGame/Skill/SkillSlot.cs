@@ -6,6 +6,9 @@ public class SkillSlot : MonoBehaviour {
     public string[] SlotName;
     private EmptySlot[] SlotList;
     private Item.ItemData[] Items = null;
+
+    public Item.ITEMCODE UseItem;
+    public Item.ITEMCODE EqulpmentItem;
     private const int SlotLength = 7;
     public int slotLength {
         get {
@@ -66,18 +69,9 @@ public class SkillSlot : MonoBehaviour {
         SkillList.ins.AddingDefaultSkill(ref sk);
         SkillList.ins.Skill_DefaultPassive(ref sk);
 
-        //아이템은 여기 들어와야한다
-        // SetItem(Item.GetItem(Item.ITEMCODE.armor_L));
-        if (stat.Controller == gameManager.CHAMPION)
-        {
-            SetItem(Item.GetItem(Item.ITEMCODE.hpup_L));
-            SetItem(Item.GetItem(Item.ITEMCODE.wand_S));
-        }
-        else
-        {
-            SetItem(Item.GetItem(Item.ITEMCODE.aura_L));
-            SetItem(Item.GetItem(Item.ITEMCODE.shortsword_L));
-        }
+        SetItem(Item.GetItem(UseItem));
+        SetItem(Item.GetItem(EqulpmentItem));
+
         for (int i = 0; i < SlotLength; i++)
         {
             SlotList[i].key = codes[i];
