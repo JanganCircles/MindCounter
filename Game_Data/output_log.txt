@@ -1,107 +1,29 @@
 Initialize engine version: 5.5.2f1 (3829d7f588f3)
 GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 11.0 [level 11.1]
-    Renderer: AMD Radeon R7 200 Series (ID=0x6610)
-    Vendor:   ATI
-    VRAM:     2026 MB
-    Driver:   21.19.519.2
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 750 Ti (ID=0x1380)
+    Vendor:   NVIDIA
+    VRAM:     2016 MB
+    Driver:   21.21.13.7653
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
-Loading C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-Platform assembly: C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\ExcelToObject.dll (this message is harmless)
-Loading C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\ExcelToObject.dll into Unity Child Domain
-- Completed reload, in  0.026 seconds
-Platform assembly: C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Admin\Documents\GitHub\MindCounter\Game_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\ExcelToObject.dll (this message is harmless)
+Loading C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\ExcelToObject.dll into Unity Child Domain
+- Completed reload, in  0.405 seconds
+Platform assembly: C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\jyw\Documents\GitHub\MindCounter\Game_Data\Managed\System.dll (this message is harmless)
 desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
-XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
-<RI> Initialized touch support.
-UnloadTime: 1.037837 ms
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: 24d0 -> priority: 1 
-  Thread -> id: 1828 -> priority: 1 
-Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 5.427668 ms
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 622.
-Total: 0.396660 ms (FindLiveObjects: 0.074260 ms CreateObjectMapping: 0.031092 ms MarkObjects: 0.252969 ms  DeleteObjects: 0.037734 ms)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.707589 ms
-저장데이터
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-FUCK
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-스킬리스트 어웨이크
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Null
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-오프라인임
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-
-Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 786.
-Total: 0.430772 ms (FindLiveObjects: 0.045280 ms CreateObjectMapping: 0.024149 ms MarkObjects: 0.310023 ms  DeleteObjects: 0.051016 ms)
-
-abcd
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-오프라인
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-abcd
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-고양이 셋업
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ChallangerHP(1800.0, 1800.0)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-노란x(1800.0, 1800.0)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-빨간x(2000.0, 2000.0)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-헐크 셋업
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Start실행
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-KeyCheck실행
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-

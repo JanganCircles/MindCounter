@@ -1,0 +1,252 @@
+fileFormatVersion: 2
+guid: 40160addf30f53b408e05dbf0af1dddf
+timeCreated: 1493795808
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "\uCE90\uC120\uCC3D_open_0"
+    21300002: "\uCE90\uC120\uCC3D_open_1"
+    21300004: "\uCE90\uC120\uCC3D_open_2"
+    21300006: "\uCE90\uC120\uCC3D_open_3"
+    21300008: "\uCE90\uC120\uCC3D_open_4"
+    21300010: "\uCE90\uC120\uCC3D_open_5"
+    21300012: "\uCE90\uC120\uCC3D_open_6"
+    21300014: "\uCE90\uC120\uCC3D_open_7"
+    21300016: "\uCE90\uC120\uCC3D_open_8"
+    21300018: "\uCE90\uC120\uCC3D_open_9"
+    21300020: "\uCE90\uC120\uCC3D_open_10"
+    21300022: "\uCE90\uC120\uCC3D_open_11"
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "\uCE90\uC120\uCC3D_open_0"
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 996
+        width: 580
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\uCE90\uC120\uCC3D_open_1"
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 955
+        width: 453
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\uCE90\uC120\uCC3D_open_2"
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 996
+        width: 564
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\uCE90\uC120\uCC3D_open_3"
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 603
+        width: 139
+        height: 244
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\uCE90\uC120\uCC3D_open_4"
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 603
+        width: 139
+        height: 244
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\uCE90\uC120\uCC3D_open_5"
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 243
+        width: 908
+        height: 630
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\uCE90\uC120\uCC3D_open_6"
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 309
+        width: 139
+        height: 244
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\uCE90\uC120\uCC3D_open_7"
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 296
+        width: 163
+        height: 269
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\uCE90\uC120\uCC3D_open_8"
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 24
+        width: 171
+        height: 277
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\uCE90\uC120\uCC3D_open_9"
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 125
+        width: 276
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\uCE90\uC120\uCC3D_open_10"
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 51
+        width: 209
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "\uCE90\uC120\uCC3D_open_11"
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 156
+        width: 503
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

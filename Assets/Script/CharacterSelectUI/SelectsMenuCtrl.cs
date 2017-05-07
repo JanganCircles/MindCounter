@@ -10,6 +10,9 @@ public class SelectsMenuCtrl : MonoBehaviour {
     public RectTransform[] CursorTr;        //캔버스 내부의 커서 트랜스폼.
 
     //0 = 1피, 1 = 2피
+    public RectTransform[] CharacterIconTr;
+    public int XLength;
+    public int YLength;
     public Vector2[] Cursor;                //커서의 논리적 위치(인덱스)
     public Image[] Images;                  //커서에 대응되는 현재 캐릭터 이미지
     private bool[] MoveOK;                  //false = 이동끝남 , true = 이동중
@@ -69,18 +72,16 @@ public class SelectsMenuCtrl : MonoBehaviour {
 
     IEnumerator CharacterSelect(int i)
     {
-        Debug.Log("asdfa");
-        while(!CharacterSelectLockOn[i])
+        while(!CharacterSelectLockOn[i])//모든 입력 확인
         {
-            Debug.Log("a22sdfa");
             if (MoveOK[i] || CharacterSelectLockOn[i])
             {
-                //아무것도 들어오면 안됩니다.
+                //아무것도 들어오면 안됩니다.아직은
             }
             else if (Input.GetKeyDown(KeysData[5 * i + 4]))//입력키 눌렀다.
             {
                 CharacterSelectLockOn[i] = true;//선택
-                PlayerStasis[i] = StasisLevel.ITEMSELECT;
+                PlayerStasis[i] = StasisLevel.ITEMSELECT;//아이템저장
             }
 
 
@@ -95,11 +96,11 @@ public class SelectsMenuCtrl : MonoBehaviour {
             }
             if (MoveOK[i])//이동함?
             {
-                if (Cursor[i].x < 0) Cursor[i].x = 3 + Cursor[i].x;
-                else Cursor[i].x = Cursor[i].x % 3;
+                if (Cursor[i].x < 0) Cursor[i].x = XLength + Cursor[i].x;
+                else Cursor[i].x = Cursor[i].x % XLength;
 
-                if (Cursor[i].y < 0) Cursor[i].y = 3 + Cursor[i].y;
-                else Cursor[i].y = Cursor[i].y % 3;
+                if (Cursor[i].y < 0) Cursor[i].y = YLength + Cursor[i].y;
+                else Cursor[i].y = Cursor[i].y % YLength;
 
                 StartCoroutine("MoveTarget", i);//타겟으로 이동
                 Images[i].sprite = SpriteImg[(int)Cursor[i].x + (int)Cursor[i].y * 3];//큰얼굴 변경
@@ -171,11 +172,14 @@ public class SelectsMenuCtrl : MonoBehaviour {
     }
     IEnumerator MoveTarget(int index)
     {
-        float Length = 200;
         Vector3 Prev = CursorTr[index].localPosition;
         Vector3 v = new Vector3();
-        v.x = Cursor[index].x * Length;
-        v.y = Cursor[index].y * Length;
+        int CursorIndex = (int)Cursor[index].x + (int)(Cursor[index].y * XLength);
+        Debug.Log(CursorIndex);
+        v = CharacterIconTr[CursorIndex].localPosition;
+        Debug.Log(v);
+       // v.x = Cursor[index].x * Length;
+       // v.y = Cursor[index].y * Length;
         for (int i = 0; i <= 5; i++)
         {
             CursorTr[index].localPosition = Vector3.Lerp(Prev,v,i / 5f);
