@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6263f0a01e63cc042bcb8ac5d14e1b69
-timeCreated: 1493755619
+timeCreated: 1494275967
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -83,12 +83,12 @@ TextureImporter:
       name: "\uCE90\uC120\uCC3D_open2_0"
       rect:
         serializedVersion: 2
-        x: 15
-        y: 665
-        width: 565
-        height: 361
+        x: 30
+        y: 681
+        width: 550
+        height: 345
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -97,11 +97,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1339
-        y: 665
-        width: 564
-        height: 395
+        y: 681
+        width: 550
+        height: 379
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

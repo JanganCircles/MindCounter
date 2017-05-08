@@ -4,23 +4,24 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class SelectsMenuCtrl : MonoBehaviour {
-    
-    
-    public Sprite[] SpriteImg;              //캐릭터 얼굴들
-    public RectTransform[] CursorTr;        //캔버스 내부의 커서 트랜스폼.
+
+
+    private Text[] CharacterNames;
+    public string[] DescriptNames;
+
+    public Sprite[] SpriteImg;              //캐릭터 이미지들
+    public Image[] UIImage;              //UI사용되는 이미지
+    SelectMenu[] TempMenu = new SelectMenu[2];
+    public SelectMenu[] CharacterSelecter;
+    public SelectMenu[] ItemSelecter;
+
+    private int[] ItemCode = { -1, -1, -1, -1 };        // 선택한 아이템 인덱스
+    private int[] CharacterCode = { -1, -1 };           // 선택한 캐릭터 인덱스
+    public int[] SelectItem = { -1, -1, -1, -1 };
+
+    private bool[] AllOK = { false,false};
 
     //0 = 1피, 1 = 2피
-    public RectTransform[] CharacterIconTr;
-    public int XLength;
-    public int YLength;
-    public Vector2[] Cursor;                //커서의 논리적 위치(인덱스)
-    public Image[] Images;                  //커서에 대응되는 현재 캐릭터 이미지
-    private bool[] MoveOK;                  //false = 이동끝남 , true = 이동중
-    private bool[] CharacterSelectLockOn;                  //false = 선택안함 , true = 선택중
-    private bool[] PlayerSelect;            //현재 캐릭터 선택 되어있는가
-    public KeyCode[] KeysData = {KeyCode.W,KeyCode.A,KeyCode.S,KeyCode.D,KeyCode.F,                                       //1피 컨트롤
-                                  KeyCode.UpArrow,KeyCode.LeftArrow,KeyCode.DownArrow,KeyCode.RightArrow,KeyCode.Keypad1}; //2피 컨트롤
-    public KeyCode[] CancelKey = { KeyCode.G, KeyCode.Keypad2 };
     public StasisLevel[] PlayerStasis = { StasisLevel.CHARACTERSELECT, StasisLevel.CHARACTERSELECT };
 
 
@@ -35,24 +36,16 @@ public class SelectsMenuCtrl : MonoBehaviour {
 
     private void Reset()
     {
-
-        KeysData = new KeyCode[]{
-            KeyCode.W,KeyCode.A,KeyCode.S,KeyCode.D,KeyCode.F,                                       //1피 컨트롤
-                                  KeyCode.UpArrow,KeyCode.LeftArrow,KeyCode.DownArrow,KeyCode.RightArrow,KeyCode.Keypad1}; //2피 컨트롤
-        CancelKey = new KeyCode[] { KeyCode.G, KeyCode.Keypad2 };
+        
 
     }
-    void Start ()
+    // Use this for initialization
+    void Start()
     {
-        PlayerSelect = new bool[2];
-        MoveOK = new bool[2];
-        CharacterSelectLockOn = new bool[2];
         for (int i = 0; i < 2; i++)
         {
-            PlayerSelect[i] = false;
-            CharacterSelectLockOn[i] = false;
-            MoveOK[i] = false;
-            StartCoroutine("StasisChecker", i);
+            TempMenu[i] = CharacterSelecter[i];
+            StartCoroutine("CharacterSelect", i);
         }
     }
     void CursorSetting(ref Vector2 vec,int index)
@@ -65,57 +58,64 @@ public class SelectsMenuCtrl : MonoBehaviour {
             case 3: vec.x++; break;
         }
     }
-    // Update is called once per frame
+
     void Update()
     {
     }
 
     IEnumerator CharacterSelect(int i)
     {
-        while(!CharacterSelectLockOn[i])//모든 입력 확인
+        TempMenu[i] = CharacterSelecter[i];
+        TempMenu[i].isRun = true;
+        int TempCharacter;//선택한 캐릭터의 번호  
+        Vector2 v;
+        while (!TempMenu[i].isSelect(out v))
         {
-            if (MoveOK[i] || CharacterSelectLockOn[i])
-            {
-                //아무것도 들어오면 안됩니다.아직은
-            }
-            else if (Input.GetKeyDown(KeysData[5 * i + 4]))//입력키 눌렀다.
-            {
-                CharacterSelectLockOn[i] = true;//선택
-                PlayerStasis[i] = StasisLevel.ITEMSELECT;//아이템저장
-            }
-
-
-            else
-            {
-                for (int j = 0; j < 4; j++)
-                    if (Input.GetKeyDown(KeysData[j + i * 5]))//키입력이 들어왔다.
-                    {
-                        CursorSetting(ref Cursor[i], j);   //커서이동.
-                        MoveOK[i] = true;//이동할거임
-                    }
-            }
-            if (MoveOK[i])//이동함?
-            {
-                if (Cursor[i].x < 0) Cursor[i].x = XLength + Cursor[i].x;
-                else Cursor[i].x = Cursor[i].x % XLength;
-
-                if (Cursor[i].y < 0) Cursor[i].y = YLength + Cursor[i].y;
-                else Cursor[i].y = Cursor[i].y % YLength;
-
-                StartCoroutine("MoveTarget", i);//타겟으로 이동
-                Images[i].sprite = SpriteImg[(int)Cursor[i].x + (int)Cursor[i].y * 3];//큰얼굴 변경
-            }
-            else if (CharacterSelectLockOn[i])//선택함?
-            {
-                if (!PlayerSelect[i])//플레이어가 선택이 되있지 않으면
-                {
-                    PlayerSelect[i] = true;//선택
-                    CheckingCharacterIndex(i);//값저장
-                }
-            }
+            TempCharacter = (int)(v.x + TempMenu[i].XLength * v.y);
+            UIImage[i].sprite = SpriteImg[TempCharacter];
+            UITextUpdate(i,v);
             yield return null;
         }
+        PlayerStasis[i]++;
+        TempMenu[i].isRun = false;
+        StartCoroutine("StasisChecker", i);
+    }
+    IEnumerator ItemSelect(int i)
+    {
+        bool[] ItemsOK = { false, false}; 
+        SelectMenu Sm = TempMenu[i] = ItemSelecter[i];
+        TempMenu[i].isRun = true; 
 
+        Vector2 v;
+        while (true)
+        {
+            if (TempMenu[i].isSelect(out v))
+            {
+                //들어왔다
+            }
+            if (Input.GetKeyDown(Sm.KeysData[Sm.KeysData.Length - 1]))
+            {
+                bool isCancel = false;
+                for (int j = 1; j >= 0; j--)
+                {
+                    if (ItemsOK[j])
+                    {
+                        ItemsOK[j] = !ItemsOK[j];
+                        isCancel = true;
+                        break;
+                    }
+                }
+                if (!isCancel)
+                {
+
+                    PlayerStasis[i]--;
+                    StartCoroutine("StasisChecker", i);
+                }
+
+            }
+
+                yield return null;
+        }
     }
     IEnumerator StasisChecker(int i)
     {
@@ -130,7 +130,10 @@ public class SelectsMenuCtrl : MonoBehaviour {
                         yield break;
                     }
                 case StasisLevel.ITEMSELECT:
-                    break;
+                    {
+                        StartCoroutine("ItemSelect", i);
+                        yield break;
+                    }
                 case StasisLevel.ALLOK:
                     break;
                 default:
@@ -138,53 +141,20 @@ public class SelectsMenuCtrl : MonoBehaviour {
             }
         }
     }
-    IEnumerator CancelChecker(int i)
-    {
-        while (true)
-        {
-            if (Input.GetKeyDown(CancelKey[i]))
-            {
-                switch (PlayerStasis[i])
-                {
-                    case StasisLevel.ITEMSELECT:
-                        {
-                            CharacterSelectLockOn[i] = false;
-                            PlayerStasis[i] = StasisLevel.CHARACTERSELECT;
-                            StartCoroutine(StasisChecker(i));
-                            
-                        }
-                        break;
-                    case StasisLevel.ALLOK:
-                        break;
-                    default:
-                        break;
-                }
-            }
-            yield return null;
-        }
-    }
     void  CheckingCharacterIndex(int index)//선택하면 들어옴.
     {
-        int TempCharacter = (int)(Cursor[index].x + 3 * Cursor[index].y);//선택한 캐릭터의 번호  
+        int TempCharacter = (int)(TempMenu[index].Cursor.x + 3 * TempMenu[index].Cursor.y);//선택한 캐릭터의 번호  
+
          GameData.ins.SetPlayer(TempCharacter, index);//게임데이터에 저장
-        if (CharacterSelectLockOn[1] && CharacterSelectLockOn[0])//둘다 선택됬으면
+
+        if (AllOK[1] && AllOK[0])//둘다 선택됬으면
             SceneManager.LoadScene("Main");//씬변경
     }
-    IEnumerator MoveTarget(int index)
+    void UITextUpdate(int i,Vector2 v)
     {
-        Vector3 Prev = CursorTr[index].localPosition;
-        Vector3 v = new Vector3();
-        int CursorIndex = (int)Cursor[index].x + (int)(Cursor[index].y * XLength);
-        Debug.Log(CursorIndex);
-        v = CharacterIconTr[CursorIndex].localPosition;
-        Debug.Log(v);
-       // v.x = Cursor[index].x * Length;
-       // v.y = Cursor[index].y * Length;
-        for (int i = 0; i <= 5; i++)
-        {
-            CursorTr[index].localPosition = Vector3.Lerp(Prev,v,i / 5f);
-            yield return null;
-        }
-        MoveOK[index] = false;
+        string[] NameStr = { "Blue", "Red" };
+
+        float Index = v.x + (v.y * TempMenu[i].XLength);
+        UITextSet.UIList[NameStr[i] + "Name"] = DescriptNames[(int)Index];
     }
 }
