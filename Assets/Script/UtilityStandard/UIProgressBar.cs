@@ -26,7 +26,8 @@ public class UIProgressBar : MonoBehaviour
         {
             Name = name;
         }
-        ProgressBarList.Add(Name, new Vector2(1,1));
+        if(!ProgressBarList.ContainsKey(Name))
+         ProgressBarList.Add(Name, new Vector2(1,1));
     }
     void Start()
     {

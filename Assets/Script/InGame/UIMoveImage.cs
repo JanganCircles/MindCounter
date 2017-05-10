@@ -13,8 +13,12 @@ public class UIMoveImage : MonoBehaviour {
     private Image Img;
     public float RunningTime;//목표도달까지 걸리는 시간
     public float OverTime;  //목표 도달 이후에 이동하는 시간
-	// Use this for initialization
-	void Start () {
+                            // Use this for initialization
+    private void Awake()
+    {
+        BarMove = null;
+    }
+    void Start () {
         RunningTime = gameManager.PRIMETIME;
         OverTime = 5 - gameManager.PRIMETIME;
 
@@ -27,6 +31,7 @@ public class UIMoveImage : MonoBehaviour {
 
     public void Move()
     {
+
         StartCoroutine(iMove());
     }
     IEnumerator iMove()

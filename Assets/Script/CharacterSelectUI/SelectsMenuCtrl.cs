@@ -78,6 +78,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
         }
         PlayerStasis[i]++;
         TempMenu[i].isRun = false;
+        AllOK[i] = true;
         StartCoroutine("StasisChecker", i);
     }
     IEnumerator ItemSelect(int i)
@@ -86,12 +87,19 @@ public class SelectsMenuCtrl : MonoBehaviour {
         SelectMenu Sm = TempMenu[i] = ItemSelecter[i];
         TempMenu[i].isRun = true; 
 
-        Vector2 v;
+        Vector2 v; 
+
         while (true)
         {
-            if (TempMenu[i].isSelect(out v))
+            if (Sm.isSelect(out v))
             {
-                //들어왔다
+                if (!ItemsOK[0])
+                {
+                    ItemsOK[0] = true;
+                    Sm.Cancel();
+                }
+                else
+                    ItemsOK[1] = true;
             }
             if (Input.GetKeyDown(Sm.KeysData[Sm.KeysData.Length - 1]))
             {
@@ -109,13 +117,17 @@ public class SelectsMenuCtrl : MonoBehaviour {
                 {
 
                     PlayerStasis[i]--;
+                    Sm.isRun = false;
+                    CharacterSelecter[i].Cancel();
                     StartCoroutine("StasisChecker", i);
+                    yield break;
                 }
 
             }
 
                 yield return null;
         }
+        CheckingCharacterIndex(i);
     }
     IEnumerator StasisChecker(int i)
     {
@@ -141,14 +153,17 @@ public class SelectsMenuCtrl : MonoBehaviour {
             }
         }
     }
-    void  CheckingCharacterIndex(int index)//선택하면 들어옴.
+    void CheckingCharacterIndex(int index)//선택하면 들어옴.
     {
         int TempCharacter = (int)(TempMenu[index].Cursor.x + 3 * TempMenu[index].Cursor.y);//선택한 캐릭터의 번호  
 
-         GameData.ins.SetPlayer(TempCharacter, index);//게임데이터에 저장
+        GameData.ins.SetPlayer(TempCharacter, index);//게임데이터에 저장
 
         if (AllOK[1] && AllOK[0])//둘다 선택됬으면
+        {
+            StopAllCoroutines();
             SceneManager.LoadScene("Main");//씬변경
+        }
     }
     void UITextUpdate(int i,Vector2 v)
     {

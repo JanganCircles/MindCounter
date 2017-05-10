@@ -1,0 +1,286 @@
+
+skeleton.png
+size: 1024,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+#표정_기본
+  rotate: false
+  xy: 312, 17
+  size: 28, 18
+  orig: 28, 18
+  offset: 0, 0
+  index: -1
+#표정_기본2
+  rotate: false
+  xy: 342, 17
+  size: 28, 18
+  orig: 28, 18
+  offset: 0, 0
+  index: -1
+#표정_타격
+  rotate: false
+  xy: 372, 17
+  size: 28, 18
+  orig: 28, 18
+  offset: 0, 0
+  index: -1
+#표정_화남
+  rotate: false
+  xy: 402, 18
+  size: 28, 19
+  orig: 28, 19
+  offset: 0, 0
+  index: -1
+@머리_뒷머리1
+  rotate: true
+  xy: 240, 21
+  size: 20, 34
+  orig: 20, 34
+  offset: 0, 0
+  index: -1
+@머리_뒷머리2
+  rotate: true
+  xy: 791, 41
+  size: 21, 36
+  orig: 21, 36
+  offset: 0, 0
+  index: -1
+@머리_뒷머리2-1
+  rotate: true
+  xy: 276, 21
+  size: 20, 34
+  orig: 20, 34
+  offset: 0, 0
+  index: -1
+@머리_뒷머리2-2
+  rotate: true
+  xy: 829, 41
+  size: 21, 36
+  orig: 21, 36
+  offset: 0, 0
+  index: -1
+@머리_뒷머리2-3
+  rotate: true
+  xy: 903, 40
+  size: 22, 34
+  orig: 22, 34
+  offset: 0, 0
+  index: -1
+@머리_뒷머리3
+  rotate: true
+  xy: 867, 40
+  size: 22, 34
+  orig: 22, 34
+  offset: 0, 0
+  index: -1
+@머리_뒷통수
+  rotate: false
+  xy: 560, 20
+  size: 40, 42
+  orig: 40, 42
+  offset: 0, 0
+  index: -1
+@머리_뒷통수2
+  rotate: false
+  xy: 602, 20
+  size: 40, 42
+  orig: 40, 42
+  offset: 0, 0
+  index: -1
+@머리_앞머리
+  rotate: false
+  xy: 939, 40
+  size: 34, 22
+  orig: 34, 22
+  offset: 0, 0
+  index: -1
+@머리_앞머리2
+  rotate: false
+  xy: 975, 40
+  size: 34, 22
+  orig: 34, 22
+  offset: 0, 0
+  index: -1
+@머리_옆머리
+  rotate: false
+  xy: 150, 2
+  size: 12, 35
+  orig: 12, 35
+  offset: 0, 0
+  index: -1
+@머리_옆머리2
+  rotate: false
+  xy: 164, 2
+  size: 12, 35
+  orig: 12, 35
+  offset: 0, 0
+  index: -1
+L리본
+  rotate: true
+  xy: 641, 3
+  size: 15, 21
+  orig: 15, 21
+  offset: 0, 0
+  index: -1
+L발
+  rotate: true
+  xy: 209, 13
+  size: 24, 29
+  orig: 24, 29
+  offset: 0, 0
+  index: -1
+L발_옆
+  rotate: false
+  xy: 432, 13
+  size: 26, 24
+  orig: 26, 24
+  offset: 0, 0
+  index: -1
+L손
+  rotate: true
+  xy: 664, 4
+  size: 14, 19
+  orig: 14, 19
+  offset: 0, 0
+  index: -1
+L어깨-팔
+  rotate: true
+  xy: 453, 42
+  size: 20, 53
+  orig: 20, 53
+  offset: 0, 0
+  index: -1
+L종아리
+  rotate: true
+  xy: 69, 41
+  size: 21, 88
+  orig: 21, 88
+  offset: 0, 0
+  index: -1
+L팔
+  rotate: true
+  xy: 695, 44
+  size: 18, 50
+  orig: 18, 50
+  offset: 0, 0
+  index: -1
+L허벅지
+  rotate: true
+  xy: 322, 37
+  size: 25, 75
+  orig: 25, 75
+  offset: 0, 0
+  index: -1
+R리본
+  rotate: true
+  xy: 560, 2
+  size: 16, 19
+  orig: 16, 19
+  offset: 0, 0
+  index: -1
+R발
+  rotate: false
+  xy: 460, 13
+  size: 25, 27
+  orig: 25, 27
+  offset: 0, 0
+  index: -1
+R손
+  rotate: false
+  xy: 487, 22
+  size: 15, 18
+  orig: 15, 18
+  offset: 0, 0
+  index: -1
+R어깨-팔
+  rotate: true
+  xy: 399, 39
+  size: 23, 52
+  orig: 23, 52
+  offset: 0, 0
+  index: -1
+R종아리
+  rotate: true
+  xy: 240, 43
+  size: 19, 80
+  orig: 19, 80
+  offset: 0, 0
+  index: -1
+R팔
+  rotate: true
+  xy: 644, 42
+  size: 20, 49
+  orig: 20, 49
+  offset: 0, 0
+  index: -1
+R팔_대기
+  rotate: false
+  xy: 644, 20
+  size: 46, 20
+  orig: 46, 20
+  offset: 0, 0
+  index: -1
+R허벅지
+  rotate: true
+  xy: 159, 39
+  size: 23, 79
+  orig: 23, 79
+  offset: 0, 0
+  index: -1
+리본
+  rotate: false
+  xy: 581, 3
+  size: 28, 15
+  orig: 28, 15
+  offset: 0, 0
+  index: -1
+목
+  rotate: true
+  xy: 611, 3
+  size: 15, 28
+  orig: 15, 28
+  offset: 0, 0
+  index: -1
+상체
+  rotate: true
+  xy: 508, 19
+  size: 43, 50
+  orig: 43, 50
+  offset: 0, 0
+  index: -1
+상체 뒤
+  rotate: false
+  xy: 69, 2
+  size: 37, 37
+  orig: 37, 37
+  offset: 0, 0
+  index: -1
+얼굴
+  rotate: true
+  xy: 108, 6
+  size: 33, 40
+  orig: 33, 40
+  offset: 0, 0
+  index: -1
+치마
+  rotate: true
+  xy: 2, 3
+  size: 59, 65
+  orig: 59, 65
+  offset: 0, 0
+  index: -1
+칼
+  rotate: false
+  xy: 747, 48
+  size: 42, 14
+  orig: 42, 14
+  offset: 0, 0
+  index: -1
+허리
+  rotate: false
+  xy: 178, 9
+  size: 29, 28
+  orig: 29, 28
+  offset: 0, 0
+  index: -1

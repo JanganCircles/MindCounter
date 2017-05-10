@@ -118,7 +118,7 @@ public class SelectMenu : MonoBehaviour
     {
         while (true)
         {
-            if (Input.GetKeyDown(KeysData[5]))
+            if (Input.GetKeyDown(KeysData[5]) || !PlayerSelect)
             {
                 CharacterSelectLockOn = false;
                 PlayerSelect = false;
@@ -128,6 +128,10 @@ public class SelectMenu : MonoBehaviour
             }
             yield return null;
         }
+    }
+    public void Cancel()
+    {
+        PlayerSelect = false;
     }
     IEnumerator MoveTarget()//커서변경하는 함수.
     {

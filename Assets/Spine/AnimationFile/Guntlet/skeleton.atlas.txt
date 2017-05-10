@@ -1,0 +1,174 @@
+
+skeleton.png
+size: 1024,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+건틀릿 오른사이드
+  rotate: true
+  xy: 298, 68
+  size: 58, 158
+  orig: 58, 158
+  offset: 0, 0
+  index: -1
+건틀릿 왼사이드
+  rotate: true
+  xy: 458, 68
+  size: 58, 158
+  orig: 58, 158
+  offset: 0, 0
+  index: -1
+공격얼굴
+  rotate: true
+  xy: 706, 32
+  size: 33, 44
+  orig: 33, 44
+  offset: 0, 0
+  index: -1
+머리
+  rotate: true
+  xy: 618, 26
+  size: 45, 51
+  orig: 45, 51
+  offset: 0, 0
+  index: -1
+목
+  rotate: false
+  xy: 892, 32
+  size: 17, 22
+  orig: 17, 22
+  offset: 0, 0
+  index: -1
+몸통
+  rotate: true
+  xy: 618, 73
+  size: 53, 112
+  orig: 53, 112
+  offset: 0, 0
+  index: -1
+얼굴
+  rotate: true
+  xy: 752, 32
+  size: 33, 44
+  orig: 33, 44
+  offset: 0, 0
+  index: -1
+오른건틀릿
+  rotate: true
+  xy: 158, 40
+  size: 86, 138
+  orig: 86, 138
+  offset: 0, 0
+  index: -1
+오른머리
+  rotate: true
+  xy: 732, 67
+  size: 59, 95
+  orig: 59, 95
+  offset: 0, 0
+  index: -1
+오른발
+  rotate: false
+  xy: 120, 2
+  size: 24, 34
+  orig: 24, 34
+  offset: 0, 0
+  index: -1
+오른발달리기
+  rotate: true
+  xy: 90, 2
+  size: 34, 28
+  orig: 34, 28
+  offset: 0, 0
+  index: -1
+오른종아리
+  rotate: true
+  xy: 385, 43
+  size: 23, 82
+  orig: 23, 82
+  offset: 0, 0
+  index: -1
+오른종아리 달리기
+  rotate: true
+  xy: 298, 43
+  size: 23, 85
+  orig: 23, 85
+  offset: 0, 0
+  index: -1
+오른팔
+  rotate: false
+  xy: 798, 19
+  size: 29, 46
+  orig: 29, 46
+  offset: 0, 0
+  index: -1
+오른허벅지
+  rotate: true
+  xy: 469, 34
+  size: 32, 82
+  orig: 32, 82
+  offset: 0, 0
+  index: -1
+오른허벅지 달리기
+  rotate: true
+  xy: 919, 43
+  size: 32, 82
+  orig: 32, 82
+  offset: 0, 0
+  index: -1
+왼건틀릿
+  rotate: true
+  xy: 2, 38
+  size: 88, 154
+  orig: 88, 154
+  offset: 0, 0
+  index: -1
+왼머리
+  rotate: true
+  xy: 829, 56
+  size: 70, 88
+  orig: 70, 88
+  offset: 0, 0
+  index: -1
+왼발
+  rotate: false
+  xy: 864, 22
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+왼발 달리기
+  rotate: false
+  xy: 829, 22
+  size: 33, 32
+  orig: 33, 32
+  offset: 0, 0
+  index: -1
+왼종아리
+  rotate: true
+  xy: 2, 3
+  size: 33, 86
+  orig: 33, 86
+  offset: 0, 0
+  index: -1
+왼팔
+  rotate: true
+  xy: 553, 22
+  size: 44, 58
+  orig: 44, 58
+  offset: 0, 0
+  index: -1
+왼허벅지
+  rotate: true
+  xy: 919, 77
+  size: 49, 95
+  orig: 49, 95
+  offset: 0, 0
+  index: -1
+피격얼굴
+  rotate: false
+  xy: 671, 27
+  size: 33, 44
+  orig: 33, 44
+  offset: 0, 0
+  index: -1

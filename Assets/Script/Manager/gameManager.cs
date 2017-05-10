@@ -13,7 +13,7 @@ public class gameManager : MonoBehaviour
     public const float PERPECT = 1.2f;      //퍼펙트_계수
     public const float GOOD = 1.0f;         //굿_계수
     public const float BAD = 0.7f;          //배드_계수
-
+    
     public CharacterStatus[] UserStatus;    //캐릭터 스텟
     public SkillSlot[] UserSlot;            //스킬슬롯
     public float[] TimingWeight;            //잘맞았냐
@@ -35,6 +35,7 @@ public class gameManager : MonoBehaviour
 
     public GameObject KeyController;        //키입력 받는 오브젝트
 
+
     public enum STEP : int                  //진행상황 열거자
     {
         START = 0, KEYCHECK = 1, DECISION = 2, HITDAMAGE = 3, END = 4
@@ -52,13 +53,16 @@ public class gameManager : MonoBehaviour
         Winner = -1;
         Combo = 0;
         UserStatus = new CharacterStatus[2];
-        UserStatus[CHAMPION] = GameObject.Find("Champion").GetComponent<CharacterStatus>();
-        UserStatus[CHALLANGER] = GameObject.Find("Challanger").GetComponent<CharacterStatus>();
-        UserStatus[CHAMPION].Controller = CHAMPION;
-        UserStatus[CHALLANGER].Controller = CHALLANGER;
         UserSlot = new SkillSlot[2];
-        UserSlot[CHAMPION] = GameObject.Find("Champion").GetComponent<SkillSlot>();
-        UserSlot[CHALLANGER] = GameObject.Find("Challanger").GetComponent<SkillSlot>();
+        GameObject[] players = new GameObject[2];
+        players[CHALLANGER] = GameObject.Find("Challanger");
+        players[CHAMPION] = GameObject.Find("Champion");
+        for (int i = 0; i < 2; i++)
+        {
+            UserStatus[i] = players[i].GetComponent<CharacterStatus>();
+            UserStatus[i].Controller = i;
+            UserSlot[i] = players[i].GetComponent<SkillSlot>();
+        }
         TimingWeight = new float[2];
 
         if (ins == null)
@@ -87,11 +91,6 @@ public class gameManager : MonoBehaviour
     }
     IEnumerator GamePlay()
     {
-        for (Item.ITEMCODE i = 0; i < Item.ITEMCODE.randomBox_L; i++)//아이템 확인
-        {
-            if (i == Item.ITEMCODE.randomBox_L || i == Item.ITEMCODE.randomBox_M || i == Item.ITEMCODE.randomBox_S) continue;
-            Item.GetItem(i);
-        }
         DashAnim[] Dashs = new DashAnim[2]; // 돌진관련 변수
         for (int i = 0; i < 2; i++) { 
             Dashs[i] = UserStatus[i].gameObject.GetComponent<DashAnim>();// 돌진관련변수 - 초기화
@@ -132,12 +131,14 @@ public class gameManager : MonoBehaviour
         SkillManager.ins.RunPassives("GameStart");// 게임처음시작
         while (true)// 게임시작 루프
         {
+            UserStatus[0].Cost = 200;
             isCounter = false;
             UIOpen = false;
             TempStep = STEP.START;// 실행단계
             SkillManager.ins.RunPassives("Start");// 시작시 패시브 발동
-            
-            Dash(Dashs);//돌진애니메이션
+
+            CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.RUSH);
+            Dash(Dashs);//이동!
             yield return new WaitForSeconds(0.25f);//입력대기
             Time.timeScale = 0.05f;//슬로우
             UIOpen = false;
@@ -163,12 +164,16 @@ public class gameManager : MonoBehaviour
             SkillManager.ins.RunPassives("Decision");//판정시 패시브 발동
             CheckingWinner();//승자체크 - 이떄부터 위너 사용 가능
             GuardCheck(Dashs, Winner);//가드시 이동그만.
-            yield return new WaitForSeconds(0.5f);//애니메이션 딜레이
+            //CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.SRUSH);
+            float[] Duration = { CharacterAnim.GetTempDuration(0), CharacterAnim.GetTempDuration(1) };
+            yield return new WaitForSeconds(0.75f);//애니메이션 딜레이
 
             TempStep = STEP.HITDAMAGE;// 데미지피격단계
             UIOpen = true;
             if (Winner == DROW)//무승부
             {
+
+                CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.LAND);
                 SkillManager.ins.RunPassives("Drow");//비길때 패시브 발동
                 for (int i = 0; i < 2; i++)
                 {
@@ -180,6 +185,7 @@ public class gameManager : MonoBehaviour
                 SaveData.ins.AddData(SaveData.TYPE.STILL, Winner, 1);//데이터 저장
 
                 int Loser = UserStatus[Winner].Enemy();//패자
+                CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.HIT, Loser);
                 SkillManager.ins.RunPassives("Attack", Winner);//승자 어택
                 SkillManager.ins.RunPassives("Hit", Loser);//데미지
 
@@ -190,16 +196,15 @@ public class gameManager : MonoBehaviour
                 Debug.Log(damage + "최종 데미지");
                 Debug.Log((Winner == 0 ? "챔피언" : "챌린저") + "승");
 
+                yield return new WaitForSeconds(CharacterAnim.GetTempDuration(Winner));//애니메이션 딜레이
+                SkillManager.ins.RunPassives("WallSetting");//벽이동 전 패시브 발동
                 Shake(damage * 16);                                 //지진
                 UserStatus[Loser].HpDown(damage);              //HP깎고
                 UITextSet.UIList["Damage"] = damage.ToString();//최종 데미지 UI
-                //ComboFunc(Winner);                             //콤보설정
-                SkillManager.ins.RunPassives("WallSetting");//벽이동 전 패시브 발동
-                Loser = UserStatus[Winner].Enemy();//패자
                 bool LoserConer = UserStatus[Loser].WallDistance == 0;
                 float pMove = WallManager.ins.PivotMove;
                 WallManager.ins.SetPivot();//벽과의 거리 설정
-
+                //넉백되는구간
                 float KnockPlus = 50f;
                 if (pMove == 0)
                 {
@@ -208,7 +213,7 @@ public class gameManager : MonoBehaviour
                         Dashs[i].Knockback((WallManager.ins.DashPivotX + 50f * CharacterDirection(i)) * 0.1f, 0.5f);//서로넉백
                     }
                 }
-                else if (LoserConer || UserStatus[Loser].isSuperArmor )
+                else if (LoserConer || UserStatus[Loser].isSuperArmor)
                 {
                     if (UserStatus[Loser].isSuperArmor)
                         Debug.Log("맞은사람이 슈아임.");
@@ -223,7 +228,7 @@ public class gameManager : MonoBehaviour
             SkillManager.ins.RunPassives("End");////종료
 
             Debug.Log("끝");
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(1.25f);
             Debug.Log("한바퀴");
             Turn++;
             for (int i = 0; i < 2; i++)
@@ -321,7 +326,7 @@ public class gameManager : MonoBehaviour
             if(true)
             {
                 Debug.Log("Dash실행됨");
-                float DashCorrection = i == CHALLANGER ? 0.5f : -0.5f;
+                float DashCorrection = i == CHALLANGER ? 1f : -1f;
                 if (DashCorrection < 0) DashCorrection = 0;
                  dashs[i].Dash(DashCorrection + DashPivot, 1);
             }

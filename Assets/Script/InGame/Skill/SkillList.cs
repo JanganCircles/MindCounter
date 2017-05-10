@@ -71,8 +71,9 @@ public class SkillList : MonoBehaviour {
         guard.PassiveCount.Add("Cost", CostData.Guard);         //패시브카운트에 "Cost"추가
 
         guard.ActiveSkillSet(delegate (Skill skil)
-           {//사용시
-               Orderstat = gameManager.ins.UserStatus[skil.Order];
+        {//사용시
+            CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.GUARD, skil.Order);
+            Orderstat = gameManager.ins.UserStatus[skil.Order];
                SaveData.ins.AddData(SaveData.TYPE.GUARD, Orderstat.Controller, SaveData.Try, 1);
                Orderstat.Guard = true;
                Orderstat.AttackType = -1;
@@ -84,6 +85,7 @@ public class SkillList : MonoBehaviour {
                Orderstat = gameManager.ins.UserStatus[skil.Order];
                if (Orderstat.Guard)
                {
+                   CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.GUARD, skil.Order);
                    SaveData.ins.AddData(SaveData.TYPE.GUARD, Orderstat.Controller, SaveData.Success, 1);
                    if (Orderstat.WallDistance == 0)
                    {
@@ -95,7 +97,14 @@ public class SkillList : MonoBehaviour {
                    }
                }
            }, "Hit");//피격시 발동
-        
+
+        guard.AddPassive(delegate (Skill skl)
+        {//사후처리
+            if (skl.GetOrder().Guard)
+            {
+                CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.GUARD, skl.Order);
+            }
+        }, "Drow");//시작시 발동
         guard.AddPassive(delegate (Skill skl)
         {//사후처리
             Orderstat = gameManager.ins.UserStatus[skl.Order];
@@ -134,6 +143,7 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             if ((int)skl.PassiveCount["RSPATTACK"] == Run)//키누른게 이 함수가 맞는지 체크
             {
+                CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.MATK, skl.Order);
                 DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);             //데미지 5
                 WallManager.ins.Move((int)(skl.PassiveCount["KnockBack"]* gameManager.ins.TimingWeight[skl.Order]) , Orderstat.Enemy());    //벽이동
 
@@ -172,6 +182,7 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             if ((int)skl.PassiveCount["RSPATTACK"] == Run)//키누른게 이 함수가 맞는지 체크
             {
+                CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.SATK, skl.Order);
                 DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);         //데미지 2
                 WallManager.ins.Move((int)(skl.PassiveCount["KnockBack"] * gameManager.ins.TimingWeight[skl.Order]), Orderstat.Enemy());    //벽이동
 
@@ -208,6 +219,7 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             if ((int)skl.PassiveCount["RSPATTACK"] == Run)//키누른게 이 함수가 맞는지 체크
             {
+                CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.LATK, skl.Order);
                 DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);
                 WallManager.ins.Move((int)(skl.PassiveCount["KnockBack"] * gameManager.ins.TimingWeight[skl.Order]), Orderstat.Enemy());    //벽이동
                 SaveData.ins.AddData(SaveData.TYPE.PAPER, Orderstat.Controller, SaveData.Success, 1);//저장용
@@ -233,7 +245,6 @@ public class SkillList : MonoBehaviour {
     public void Skill_DefaultPassive(ref SkillSlot List)//게임시스템패시브(치명타, 방어추뎀, 다운추뎀)
     {
         CharacterStatus OrderStat;
-        CharacterStatus Enemy;
         Skill Critical = new Skill("Critical");//치명타
         Critical.PassiveCount.Add("Critical", ProbabilityData.Critical);
         Critical.PassiveCount.Add("BaseCritical", ProbabilityData.Critical);
@@ -263,6 +274,7 @@ public class SkillList : MonoBehaviour {
         {
             if (gameManager.ins.UserStatus[skill.Order].isSuperArmor && skill.PassiveCount["isHit"] == 1)
             {
+                CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.LAND, skill.Order);
                 WallManager.ins.ResetPivot();
             }
 
