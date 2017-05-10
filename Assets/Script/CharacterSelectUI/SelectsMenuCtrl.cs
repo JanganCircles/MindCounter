@@ -99,10 +99,15 @@ public class SelectsMenuCtrl : MonoBehaviour {
                     Sm.Cancel();
                 }
                 else
+                {
+                    AllOK[i] = true;
+                    CheckingCharacterIndex(i);
                     ItemsOK[1] = true;
+                }
             }
             if (Input.GetKeyDown(Sm.KeysData[Sm.KeysData.Length - 1]))
             {
+                AllOK[i] = false;
                 bool isCancel = false;
                 for (int j = 1; j >= 0; j--)
                 {
@@ -127,7 +132,6 @@ public class SelectsMenuCtrl : MonoBehaviour {
 
                 yield return null;
         }
-        CheckingCharacterIndex(i);
     }
     IEnumerator StasisChecker(int i)
     {
