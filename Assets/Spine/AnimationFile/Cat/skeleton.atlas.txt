@@ -5,261 +5,310 @@ format: RGBA8888
 filter: Linear,Linear
 repeat: none
 #표정_기본
-  rotate: false
-  xy: 202, 4
-  size: 24, 15
-  orig: 24, 15
+  rotate: true
+  xy: 437, 44
+  size: 22, 13
+  orig: 22, 13
+  offset: 0, 0
+  index: -1
+#표정_윙크
+  rotate: true
+  xy: 392, 52
+  size: 22, 15
+  orig: 22, 15
+  offset: 0, 0
+  index: -1
+#표정_윙크2
+  rotate: true
+  xy: 507, 103
+  size: 23, 3
+  orig: 23, 3
+  offset: 0, 0
+  index: -1
+#표정_타격
+  rotate: true
+  xy: 348, 30
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+#표정_화남
+  rotate: true
+  xy: 345, 56
+  size: 22, 16
+  orig: 22, 16
+  offset: 0, 0
+  index: -1
+#표정_화남2
+  rotate: true
+  xy: 177, 6
+  size: 13, 15
+  orig: 13, 15
   offset: 0, 0
   index: -1
 @머리_뒷머리1
-  rotate: false
-  xy: 159, 2
-  size: 15, 60
-  orig: 15, 60
+  rotate: true
+  xy: 447, 113
+  size: 13, 58
+  orig: 13, 58
   offset: 0, 0
   index: -1
 @머리_뒷머리2
   rotate: true
-  xy: 312, 76
-  size: 26, 72
-  orig: 26, 72
+  xy: 2, 9
+  size: 24, 70
+  orig: 24, 70
   offset: 0, 0
   index: -1
 @머리_뒷머리3
   rotate: true
-  xy: 154, 64
-  size: 26, 73
-  orig: 26, 73
+  xy: 290, 80
+  size: 24, 71
+  orig: 24, 71
   offset: 0, 0
   index: -1
 @머리_뒷머리4
   rotate: true
-  xy: 386, 79
-  size: 22, 71
-  orig: 22, 71
+  xy: 207, 62
+  size: 20, 69
+  orig: 20, 69
   offset: 0, 0
   index: -1
 @머리_뒷통수
-  rotate: true
-  xy: 473, 88
-  size: 38, 37
-  orig: 38, 37
+  rotate: false
+  xy: 411, 68
+  size: 36, 35
+  orig: 36, 35
   offset: 0, 0
   index: -1
 @머리_앞머리
-  rotate: true
-  xy: 52, 2
-  size: 29, 22
-  orig: 29, 22
+  rotate: false
+  xy: 363, 54
+  size: 27, 20
+  orig: 27, 20
   offset: 0, 0
   index: -1
 @머리_옆머리1
-  rotate: true
-  xy: 473, 77
-  size: 9, 31
-  orig: 9, 31
+  rotate: false
+  xy: 168, 7
+  size: 7, 29
+  orig: 7, 29
   offset: 0, 0
   index: -1
 @머리_옆머리2
-  rotate: true
-  xy: 345, 43
-  size: 9, 38
-  orig: 9, 38
+  rotate: false
+  xy: 493, 75
+  size: 7, 36
+  orig: 7, 36
   offset: 0, 0
   index: -1
 L겉옷
   rotate: true
-  xy: 397, 103
-  size: 23, 74
-  orig: 23, 74
+  xy: 373, 105
+  size: 21, 72
+  orig: 21, 72
   offset: 0, 0
   index: -1
 L귀
   rotate: true
-  xy: 228, 5
-  size: 15, 26
-  orig: 15, 26
+  xy: 363, 39
+  size: 13, 24
+  orig: 13, 24
   offset: 0, 0
   index: -1
 L리본
-  rotate: false
-  xy: 283, 2
-  size: 7, 17
-  orig: 7, 17
+  rotate: true
+  xy: 2, 2
+  size: 5, 15
+  orig: 5, 15
   offset: 0, 0
   index: -1
 L리본2
-  rotate: false
-  xy: 381, 54
-  size: 9, 20
-  orig: 9, 20
+  rotate: true
+  xy: 389, 43
+  size: 7, 18
+  orig: 7, 18
   offset: 0, 0
   index: -1
 L손
-  rotate: false
-  xy: 176, 2
-  size: 24, 17
-  orig: 24, 17
+  rotate: true
+  xy: 199, 18
+  size: 22, 15
+  orig: 22, 15
   offset: 0, 0
   index: -1
 L신발
-  rotate: true
-  xy: 263, 21
-  size: 21, 30
-  orig: 21, 30
+  rotate: false
+  xy: 259, 32
+  size: 19, 28
+  orig: 19, 28
   offset: 0, 0
   index: -1
 L어깨-팔
   rotate: true
-  xy: 222, 22
-  size: 30, 39
-  orig: 30, 39
+  xy: 220, 32
+  size: 28, 37
+  orig: 28, 37
   offset: 0, 0
   index: -1
 L종아리
   rotate: true
-  xy: 318, 104
-  size: 22, 77
-  orig: 22, 77
+  xy: 296, 106
+  size: 20, 75
+  orig: 20, 75
   offset: 0, 0
   index: -1
 L팔
   rotate: false
-  xy: 309, 40
-  size: 34, 34
-  orig: 34, 34
+  xy: 280, 46
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: -1
 L허벅지
-  rotate: false
-  xy: 75, 37
-  size: 32, 89
-  orig: 32, 89
+  rotate: true
+  xy: 127, 96
+  size: 30, 87
+  orig: 30, 87
   offset: 0, 0
   index: -1
 R겉옷
   rotate: true
-  xy: 236, 80
-  size: 24, 74
-  orig: 24, 74
+  xy: 216, 84
+  size: 22, 72
+  orig: 22, 72
   offset: 0, 0
   index: -1
 R귀
-  rotate: true
-  xy: 256, 4
-  size: 15, 25
-  orig: 15, 25
+  rotate: false
+  xy: 452, 47
+  size: 13, 23
+  orig: 13, 23
   offset: 0, 0
   index: -1
 R리본
   rotate: true
-  xy: 263, 44
-  size: 8, 14
-  orig: 8, 14
+  xy: 348, 22
+  size: 6, 12
+  orig: 6, 12
   offset: 0, 0
   index: -1
 R리본2
-  rotate: true
-  xy: 292, 3
-  size: 10, 20
-  orig: 10, 20
+  rotate: false
+  xy: 502, 83
+  size: 8, 18
+  orig: 8, 18
   offset: 0, 0
   index: -1
 R손
-  rotate: true
-  xy: 325, 16
-  size: 22, 21
-  orig: 22, 21
+  rotate: false
+  xy: 177, 21
+  size: 20, 19
+  orig: 20, 19
   offset: 0, 0
   index: -1
 R신발
   rotate: false
-  xy: 76, 4
-  size: 31, 31
-  orig: 31, 31
+  xy: 314, 49
+  size: 29, 29
+  orig: 29, 29
   offset: 0, 0
   index: -1
 R어깨-팔
   rotate: true
-  xy: 229, 54
-  size: 24, 48
-  orig: 24, 48
+  xy: 175, 42
+  size: 18, 43
+  orig: 18, 43
   offset: 0, 0
   index: -1
 R종아리
   rotate: true
-  xy: 236, 106
-  size: 20, 80
-  orig: 20, 80
+  xy: 216, 108
+  size: 18, 78
+  orig: 18, 78
   offset: 0, 0
   index: -1
 R팔
   rotate: true
-  xy: 2, 2
-  size: 29, 48
-  orig: 29, 48
+  xy: 122, 7
+  size: 29, 44
+  orig: 29, 44
   offset: 0, 0
   index: -1
 R허벅지
   rotate: true
-  xy: 154, 92
-  size: 34, 80
-  orig: 34, 80
+  xy: 127, 62
+  size: 32, 78
+  orig: 32, 78
   offset: 0, 0
   index: -1
 l 손_브이
   rotate: true
-  xy: 295, 15
-  size: 23, 28
-  orig: 23, 28
+  xy: 409, 45
+  size: 21, 26
+  orig: 21, 26
   offset: 0, 0
   index: -1
 r 손_할퀴기
   rotate: false
-  xy: 345, 54
-  size: 34, 20
-  orig: 34, 20
+  xy: 280, 26
+  size: 32, 18
+  orig: 32, 18
+  offset: 0, 0
+  index: -1
+겉R어깨-팔
+  rotate: true
+  xy: 127, 38
+  size: 22, 46
+  orig: 22, 46
+  offset: 0, 0
+  index: -1
+겉R팔
+  rotate: true
+  xy: 363, 76
+  size: 27, 46
+  orig: 27, 46
   offset: 0, 0
   index: -1
 골반
   rotate: false
-  xy: 176, 21
-  size: 44, 41
-  orig: 44, 41
+  xy: 449, 72
+  size: 42, 39
+  orig: 42, 39
   offset: 0, 0
   index: -1
 꼬리
   rotate: false
-  xy: 2, 33
-  size: 71, 93
-  orig: 71, 93
+  xy: 2, 35
+  size: 69, 91
+  orig: 69, 91
   offset: 0, 0
   index: -1
 뒤
   rotate: false
-  xy: 109, 50
-  size: 43, 76
-  orig: 43, 76
+  xy: 73, 53
+  size: 52, 73
+  orig: 52, 73
   offset: 0, 0
   index: -1
 목
   rotate: false
-  xy: 459, 77
-  size: 12, 24
-  orig: 12, 24
+  xy: 467, 48
+  size: 10, 22
+  orig: 10, 22
   offset: 0, 0
   index: -1
 상체
   rotate: true
-  xy: 109, 2
-  size: 46, 48
-  orig: 46, 48
+  xy: 74, 7
+  size: 44, 46
+  orig: 44, 46
   offset: 0, 0
   index: -1
 얼굴
-  rotate: false
-  xy: 279, 44
-  size: 28, 34
-  orig: 28, 34
+  rotate: true
+  xy: 314, 21
+  size: 26, 32
+  orig: 26, 32
   offset: 0, 0
   index: -1

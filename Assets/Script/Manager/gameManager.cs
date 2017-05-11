@@ -17,6 +17,7 @@ public class gameManager : MonoBehaviour
     public CharacterStatus[] UserStatus;    //캐릭터 스텟
     public SkillSlot[] UserSlot;            //스킬슬롯
     public float[] TimingWeight;            //잘맞았냐
+    private CharacterAnim.AnimStasis[] AttackAnims;//공격할때 애니메이션들 세팅.
 
 
 
@@ -48,6 +49,7 @@ public class gameManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        AttackAnims = new CharacterAnim.AnimStasis[6];
         Turn = 0;
         KeyAllClick = false;
         Winner = -1;
@@ -88,6 +90,26 @@ public class gameManager : MonoBehaviour
             StopAllCoroutines();
         }
 
+    }
+    IEnumerator AnimationRun()
+    {
+        CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.SRUSH ,1f);
+        //1번애니
+        for (int i = 0; i < 3; i++)
+        {
+            CharacterAnim.ChangeAnimation(AttackAnims[CHALLANGER + i * 2], CHALLANGER);
+            CharacterAnim.ChangeAnimation(AttackAnims[CHAMPION + i * 2], CHAMPION);
+            yield return new WaitForSeconds(0.98f);
+        }
+    }
+    public void AnimationSetting( int step, CharacterAnim.AnimStasis stasis)
+    {
+        for (int i = 0; i < 2; i++)
+            AnimationSetting(i, step, stasis);
+    }
+    public void AnimationSetting(int index, int step,CharacterAnim.AnimStasis stasis)
+    {
+        AttackAnims[index + step * 2] = stasis;
     }
     IEnumerator GamePlay()
     {
@@ -147,13 +169,23 @@ public class gameManager : MonoBehaviour
             SkillManager.ins.RunPassives("KeyCheck");//키입력시 패시브 발동
             IControl.CheckingKey();
             float[] KeyCatchTime = IControl.GetCatchTime();
-          // StartCoroutine(KeyCheck());
+            // StartCoroutine(KeyCheck());
 
+            float AnimationTimer = 2f;
             // while (!KeyAllClick)
             while (!IControl.CheckingRunEffect())
             {
-                //키체크가 끝날때까지 무한 루프
-                yield return null;
+                if (AnimationTimer > 0)
+                {
+                    AnimationTimer -= Time.unscaledDeltaTime;
+                }
+                else if (AnimationTimer < 0)
+                {
+                    CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.SRUSH,1f);
+                    AnimationTimer = 0;
+                }
+                    //키체크가 끝날때까지 무한 루프
+                    yield return null;
             }
             float[] TimingArr= IControl.GetCatchTime();
             for (int i = 0; i < 2; i++)
@@ -166,25 +198,33 @@ public class gameManager : MonoBehaviour
             GuardCheck(Dashs, Winner);//가드시 이동그만.
             //CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.SRUSH);
             float[] Duration = { CharacterAnim.GetTempDuration(0), CharacterAnim.GetTempDuration(1) };
-            yield return new WaitForSeconds(0.75f);//애니메이션 딜레이
+            yield return new WaitForSeconds(0.25f);//애니메이션 딜레이
 
             TempStep = STEP.HITDAMAGE;// 데미지피격단계
             UIOpen = true;
+            AnimationSetting(2, CharacterAnim.AnimStasis.LAND);//막애니메이션은 밀쳐짐.
             if (Winner == DROW)//무승부
             {
-
-                CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.LAND);
                 SkillManager.ins.RunPassives("Drow");//비길때 패시브 발동
+                StartCoroutine(AnimationRun());
+                yield return new WaitForSeconds(0.95f);//애니메이션 딜레이
                 for (int i = 0; i < 2; i++)
                 {
-                    Dashs[i].Knockback((WallManager.ins.DashPivotX + 50f * CharacterDirection(i)) * 0.1f, 0.5f);//서로넉백
+                    //드로우면 서로 넉백
+                    if (Mathf.Abs(UserStatus[CHAMPION].transform.position.x - UserStatus[CHALLANGER].transform.position.x) < 10)
+                    {
+                        AnimationSetting(1, CharacterAnim.AnimStasis.LAND);//막애니메이션은 밀쳐짐.
+                        Dashs[i].Knockback((WallManager.ins.DashPivotX + 50f * CharacterDirection(i)) * 0.1f, 0.5f);//서로넉백
+                    }
                 }
+                yield return new WaitForSeconds(0.05f);//애니메이션 딜레이
             }
             else
             {//판가름 남.
                 SaveData.ins.AddData(SaveData.TYPE.STILL, Winner, 1);//데이터 저장
 
                 int Loser = UserStatus[Winner].Enemy();//패자
+                AnimationSetting(Loser, 1, CharacterAnim.AnimStasis.HIT);//막애니메이션은 밀쳐짐.
                 CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.HIT, Loser);
                 SkillManager.ins.RunPassives("Attack", Winner);//승자 어택
                 SkillManager.ins.RunPassives("Hit", Loser);//데미지
@@ -196,7 +236,9 @@ public class gameManager : MonoBehaviour
                 Debug.Log(damage + "최종 데미지");
                 Debug.Log((Winner == 0 ? "챔피언" : "챌린저") + "승");
 
-                yield return new WaitForSeconds(CharacterAnim.GetTempDuration(Winner));//애니메이션 딜레이
+                //yield return new WaitForSeconds(CharacterAnim.GetTempDuration(Winner));//애니메이션 딜레이
+                StartCoroutine(AnimationRun());
+                yield return new WaitForSeconds(1f);//애니메이션 딜레이
                 SkillManager.ins.RunPassives("WallSetting");//벽이동 전 패시브 발동
                 Shake(damage * 16);                                 //지진
                 UserStatus[Loser].HpDown(damage);              //HP깎고
@@ -228,7 +270,7 @@ public class gameManager : MonoBehaviour
             SkillManager.ins.RunPassives("End");////종료
 
             Debug.Log("끝");
-            yield return new WaitForSeconds(1.25f);
+            yield return new WaitForSeconds(1f);
             Debug.Log("한바퀴");
             Turn++;
             for (int i = 0; i < 2; i++)
@@ -326,7 +368,7 @@ public class gameManager : MonoBehaviour
             if(true)
             {
                 Debug.Log("Dash실행됨");
-                float DashCorrection = i == CHALLANGER ? 1f : -1f;
+                float DashCorrection = i == CHALLANGER ? 1.5f : -1.5f;
                 if (DashCorrection < 0) DashCorrection = 0;
                  dashs[i].Dash(DashCorrection + DashPivot, 1);
             }
@@ -336,7 +378,7 @@ public class gameManager : MonoBehaviour
     {
         if (Winner == DROW)
         {
-            if (UserStatus[CHALLANGER].Guard && UserStatus[CHAMPION].Guard)
+            if (UserStatus[CHALLANGER].DontDash && UserStatus[CHAMPION].DontDash)
             {
                 Dashs[CHALLANGER].Stop();
                 Dashs[CHAMPION].Stop();
@@ -346,12 +388,12 @@ public class gameManager : MonoBehaviour
         else
         {
             int Loser = UserStatus[Winner].Enemy();
-            if (UserStatus[Winner].Guard)
+            if (UserStatus[Winner].DontDash)
             {
                 Dashs[Loser].Stop();
                 Dashs[Winner].Knockback((WallManager.ins.DashPivotX + 100f * CharacterDirection(Winner)) * 0.1f, 0.5f);
             }
-            else if (UserStatus[Loser].Guard)
+            else if (UserStatus[Loser].DontDash)
             {
                 Dashs[Loser].Stop();
                 //멈춰

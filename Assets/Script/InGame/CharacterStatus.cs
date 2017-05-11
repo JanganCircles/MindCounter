@@ -7,6 +7,7 @@ public class CharacterStatus : MonoBehaviour {
     public int MaxHP;               //최대체력
     public int HP;                  //현재체력
     public bool Guard;              //가드함ㅋ
+    public bool DontDash;           //안 달리는 상태(가드,에너지)
     public float WallDistance;      //벽까지의 거리
 
     //Rock = 압박, Scissor = 화력 , Paper = 연속

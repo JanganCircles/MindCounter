@@ -42,6 +42,9 @@ public class SkillList : MonoBehaviour {
 
         Energy.ActiveSkillSet(delegate (Skill skil)
         {//사용시
+            skil.GetOrder().DontDash = true;
+            gameManager.ins.AnimationSetting(skil.Order, 0, CharacterAnim.AnimStasis.MANA);
+            gameManager.ins.AnimationSetting(skil.Order, 1, CharacterAnim.AnimStasis.MANA);
             skil.PassiveCount["Switch"] = 1;
         });//액티브 스킬 사용
 
@@ -50,11 +53,19 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             if (skl.PassiveCount["Switch"] == 1)
             {
+                CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.MANA, skl.Order);
                 Orderstat.CostPlus(CostData.EnergyRecovery);
             }
         }, "Decision");//시작시 발동
         Energy.AddPassive(delegate (Skill skl)
         {
+            if (skl.GetEnemy().Guard)
+                gameManager.ins.AnimationSetting(skl.Order, 1, CharacterAnim.AnimStasis.MANA);
+        }
+        , "Hit");
+        Energy.AddPassive(delegate (Skill skl)
+        {
+            skl.GetOrder().DontDash = false;
             if (skl.PassiveCount["Switch"] == 1)
                 skl.PassiveCount["Switch"] = 0;
         }
@@ -71,8 +82,10 @@ public class SkillList : MonoBehaviour {
         guard.PassiveCount.Add("Cost", CostData.Guard);         //패시브카운트에 "Cost"추가
 
         guard.ActiveSkillSet(delegate (Skill skil)
-        {//사용시
-            CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.GUARD, skil.Order);
+        {//사용시    
+            skil.GetOrder().DontDash = true;
+            gameManager.ins.AnimationSetting(skil.Order, 0, CharacterAnim.AnimStasis.GUARD);
+            gameManager.ins.AnimationSetting(skil.Order, 1, CharacterAnim.AnimStasis.GUARD);
             Orderstat = gameManager.ins.UserStatus[skil.Order];
                SaveData.ins.AddData(SaveData.TYPE.GUARD, Orderstat.Controller, SaveData.Try, 1);
                Orderstat.Guard = true;
@@ -85,7 +98,7 @@ public class SkillList : MonoBehaviour {
                Orderstat = gameManager.ins.UserStatus[skil.Order];
                if (Orderstat.Guard)
                {
-                   CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.GUARD, skil.Order);
+                   gameManager.ins.AnimationSetting(skil.Order, 1, CharacterAnim.AnimStasis.GUARD);
                    SaveData.ins.AddData(SaveData.TYPE.GUARD, Orderstat.Controller, SaveData.Success, 1);
                    if (Orderstat.WallDistance == 0)
                    {
@@ -99,14 +112,17 @@ public class SkillList : MonoBehaviour {
            }, "Hit");//피격시 발동
 
         guard.AddPassive(delegate (Skill skl)
-        {//사후처리
-            if (skl.GetOrder().Guard)
+        {//체크
+            Orderstat = gameManager.ins.UserStatus[skl.Order];
+            if (Orderstat.Guard)
             {
                 CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.GUARD, skl.Order);
+                Orderstat.CostPlus(CostData.EnergyRecovery);
             }
-        }, "Drow");//시작시 발동
+        }, "Decision");//시작시 발동
         guard.AddPassive(delegate (Skill skl)
         {//사후처리
+            skl.GetOrder().DontDash = false;
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             if (Orderstat.Guard)
             {
@@ -129,6 +145,8 @@ public class SkillList : MonoBehaviour {
 
         NewSkill.ActiveSkillSet(delegate (Skill skl)
         {//사용시
+            gameManager.ins.AnimationSetting(skl.Order, 0, CharacterAnim.AnimStasis.MATK);
+            gameManager.ins.AnimationSetting(skl.Order, 1, CharacterAnim.AnimStasis.MATK);
             Debug.Log("CallThis - Skill_UseRock");
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             skl.PassiveCount["RSPATTACK"] = Run;
@@ -143,7 +161,7 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             if ((int)skl.PassiveCount["RSPATTACK"] == Run)//키누른게 이 함수가 맞는지 체크
             {
-                CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.MATK, skl.Order);
+                gameManager.ins.AnimationSetting(skl.Order, 2, CharacterAnim.AnimStasis.IDLE);
                 DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);             //데미지 5
                 WallManager.ins.Move((int)(skl.PassiveCount["KnockBack"]* gameManager.ins.TimingWeight[skl.Order]) , Orderstat.Enemy());    //벽이동
 
@@ -169,6 +187,8 @@ public class SkillList : MonoBehaviour {
 
         NewSkill.ActiveSkillSet(delegate (Skill skl)
         {//사용시
+            gameManager.ins.AnimationSetting(skl.Order, 0, CharacterAnim.AnimStasis.SATK);
+            gameManager.ins.AnimationSetting(skl.Order, 1, CharacterAnim.AnimStasis.SATK);
             Debug.Log("CallThis - Skill_UseScissors");
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             skl.PassiveCount["RSPATTACK"] = Run;
@@ -182,7 +202,7 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             if ((int)skl.PassiveCount["RSPATTACK"] == Run)//키누른게 이 함수가 맞는지 체크
             {
-                CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.SATK, skl.Order);
+                gameManager.ins.AnimationSetting(skl.Order, 2, CharacterAnim.AnimStasis.IDLE);
                 DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);         //데미지 2
                 WallManager.ins.Move((int)(skl.PassiveCount["KnockBack"] * gameManager.ins.TimingWeight[skl.Order]), Orderstat.Enemy());    //벽이동
 
@@ -206,6 +226,8 @@ public class SkillList : MonoBehaviour {
 
         NewSkill.ActiveSkillSet(delegate (Skill skl)
         {//사용시
+            gameManager.ins.AnimationSetting(skl.Order, 0, CharacterAnim.AnimStasis.LATK);
+            gameManager.ins.AnimationSetting(skl.Order, 1, CharacterAnim.AnimStasis.LATK);
             Debug.Log("CallThis - Skill_UseRock");
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             skl.PassiveCount["RSPATTACK"] = Run;
@@ -219,7 +241,7 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             if ((int)skl.PassiveCount["RSPATTACK"] == Run)//키누른게 이 함수가 맞는지 체크
             {
-                CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.LATK, skl.Order);
+                gameManager.ins.AnimationSetting(skl.Order, 2,CharacterAnim.AnimStasis.IDLE);
                 DamageCalculator.ins.SetDamage((int)skl.PassiveCount["Damage"]);
                 WallManager.ins.Move((int)(skl.PassiveCount["KnockBack"] * gameManager.ins.TimingWeight[skl.Order]), Orderstat.Enemy());    //벽이동
                 SaveData.ins.AddData(SaveData.TYPE.PAPER, Orderstat.Controller, SaveData.Success, 1);//저장용

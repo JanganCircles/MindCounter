@@ -25,7 +25,7 @@ public class CharacterAnim : MonoBehaviour {
     }
     private void Reset()
     {
-        hit = "Hit";
+        hit = "hit";
         strongAtk = "Lat";
         middleAtk = "Mat";
         weakAtk = "Sat";
@@ -62,6 +62,20 @@ public class CharacterAnim : MonoBehaviour {
     {
         for(int i = 0; i < 2; i++)
         ChangeAnimation(stasis, i);
+
+    }
+    public static void ChangeAnimation(AnimStasis stasis,float Scale)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            Anims[i].SetTimeScale(Scale);
+            ChangeAnimation(stasis, i);
+        }
+
+    }
+    public void SetTimeScale(float f)
+    {
+        SkelAnim.timeScale = f;
     }
     public static void ChangeAnimation(AnimStasis stasis,int index)
     {

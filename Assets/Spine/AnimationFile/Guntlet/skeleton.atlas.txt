@@ -19,8 +19,8 @@ repeat: none
   offset: 0, 0
   index: -1
 공격얼굴
-  rotate: true
-  xy: 706, 32
+  rotate: false
+  xy: 671, 27
   size: 33, 44
   orig: 33, 44
   offset: 0, 0
@@ -48,7 +48,7 @@ repeat: none
   index: -1
 얼굴
   rotate: true
-  xy: 752, 32
+  xy: 706, 32
   size: 33, 44
   orig: 33, 44
   offset: 0, 0
@@ -166,8 +166,8 @@ repeat: none
   offset: 0, 0
   index: -1
 피격얼굴
-  rotate: false
-  xy: 671, 27
+  rotate: true
+  xy: 752, 32
   size: 33, 44
   orig: 33, 44
   offset: 0, 0
