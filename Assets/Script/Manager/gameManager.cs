@@ -64,6 +64,8 @@ public class gameManager : MonoBehaviour
             UserStatus[i] = players[i].GetComponent<CharacterStatus>();
             UserStatus[i].Controller = i;
             UserSlot[i] = players[i].GetComponent<SkillSlot>();
+            UserSlot[i].UseItem = GameData.ins.PotionCode[i];
+            UserSlot[i].EqulpmentItem = GameData.ins.EquipmentCode[i];
         }
         TimingWeight = new float[2];
 

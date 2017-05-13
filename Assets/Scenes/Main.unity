@@ -4741,6 +4741,21 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
+        type: 2}
+      propertyPath: itemCodes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
+        type: 2}
+      propertyPath: PotionCode.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
+        type: 2}
+      propertyPath: EquipmentCode.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4333813320134872, guid: 80874f8e07c1e674ca538508cc21f01a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4797,6 +4812,21 @@ Prefab:
         type: 2}
       propertyPath: isOnline
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
+        type: 2}
+      propertyPath: EquipmentCode.Array.data[0]
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
+        type: 2}
+      propertyPath: EquipmentCode.Array.data[1]
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
+        type: 2}
+      propertyPath: PotionCode.Array.data[1]
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80874f8e07c1e674ca538508cc21f01a, type: 2}

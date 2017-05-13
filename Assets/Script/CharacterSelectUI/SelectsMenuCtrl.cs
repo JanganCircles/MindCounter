@@ -95,11 +95,14 @@ public class SelectsMenuCtrl : MonoBehaviour {
             {
                 if (!ItemsOK[0])
                 {
+                    //1번아이템
+               //     GameData.ins.PotionCode[i] = Item.ITEMCODE();
                     ItemsOK[0] = true;
                     Sm.Cancel();
                 }
                 else
                 {
+                    //2번아이템
                     AllOK[i] = true;
                     CheckingCharacterIndex(i);
                     ItemsOK[1] = true;

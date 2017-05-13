@@ -8,7 +8,8 @@ public class GameData : MonoBehaviour {
     public string TempSceneName;    //바꿀씬
     public static GameData ins { get; set; }//인스턴스
     private int[] PlayerCharacter = null;//현재 캐릭터
-    public Item.ITEMCODE[] itemCodes = null;
+    public Item.ITEMCODE[] PotionCode = null;
+    public Item.ITEMCODE[] EquipmentCode = null;
     public CharacterStatusSetup.Charas[] Characters = null;//현재 캐릭터(에디터 보여주기용)
     // Use this for initialization
     void Reset()
@@ -33,7 +34,6 @@ public class GameData : MonoBehaviour {
     public void SetPlayer(int Character, int index)
     {
         PlayerCharacter[index] = Character;
-        //캐릭터 데이터를 엑셀에서 가져오게 하자(http://gigong.tistory.com/4) 무리다요
     }
     public void InitPlayer()//캐릭터초기화
     {
@@ -51,13 +51,13 @@ public class GameData : MonoBehaviour {
         switch (str)
         {
             case "CharacterSelect"://캐릭터셀렉씬일때
-                itemCodes = new Item.ITEMCODE[4];
+                ins.PotionCode = new Item.ITEMCODE[2];
+                ins.EquipmentCode = new Item.ITEMCODE[2];
                 ins.PlayerCharacter = new int[2];
 
                 break;
             case "Main"://메인씬일떄
                 {
-                    itemCodes = new Item.ITEMCODE[4];
                     GameObject gm = null;
                     gm = GameObject.Find("NetWorkLobby");
                     Debug.Log(gm);
