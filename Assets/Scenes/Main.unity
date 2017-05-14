@@ -4314,8 +4314,6 @@ MonoBehaviour:
   Character: []
   MyTr: {fileID: 0}
   cam: {fileID: 0}
-  Magnification: 5
-  AddendumSize: 4
 --- !u!1 &1212214924
 GameObject:
   m_ObjectHideFlags: 0

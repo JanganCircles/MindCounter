@@ -10,6 +10,7 @@ public class SelectMenu : MonoBehaviour
     public RectTransform CursorTr;        //캔버스 내부의 커서 트랜스폼.
 
     //0 = 1피, 1 = 2피
+    public bool ResetIconTr;     
     public RectTransform[] IconTr;// 아이콘 트랜스폼
     public int XLength;
     public int YLength;
@@ -18,12 +19,26 @@ public class SelectMenu : MonoBehaviour
     private bool CharacterSelectLockOn = false;                  //false = 선택안함 , true = 선택중
     private bool PlayerSelect = false;            //현재 캐릭터 선택 되어있는가
     public KeyCode[] KeysData = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.F,KeyCode.G }; //위왼아래오른,선택,취소
-    
+
     // Use this for initialization
 
     private void Reset()
     {
-        KeysData = new KeyCode[] {KeyCode.UpArrow,KeyCode.LeftArrow,KeyCode.DownArrow,KeyCode.RightArrow,KeyCode.Space,KeyCode.Escape};
+        KeysData = new KeyCode[] { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.G};
+        Transform[] tr = GetComponentsInChildren<Transform>();
+        Queue<Transform> Trqueue = new Queue<Transform>();
+        for (int i = 0; i < tr.Length; i++)
+        {
+            if (tr[i].name.Contains(name) && tr[i] != transform)
+                Trqueue.Enqueue(tr[i]);
+        }
+        IconTr = new RectTransform[Trqueue.Count];
+        while (Trqueue.Count != 0)
+        {
+            Transform temptr = Trqueue.Dequeue();
+            int index = int.Parse(temptr.name.Remove(0, name.Length));
+            IconTr[index] = temptr.GetComponent<RectTransform>();
+        }
     }
     // Use this for initialization
     void Awake()

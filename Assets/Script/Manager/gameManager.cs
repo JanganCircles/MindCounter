@@ -223,6 +223,8 @@ public class gameManager : MonoBehaviour
             }
             else
             {//판가름 남.
+                CameraController.LockPosition = true; // 카메라 컨트롤러
+                CameraController.Winner = Winner;     // " 위와동일
                 SaveData.ins.AddData(SaveData.TYPE.STILL, Winner, 1);//데이터 저장
 
                 int Loser = UserStatus[Winner].Enemy();//패자
@@ -273,6 +275,7 @@ public class gameManager : MonoBehaviour
 
             Debug.Log("끝");
             yield return new WaitForSeconds(1f);
+            CameraController.LockPosition = false;
             Debug.Log("한바퀴");
             Turn++;
             for (int i = 0; i < 2; i++)
