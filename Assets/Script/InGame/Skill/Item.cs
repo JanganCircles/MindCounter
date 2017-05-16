@@ -132,7 +132,6 @@ public class Item  {
             //파싱한 내용 따라서 구현
 
         }
-        Debug.Log(TempName + " "+ TempStr[3] + " 성공");
         item = new ItemData(Code,TempStr[1],TempStr[2],int.Parse(TempStr[3]), TempSkill);
         TempSkill = null;
         return item;
@@ -158,8 +157,9 @@ public class Item  {
                 else
                     Key += e;
             }
-            if(ValueStr != "")
-                Value = double.Parse(ValueStr);
+            if (ValueStr != "")
+                if (!double.TryParse(ValueStr, out Value))
+                    return;
             switch (Key)
             {
                 case "PDMG": { Potion_DamageUp((int)Value); } break;
@@ -462,7 +462,7 @@ public class Item  {
         public int weight;
         public Skill skill;
         
-        public ItemData(ITEMCODE _code, string _ImagePath,string _TempName,int _weight, Skill TempSkill)
+        public ItemData(ITEMCODE _code,string _TempName, string _ImagePath, int _weight, Skill TempSkill)
         {
             TempName = _TempName;
             Code = _code;
@@ -471,11 +471,19 @@ public class Item  {
             skill = TempSkill;
         }
 
-        /*public Sprite ItemImage()
+        public Sprite GetSprite()
         {
- 
+            Sprite sp;
+            Sprite[] sprites = Resources.LoadAll<Sprite>("Sprite/ItemIcon");
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                if (sprites[i].name == ImagePath)
+                    return sprites[i];
+            }
+//            sp = Resources.Load(ImagePath) as Sprite;
+            return null;
         }
-        */
+        
     }
 }
 

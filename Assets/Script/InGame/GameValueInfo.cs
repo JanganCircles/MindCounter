@@ -38,8 +38,8 @@ public class ProbabilityData
 public class MenuItemIndex
 {
     const int POTIONLENGTH = 5;
-    const int ITEMLENGTH = 9;
-    const int TIERLENGTH = 14;
+    const int ITEMLENGTH = 8;
+    const int TIERLENGTH = 13;
     public enum RESULTTYPE { POTION,EQULPMENT}
     public static bool GetItemCodeToIndex(out int Result, RESULTTYPE type, Item.ITEMCODE code)
     {

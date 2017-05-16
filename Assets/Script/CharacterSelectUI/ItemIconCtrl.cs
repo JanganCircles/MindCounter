@@ -1,32 +1,63 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemIconCtrl : MonoBehaviour {
 
-    Sprite sprite;
-    public static int ImageNumber;
+    public delegate void ChangeSwitch();
+    public static ChangeSwitch[] switchs = null;
+    Sprite EqulpMentSprite;
+    Sprite PotionSprite;
+    private int ImageNumber;
+    public bool isInValue;
+    bool isEqulp;
+    public bool DebugOnlyRun;
     // Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    public static void ResetIndex()
-    {
-        ImageNumber = 0;
+    void Awake() {
+        if (switchs == null)
+        {
+            switchs = new ChangeSwitch[2];
+        }
+        switchs[transform.parent.name == "Blue" ? 0 : 1] += SwitchImage;
+        isEqulp = true;
+        int result = -1;
+        string Number = name.Substring(9, name.Length - 9);
+        if (int.TryParse(Number, out result))
+            ImageNumber = result;
+        SetImage();
+        GetComponent<Image>().sprite = EqulpMentSprite;
     }
-    public void SetImage(bool isPotion)
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (DebugOnlyRun == true)
+        {
+            switchs[0]();
+            DebugOnlyRun = false;
+        }
+    }
+    void SwitchImage()
+    {
+        isEqulp = !isEqulp;
+        if(isEqulp)
+            GetComponent<Image>().sprite = EqulpMentSprite;
+        else
+            GetComponent<Image>().sprite = PotionSprite;
+        isInValue = GetComponent<Image>().sprite == null;
+    }
+    public void SetImage()
     {
         Item.ITEMCODE Codes;
-        /*GameValueInfo.MenuItemIndex.RESULTTYPE type = isPotion ? GameValueInfo.MenuItemIndex.RESULTTYPE.POTION : GameValueInfo.MenuItemIndex.RESULTTYPE.EQULPMENT;
-        if (GameValueInfo.MenuItemIndex.GetItemIndexToCode(out Codes, type, ImageNumber))
+        for (int i = 0; i < 2; i++)
         {
-            ItemData data = Item.GetItem(Codes);
-            sprite = Resources.Load(data.ItemPath) as Sprite;
-        }*/
+            if (MenuItemIndex.GetItemIndexToCode(out Codes, (MenuItemIndex.RESULTTYPE)i, ImageNumber))
+            {
+                Item.ItemData data = Item.GetItem(Codes);
+                if (i == 0) PotionSprite = data.GetSprite();
+                else EqulpMentSprite= data.GetSprite();
+            }
+        }
     }
 }

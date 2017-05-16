@@ -47,6 +47,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
     {
         for (int i = 0; i < 2; i++)
         {
+            ItemIconCtrl.switchs[i]();
             TempMenu[i] = CharacterSelecter[i];
             StartCoroutine("CharacterSelect", i);
         }
@@ -99,6 +100,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
     }
     IEnumerator ItemSelect(int i)
     {
+        ItemIconCtrl.switchs[i]();
         bool[] ItemsOK = { false, false}; 
         SelectMenu Sm = TempMenu[i] = ItemSelecter[i];
         TempMenu[i].isRun = true; 
@@ -110,6 +112,11 @@ public class SelectsMenuCtrl : MonoBehaviour {
         {
             if (Sm.isSelect(out v))
             {
+                if (false)//예외적 아이템 클릭.
+                {
+                    Sm.Cancel();
+                    continue;
+                }
                 if (!ItemsOK[0])
                 {
                     //1번아이템
@@ -117,6 +124,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
                     ItemsOK[0] = true;
                     Sm.Cancel();
                     yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
+                    ItemIconCtrl.switchs[i]();
                     //이미지교체
                     yield return StartCoroutine("MoveMenu", new object[] { Sm, DownMenuY });
                 }
@@ -126,7 +134,9 @@ public class SelectsMenuCtrl : MonoBehaviour {
                     AllOK[i] = true;
                     CheckingCharacterIndex(i);
                     ItemsOK[1] = true;
+                    
                     yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
+                    ItemIconCtrl.switchs[i]();
 
                 }
             }
@@ -143,7 +153,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
                         isCancel = true;
                         if(j != 1)
                         yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
-                        //이미지교체
+                        ItemIconCtrl.switchs[i]();
                         yield return StartCoroutine("MoveMenu", new object[] { Sm, DownMenuY });
 
                         break;
@@ -157,6 +167,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
                     CharacterSelecter[i].Cancel();
                     yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
 
+                    ItemIconCtrl.switchs[i]();
                     StartCoroutine("StasisChecker", i);
                     yield break;
                 }
