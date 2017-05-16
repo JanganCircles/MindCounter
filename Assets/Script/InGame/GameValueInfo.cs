@@ -41,7 +41,7 @@ public class MenuItemIndex
     const int ITEMLENGTH = 9;
     const int TIERLENGTH = 14;
     public enum RESULTTYPE { POTION,EQULPMENT}
-    public bool GetItemCodeToIndex(out int Result, RESULTTYPE type, Item.ITEMCODE code)
+    public static bool GetItemCodeToIndex(out int Result, RESULTTYPE type, Item.ITEMCODE code)
     {
         int typelength = type == RESULTTYPE.POTION ? POTIONLENGTH : ITEMLENGTH;
         Result = -1;
@@ -64,7 +64,7 @@ public class MenuItemIndex
         //21번 2티어 완드 , 인덱스는 11번나와야함.
         //인덱스 = 6번
     }
-    public bool GetItemIndexToCode(out Item.ITEMCODE Result, RESULTTYPE type, int index)
+    public static bool GetItemIndexToCode(out Item.ITEMCODE Result, RESULTTYPE type, int index)
     {
         Result = Item.ITEMCODE.randomBox_L;
         int typelength = type == RESULTTYPE.POTION ? POTIONLENGTH : ITEMLENGTH;

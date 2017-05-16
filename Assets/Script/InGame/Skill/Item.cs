@@ -100,15 +100,15 @@ public class Item  {
         TempStr.Remove("\r");
         TempName = TempStr[1];
         if (TempStr[4] == "P")
-        {
+        {//패시브임
             TempSkill = new Skill(TempName);
 
             //파싱한 내용에 따라서 구현
-            OptionSetting( TempStr, 6);
+            OptionSetting( TempStr, 6);//효과
         }
         else
-        {
-            string Consumable = TempStr[5];
+        {//포션임
+            string Consumable = TempStr[5];//사용횟수체크
             int UsingNum;
             int TurnNum;
             int i = 0;
@@ -133,18 +133,8 @@ public class Item  {
 
         }
         Debug.Log(TempName + " "+ TempStr[3] + " 성공");
-        item = new ItemData(Code,TempStr[1],int.Parse(TempStr[3]), TempSkill);
+        item = new ItemData(Code,TempStr[1],TempStr[2],int.Parse(TempStr[3]), TempSkill);
         TempSkill = null;
-        //디버그
-        // for (int i = 0; i < Items.Length; i++)
-        // {
-        //     string str = "";
-        //     for (int j = 0; j < Items[i].Count; j++)
-        //     {
-        //         str += Items[i][j];
-        //     }
-        //     Debug.Log(str);
-        // }
         return item;
 
     }
@@ -468,24 +458,23 @@ public class Item  {
     {
         public ITEMCODE Code;
         public string TempName;
+        public string ImagePath;
         public int weight;
         public Skill skill;
         
-        public ItemData(ITEMCODE _code, string _TempName,int _weight, Skill TempSkill)
+        public ItemData(ITEMCODE _code, string _ImagePath,string _TempName,int _weight, Skill TempSkill)
         {
             TempName = _TempName;
             Code = _code;
+            ImagePath = _ImagePath;
             weight = _weight;
             skill = TempSkill;
         }
+
+        public Sprite ItemImage()
+        {
+ 
+        }
     }
-    // Use this for initialization
-    void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
 
