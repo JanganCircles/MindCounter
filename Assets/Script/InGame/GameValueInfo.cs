@@ -35,3 +35,52 @@ public class ProbabilityData
 {
     public const int Critical = 5;
 }
+public class MenuItemIndex
+{
+    const int POTIONLENGTH = 5;
+    const int ITEMLENGTH = 9;
+    const int TIERLENGTH = 14;
+    public enum RESULTTYPE { POTION,EQULPMENT}
+    public bool GetItemCodeToIndex(out int Result, RESULTTYPE type, Item.ITEMCODE code)
+    {
+        int typelength = type == RESULTTYPE.POTION ? POTIONLENGTH : ITEMLENGTH;
+        Result = -1;
+        int Tier = (int)code / TIERLENGTH;
+        int index = (int)code % TIERLENGTH;
+        switch (type)
+        {
+            case RESULTTYPE.POTION:
+                if (index >= typelength)
+                    return false;
+                break;
+            case RESULTTYPE.EQULPMENT:
+                index -= POTIONLENGTH;
+                if (index < 0)
+                    return false;
+                break;
+        }
+        Result = index + Tier * typelength;
+        return true;
+        //21번 2티어 완드 , 인덱스는 11번나와야함.
+        //인덱스 = 6번
+    }
+    public bool GetItemIndexToCode(out Item.ITEMCODE Result, RESULTTYPE type, int index)
+    {
+        Result = Item.ITEMCODE.randomBox_L;
+        int typelength = type == RESULTTYPE.POTION ? POTIONLENGTH : ITEMLENGTH;
+        
+        if (index >= typelength * 3) return false;
+        int Tier = index / typelength;
+        switch (type)
+        {
+            case RESULTTYPE.POTION:
+                Result = (Item.ITEMCODE)(index + Tier * ITEMLENGTH);
+                break;
+            case RESULTTYPE.EQULPMENT:
+                Result = (Item.ITEMCODE)(index + (Tier + 1 ) * POTIONLENGTH);
+                break;
+        }
+        return true;
+    }
+
+}

@@ -10,6 +10,7 @@ public class GameData : MonoBehaviour {
     private int[] PlayerCharacter = null;//현재 캐릭터
     public Item.ITEMCODE[] PotionCode = null;
     public Item.ITEMCODE[] EquipmentCode = null;
+    public MapSelect.MAPSTASIS MapData;
     public CharacterStatusSetup.Charas[] Characters = null;//현재 캐릭터(에디터 보여주기용)
     // Use this for initialization
     void Reset()

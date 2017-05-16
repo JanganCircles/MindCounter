@@ -37,7 +37,7 @@ public class MainManuSceneMove : MonoBehaviour {
 
     }
 
-    public void GotoScene(string str)
+    public static void GotoScene(string str)
     {
         SceneManager.LoadScene(str);
     }

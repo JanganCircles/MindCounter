@@ -55,6 +55,10 @@ public class SelectMenu : MonoBehaviour
             case 3: vec.x++; break;
         }
     }
+    public bool isSelect()
+    {
+        return PlayerSelect;
+    }
     public bool isSelect(out Vector2 Index)
     {
         Index = Cursor;

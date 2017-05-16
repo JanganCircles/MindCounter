@@ -83,6 +83,8 @@
   <ItemGroup>
     <Compile Include="Assets\Script\AudioVisualizer.cs" />
     <Compile Include="Assets\Script\CharacterData.cs" />
+    <Compile Include="Assets\Script\CharacterSelectUI\ItemIconCtrl.cs" />
+    <Compile Include="Assets\Script\CharacterSelectUI\MapSelect.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\SelectMenu.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\SelectsMenuCtrl.cs" />
     <Compile Include="Assets\Script\CheckingScreenSize.cs" />

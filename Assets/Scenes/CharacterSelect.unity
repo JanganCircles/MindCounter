@@ -4993,6 +4993,8 @@ MonoBehaviour:
   ItemSelecter:
   - {fileID: 1533828649}
   - {fileID: 1598390668}
+  UpMenuY: 733
+  DownMenuY: 280
   SelectItem: ffffffffffffffffffffffffffffffff
   PlayerStasis: 0000000000000000
 --- !u!4 &1361148961
@@ -5901,7 +5903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -687, y: 280}
+  m_AnchoredPosition: {x: -687, y: 733}
   m_SizeDelta: {x: 550, y: 521}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1533828647
@@ -6197,7 +6199,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 686, y: 280}
+  m_AnchoredPosition: {x: 686, y: 733}
   m_SizeDelta: {x: 550, y: 521}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1598390668
@@ -6248,7 +6250,7 @@ MonoBehaviour:
   XLength: 6
   YLength: 5
   Cursor: {x: 0, y: 0}
-  KeysData: 110100001401000012010000130100000001000001010000
+  KeysData: 110100001401000012010000130100000101000002010000
 --- !u!114 &1598390669
 MonoBehaviour:
   m_ObjectHideFlags: 0

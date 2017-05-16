@@ -8,12 +8,12 @@ public class Item  {
     public static TextAsset Text = null;
     public enum ITEMCODE
     {
-        aura_S,
+        aura_S,       // 0
         manaup_S,
         hpup_S,
         focusup_S,
-        superarmor_S,
-        shortsword_S,
+        superarmor_S, // 4
+        shortsword_S, // 5
         armor_S,
         wand_S,
         shield_S,
@@ -21,13 +21,13 @@ public class Item  {
         glove_S,
         bible_S,
         russianroulette_S,
-        randomBox_S,
-        aura_M,
+        randomBox_S, // 13
+        aura_M,      // 14
         manaup_M,
         hpup_M,
         focusup_M,
-        superarmor_M,
-        shortsword_M,
+        superarmor_M,// 18
+        shortsword_M,// 19
         armor_M,
         wand_M,
         shield_M,
@@ -35,13 +35,13 @@ public class Item  {
         glove_M,
         bible_M,
         russianroulette_M,
-        randomBox_M,
-        aura_L,
+        randomBox_M, // 27
+        aura_L,      // 28
         manaup_L,
         hpup_L,
         focusup_L,
-        superarmor_L,
-        shortsword_L,
+        superarmor_L,// 32
+        shortsword_L,// 33
         armor_L,
         wand_L,
         shield_L,
