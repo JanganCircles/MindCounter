@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 44c6c72a5a0b01540ba7ee08565c0102
+timeCreated: 1494946794
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: THEJung140
+  fontNames:
+  - THEJung140
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

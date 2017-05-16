@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 8ffd72b9e54c1394fb2dbf735dcf2ae8
+timeCreated: 1494946825
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: THEJung130
+  fontNames:
+  - THEJung130
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

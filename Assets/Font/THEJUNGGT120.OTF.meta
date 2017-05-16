@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 14fc28874d103394fab23cd47e8c838f
+timeCreated: 1494946764
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: THEJung120
+  fontNames:
+  - THEJung120
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -471,10 +471,11 @@ public class Item  {
             skill = TempSkill;
         }
 
-        public Sprite ItemImage()
+        /*public Sprite ItemImage()
         {
  
         }
+        */
     }
 }
 

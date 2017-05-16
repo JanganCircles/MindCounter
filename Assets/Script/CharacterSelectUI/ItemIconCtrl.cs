@@ -22,11 +22,11 @@ public class ItemIconCtrl : MonoBehaviour {
     public void SetImage(bool isPotion)
     {
         Item.ITEMCODE Codes;
-        GameValueInfo.MenuItemIndex.RESULTTYPE type = isPotion ? GameValueInfo.MenuItemIndex.RESULTTYPE.POTION : GameValueInfo.MenuItemIndex.RESULTTYPE.EQULPMENT;
+        /*GameValueInfo.MenuItemIndex.RESULTTYPE type = isPotion ? GameValueInfo.MenuItemIndex.RESULTTYPE.POTION : GameValueInfo.MenuItemIndex.RESULTTYPE.EQULPMENT;
         if (GameValueInfo.MenuItemIndex.GetItemIndexToCode(out Codes, type, ImageNumber))
         {
             ItemData data = Item.GetItem(Codes);
             sprite = Resources.Load(data.ItemPath) as Sprite;
-        }
+        }*/
     }
 }

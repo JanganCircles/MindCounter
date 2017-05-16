@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 23338cb0d40da284db14bca789191168
+timeCreated: 1494946779
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: THEJung150
+  fontNames:
+  - THEJung150
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
