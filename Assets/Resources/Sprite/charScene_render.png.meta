@@ -1,0 +1,664 @@
+fileFormatVersion: 2
+guid: fe6e43921c25ab045858224ab947aab1
+timeCreated: 1495040075
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: charScene_render_0
+    21300002: charScene_render_1
+    21300004: charScene_render_2
+    21300006: charScene_render_3
+    21300008: charScene_render_4
+    21300010: charScene_render_5
+    21300012: charScene_render_6
+    21300014: charScene_render_7
+    21300016: charScene_render_8
+    21300018: charScene_render_9
+    21300020: charScene_render_12
+    21300022: charScene_render_13
+    21300024: charScene_render_21
+    21300026: charScene_render_35
+    21300028: charScene_render_36
+    21300030: charScene_render_37
+    21300032: charScene_render_38
+    21300034: charScene_render_39
+    21300036: charScene_render_40
+    21300038: charScene_render_41
+    21300040: charScene_render_42
+    21300042: charScene_render_43
+    21300044: charScene_render_44
+    21300046: charScene_render_45
+    21300048: charScene_render_46
+    21300050: charScene_render_47
+    21300052: charScene_render_50
+    21300054: charScene_render_51
+    21300056: charScene_render_52
+    21300058: charScene_render_55
+    21300060: charScene_render_59
+    21300062: charScene_render_63
+    21300064: charScene_render_64
+    21300066: charScene_render_67
+    21300068: charScene_render_72
+    21300070: charScene_render_10
+    21300072: charScene_render_11
+    21300074: charScene_render_14
+    21300076: charScene_render_15
+    21300078: charScene_render_16
+    21300080: charScene_render_17
+    21300082: charScene_render_18
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: charScene_render_0
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 1902
+        width: 69
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_1
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 1900
+        width: 89
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_2
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 1900
+        width: 88
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_3
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 1902
+        width: 86
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_4
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 1900
+        width: 90
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_5
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1630
+        width: 90
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_6
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 1632
+        width: 84
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_7
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 1630
+        width: 91
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_8
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 1630
+        width: 90
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_9
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 1630
+        width: 91
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_12
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 1325
+        width: 191
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_13
+      rect:
+        serializedVersion: 2
+        x: 1733
+        y: 1208
+        width: 191
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_21
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1390
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_35
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 967
+        width: 337
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_36
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 1046
+        width: 137
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_37
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 1046
+        width: 137
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_38
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 1046
+        width: 137
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_39
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 1046
+        width: 137
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_40
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 1046
+        width: 138
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_41
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 803
+        width: 333
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_42
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 794
+        width: 138
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_43
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 794
+        width: 137
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_44
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 794
+        width: 137
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_45
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 794
+        width: 137
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_46
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 794
+        width: 137
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_47
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 811
+        width: 329
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_50
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 628
+        width: 341
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_51
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 611
+        width: 272
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_52
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 631
+        width: 223
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_55
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 530
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_59
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 530
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_63
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 536
+        width: 208
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_64
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 530
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_67
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 530
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_72
+      rect:
+        serializedVersion: 2
+        x: 1753
+        y: 134
+        width: 191
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_10
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1332
+        width: 246
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_11
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 611
+        width: 45
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_14
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 613
+        width: 56
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_15
+      rect:
+        serializedVersion: 2
+        x: 1787
+        y: 541
+        width: 33
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_16
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 541
+        width: 31
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_17
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 541
+        width: 31
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_render_18
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 541
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
