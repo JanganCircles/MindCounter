@@ -48,15 +48,23 @@ public class WallManager : MonoBehaviour {
         }
     }
     public void SetPivot()
-    {
-        WallPivot += PivotMove;
-        PivotMove = 0;
-        if (WallPivot > WallMax)
-            WallPivot = WallMax;
-        else if (WallPivot < 0)
-            WallPivot = 0;
-        gameManager.ins.UserStatus[gameManager.CHAMPION].WallDistance = WallPivot;
-        gameManager.ins.UserStatus[gameManager.CHALLANGER].WallDistance = WallMax - WallPivot;
-        DashPivotX = WallManager.ins.WallPivot - (WallManager.WallMax / 2);
-    }
+	{
+		WallPivot += PivotMove;
+		PivotMove = 0;
+		if (WallPivot > WallMax)
+			WallPivot = WallMax;
+		else if (WallPivot < 0)
+			WallPivot = 0;
+		gameManager.ins.UserStatus [gameManager.CHAMPION].WallDistance = WallPivot;
+		gameManager.ins.UserStatus [gameManager.CHALLANGER].WallDistance = WallMax - WallPivot;
+		DashPivotX = WallManager.ins.WallPivot - (WallManager.WallMax / 2);
+
+		for (int i = 0; i < 2; i++) {
+			string ProgressBarName = (i == 0 ? "Champion" : "Challanger") + "Distance";
+			Vector2 DistanceBar = new Vector2 ();
+			DistanceBar.x = gameManager.ins.UserStatus [i].WallDistance;
+			DistanceBar.y = WallMax;
+			UIProgressBar.SetData (ProgressBarName, DistanceBar);
+		}
+	}
 }
