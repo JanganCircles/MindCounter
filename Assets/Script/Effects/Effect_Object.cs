@@ -12,17 +12,21 @@ public class Effect_Object : MonoBehaviour, EFFECT.Effect
     {
 
     }
-    public float Timer { get; set; }
-    public bool isLoof { get; set; }
     public void Run()
     {
 
     }
     IEnumerator IERun()
     {
+		
         while (true)
         {
             yield return null;
         }
-    }
+	}
+	public bool isLoof{ get; set;}
+	public void SetisLoof(bool value)
+	{
+		isLoof = value;
+	}
 }

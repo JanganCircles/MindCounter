@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class Effect_Sprite : MonoBehaviour, EFFECT.Effect
 {
-    private Animation Anim;
-    public void Awake()
+
+	private Animator animator;
+	public AnimationClip clip;
+	public void Awake()
     {
-        Anim = GetComponent<Animation>();
+		animator = GetComponent<Animator>();
     }
     public void OnEnable()
     {
-        Anim.Play();
-        Anim.Stop();
-    }
-    public float Timer { get; set; }
-    public bool isLoof { get; set; }
+		clip = animator.GetCurrentAnimatorClipInfo (0) [0].clip;
+	}
+
     public void Run()
     {
 
-    }
+	}
+	public bool isLoof{ get; set;}
+	public void SetisLoof(bool value)
+	{
+		isLoof = value;
+	}
 }

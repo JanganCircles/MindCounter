@@ -32,7 +32,8 @@ public class CharacterStatus : MonoBehaviour {
         WallDistance = 600;
     }
     void Start()
-    {
+	{
+		EffectManager.ins. EffectRun (Vector3.zero, Vector3.one, EFFECT.EFFECTLIST.HPBar, false, true);
         MPProgressBar();
            Vector2 Hps = new Vector2();
         Hps.x = HP;

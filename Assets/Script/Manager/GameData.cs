@@ -61,7 +61,6 @@ public class GameData : MonoBehaviour {
                 {
                     GameObject gm = null;
                     gm = GameObject.Find("NetWorkLobby");
-                    Debug.Log(gm);
                     if (gm != null)
                     {
                         Debug.Log("온라인임");

@@ -6,81 +6,87 @@ using System;
 
 public class EffectManager : MonoBehaviour
 {
-
+	public Canvas UICanvas;
     public static EffectManager ins;
-    //풀링
+    //풀링안함
     //이벤트사용
     //스크립트에서 해당 -만 바꾸면 돌아가게.
     //~_~
-    private Dictionary<string, GameObject> TempRunningObject;
-    private Stack<GameObject> AnimSleepEffect;
-    private Stack<GameObject> ObjSleepEffect;
-    private string TextData;
-    public EFFECT.Effect TempSetEvent { get; set; }
+
+
     void Awake()
     {
-        AnimSleepEffect = new Stack<GameObject>();
-        ObjSleepEffect = new Stack<GameObject>();
-        TempRunningObject = new Dictionary<string, GameObject>();
-        ins = this;
+		ins = this;
     }
     // Use this for initialization
-    void Start()
-    {
-
-    }
-    public void EventRun(Vector3 Position,string Name,EFFECT.EFFECTLIST EffCode, bool isLoof)
-    {
-        
-        //현재 TempEvent에 값이 들어가있는 상태
-
-    }
-    public void EventRun(Vector3 Position, string Name, EFFECT.EFFECTLIST EffCode, float Timer)
-    {
-        //현재 TempEvent에 값이 들어가있는 상태
-
-    }
-    public void EventRun(Vector3 Position, string Name, EFFECT.EFFECTLIST EffCode, int LoofTIme)
-    {
-        //현재 TempEvent에 값이 들어가있는 상태
-
-    }
-    public void EventRun(Vector3 Position, string Name, EFFECT.EFFECTLIST EffCode, Delegate RunFunc)
-    {
-        //현재 TempEvent에 값이 들어가있는 상태
-
-    }
+	public void EffectRun(Vector3 Position,Vector3 Scale, EFFECT.EFFECTLIST EffList,bool isLoof,bool OnUI)
+	{
+		GameObject LoadObj = Resources.Load (EFFECTPath (EffList)) as GameObject;
+		Debug.Log (LoadObj);
+		Debug.Log (EFFECTPath (EffList));
+		//if (LoadObj) {
+		//	if (OnUI) {
+		//		LoadObj.transform.parent = UICanvas.transform;
+		//		LoadObj.GetComponent<RectTransform> ().anchoredPosition = Position;
+		//	} else {
+		//		LoadObj.transform.position = Position;
+		//
+		//	}
+		//	LoadObj.transform.localScale = Scale;
+		//	Debug.Log ("이펙트 생ㅓㅇ");
+		//	LoadObj.SendMessage ("SetisLoof", isLoof);
+		//	LoadObj.SendMessage ("Run");
+		//}
+	}
     public bool Stop(string Name)
     {
         return false;
-    }
-    public void MakeEffect(EFFECT.EFFECTYPE type)
-    {
     }
     // Update is called once per frame
     void Update()
     {
 
-    }
+	}
+	string EFFECTPath(EFFECT.EFFECTLIST list)
+	{
+		string str =  "Prefab/Effect/";
+		switch (list) {
+		case EFFECT.EFFECTLIST.HPBar:
+			{
+				str += "HpBar";
+			}
+			break;
+		case EFFECT.EFFECTLIST.NONE:
+			{
+				//아무것도 업읍니다.
+			}
+			break;
+		}
+		return str;
+	}
 }
 
 //만들어야 하는 스크립트
 // -1 애니메이션
-// -2 그냥오브젝트->?
+// -2 파티클
 namespace EFFECT
 {
+	public delegate void StopEffect();
+
     public enum EFFECTYPE
     {
         OBJECT, ANIMATION
     }
     public enum EFFECTLIST
     {
-
+		HPBar,
+		NONE
     }
+
     public interface Effect
     {
-        float Timer { get; set; }
-        bool isLoof { get; set; }
-        void Run();
+		bool isLoof{get;set;}
+	   void Run();
+
     }
 }
