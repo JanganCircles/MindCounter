@@ -6,6 +6,8 @@ using System;
 
 public class EffectManager : MonoBehaviour
 {
+	public GameObject[] Effects;
+	private Dictionary<string,GameObject> dicEffects;
 	public Canvas UICanvas;
     public static EffectManager ins;
     //풀링안함
@@ -17,26 +19,23 @@ public class EffectManager : MonoBehaviour
     void Awake()
     {
 		ins = this;
-    }
+		dicEffects = new Dictionary<string, GameObject> ();
+		for(int i = 0 ; i < Effects.Length;i++)
+		{
+			dicEffects.Add (Effects [i].name, Effects [i]);
+		}
+	}
     // Use this for initialization
-	public void EffectRun(Vector3 Position,Vector3 Scale, EFFECT.EFFECTLIST EffList,bool isLoof,bool OnUI)
+	public void EffectRun(Vector3 Position,Vector3 Scale, string Name,bool isLoof,bool OnUI)
 	{
-		GameObject LoadObj = Resources.Load (EFFECTPath (EffList)) as GameObject;
+		GameObject LoadObj = Instantiate(dicEffects[Name],Position,Quaternion.identity) as GameObject;
 		Debug.Log (LoadObj);
-		Debug.Log (EFFECTPath (EffList));
-		//if (LoadObj) {
-		//	if (OnUI) {
-		//		LoadObj.transform.parent = UICanvas.transform;
-		//		LoadObj.GetComponent<RectTransform> ().anchoredPosition = Position;
-		//	} else {
-		//		LoadObj.transform.position = Position;
-		//
-		//	}
-		//	LoadObj.transform.localScale = Scale;
-		//	Debug.Log ("이펙트 생ㅓㅇ");
-		//	LoadObj.SendMessage ("SetisLoof", isLoof);
-		//	LoadObj.SendMessage ("Run");
-		//}
+		if (OnUI)
+			LoadObj.transform.parent = UICanvas.transform;
+		else
+			LoadObj.transform.parent = transform;
+		LoadObj.SendMessage ("SetisLoof", isLoof);
+		LoadObj.SendMessage ("Run");
 	}
     public bool Stop(string Name)
     {
@@ -79,14 +78,15 @@ namespace EFFECT
     }
     public enum EFFECTLIST
     {
+		LeftTimingBar,RightTimingBar,
 		HPBar,
 		NONE
     }
 
     public interface Effect
-    {
-		bool isLoof{get;set;}
-	   void Run();
+	{
+		void SetTimer(float t);
+		void Run();
 
     }
 }

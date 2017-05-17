@@ -25,8 +25,8 @@ public class Effect_Object : MonoBehaviour, EFFECT.Effect
         }
 	}
 	public bool isLoof{ get; set;}
-	public void SetisLoof(bool value)
+	public void SetTimer (float t)
 	{
-		isLoof = value;
+
 	}
 }

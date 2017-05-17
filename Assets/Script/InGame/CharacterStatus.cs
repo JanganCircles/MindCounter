@@ -33,8 +33,7 @@ public class CharacterStatus : MonoBehaviour {
     }
     void Start()
 	{
-		EffectManager.ins. EffectRun (Vector3.zero, Vector3.one, EFFECT.EFFECTLIST.HPBar, false, true);
-        MPProgressBar();
+		MPProgressBar();
            Vector2 Hps = new Vector2();
         Hps.x = HP;
         Hps.y = MaxHP;
