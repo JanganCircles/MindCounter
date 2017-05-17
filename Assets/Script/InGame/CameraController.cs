@@ -45,6 +45,7 @@ public class CameraController : MonoBehaviour {
         {
             while (!LockPosition)
             {
+                CamPos = MyTr.position;
                 CamSize = (Mathf.Abs(Character[0].position.x - Character[1].position.x) + 2.5f) / 16 * 9 / 2 * Multiple;
 
                 CamPos.x = Mathf.Lerp(Character[0].position.x, Character[1].position.x, 0.5f);
@@ -55,6 +56,7 @@ public class CameraController : MonoBehaviour {
             CamSize = (Mathf.Abs(Character[0].position.x - Character[1].position.x) + 2.5f) / 16 * 9 / 2 * Multiple;
             while (LockPosition)
             {
+                CamPos = MyTr.position;
                 CamSize = (Mathf.Abs(Character[0].position.x - Character[1].position.x) + 2.5f) / 16 * 9 / 2 * Multiple;
                 MyTr.position = CamPos;
                 yield return new WaitForEndOfFrame();
@@ -71,6 +73,7 @@ public class CameraController : MonoBehaviour {
                 MyTr.position = Vector3.Lerp(Pos, CamPos, i * OneFrame);
                 yield return null;
             }
+
             //
         }
     }

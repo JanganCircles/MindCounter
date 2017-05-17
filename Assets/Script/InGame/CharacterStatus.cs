@@ -33,7 +33,8 @@ public class CharacterStatus : MonoBehaviour {
     }
     void Start()
     {
-        Vector2 Hps = new Vector2();
+        MPProgressBar();
+           Vector2 Hps = new Vector2();
         Hps.x = HP;
         Hps.y = MaxHP;
         UIProgressBar.SetData((Controller == 0 ? "Champion" : "Challanger") + "HP", Hps);
@@ -79,10 +80,21 @@ public class CharacterStatus : MonoBehaviour {
         if (MaxCost < Cost)
             Cost = MaxCost;
     }
-
+    public void CostUse(int Number)
+    {
+        Cost -= Number;
+    }
     public int Enemy()
     {
         return (Controller + 1) % 2;
+    }
+    public void MPProgressBar()
+    {
+        string ProgressBarName = (Controller == 0 ? "Champion" : "Challanger") + "MP";
+        Vector2 costs = new Vector2();
+        costs.x = Cost;
+        costs.y = MaxCost;
+        UIProgressBar.SetData(ProgressBarName, costs);
     }
     public void HPProgressBar()
     {
@@ -103,7 +115,7 @@ public class CharacterStatus : MonoBehaviour {
         isYellowCanSee = true;
         while (YellowHps.x > HP)
         {
-            YellowHps.x-=0.5f;
+            YellowHps.x-=2f;
             UIProgressBar.SetData(ProgressBarName, YellowHps);
             yield return null;
         }

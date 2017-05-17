@@ -90,7 +90,7 @@ public class SkillList : MonoBehaviour {
                SaveData.ins.AddData(SaveData.TYPE.GUARD, Orderstat.Controller, SaveData.Try, 1);
                Orderstat.Guard = true;
                Orderstat.AttackType = -1;
-               Orderstat.Cost -= (int)skil.PassiveCount["Cost"];                                        //코스트4
+               Orderstat.CostUse((int)skil.PassiveCount["Cost"]);                                      //코스트4
            });//액티브 스킬 사용
 
         guard.AddPassive(delegate (Skill skil)
@@ -117,7 +117,6 @@ public class SkillList : MonoBehaviour {
             if (Orderstat.Guard)
             {
                 CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.GUARD, skl.Order);
-                Orderstat.CostPlus(CostData.EnergyRecovery);
             }
         }, "Decision");//시작시 발동
         guard.AddPassive(delegate (Skill skl)
@@ -151,7 +150,7 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             skl.PassiveCount["RSPATTACK"] = Run;
             Orderstat.AttackType = Priority.ROCK;
-            Orderstat.Cost -= (int)skl.PassiveCount["Cost"];                                        //코스트4
+            Orderstat.CostUse((int)skl.PassiveCount["Cost"]);                                      //코스트4
 
             SaveData.ins.AddData(SaveData.TYPE.ROCK, Orderstat.Controller, SaveData.Try, 1);//저장용
         });     //액티브 스킬 사용
@@ -193,7 +192,7 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             skl.PassiveCount["RSPATTACK"] = Run;
             Orderstat.AttackType = Priority.SCISSOR;
-            Orderstat.Cost -= (int)skl.PassiveCount["Cost"];
+            Orderstat.CostUse((int)skl.PassiveCount["Cost"]);
 
             SaveData.ins.AddData(SaveData.TYPE.SCISSOR, Orderstat.Controller, SaveData.Try, 1);//저장용
         });
@@ -232,7 +231,7 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             skl.PassiveCount["RSPATTACK"] = Run;
             Orderstat.AttackType = Priority.PAPER;
-            Orderstat.Cost -= (int)skl.PassiveCount["Cost"];
+            Orderstat.CostUse((int)skl.PassiveCount["Cost"]);
 
             SaveData.ins.AddData(SaveData.TYPE.PAPER, Orderstat.Controller, SaveData.Try, 1);//저장용
         });

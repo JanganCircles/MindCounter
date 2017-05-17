@@ -99,7 +99,7 @@ public class gameManager : MonoBehaviour
         //1번애니
         for (int i = 0; i < 3; i++)
         {
-            CharacterAnim.ChangeAnimation(AttackAnims[CHALLANGER + i * 2], CHALLANGER);
+                CharacterAnim.ChangeAnimation(AttackAnims[CHALLANGER + i * 2], CHALLANGER);
             CharacterAnim.ChangeAnimation(AttackAnims[CHAMPION + i * 2], CHAMPION);
             yield return new WaitForSeconds(0.98f);
         }
@@ -155,7 +155,6 @@ public class gameManager : MonoBehaviour
         SkillManager.ins.RunPassives("GameStart");// 게임처음시작
         while (true)// 게임시작 루프
         {
-            UserStatus[0].Cost = 200;
             isCounter = false;
             UIOpen = false;
             TempStep = STEP.START;// 실행단계
@@ -165,6 +164,7 @@ public class gameManager : MonoBehaviour
             Dash(Dashs);//이동!
             yield return new WaitForSeconds(0.25f);//입력대기
             Time.timeScale = 0.05f;//슬로우
+            CheckingSlow.HpBarFaster(true);
             UIOpen = false;
             TempStep = STEP.KEYCHECK;// 키확인단계
             UIMoveImage.BarMove();
@@ -193,9 +193,14 @@ public class gameManager : MonoBehaviour
             for (int i = 0; i < 2; i++)
                 CatchTiming(TimingArr[i], i);
             Time.timeScale = 1;//평소대로
+            CheckingSlow.HpBarFaster(false);
             //판정
             TempStep = STEP.DECISION;// 판정단계
             SkillManager.ins.RunPassives("Decision");//판정시 패시브 발동
+            for (int i = 0; i < 2; i++)
+            {
+                UserStatus[i].MPProgressBar();
+            }
             CheckingWinner();//승자체크 - 이떄부터 위너 사용 가능
             GuardCheck(Dashs, Winner);//가드시 이동그만.
             //CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.SRUSH);
@@ -205,7 +210,7 @@ public class gameManager : MonoBehaviour
             TempStep = STEP.HITDAMAGE;// 데미지피격단계
             UIOpen = true;
             AnimationSetting(2, CharacterAnim.AnimStasis.LAND);//막애니메이션은 밀쳐짐.
-            if (Winner == DROW)//무승부
+            if (Winner == DROW ||(Winner != DROW && UserStatus[Winner].DontDash))//무승부
             {
                 SkillManager.ins.RunPassives("Drow");//비길때 패시브 발동
                 StartCoroutine(AnimationRun());
@@ -223,8 +228,6 @@ public class gameManager : MonoBehaviour
             }
             else
             {//판가름 남.
-                CameraController.LockPosition = true; // 카메라 컨트롤러
-                CameraController.Winner = Winner;     // " 위와동일
                 SaveData.ins.AddData(SaveData.TYPE.STILL, Winner, 1);//데이터 저장
 
                 int Loser = UserStatus[Winner].Enemy();//패자
@@ -243,6 +246,10 @@ public class gameManager : MonoBehaviour
                 //yield return new WaitForSeconds(CharacterAnim.GetTempDuration(Winner));//애니메이션 딜레이
                 StartCoroutine(AnimationRun());
                 yield return new WaitForSeconds(1f);//애니메이션 딜레이
+                if (!UserStatus[Winner].DontDash) { 
+                    CameraController.LockPosition = true; // 카메라 컨트롤러
+                    CameraController.Winner = Winner;     // " 위와동일
+                }
                 SkillManager.ins.RunPassives("WallSetting");//벽이동 전 패시브 발동
                 Shake(damage * 16);                                 //지진
                 UserStatus[Loser].HpDown(damage);              //HP깎고
