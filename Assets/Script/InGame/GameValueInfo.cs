@@ -66,7 +66,7 @@ public class MenuItemIndex
     }
     public static bool GetItemIndexToCode(out Item.ITEMCODE Result, RESULTTYPE type, int index)
     {
-        Result = Item.ITEMCODE.randomBox_L;
+		Result = Item.ITEMCODE.armor_L;
         int typelength = type == RESULTTYPE.POTION ? POTIONLENGTH : ITEMLENGTH;
         
         if (index >= typelength * 3) return false;

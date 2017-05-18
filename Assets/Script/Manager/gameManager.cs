@@ -78,7 +78,7 @@ public class gameManager : MonoBehaviour
     {
     }
     void Start()
-    {
+	{
         StartCoroutine(GamePlay());
     }
     // Update is called once per frame
@@ -274,7 +274,7 @@ public class gameManager : MonoBehaviour
                     Dashs[Winner].Knockback(((WallManager.ins.DashPivotX + KnockPlus * CharacterDirection(Winner)) * 0.1f), 0.5f);
                 }
                 else
-                    Dashs[Loser].Knockback(((WallManager.ins.DashPivotX + KnockPlus * CharacterDirection(Loser)) * 0.1f * TimingWeight[Winner]), 0.5f);
+					Dashs[1 - Winner].Knockback(((WallManager.ins.DashPivotX + KnockPlus * CharacterDirection(Loser)) * 0.1f * TimingWeight[Winner]), 0.5f);
 
             }
             TempStep = STEP.END;//스탭변경 - 종료

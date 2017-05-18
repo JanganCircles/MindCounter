@@ -5,6 +5,7 @@ using UnityEngine;
 public class OfflineController : MonoBehaviour, InputController
 {
     public bool RunEffect = false;
+	public Transform[] SyncBar;
     public float[] KeyCatchTime  = { 0,0};
     // Use this for initialization
     void Start () {
@@ -50,6 +51,7 @@ public class OfflineController : MonoBehaviour, InputController
                     if (CheckingOK[i] && gameManager.ins.UserSlot[i].RunActive())
                     {
 
+						EffectManager.ins.EffectRun (SyncBar[i].position, Vector3.one, i == 0 ? "LeftBar" : "RightBar",0.33f, true);
                         KeyCatchTime[i] = Num;
                     }
                     else

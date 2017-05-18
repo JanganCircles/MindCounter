@@ -102,7 +102,8 @@ public class SkillList : MonoBehaviour {
                    SaveData.ins.AddData(SaveData.TYPE.GUARD, Orderstat.Controller, SaveData.Success, 1);
                    if (Orderstat.WallDistance == 0)
                    {
-                       DamageCalculator.ins.AddDamage("Multiple", 0.5f, "GuardBlock");
+						if(Random.Range(1,10) == 1)
+	                       DamageCalculator.ins.AddDamage("Multiple", 0.5f, "GuardBlock");
                    }
                    else
                    {
@@ -274,12 +275,20 @@ public class SkillList : MonoBehaviour {
            delegate (Skill skil)
            {
                OrderStat = gameManager.ins.UserStatus[skil.Order];
-               if (Random.Range(0, (100 / skil.PassiveCount["Critical"])) < 1)//5%
+				if(gameManager.ins.UserStatus[OrderStat.Enemy()].WallDistance == 0)
+				{
+					skil.PassiveCount["Critical"] += 80;
+				}
+               if (Random.Range(0, (100 / skil.PassiveCount["Critical"])) < 1 )//5%
                {
                    Debug.Log("크리티컬");
                    DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, 1.5f, "Critical");
                    SaveData.ins.AddData(SaveData.TYPE.CRITICAL, skil.Order, 1);
-               }
+				}
+				if(gameManager.ins.UserStatus[OrderStat.Enemy()].WallDistance == 0)
+				{
+					skil.PassiveCount["Critical"] -= 80;
+				}
            }
            , "Attack");
         List.AddPassiveSlot(Critical);

@@ -231,8 +231,8 @@ MonoBehaviour:
   - "\uD68C\uBCF5"
   - "\uC544\uC774\uD15C0"
   - "\uC544\uC774\uD15C1"
-  UseItem: 31
-  EqulpmentItem: 21
+  UseItem: 29
+  EqulpmentItem: 36
   selectedSlot: 0
 --- !u!114 &4654590
 MonoBehaviour:
@@ -1343,7 +1343,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 984bcd83978e8f249a62e5da430875bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8709e05702731fc46bdaf8a56533305e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1543,6 +1543,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988d0733e7bb65e4f8ce8610447611b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ObjEffects: []
+  SprEffects:
+  - {fileID: 114850317071456082, guid: 0d0bf3c70bcedfa4880e787158958120, type: 2}
+  - {fileID: 114965109490164174, guid: 938aa6ebcc52ec940b19d56b03acef84, type: 2}
   UICanvas: {fileID: 139196963}
 --- !u!4 &357741555
 Transform:
@@ -4340,8 +4344,8 @@ MonoBehaviour:
   - "\uD68C\uBCF5"
   - "\uC544\uC774\uD15C0"
   - "\uC544\uC774\uD15C1"
-  UseItem: 30
-  EqulpmentItem: 37
+  UseItem: 14
+  EqulpmentItem: 40
   selectedSlot: 0
 --- !u!114 &941890104
 MonoBehaviour:
@@ -5546,7 +5550,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 984bcd83978e8f249a62e5da430875bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8709e05702731fc46bdaf8a56533305e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5731,16 +5735,21 @@ Prefab:
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: EquipmentCode.Array.data[0]
-      value: 11
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: EquipmentCode.Array.data[1]
-      value: 26
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: PotionCode.Array.data[1]
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
+        type: 2}
+      propertyPath: PotionCode.Array.data[0]
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8296,6 +8305,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114205940684267342, guid: 87df2698e12baac4989d656c837897c1,
         type: 2}
+      propertyPath: SyncBar.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114205940684267342, guid: 87df2698e12baac4989d656c837897c1,
+        type: 2}
       propertyPath: KeyCatchTime.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -8411,6 +8425,16 @@ Prefab:
       propertyPath: m_AssetId.i15
       value: 193
       objectReference: {fileID: 0}
+    - target: {fileID: 114205940684267342, guid: 87df2698e12baac4989d656c837897c1,
+        type: 2}
+      propertyPath: SyncBar.Array.data[0]
+      value: 
+      objectReference: {fileID: 1212214925}
+    - target: {fileID: 114205940684267342, guid: 87df2698e12baac4989d656c837897c1,
+        type: 2}
+      propertyPath: SyncBar.Array.data[1]
+      value: 
+      objectReference: {fileID: 1496405693}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87df2698e12baac4989d656c837897c1, type: 2}
   m_IsPrefabParent: 0

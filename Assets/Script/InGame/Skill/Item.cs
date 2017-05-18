@@ -21,7 +21,6 @@ public class Item  {
         glove_S,
         bible_S,
         russianroulette_S,
-        randomBox_S, // 13
         aura_M,      // 14
         manaup_M,
         hpup_M,
@@ -35,7 +34,6 @@ public class Item  {
         glove_M,
         bible_M,
         russianroulette_M,
-        randomBox_M, // 27
         aura_L,      // 28
         manaup_L,
         hpup_L,
@@ -48,8 +46,7 @@ public class Item  {
         doubleaxe_L,
         glove_L,
         bible_L,
-        russianroulette_L,
-        randomBox_L,
+        russianroulette_L
 
 
 
@@ -95,7 +92,7 @@ public class Item  {
         ItemData item;
         if (Text == null)//아이템 처음들어온거면
             MakeItem();
-
+		Debug.Log (Items);
         List<string> TempStr =Items[(int)Code];
         TempStr.Remove("\r");
         TempName = TempStr[1];
@@ -340,13 +337,15 @@ public class Item  {
         TempSkill.AddPassive(delegate (Skill skill)
         {
             if (skill.GetOrder().Guard)
-            {
+				{
+					Debug.Log("가드 실행");
                 skill.PassiveCount["Shield"] = 1;
                 skill.PassiveCount["Damage"] = DamageCalculator.ins.TempDamage;
             }
         }, "Hit");
         TempSkill.AddPassive(delegate (Skill skill)
-        {
+			{
+				Debug.Log("가드 실행");
             if(skill.PassiveCount["Shield"] == 1)
             {
                 WallManager.ins.ResetPivot();

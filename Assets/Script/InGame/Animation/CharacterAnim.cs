@@ -79,7 +79,6 @@ public class CharacterAnim : MonoBehaviour {
     }
     public static void ChangeAnimation(AnimStasis stasis,int index)
     {
-        Debug.Log(stasis);
         CharacterAnim ca = Anims[index];
         switch (stasis)
         {

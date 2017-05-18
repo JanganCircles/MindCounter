@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Effect_Object : MonoBehaviour, EFFECT.Effect
 {
+	public float RunTime;
     public void OnEnable()
     {
 
@@ -24,9 +25,24 @@ public class Effect_Object : MonoBehaviour, EFFECT.Effect
             yield return null;
         }
 	}
-	public bool isLoof{ get; set;}
+	public void Init()
+	{
+		RunningTime = RunTime;
+	}
+	public float RunningTime{ get; set;}
 	public void SetTimer (float t)
 	{
-
+		if (t > -1) {
+			StartCoroutine (Timer (t));
+		}
+	}
+	IEnumerator Timer(float t)
+	{
+		while(t > 0)
+		{
+			t -= Time.deltaTime;
+			yield return null;
+		}
+		Destroy(gameObject);
 	}
 }

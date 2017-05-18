@@ -56,6 +56,7 @@
      <Compile Include="Assets\BlendModes\Scripts\BlendModeEffect.cs" />
      <Compile Include="Assets\BlendModes\Scripts\ObjectType.cs" />
      <Compile Include="Assets\BlendModes\Scripts\RenderMode.cs" />
+     <Compile Include="Assets\EffectSlow.cs" />
      <Compile Include="Assets\Particles\Particle Systems\Ultimate VFX\2 - Expansions\XP - TITLES\Scripts\DemoManager_XPTitles.cs" />
      <Compile Include="Assets\Particles\Particle Systems\_Common\Scripts\AnimatedLight.cs" />
      <Compile Include="Assets\Particles\Particle Systems\_Common\Scripts\DestroyAfterTime.cs" />
