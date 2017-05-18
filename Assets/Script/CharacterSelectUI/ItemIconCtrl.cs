@@ -13,6 +13,10 @@ public class ItemIconCtrl : MonoBehaviour {
     public bool isInValue;
     bool isEqulp;
     public bool DebugOnlyRun;
+    public static void ResetThis()
+    {
+        switchs = null;
+    }
     // Use this for initialization
     void Awake() {
         if (switchs == null)

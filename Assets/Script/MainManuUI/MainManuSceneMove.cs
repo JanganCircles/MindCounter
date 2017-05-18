@@ -37,7 +37,11 @@ public class MainManuSceneMove : MonoBehaviour {
 
     }
 
-    public static void GotoScene(string str)
+    public void GotoScene(string str)
+    {
+        SceneManager.LoadScene(str);
+    }
+    public static void s_GotoScene(string str)
     {
         SceneManager.LoadScene(str);
     }

@@ -92,7 +92,6 @@ public class Item  {
         ItemData item;
         if (Text == null)//아이템 처음들어온거면
             MakeItem();
-		Debug.Log (Items);
         List<string> TempStr =Items[(int)Code];
         TempStr.Remove("\r");
         TempName = TempStr[1];

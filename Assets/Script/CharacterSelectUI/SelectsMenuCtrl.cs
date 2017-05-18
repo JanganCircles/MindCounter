@@ -71,7 +71,6 @@ public class SelectsMenuCtrl : MonoBehaviour {
         SelectMenu menu = obj[0] as SelectMenu;
         float yValue = (float)obj[1];
         RectTransform tr = menu.GetComponent<RectTransform>();
-        Debug.Log("MoveMenuIn");
         Vector2 v2 = tr.anchoredPosition;
         v2.y = yValue;
         for (int i = 0; i < 100; i++)
@@ -95,7 +94,6 @@ public class SelectsMenuCtrl : MonoBehaviour {
         }
         PlayerStasis[i]++;
         TempMenu[i].isRun = false;
-        AllOK[i] = true;
         StartCoroutine("StasisChecker", i);
     }
     IEnumerator ItemSelect(int i)
@@ -216,8 +214,9 @@ public class SelectsMenuCtrl : MonoBehaviour {
     {
         for (int i = 0; i < 2; i++) TempMenu[i].StopAllCoroutines();
         StopCoroutine("ItemSelect");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         //StopAllCoroutines();
+        ItemIconCtrl.ResetThis();
         SceneManager.LoadScene("Main");//씬변경
 
     }

@@ -164,7 +164,6 @@ public class gameManager : MonoBehaviour
             Dash(Dashs);//이동!
             yield return new WaitForSeconds(0.25f);//입력대기
             Time.timeScale = 0.05f;//슬로우
-            CheckingSlow.HpBarFaster(true);
             UIOpen = false;
             TempStep = STEP.KEYCHECK;// 키확인단계
             UIMoveImage.BarMove();
@@ -193,7 +192,6 @@ public class gameManager : MonoBehaviour
             for (int i = 0; i < 2; i++)
                 CatchTiming(TimingArr[i], i);
             Time.timeScale = 1;//평소대로
-            CheckingSlow.HpBarFaster(false);
             //판정
             TempStep = STEP.DECISION;// 판정단계
             SkillManager.ins.RunPassives("Decision");//판정시 패시브 발동

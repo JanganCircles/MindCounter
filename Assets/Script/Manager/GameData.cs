@@ -6,6 +6,8 @@ public class GameData : MonoBehaviour {
     public bool OnePlayer;          //혼자하냐
     public bool isOnline;           //온라인이냐
     public string TempSceneName;    //바꿀씬
+    public GameObject BackGroundEffect;
+
     public static GameData ins { get; set; }//인스턴스
     private int[] PlayerCharacter = null;//현재 캐릭터
     public Item.ITEMCODE[] PotionCode = null;
@@ -17,7 +19,7 @@ public class GameData : MonoBehaviour {
     {
         PlayerCharacter = null;
     }
-    void Awake()
+    void OnEnable()
     {
         if (ins == null)
         {
@@ -47,11 +49,47 @@ public class GameData : MonoBehaviour {
     {
         //???
     }
+    public void AllCameraClose()
+    {
+        Debug.Log(ins.BackGroundEffect);
+        Debug.Log(Camera.allCameras.Length);
+        if(Camera.main)
+            Camera.main.gameObject.SetActive(false);
+        ins.BackGroundEffect.transform.FindChild("Camera").gameObject.SetActive(false);
+
+
+    }
     public void SceneInit(string str)
     {
         switch (str)
         {
+            case "MainManu":
+                {
+                    if (BackGroundEffect == null)
+                    {
+                    }
+                    else
+                    {
+                        ins.BackGroundEffect.SetActive(true);
+                        Debug.Log(ins.BackGroundEffect);
+                        AllCameraClose();
+                        ins.BackGroundEffect.GetComponent<MenuSceneMove>().cam.gameObject.SetActive(true);
+                        Debug.Log(BackGroundEffect);
+                    }
+                }
+                break;
             case "CharacterSelect"://캐릭터셀렉씬일때
+                if (ins.BackGroundEffect == null)
+                {
+
+                    //BackGroundEffect = GameObject.Find("SpaceEffect");
+                }
+                else
+                {
+                    ins.BackGroundEffect.SetActive(true);
+                    AllCameraClose();
+                    ins.BackGroundEffect.GetComponent<MenuSceneMove>().cam.gameObject.SetActive(true);
+                }
                 ins.PotionCode = new Item.ITEMCODE[2];
                 ins.EquipmentCode = new Item.ITEMCODE[2];
                 ins.PlayerCharacter = new int[2];
@@ -59,6 +97,13 @@ public class GameData : MonoBehaviour {
                 break;
             case "Main"://메인씬일떄
                 {
+                    if (ins.BackGroundEffect)
+                    {
+                            ins.BackGroundEffect.SetActive(false);
+                            GameObject maincamera = Camera.main.gameObject;
+                            AllCameraClose();
+                            maincamera.SetActive(true);
+                    }
                     GameObject gm = null;
                     gm = GameObject.Find("NetWorkLobby");
                     if (gm != null)

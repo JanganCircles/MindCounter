@@ -21,7 +21,7 @@ public class MapSelect : MonoBehaviour {
         if (sMenu.isSelect(out v))
         {
             GameData.ins.MapData = (MAPSTASIS)v.x;
-            MainManuSceneMove.GotoScene("Main");
+            MainManuSceneMove.s_GotoScene("Main");
         }
 	}
 }
