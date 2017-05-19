@@ -8,7 +8,7 @@ public class gameManager : MonoBehaviour
     public const int CHAMPION = 0;          //상수_챔피언
     public const int CHALLANGER = 1;        //상수_챌린저
     public const int DROW = -1;             //상수_비겼다.
-    public const int PRIMETIME = 1;         //퍼펙트시간
+    public const int PRIMETIME = 2;         //퍼펙트시간
 
     public const float PERPECT = 1.2f;      //퍼펙트_계수
     public const float GOOD = 1.0f;         //굿_계수
@@ -163,7 +163,6 @@ public class gameManager : MonoBehaviour
             CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.RUSH);
             Dash(Dashs);//이동!
             yield return new WaitForSeconds(0.25f);//입력대기
-            Time.timeScale = 0.05f;//슬로우
             UIOpen = false;
             TempStep = STEP.KEYCHECK;// 키확인단계
             UIMoveImage.BarMove();
@@ -172,7 +171,7 @@ public class gameManager : MonoBehaviour
             float[] KeyCatchTime = IControl.GetCatchTime();
             // StartCoroutine(KeyCheck());
 
-            float AnimationTimer = 2f;
+            float AnimationTimer = 1f;
             // while (!KeyAllClick)
             while (!IControl.CheckingRunEffect())
             {
@@ -181,8 +180,9 @@ public class gameManager : MonoBehaviour
                     AnimationTimer -= Time.unscaledDeltaTime;
                 }
                 else if (AnimationTimer < 0)
-                {
-                    CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.SRUSH,1f);
+				{
+					Time.timeScale = 0.05f;//슬로우
+                    CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.SRUSH,5f);
                     AnimationTimer = 0;
                 }
                     //키체크가 끝날때까지 무한 루프
@@ -380,7 +380,7 @@ public class gameManager : MonoBehaviour
                 Debug.Log("Dash실행됨");
                 float DashCorrection = i == CHALLANGER ? 1.5f : -1.5f;
                 if (DashCorrection < 0) DashCorrection = 0;
-                 dashs[i].Dash(DashCorrection + DashPivot, 1);
+                 dashs[i].Dash(DashCorrection + DashPivot, 2);
             }
         }
     }

@@ -32,7 +32,7 @@ public class OfflineController : MonoBehaviour, InputController
     IEnumerator IECheckingKey()
     {
         RunEffect = false;
-        const float WaitTime = 5f;
+        const float WaitTime = 4f;
         float Num = 0;
         bool[] CheckingOK = new bool[2];
         for (int i = 0; i < 2; i++)

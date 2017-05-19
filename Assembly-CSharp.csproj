@@ -145,6 +145,7 @@
      <Compile Include="Assets\Script\MainManuUI\MainManuSceneMove.cs" />
      <Compile Include="Assets\Script\Manager\GameData.cs" />
      <Compile Include="Assets\Script\Manager\gameManager.cs" />
+     <Compile Include="Assets\Script\MenuSceneMove.cs" />
      <Compile Include="Assets\Script\NetWorkingScript\LobbyManager.cs" />
      <Compile Include="Assets\Script\ObjCopy.cs" />
      <Compile Include="Assets\Script\ObjRotate.cs" />
