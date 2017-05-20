@@ -156,7 +156,7 @@ MonoBehaviour:
   Controller: 0
   MaxHP: 1800
   HP: 1800
-  Guard: 0
+  Guard: 1
   DontDash: 0
   WallDistance: 0
   AttackType: 0
@@ -3045,8 +3045,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd866c95869420499aa9c51f7da186d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Champion: 6100000073000000640000006600000071000000770000006500000072000000
-  Challenger: 680000006a0000006b0000006c0000007900000075000000690000006f000000
+  Champion: 61000000730000006400000071000000770000007a0000007800000063000000
+  Challenger: 0401000005010000060100000701000008010000010100000201000003010000
 --- !u!4 &689993630
 Transform:
   m_ObjectHideFlags: 0
@@ -3604,7 +3604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 1f10ae3bb583f3f4884a07157fc656f4, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 8d41fd91413523b44af580bed9cbe77b, type: 2}
   initialSkinName: default
   separatorSlotNames: []
   zSpacing: 0
@@ -3617,7 +3617,7 @@ MonoBehaviour:
   logErrors: 0
   disableRenderingOnOverride: 1
   _animationName: idle
-  loop: 0
+  loop: 1
   timeScale: 1
 --- !u!23 &742539067
 MeshRenderer:
@@ -3632,7 +3632,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6ed1e911a3781244895ed7ce6d900e73, type: 2}
+  - {fileID: 2100000, guid: 3f736b2e499ff1a46b2c7c403fbb10cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4345,7 +4345,7 @@ MonoBehaviour:
   - "\uC544\uC774\uD15C0"
   - "\uC544\uC774\uD15C1"
   UseItem: 14
-  EqulpmentItem: 40
+  EqulpmentItem: 18
   selectedSlot: 0
 --- !u!114 &941890104
 MonoBehaviour:
@@ -8482,7 +8482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 8d41fd91413523b44af580bed9cbe77b, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 2ae8b2ffd6420c349bfd6a35fc279152, type: 2}
   initialSkinName: default
   separatorSlotNames: []
   zSpacing: 0
@@ -8495,7 +8495,7 @@ MonoBehaviour:
   logErrors: 0
   disableRenderingOnOverride: 1
   _animationName: idle
-  loop: 0
+  loop: 1
   timeScale: 1
 --- !u!23 &1931121074
 MeshRenderer:
@@ -8510,7 +8510,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3f736b2e499ff1a46b2c7c403fbb10cd, type: 2}
+  - {fileID: 2100000, guid: 6239172f356b0f648bfd1a09ab0f6bbd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -233,8 +233,9 @@
     <None Include="Assets\SpaceUnity\Shaders\PlanetStandard.shader" />
     <None Include="Assets\SpaceUnity\Shaders\Resources\AsteroidTransparent.shader" />
     <None Include="Assets\Spine\AnimationFile\Assassin\skeleton.atlas.txt" />
-    <None Include="Assets\Spine\AnimationFile\Cat\skeleton.atlas.txt" />
     <None Include="Assets\Spine\AnimationFile\Guntlet\skeleton.atlas.txt" />
+    <None Include="Assets\Spine\AnimationFile\cat\skeleton.atlas.txt" />
+    <None Include="Assets\Spine\AnimationFile\herk\skeleton.atlas.txt" />
     <None Include="Assets\Spine\Plugin\spine-unity\Assets\Examples\Spine\Dragon\dragon.atlas.txt" />
     <None Include="Assets\Spine\Plugin\spine-unity\Assets\Examples\Spine\Dragon\license.txt" />
     <None Include="Assets\Spine\Plugin\spine-unity\Assets\Examples\Spine\Eyes\eyes.atlas.txt" />

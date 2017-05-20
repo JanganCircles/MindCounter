@@ -2619,8 +2619,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2032144208}
   - {fileID: 1892180652}
+  - {fileID: 2032144208}
   m_Father: {fileID: 1564101468}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6280,17 +6280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5532b405bf49b2449a1f93ccc5c9d801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DescriptNames:
-  - Avoid
-  - Blast
-  - Chess
-  - Death
-  - Earth
-  - Fault
-  - Gress
-  - House
-  - Ignore
-  - Just
   SpriteImg:
   - {fileID: 21300000, guid: 88b54abdf1aa30742a5aa1a23562154b, type: 3}
   - {fileID: 21300000, guid: 6d48b9ebcd1d0d845a2533f719895500, type: 3}
@@ -7230,7 +7219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1531863929
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8861,7 +8850,7 @@ RectTransform:
   m_Children:
   - {fileID: 646345798}
   m_Father: {fileID: 605394833}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8896,7 +8885,7 @@ MonoBehaviour:
   XLength: 5
   YLength: 2
   Cursor: {x: 0, y: 0}
-  KeysData: 770000006100000073000000640000006600000067000000
+  KeysData: 7900000067000000680000006a0000006100000064000000
 --- !u!222 &1892180654
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9636,7 +9625,7 @@ RectTransform:
   m_Children:
   - {fileID: 1045223871}
   m_Father: {fileID: 605394833}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9677,7 +9666,7 @@ MonoBehaviour:
   XLength: 5
   YLength: 2
   Cursor: {x: 4, y: 0}
-  KeysData: 110100001401000012010000130100000101000002010000
+  KeysData: 110100001401000012010000130100000401000006010000
 --- !u!1 &2043204187
 GameObject:
   m_ObjectHideFlags: 0

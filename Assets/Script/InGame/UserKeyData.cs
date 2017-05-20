@@ -73,11 +73,11 @@ public class UserKeyData : MonoBehaviour {
     {
         if (PlayUserNum == 2)
         {
-            TwoPlayerSetting(Controller);
+           // TwoPlayerSetting(Controller);
         }
         else
         {
-            OnePlayerSetting(Controller,GameData.ins.isOnline);
+           // OnePlayerSetting(Controller,GameData.ins.isOnline);
         }
     }
     void TwoPlayerSetting(int controller)//2인용

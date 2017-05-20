@@ -6,8 +6,6 @@ using System.Collections;
 public class SelectsMenuCtrl : MonoBehaviour {
 
 
-    private Text[] CharacterNames;
-    public string[] DescriptNames;
 
     public Sprite[] SpriteImg;              //캐릭터 이미지들
     public Image[] UIImage;              //UI사용되는 이미지
@@ -89,7 +87,6 @@ public class SelectsMenuCtrl : MonoBehaviour {
         {
             TempCharacter = (int)(v.x + TempMenu[i].XLength * v.y);
             UIImage[i].sprite = SpriteImg[TempCharacter];
-            UITextUpdate(i,v);
             yield return null;
         }
         PlayerStasis[i]++;
@@ -219,12 +216,5 @@ public class SelectsMenuCtrl : MonoBehaviour {
         ItemIconCtrl.ResetThis();
         SceneManager.LoadScene("Main");//씬변경
 
-    }
-    void UITextUpdate(int i,Vector2 v)
-    {
-        string[] NameStr = { "Blue", "Red" };
-
-        float Index = v.x + (v.y * TempMenu[i].XLength);
-        UITextSet.UIList[NameStr[i] + "Name"] = DescriptNames[(int)Index];
     }
 }
