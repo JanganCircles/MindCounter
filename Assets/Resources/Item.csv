@@ -4,7 +4,7 @@
 3,집중증강물약,ItemIcon_14,3,A,2U1T,PPER,
 4,슈퍼아머물약,ItemIcon_15,3,A,1U1T,PSUAMR,
 5,단검,ItemIcon_40,3,P,Empty,CRIRATE100,
-6,아머,ItemIcon_49,3,P,Empty,HP250,
+6,아머,ItemIcon_49,3,P,Empty,ARMOR7,
 7,지팡이,ItemIcon_63,3,P,Empty,COSTHEAL10,
 8,방패,ItemIcon_43,3,P,Empty,SHIELD2,
 9,양날도끼,ItemIcon_53,3,P,Empty,DMG30,HIT20
@@ -17,7 +17,7 @@
 16,집중증강물약,ItemIcon_4,5,A,3U1T,PPER,
 17,슈퍼아머물약,ItemIcon_5,5,A,2U1T,PSUAMR,
 18,단검,ItemIcon_41,5,P,Empty,CRIRATE40,
-19,아머,ItemIcon_50,5,P,Empty,HP300,
+19,아머,ItemIcon_50,5,P,Empty,ARMOR5,
 20,지팡이,ItemIcon_64,5,P,Empty,COSTHEAL10,
 21,방패,ItemIcon_44,5,P,Empty,SHIELD2.5,
 22,양날도끼,ItemIcon_54,5,P,Empty,DMG40,HIT30
@@ -30,7 +30,7 @@
 29,집중증강물약,ItemIcon_34,7,A,5U1T,PPER,
 30,슈퍼아머물약,ItemIcon_35,7,A,3U1T,PSUAMR,
 31,단검,ItemIcon_42,7,P,Empty,CRIRATE60,
-32,아머,ItemIcon_51,7,P,Empty,HP400,
+32,아머,ItemIcon_51,7,P,Empty,ARMOR4,
 33,지팡이,ItemIcon_65,7,P,Empty,COSTHEAL20,
 34,방패,ItemIcon_45,7,P,Empty,SHIELD4,
 35,양날도끼,ItemIcon_56,7,P,Empty,DMG50,HIT40

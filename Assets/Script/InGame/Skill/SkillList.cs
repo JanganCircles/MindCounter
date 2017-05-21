@@ -54,7 +54,7 @@ public class SkillList : MonoBehaviour {
             if (skl.PassiveCount["Switch"] == 1)
             {
                 CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.MANA, skl.Order);
-                Orderstat.CostPlus(CostData.EnergyRecovery);
+                Orderstat.CostPlus((int)(CostData.EnergyRecovery * gameManager.ins.TimingWeight[skl.Order]));
             }
         }, "Decision");//시작시 발동
         Energy.AddPassive(delegate (Skill skl)
@@ -103,11 +103,11 @@ public class SkillList : MonoBehaviour {
                    if (Orderstat.WallDistance == 0)
                    {
 						if(Random.Range(1,10) == 1)
-	                       DamageCalculator.ins.AddDamage("Multiple", 0.5f, "GuardBlock");
+	                       DamageCalculator.ins.AddDamage("Multiple", 0.5f -  (1 - gameManager.ins.TimingWeight[skil.Order]), "GuardBlock");
                    }
                    else
                    {
-                       DamageCalculator.ins.AddDamage("Multiple", 0, "GuardBlock");
+                       DamageCalculator.ins.AddDamage("Multiple", 1 - gameManager.ins.TimingWeight[skil.Order], "GuardBlock");
                    }
                }
            }, "Hit");//피격시 발동

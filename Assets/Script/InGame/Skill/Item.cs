@@ -163,8 +163,8 @@ public class Item  {
                 case "PSUAMR": { Potion_SuperArmor(); } break;
                 case "PPER": { Potion_Perfect(); } break;
                 case "CRIRATE": { Add_BaseCriRate((int)Value); } break;
-                case "HP": {
-                        Add_MaxHp((int)Value);
+                case "ARMOR": {
+                        Add_ARMOR((int)Value);
                     } break;
                 case "COSTHEAL": { Add_Costheal((int)Value); } break;
                 case "SHIELD": { Shield((int)(Value)); } break;
@@ -352,17 +352,27 @@ public class Item  {
             }
         }, "WallSetting");
     }
-    public static void Add_MaxHp( int HPValue)
+    public static void Add_ARMOR( int count)
     {
-        TempSkill.PassiveCount.Add("PlusHP", HPValue);
-        
+        TempSkill.PassiveCount.Add("count", count);
+        TempSkill.PassiveCount.Add("TempCount", 0);
         TempSkill.AddPassive(delegate (Skill skill)
         {
             //체크
-            CharacterStatus OrderStatus = skill.GetOrder();
-            OrderStatus.SetMaxHP(true,(int)skill.PassiveCount["PlusHP"]);
+            if (skill.PassiveCount["TempCount"] > 0)
+                skill.PassiveCount["TempCount"]--;
 
-        }, "GameStart");//시작시 발동
+        }, "Start");//시작시 발동
+
+        TempSkill.AddPassive(delegate (Skill skill)
+        {
+                Debug.Log("가드 실행");
+            if (skill.PassiveCount["TempCount"] == 0)
+            {
+                skill.PassiveCount["TempCount"] = skill.PassiveCount["count"];
+                DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, 0.3f, "Bansi");
+            }
+        }, "Hit");
     }
     public static void Add_BaseCriRate( int Crirate)
     {
