@@ -9,7 +9,7 @@ public class GameData : MonoBehaviour {
     public GameObject BackGroundEffect;
 
     public static GameData ins { get; set; }//인스턴스
-    private int[] PlayerCharacter = null;//현재 캐릭터
+    public int[] PlayerCharacter = null;//현재 캐릭터
     public Item.ITEMCODE[] PotionCode = null;
     public Item.ITEMCODE[] EquipmentCode = null;
     public MapSelect.MAPSTASIS MapData;

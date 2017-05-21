@@ -6,7 +6,7 @@ using System.Collections;
 public class SelectsMenuCtrl : MonoBehaviour {
 
 
-
+    int TimeNumber = 99;
     public Sprite[] SpriteImg;              //캐릭터 이미지들
     public Image[] UIImage;              //UI사용되는 이미지
     SelectMenu[] TempMenu = new SelectMenu[2];//현재 메뉴
@@ -43,6 +43,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        StartCoroutine(Timer());
         for (int i = 0; i < 2; i++)
         {
             ItemIconCtrl.switchs[i]();
@@ -63,6 +64,17 @@ public class SelectsMenuCtrl : MonoBehaviour {
 
     void Update()
     {
+    }
+    IEnumerator Timer()
+    {
+        while (TimeNumber > 0)
+        {
+
+            UITextSet.UIList["Timer"] = TimeNumber.ToString();
+
+            yield return new WaitForSeconds(1f);
+            TimeNumber--;
+        }
     }
     IEnumerator MoveMenu(object[] obj)
     {
@@ -85,8 +97,15 @@ public class SelectsMenuCtrl : MonoBehaviour {
         Vector2 v;
         while (!TempMenu[i].isSelect(out v))
         {
+            TempCharacter= (int)(TempMenu[i].Cursor.x + 3 * TempMenu[i].Cursor.y);//선택한 캐릭터의 번호  
+
+            GameData.ins.SetPlayer(TempCharacter, i);//게임데이터에 저장
+
             TempCharacter = (int)(v.x + TempMenu[i].XLength * v.y);
-            UIImage[i].sprite = SpriteImg[TempCharacter];
+            if(TempCharacter == 0)
+                UIImage[i].sprite = SpriteImg[Random.Range(1,5)];
+            else
+                UIImage[i].sprite = SpriteImg[TempCharacter];
             yield return null;
         }
         PlayerStasis[i]++;
@@ -236,9 +255,6 @@ public class SelectsMenuCtrl : MonoBehaviour {
     }
     void CheckingCharacterIndex(int index)//선택하면 들어옴.
     {
-        int TempCharacter = (int)(TempMenu[index].Cursor.x + 3 * TempMenu[index].Cursor.y);//선택한 캐릭터의 번호  
-
-        GameData.ins.SetPlayer(TempCharacter, index);//게임데이터에 저장
 
         if (AllOK[1] && AllOK[0])//둘다 선택됬으면
         {

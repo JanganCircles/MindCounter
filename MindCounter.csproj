@@ -135,6 +135,7 @@
     <Compile Include="Assets\Resources\Particles\Scipts\ParticleSystemScaler.cs" />
     <Compile Include="Assets\Script\AudioVisualizer.cs" />
     <Compile Include="Assets\Script\CharacterData.cs" />
+    <Compile Include="Assets\Script\CharacterSelectUI\CharacterAnimSet.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\ItemIconCtrl.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\MapSelect.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\SelectMenu.cs" />
