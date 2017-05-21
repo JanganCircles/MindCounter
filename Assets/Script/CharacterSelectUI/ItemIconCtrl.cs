@@ -45,11 +45,20 @@ public class ItemIconCtrl : MonoBehaviour {
     void SwitchImage()
     {
         isEqulp = !isEqulp;
-        if(isEqulp)
-            GetComponent<Image>().sprite = EqulpMentSprite;
+        Image img = GetComponent<Image>();
+        if (isEqulp)
+            img.sprite = EqulpMentSprite;
         else
-            GetComponent<Image>().sprite = PotionSprite;
-        isInValue = GetComponent<Image>().sprite == null;
+            img.sprite = PotionSprite;
+        if (img.sprite == null)
+        {
+            img.color = Color.clear;
+        }
+        else
+        {
+            img.color = Color.white;
+        }
+        isInValue = img.sprite == null;
     }
     public void SetImage()
     {
@@ -63,5 +72,6 @@ public class ItemIconCtrl : MonoBehaviour {
                 else EqulpMentSprite= data.GetSprite();
             }
         }
+            
     }
 }

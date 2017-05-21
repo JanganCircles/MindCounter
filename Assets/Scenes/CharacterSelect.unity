@@ -3848,17 +3848,17 @@ RectTransform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 903505148}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1404105731}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 224, y: 342.6}
-  m_SizeDelta: {x: 778, y: 686}
+  m_AnchoredPosition: {x: 389, y: 344.00003}
+  m_SizeDelta: {x: 800, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &903505150
 MonoBehaviour:
@@ -3987,7 +3987,7 @@ RectTransform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 919551876}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3996,8 +3996,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -224, y: 342}
-  m_SizeDelta: {x: 778, y: 686}
+  m_AnchoredPosition: {x: -397, y: 401}
+  m_SizeDelta: {x: 800, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &919551878
 MonoBehaviour:
@@ -6281,16 +6281,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpriteImg:
-  - {fileID: 21300000, guid: 88b54abdf1aa30742a5aa1a23562154b, type: 3}
-  - {fileID: 21300000, guid: 6d48b9ebcd1d0d845a2533f719895500, type: 3}
-  - {fileID: 21300000, guid: c600f91def0f62a4bb090fa031e21b54, type: 3}
-  - {fileID: 21300000, guid: 15f1d910447c3764c99e7c50c2661f8d, type: 3}
+  - {fileID: 21300000, guid: 6e067a07f9094e24ab70297fcc937a3d, type: 3}
+  - {fileID: 21300000, guid: e7e6abb8815821347a58d1c2f9dfaaf2, type: 3}
+  - {fileID: 21300000, guid: 59e9d6f227780174fa02d98565b65e6d, type: 3}
+  - {fileID: 21300000, guid: 64de7f906f2e84f48a66fffaca98a6b8, type: 3}
   - {fileID: 21300000, guid: 8052d8c162fed244da610ee6648b538d, type: 3}
   - {fileID: 21300000, guid: 57c47ba078e6f3a4e9440001ccee5c62, type: 3}
   - {fileID: 21300000, guid: 7292ffb00505af04497047f2ff167031, type: 3}
   - {fileID: 21300000, guid: 2597b13f7a9aa8d46bf7769dd3b76ffe, type: 3}
   - {fileID: 21300000, guid: d45fec6a4cbdfbf43a9eb1590d18a89a, type: 3}
-  - {fileID: 21300000, guid: 7f81a960ca2876f4aa7dd360d99af7c4, type: 3}
+  - {fileID: 0}
   UIImage:
   - {fileID: 903505150}
   - {fileID: 919551878}
