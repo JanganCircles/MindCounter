@@ -133,7 +133,8 @@ public class SelectsMenuCtrl : MonoBehaviour {
                     Sm.Cancel();
                     continue;
                 }
-                EffectManager.ins.EffectRun(TempMenu[i].CursorTr.GetComponent<RectTransform>().position, Vector3.one, "LeftBar", 0.63f, true);
+                if(!ItemsOK[1])
+                    EffectManager.ins.EffectRun(TempMenu[i].CursorTr.GetComponent<RectTransform>().position, Vector3.one, "LeftBar", 0.63f, true);
 
                 if (!ItemsOK[0])
                 {
@@ -145,6 +146,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
                         Item.ItemData data = Item.GetItem(ItemCode[i]);
                         if (Duration[i] + data.weight <= MAXDURATION)
                         {
+                            GameData.ins.EquipmentCode[i] = ItemCode[i];
                             Duration[i] += data.weight;
                             ItemsOK[0] = true;
                             Sm.Cancel();
@@ -174,6 +176,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
                         Item.ItemData data = Item.GetItem(ItemCode[i + 2]);
                         if (Duration[i] + data.weight <= MAXDURATION)
                         {
+                            GameData.ins.PotionCode[i] = ItemCode[i + 2];
                             Duration[i] += data.weight;
                             AllOK[i] = true;
                             CheckingCharacterIndex(i);
@@ -210,7 +213,12 @@ public class SelectsMenuCtrl : MonoBehaviour {
                             yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
                         ItemIconCtrl.switchs[i]();
                         yield return StartCoroutine("MoveMenu", new object[] { Sm, DownMenuY });
-
+                        if (j == 1)
+                        {
+                            GameData.ins.PotionCode[i] = Item.ITEMCODE.NONE;
+                        }
+                        else
+                            GameData.ins.EquipmentCode[i] = Item.ITEMCODE.NONE;
                         break;
                     }
                 }

@@ -136,10 +136,12 @@
     <Compile Include="Assets\Script\AudioVisualizer.cs" />
     <Compile Include="Assets\Script\CharacterData.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\CharacterAnimSet.cs" />
+    <Compile Include="Assets\Script\CharacterSelectUI\Iconset.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\ItemIconCtrl.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\MapSelect.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\SelectMenu.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\SelectsMenuCtrl.cs" />
+    <Compile Include="Assets\Script\CharacterSelectUI\TextDuration.cs" />
     <Compile Include="Assets\Script\CheckingScreenSize.cs" />
     <Compile Include="Assets\Script\Effects\EffectManager.cs" />
     <Compile Include="Assets\Script\Effects\Effect_Object.cs" />

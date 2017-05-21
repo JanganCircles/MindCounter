@@ -94,6 +94,12 @@ public class GameData : MonoBehaviour {
                 ins.EquipmentCode = new Item.ITEMCODE[2];
                 ins.PlayerCharacter = new int[2];
 
+                for (int i = 0; i < 2; i++)
+                {
+                    ins.PotionCode[i] = Item.ITEMCODE.NONE;
+                    ins.EquipmentCode[i] = Item.ITEMCODE.NONE;
+                }
+
                 break;
             case "Main"://메인씬일떄
                 {
