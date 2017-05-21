@@ -58,6 +58,11 @@ public class CharacterAnim : MonoBehaviour {
 	void Update () {
         SkelAnim.AnimationName = TempName;
     }
+    public void SetOrderinLayer()
+    {
+        if (gameManager.ins.Winner > 0) return;
+        Anims[gameManager.ins.Winner].gameObject.GetComponent<MeshRenderer>().sortingOrder = 1;
+    }
     public static void ChangeAnimation(AnimStasis stasis)
     {
         for(int i = 0; i < 2; i++)

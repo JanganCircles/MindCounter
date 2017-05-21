@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class IllustrationChanger : MonoBehaviour {
-    public string[] CharaName;
-    public string[] PlanetName;
+
+    public Sprite[] NameTag;
     public Sprite[] Image;
+    public Image NameTagTarget;
     public GameObject[] Objs;
     public bool Trigger;
     public int TempIndex;
@@ -46,9 +47,7 @@ public class IllustrationChanger : MonoBehaviour {
             } while (PrevIndex == TempIndex);
             PrevIndex = TempIndex;
             inImage.sprite = Image[TempIndex];
-            Nametxt.text = CharaName[TempIndex];
-            Planettxt.text = PlanetName[TempIndex];
-            
+            NameTagTarget.sprite = NameTag[TempIndex];
             Color c1 = OutImage.color;
             Color c2 = inImage.color;
             Vector3[] startPos = new Vector3[2] { Objs[0].transform.position, Objs[1].transform.position } ;

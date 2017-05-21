@@ -875,21 +875,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b819606f30026458d1c6808aac0d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharaName:
-  - "\uC554\uC0B4\uC790"
-  - "\uAC74\uD2C0\uB9BF"
-  - "\uD5D0\uD06C"
-  - "\uB791"
-  PlanetName:
-  - "\uC554\uC0B4\uC554\uC0B4\uD589\uC131"
-  - "\uAC74\uD2C0\uAC74\uD2C0\uD589\uC131"
-  - "\uADFC\uC721\uADFC\uC721\uD589\uC131"
-  - "\uBBF8\uC6B0\uBBF8\uC6B0\uD589\uC131"
+  NameTag:
+  - {fileID: 21300004, guid: 185c6aa36d8e46b48a7c8f07097a1832, type: 3}
+  - {fileID: 21300002, guid: 185c6aa36d8e46b48a7c8f07097a1832, type: 3}
+  - {fileID: 21300006, guid: 185c6aa36d8e46b48a7c8f07097a1832, type: 3}
+  - {fileID: 21300000, guid: 185c6aa36d8e46b48a7c8f07097a1832, type: 3}
   Image:
   - {fileID: 21300000, guid: 59e9d6f227780174fa02d98565b65e6d, type: 3}
-  - {fileID: 21300000, guid: 6e067a07f9094e24ab70297fcc937a3d, type: 3}
+  - {fileID: 21300000, guid: 995baa89848e298428f5615e5b8eeadb, type: 3}
   - {fileID: 21300000, guid: 64de7f906f2e84f48a66fffaca98a6b8, type: 3}
   - {fileID: 21300000, guid: e7e6abb8815821347a58d1c2f9dfaaf2, type: 3}
+  NameTagTarget: {fileID: 57840904}
   Objs:
   - {fileID: 729439092}
   - {fileID: 730504010}
@@ -2918,6 +2914,11 @@ Prefab:
       propertyPath: cam
       value: 
       objectReference: {fileID: 455305236}
+    - target: {fileID: 20853675329665308, guid: d68e843b2059f7a438f0381d7971165e,
+        type: 2}
+      propertyPath: m_Depth
+      value: -2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d68e843b2059f7a438f0381d7971165e, type: 2}
   m_IsPrefabParent: 0
