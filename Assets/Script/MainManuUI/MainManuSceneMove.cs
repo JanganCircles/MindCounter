@@ -9,6 +9,7 @@ public class MainManuSceneMove : MonoBehaviour
     public SelectMenu Menu;
     public Vector2 PrevV;
     public Vector2 v;
+    public IllustrationChanger changer;
     // Use this for initialization
     void Start()
     {
@@ -30,6 +31,7 @@ public class MainManuSceneMove : MonoBehaviour
             {
                 if (v != PrevV)
                 {
+                    changer.TriggerOn();
                     Text PrevText = Menu.IconTr[(int)PrevV.y].GetChild(0).transform.GetChild(0).GetComponent<Text>();
                     Text TempText = Menu.IconTr[(int)v.y].GetChild(0).transform.GetChild(0).GetComponent<Text>();
                     PrevText.gameObject.SetActive(false);
