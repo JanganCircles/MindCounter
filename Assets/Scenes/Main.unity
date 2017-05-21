@@ -5783,6 +5783,11 @@ Prefab:
       propertyPath: EquipmentCode.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
+        type: 2}
+      propertyPath: PlayerCharacter.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4333813320134872, guid: 80874f8e07c1e674ca538508cc21f01a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -226,6 +226,7 @@ public class gameManager : MonoBehaviour
             }
             else
             {//판가름 남.
+                CharacterAnim.SetOrderinLayer();
                 SaveData.ins.AddData(SaveData.TYPE.STILL, Winner, 1);//데이터 저장
 
                 int Loser = UserStatus[Winner].Enemy();//패자
