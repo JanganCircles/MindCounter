@@ -6300,6 +6300,7 @@ MonoBehaviour:
   ItemSelecter:
   - {fileID: 1533828649}
   - {fileID: 1598390668}
+  Duration: 0000000000000000
   UpMenuY: 733
   DownMenuY: 280
   SelectItem: ffffffffffffffffffffffffffffffff
