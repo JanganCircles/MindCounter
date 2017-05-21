@@ -64,6 +64,11 @@ public class SelectsMenuCtrl : MonoBehaviour {
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ItemIconCtrl.ResetThis();
+            MainManuSceneMove.GotoScene("MainManu");
+        }
     }
     IEnumerator Timer()
     {

@@ -69,7 +69,6 @@ public class EffectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
 	}
 	string EFFECTPath(EFFECT.EFFECTLIST list)
 	{
