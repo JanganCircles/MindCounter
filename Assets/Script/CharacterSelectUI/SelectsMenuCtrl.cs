@@ -9,14 +9,14 @@ public class SelectsMenuCtrl : MonoBehaviour {
 
     public Sprite[] SpriteImg;              //캐릭터 이미지들
     public Image[] UIImage;              //UI사용되는 이미지
-    SelectMenu[] TempMenu = new SelectMenu[2];
-    public SelectMenu[] CharacterSelecter;
-    public SelectMenu[] ItemSelecter;
-
+    SelectMenu[] TempMenu = new SelectMenu[2];//현재 메뉴
+    public SelectMenu[] CharacterSelecter; // 캐릭셀렉
+    public SelectMenu[] ItemSelecter;      // 아이템 셀렉
+    public int[] Duration;                  //무게
     public float UpMenuY;
     public float DownMenuY;
-
-    private int[] ItemCode = { -1, -1, -1, -1 };        // 선택한 아이템 인덱스
+    public const int MAXDURATION = 10;      //최종무게
+    private Item.ITEMCODE[] ItemCode = {0,0,0,0};        // 선택한 아이템 인덱스
     private int[] CharacterCode = { -1, -1 };           // 선택한 캐릭터 인덱스
     public int[] SelectItem = { -1, -1, -1, -1 };
 
@@ -81,7 +81,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
     {
         TempMenu[i] = CharacterSelecter[i];
         TempMenu[i].isRun = true;
-        int TempCharacter;//선택한 캐릭터의 번호  
+        int TempCharacter = 0;//선택한 캐릭터의 번호  
         Vector2 v;
         while (!TempMenu[i].isSelect(out v))
         {
@@ -91,6 +91,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
         }
         PlayerStasis[i]++;
         TempMenu[i].isRun = false;
+        CharacterCode[i] = TempCharacter;
         StartCoroutine("StasisChecker", i);
     }
     IEnumerator ItemSelect(int i)
@@ -115,24 +116,59 @@ public class SelectsMenuCtrl : MonoBehaviour {
                 if (!ItemsOK[0])
                 {
                     //1번아이템
-               //     GameData.ins.PotionCode[i] = Item.ITEMCODE();
-                    ItemsOK[0] = true;
-                    Sm.Cancel();
-                    yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
-                    ItemIconCtrl.switchs[i]();
-                    //이미지교체
-                    yield return StartCoroutine("MoveMenu", new object[] { Sm, DownMenuY });
+                    int index = (int)v.x + (int)v.y * Sm.XLength;
+                    MenuItemIndex.GetItemIndexToCode(out ItemCode[i], MenuItemIndex.RESULTTYPE.EQULPMENT, index);
+                    if (ItemCode[i ] != Item.ITEMCODE.NONE)
+                    {
+                        Item.ItemData data = Item.GetItem(ItemCode[i]);
+                        if (Duration[i] + data.weight <= MAXDURATION)
+                        {
+                            Duration[i] += data.weight;
+                            ItemsOK[0] = true;
+                            Sm.Cancel();
+                            yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
+                            ItemIconCtrl.switchs[i]();
+                            //이미지교체
+                            yield return StartCoroutine("MoveMenu", new object[] { Sm, DownMenuY });
+                        }
+                        else
+                        {
+                            Sm.Cancel();
+                        }
+                        }
+                    else
+                    {
+                        Sm.Cancel();
+                    }
                 }
                 else if(!ItemsOK[1])
                 {
                     //2번아이템
-                    AllOK[i] = true;
-                    CheckingCharacterIndex(i);
-                    ItemsOK[1] = true;
-                    
-                    yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
-                    ItemIconCtrl.switchs[i]();
+                    int index = (int)v.x + (int)v.y * Sm.XLength;
+                    MenuItemIndex.GetItemIndexToCode(out ItemCode[i + 2], MenuItemIndex.RESULTTYPE.POTION, index);
 
+                    if (ItemCode[i + 2] != Item.ITEMCODE.NONE)
+                    {
+                        Item.ItemData data = Item.GetItem(ItemCode[i + 2]);
+                        if (Duration[i] + data.weight <= MAXDURATION)
+                        {
+                            Duration[i] += data.weight;
+                            AllOK[i] = true;
+                            CheckingCharacterIndex(i);
+                            ItemsOK[1] = true;
+
+                            yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
+                            ItemIconCtrl.switchs[i]();
+                        }
+                        else
+                        {
+                            Sm.Cancel();
+                        }
+                    }
+                    else
+                    {
+                        Sm.Cancel();
+                    }
                 }
             }
             if (Input.GetKeyDown(Sm.KeysData[Sm.KeysData.Length - 1]))
@@ -146,8 +182,10 @@ public class SelectsMenuCtrl : MonoBehaviour {
                     {
                         ItemsOK[j] = !ItemsOK[j];
                         isCancel = true;
-                        if(j != 1)
-                        yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
+                        Item.ItemData data = Item.GetItem(ItemCode[i + 2 * j]);
+                        Duration[i] -= data.weight;
+                        if (j != 1)
+                            yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
                         ItemIconCtrl.switchs[i]();
                         yield return StartCoroutine("MoveMenu", new object[] { Sm, DownMenuY });
 
@@ -213,6 +251,11 @@ public class SelectsMenuCtrl : MonoBehaviour {
         StopCoroutine("ItemSelect");
         yield return new WaitForSeconds(1f);
         //StopAllCoroutines();
+        for (int i = 0; i < 2; i++)
+        {
+            GameData.ins.EquipmentCode[i] = ItemCode[i];
+            GameData.ins.PotionCode[i] = ItemCode[i + 2];
+        }
         ItemIconCtrl.ResetThis();
         SceneManager.LoadScene("Main");//씬변경
 

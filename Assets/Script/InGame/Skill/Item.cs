@@ -46,9 +46,8 @@ public class Item  {
         doubleaxe_L,
         glove_L,
         bible_L,
-        russianroulette_L
-
-
+        russianroulette_L,
+        NONE
 
 
 
