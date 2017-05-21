@@ -50,12 +50,16 @@ public class EffectManager : MonoBehaviour
 	public void EffectRun(Vector3 Position,Vector3 Scale, string Name,float Timer,bool OnUI)
 	{
 		GameObject LoadObj = Instantiate(dicGameObject[Name],Position,Quaternion.identity) as GameObject;
-		Debug.Log (LoadObj);
+
+
+        Debug.Log (LoadObj);
 		if (OnUI)
 			LoadObj.transform.parent = UICanvas.transform;
 		else
 			LoadObj.transform.parent = transform;
-		LoadObj.SendMessage("SetTimer",Timer);
+        LoadObj.transform.localScale = Scale;
+        Debug.Log(LoadObj.transform.localScale);
+        LoadObj.SendMessage("SetTimer",Timer);
 		LoadObj.SendMessage("Run");
 	}
     public bool Stop(string Name)

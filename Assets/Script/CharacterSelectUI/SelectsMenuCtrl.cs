@@ -108,6 +108,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
                 UIImage[i].sprite = SpriteImg[TempCharacter];
             yield return null;
         }
+        EffectManager.ins.EffectRun(TempMenu[i].CursorTr.GetComponent<RectTransform>().position, Vector3.one, "LeftBar",0.63f, true);
         PlayerStasis[i]++;
         TempMenu[i].isRun = false;
         CharacterCode[i] = TempCharacter;
@@ -132,6 +133,8 @@ public class SelectsMenuCtrl : MonoBehaviour {
                     Sm.Cancel();
                     continue;
                 }
+                EffectManager.ins.EffectRun(TempMenu[i].CursorTr.GetComponent<RectTransform>().position, Vector3.one, "LeftBar", 0.63f, true);
+
                 if (!ItemsOK[0])
                 {
                     //1번아이템
