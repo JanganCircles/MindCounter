@@ -115,6 +115,12 @@
     <Reference Include="ExcelToObject">
       <HintPath>Assets\Projectdll\ExcelToObject.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-UnityScript-firstpass">
+      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-UnityScript">
+      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="MindCounter.csproj">
@@ -199,6 +205,7 @@
     <None Include="Assets\BlendModes\Resources\BlendModes\UIDefaultFont\Grab.shader" />
     <None Include="Assets\BlendModes\Resources\BlendModes\UIDefaultFont\UnifiedGrab.shader" />
     <None Include="Assets\BlendModes\readme.txt" />
+    <None Include="Assets\Particles\CartoonFX\Readme.txt" />
     <None Include="Assets\Particles\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />
     <None Include="Assets\Particles\README - Action VFX.txt" />
     <None Include="Assets\Particles\README - Advanced Particle Scaler.txt" />

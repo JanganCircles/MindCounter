@@ -79,6 +79,9 @@
     <Reference Include="ExcelToObject">
       <HintPath>Assets\Projectdll\ExcelToObject.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-UnityScript-firstpass">
+      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BlendModes\Demo\Scripts\DemoBlendModePicker.cs" />
@@ -92,6 +95,12 @@
     <Compile Include="Assets\BlendModes\Scripts\ObjectType.cs" />
     <Compile Include="Assets\BlendModes\Scripts\RenderMode.cs" />
     <Compile Include="Assets\EffectSlow.cs" />
+    <Compile Include="Assets\Particles\CartoonFX\DemoRosources\DemoGUI.cs" />
+    <Compile Include="Assets\Particles\CartoonFX\DemoRosources\DemoReactivator.cs" />
+    <Compile Include="Assets\Particles\CartoonFX\DemoRosources\FPSCartoon.cs" />
+    <Compile Include="Assets\Particles\CartoonFX\Scipts\Colorizer.cs" />
+    <Compile Include="Assets\Particles\CartoonFX\Scipts\LightCurves.cs" />
+    <Compile Include="Assets\Particles\CartoonFX\Scipts\ParticleSystemScaler.cs" />
     <Compile Include="Assets\Particles\Particle Systems\Ultimate VFX\2 - Expansions\XP - TITLES\Scripts\DemoManager_XPTitles.cs" />
     <Compile Include="Assets\Particles\Particle Systems\_Common\Scripts\AnimatedLight.cs" />
     <Compile Include="Assets\Particles\Particle Systems\_Common\Scripts\DestroyAfterTime.cs" />
@@ -371,9 +380,7 @@
     <Compile Include="Assets\z_AnotherAsset\Standard Assets\Effects\ImageEffects\Scripts\TiltShift.cs" />
     <Compile Include="Assets\z_AnotherAsset\Standard Assets\Effects\ImageEffects\Scripts\Tonemapping.cs" />
     <Compile Include="Assets\z_AnotherAsset\Standard Assets\Effects\ImageEffects\Scripts\Triangles.cs" />
-    <Compile Include="Assets\z_AnotherAsset\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
     <Compile Include="Assets\z_AnotherAsset\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
-    <Compile Include="Assets\z_AnotherAsset\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
     <Compile Include="Assets\z_AnotherAsset\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
     <Compile Include="Assets\z_AnotherAsset\Standard Assets\Environment\Water\Water\Scripts\Displace.cs" />
     <Compile Include="Assets\z_AnotherAsset\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
@@ -456,6 +463,7 @@
     <None Include="Assets\BlendModes\Resources\BlendModes\UIDefaultFont\Grab.shader" />
     <None Include="Assets\BlendModes\Resources\BlendModes\UIDefaultFont\UnifiedGrab.shader" />
     <None Include="Assets\BlendModes\readme.txt" />
+    <None Include="Assets\Particles\CartoonFX\Readme.txt" />
     <None Include="Assets\Particles\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />
     <None Include="Assets\Particles\README - Action VFX.txt" />
     <None Include="Assets\Particles\README - Advanced Particle Scaler.txt" />
