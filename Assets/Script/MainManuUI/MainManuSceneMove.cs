@@ -30,17 +30,19 @@ public class MainManuSceneMove : MonoBehaviour
                     Menu.Cancel();                    
                 }
                 else
-                    GotoScene(Menu.IconTr[(int)v.y].GetComponentInChildren<Text>().name);
+                    GotoScene(Menu.IconTr[(int)v.y].GetComponentInChildren<Image>().name);
             }
             else
             {
                 if (v != PrevV)
                 {
                     changer.TriggerOn();
-                    Text PrevText = Menu.IconTr[(int)PrevV.y].GetChild(0).transform.GetChild(0).GetComponent<Text>();
-                    Text TempText = Menu.IconTr[(int)v.y].GetChild(0).transform.GetChild(0).GetComponent<Text>();
+                    Image PrevText = Menu.IconTr[(int)PrevV.y].GetChild(0).transform.GetChild(0).GetComponent<Image>();
+                    Image TempText = Menu.IconTr[(int)v.y].GetChild(0).transform.GetChild(0).GetComponent<Image>();
                     PrevText.gameObject.SetActive(false);
                     TempText.gameObject.SetActive(true);
+                    Menu.IconTr[(int)PrevV.y].GetChild(0).GetComponent<Image>().enabled = true;
+                    Menu.IconTr[(int)v.y].GetChild(0).GetComponent<Image>().enabled = false;
                     PrevV = v;
                     //  PrevV //정상화
                     //  v // 미백
