@@ -245,7 +245,7 @@ public class gameManager : MonoBehaviour
                 //yield return new WaitForSeconds(CharacterAnim.GetTempDuration(Winner));//애니메이션 딜레이
                 StartCoroutine(AnimationRun());
                 yield return new WaitForSeconds(1f);//애니메이션 딜레이
-                if(UserStatus[Loser].Guard)
+                if(UserStatus[Loser].Guard&& damage == 0)
                     DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.GUARD);
                 else if(damage == 0)
                     DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.MISS);

@@ -31,7 +31,6 @@ public class DamageEffect : MonoBehaviour {
 	// Use this for initialization
     public void OnDamage(object img)
     {
-        Debug.Log("ㄴㄴ");
         Image[] ImgArr = null;
         switch ((TargetImage)img)
         {
