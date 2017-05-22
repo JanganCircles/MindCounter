@@ -114,13 +114,15 @@ public class gameManager : MonoBehaviour
             DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.MISS);
         else
             DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.DMG);
-        Vector3 BetweenPos = Vector3.Lerp(UserStatus[CHALLANGER].transform.position, UserStatus[CHAMPION].transform.position, 0.5f);
+        Vector3 LoserPos = UserStatus[Loser].transform.position;
+        LoserPos.y = 1;
         int index = UserSlot[Winner].GetPriority();
         if (UserStatus[Loser].Guard && Damage == 0)
             index = 0;
         string[] Names =  { "Guard","" ,"", "LowAttack", "MidAttack" , "HighAttack" };
-
-        EffectManager.ins.EffectRun(BetweenPos, Vector3.one, Names[index], false);
+        if(index == 5)
+            EffectManager.ins.EffectRun(LoserPos, Vector3.one, "ObjHighAttack", false);
+        EffectManager.ins.EffectRun(LoserPos, Vector3.one, Names[index], false);
     }
     public void AnimationSetting( int step, CharacterAnim.AnimStasis stasis)
     {

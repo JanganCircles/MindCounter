@@ -9,6 +9,7 @@ public class Effect_Sprite : MonoBehaviour, EFFECT.Effect
 	public float RunTime;
 	public void Awake()
     {
+        RunningTime = RunTime;
 		animator = GetComponent<Animator>();
     }
     public void OnEnable()

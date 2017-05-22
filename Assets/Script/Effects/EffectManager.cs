@@ -26,12 +26,16 @@ public class EffectManager : MonoBehaviour
 		dicGameObject = new Dictionary<string, GameObject> ();
 		for(int i = 0 ; i < ObjEffects.Length;i++)
 		{
-			dicEffects.Add (ObjEffects [i].name, ObjEffects [i]);
+            ObjEffects[i].RunningTime = ObjEffects[i].GetComponent<Effect_Object>().RunTime;
+
+            dicEffects.Add (ObjEffects [i].name, ObjEffects [i]);
 			dicGameObject.Add (ObjEffects [i].name, ObjEffects [i].gameObject);
 		}
 		for(int i = 0 ; i < SprEffects.Length;i++)
-		{
-			dicEffects.Add (SprEffects [i].name, SprEffects [i]);
+        {
+            SprEffects[i].RunningTime = SprEffects[i].GetComponent<Effect_Sprite>().RunTime;
+
+            dicEffects.Add (SprEffects [i].name, SprEffects [i]);
 			dicGameObject.Add (SprEffects [i].name, SprEffects [i].gameObject);
 		}
 	}
