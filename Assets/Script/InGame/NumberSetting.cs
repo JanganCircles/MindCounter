@@ -7,6 +7,7 @@ public class NumberSetting : MonoBehaviour {
     public Text TargetText;
     int Number;
     public int TenPos;
+    public bool isZeroDrow;
     static Sprite[] Spr = new Sprite[10];
     Image img;
     // Use this for initialization
@@ -16,7 +17,6 @@ public class NumberSetting : MonoBehaviour {
         for (int i = 1; i < 10; i++)
         {
             Spr[i] = sprites[i-1];
-            Debug.Log(Spr[i]);
         }
         Spr[0] = sprites[9];
 	}
@@ -26,12 +26,21 @@ public class NumberSetting : MonoBehaviour {
     {
         if (int.TryParse(TargetText.text, out Number))
         {
-            int Value = (Number % (TenPos * 10));
-            if (Value != 0)
+            if (!isZeroDrow && Number < TenPos)
             {
-                Value /= TenPos;
+                img.enabled = false;
             }
-            img.sprite = Spr[Value];
+            else
+            {
+
+                img.enabled = true;
+                int Value = (Number % (TenPos * 10));
+                if (Value != 0)
+                {
+                    Value /= TenPos;
+                }
+                img.sprite = Spr[Value];
+            }
         }
     }
 }

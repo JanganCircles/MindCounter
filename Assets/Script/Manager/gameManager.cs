@@ -33,6 +33,7 @@ public class gameManager : MonoBehaviour
     public int Turn = 0;                    //저장용_턴
     public int TotalWinner = -1;            //최종승자(챔피언or챌린저)
     public bool Simulate;                   //AI사용
+    public GameObject DamageObj;            //데미지
 
     public GameObject KeyController;        //키입력 받는 오브젝트
 
@@ -237,7 +238,6 @@ public class gameManager : MonoBehaviour
 
                 DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, TimingWeight[Winner], "RhythmWeight");
                 int damage = DamageCalculator.ins.Calculate();//데미지 계산
-
                 //
                 Debug.Log(damage + "최종 데미지");
                 Debug.Log((Winner == 0 ? "챔피언" : "챌린저") + "승");
@@ -245,6 +245,8 @@ public class gameManager : MonoBehaviour
                 //yield return new WaitForSeconds(CharacterAnim.GetTempDuration(Winner));//애니메이션 딜레이
                 StartCoroutine(AnimationRun());
                 yield return new WaitForSeconds(1f);//애니메이션 딜레이
+                DamageObj.SendMessage("OnDamage", true);
+                UITextSet.UIList["Damage"] = damage.ToString();
                 if (!UserStatus[Winner].DontDash) { 
                     CameraController.LockPosition = true; // 카메라 컨트롤러
                     CameraController.Winner = Winner;     // " 위와동일

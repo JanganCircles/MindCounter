@@ -126,16 +126,26 @@ public class GameData : MonoBehaviour {
                     }
                     if (ins.PlayerCharacter == null)//캐릭터가 없으면?
                     {
+                        Debug.Log("캐릭터 없다");
                         ins.PlayerCharacter = new int[2];
                         ins.PlayerCharacter[0] = 0;
                         ins.PlayerCharacter[1] = 0;
                         //임의의값 설정
                     }
-                    if (ins == this && Characters.Length == 2)//첫씬이 해당씬이고, 캐릭터가 있으면
+                    else if (ins == this && Characters.Length == 2)//첫씬이 해당씬이고, 캐릭터가 있으면
                     {
+                        Debug.Log("이씬이 이씬이다");
                         for (int i = 0; i < 2; i++)
                         {
                             ins.PlayerCharacter[i] = (int)(Characters[i]);
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("아무튼 아님");
+                        for (int i = 0; i < 2; i++)
+                        {
+                            ins.Characters[i] = (CharacterStatusSetup.Charas)ins.PlayerCharacter[i];
                         }
                     }
                 }

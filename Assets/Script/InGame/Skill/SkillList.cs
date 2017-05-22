@@ -102,12 +102,18 @@ public class SkillList : MonoBehaviour {
                    SaveData.ins.AddData(SaveData.TYPE.GUARD, Orderstat.Controller, SaveData.Success, 1);
                    if (Orderstat.WallDistance == 0)
                    {
-						if(Random.Range(1,10) == 1)
-	                       DamageCalculator.ins.AddDamage("Multiple", 0.5f -  (1 - gameManager.ins.TimingWeight[skil.Order]), "GuardBlock");
+                       if (Random.Range(1, 10) == 1)
+                       {
+                           float BlockPer = 0.5f - (1 - gameManager.ins.TimingWeight[skil.Order]);
+                           BlockPer = BlockPer < 0 ? 0 : BlockPer;
+                           DamageCalculator.ins.AddDamage("Multiple", BlockPer, "GuardBlock");
+                       }
                    }
                    else
                    {
-                       DamageCalculator.ins.AddDamage("Multiple", 1 - gameManager.ins.TimingWeight[skil.Order], "GuardBlock");
+                       float BlockPer = 1 - gameManager.ins.TimingWeight[skil.Order];
+                       BlockPer = BlockPer < 0 ? 0 : BlockPer;
+                       DamageCalculator.ins.AddDamage("Multiple", BlockPer, "GuardBlock");
                    }
                }
            }, "Hit");//피격시 발동
