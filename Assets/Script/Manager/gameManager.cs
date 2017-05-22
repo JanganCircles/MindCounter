@@ -245,7 +245,12 @@ public class gameManager : MonoBehaviour
                 //yield return new WaitForSeconds(CharacterAnim.GetTempDuration(Winner));//애니메이션 딜레이
                 StartCoroutine(AnimationRun());
                 yield return new WaitForSeconds(1f);//애니메이션 딜레이
-                DamageObj.SendMessage("OnDamage", true);
+                if(UserStatus[Loser].Guard)
+                    DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.GUARD);
+                else if(damage == 0)
+                    DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.MISS);
+                else
+                    DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.DMG);
                 UITextSet.UIList["Damage"] = damage.ToString();
                 if (!UserStatus[Winner].DontDash) { 
                     CameraController.LockPosition = true; // 카메라 컨트롤러

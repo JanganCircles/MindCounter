@@ -8,17 +8,36 @@ public class NumberSetting : MonoBehaviour {
     int Number;
     public int TenPos;
     public bool isZeroDrow;
-    static Sprite[] Spr = new Sprite[10];
+    public PontImage fontType;
+    public enum PontImage
+    {
+        BLUE,RED
+    }
+    public Sprite[] Spr = new Sprite[10];
     Image img;
     // Use this for initialization
 	void Start () {
-        img = GetComponent<Image>();
-        Sprite[] sprites = Resources.LoadAll<Sprite>("Sprite/charScene_render");
-        for (int i = 1; i < 10; i++)
+        img = GetComponent<Image>(); Sprite[] sprites = null;
+        switch (fontType)
         {
-            Spr[i] = sprites[i-1];
+            case PontImage.BLUE:
+                sprites = Resources.LoadAll<Sprite>("Sprite/charScene_render");
+                for (int i = 1; i < 10; i++)
+                {
+                    Spr[i] = sprites[i - 1];
+                }
+                Spr[0] = sprites[9];
+                break;
+            case PontImage.RED:
+                sprites = Resources.LoadAll<Sprite>("Sprite/UI/Main_font");
+                for (int i = 0; i < 10; i++)
+                {
+                    Spr[i] = sprites[i];
+                }
+                break;
+            default:
+                break;
         }
-        Spr[0] = sprites[9];
 	}
 
     // Update is called once per frame
