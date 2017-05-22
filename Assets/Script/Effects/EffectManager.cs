@@ -45,7 +45,8 @@ public class EffectManager : MonoBehaviour
 			LoadObj.transform.parent = UICanvas.transform;
 		else
 			LoadObj.transform.parent = transform;
-		LoadObj.SendMessage("Run");
+        LoadObj.SendMessage("SetTimer", ef.RunningTime);
+        LoadObj.SendMessage("Run");
 	}
 	public void EffectRun(Vector3 Position,Vector3 Scale, string Name,float Timer,bool OnUI)
 	{

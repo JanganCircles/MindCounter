@@ -105,6 +105,23 @@ public class gameManager : MonoBehaviour
             yield return new WaitForSeconds(0.98f);
         }
     }
+    public void HitEffect(float Damage)
+    {
+        int Loser = 1 - Winner;
+        if (UserStatus[Loser].Guard && Damage == 0)
+            DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.GUARD);
+        else if (Damage == 0)
+            DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.MISS);
+        else
+            DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.DMG);
+        Vector3 BetweenPos = Vector3.Lerp(UserStatus[CHALLANGER].transform.position, UserStatus[CHAMPION].transform.position, 0.5f);
+        int index = UserSlot[Winner].GetPriority();
+        if (UserStatus[Loser].Guard && Damage == 0)
+            index = 0;
+        string[] Names =  { "Guard","" ,"", "LowAttack", "MidAttack" , "HighAttack" };
+
+        EffectManager.ins.EffectRun(BetweenPos, Vector3.one, Names[index], false);
+    }
     public void AnimationSetting( int step, CharacterAnim.AnimStasis stasis)
     {
         for (int i = 0; i < 2; i++)
@@ -245,12 +262,7 @@ public class gameManager : MonoBehaviour
                 //yield return new WaitForSeconds(CharacterAnim.GetTempDuration(Winner));//애니메이션 딜레이
                 StartCoroutine(AnimationRun());
                 yield return new WaitForSeconds(1f);//애니메이션 딜레이
-                if(UserStatus[Loser].Guard&& damage == 0)
-                    DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.GUARD);
-                else if(damage == 0)
-                    DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.MISS);
-                else
-                    DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.DMG);
+                HitEffect(damage);
                 UITextSet.UIList["Damage"] = damage.ToString();
                 if (!UserStatus[Winner].DontDash) { 
                     CameraController.LockPosition = true; // 카메라 컨트롤러
