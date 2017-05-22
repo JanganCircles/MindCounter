@@ -321,6 +321,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetText: {fileID: 1869193257}
   TenPos: 10
+  isZeroDrow: 0
+  fontType: 0
+  Spr:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &97403003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7021,6 +7034,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetText: {fileID: 1869193257}
   TenPos: 1
+  isZeroDrow: 0
+  fontType: 0
+  Spr:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1409492509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8098,7 +8124,7 @@ MonoBehaviour:
   XLength: 6
   YLength: 5
   Cursor: {x: 0, y: 0}
-  KeysData: 7900000067000000680000006a0000006100000064000000
+  KeysData: 77000000610000007300000064000000670000006a000000
 --- !u!1 &1547678893
 GameObject:
   m_ObjectHideFlags: 0
@@ -9877,7 +9903,7 @@ MonoBehaviour:
   XLength: 5
   YLength: 1
   Cursor: {x: 0, y: 0}
-  KeysData: 7900000067000000680000006a0000006100000064000000
+  KeysData: 77000000610000007300000064000000670000006a000000
 --- !u!222 &1892180654
 CanvasRenderer:
   m_ObjectHideFlags: 0
