@@ -344,13 +344,17 @@ public class Item  {
         TempSkill.AddPassive(delegate (Skill skill)
 			{
 				Debug.Log("가드 실행");
-            if(skill.PassiveCount["Shield"] == 1)
-            {
-                WallManager.ins.ResetPivot();
-                WallManager.ins.Move((int)(skill.PassiveCount["Damage"] * skill.PassiveCount["ShieldMultiple"]), skill.GetOrder().Enemy() );
-                gameManager.ins.Winner = 1 - gameManager.ins.Winner;
-            }
-        }, "WallSetting");
+                if (gameManager.ins.UserStatus[skill.Order].WallDistance == 0)
+                {
+                    skill.PassiveCount["Shield"] = 0;
+                }
+                if (skill.PassiveCount["Shield"] == 1)
+                {
+                    WallManager.ins.ResetPivot();
+                    WallManager.ins.Move((int)(skill.PassiveCount["Damage"] * skill.PassiveCount["ShieldMultiple"]), skill.GetOrder().Enemy());
+                    gameManager.ins.Winner = 1 - gameManager.ins.Winner;
+                }
+            }, "WallSetting");
     }
     public static void Add_ARMOR( int count)
     {
