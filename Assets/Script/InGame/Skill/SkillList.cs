@@ -53,6 +53,7 @@ public class SkillList : MonoBehaviour {
             Orderstat = gameManager.ins.UserStatus[skl.Order];
             if (skl.PassiveCount["Switch"] == 1)
             {
+                EffectManager.ins.EffectRun(skl.GetOrder().transform, Vector3.one, "Energy", false);
                 CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.MANA, skl.Order);
                 Orderstat.CostPlus((int)(CostData.EnergyRecovery * gameManager.ins.TimingWeight[skl.Order]));
             }

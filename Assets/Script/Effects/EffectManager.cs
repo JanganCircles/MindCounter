@@ -7,11 +7,11 @@ using System;
 public class EffectManager : MonoBehaviour
 {
 
-	public Effect_Object[] ObjEffects;
-	public Effect_Sprite[] SprEffects;
-	private Dictionary<string,EFFECT.Effect> dicEffects;
-	private Dictionary<string,GameObject> dicGameObject;
-	public Canvas UICanvas;
+    public Effect_Object[] ObjEffects;
+    public Effect_Sprite[] SprEffects;
+    private Dictionary<string, EFFECT.Effect> dicEffects;
+    private Dictionary<string, GameObject> dicGameObject;
+    public Canvas UICanvas;
     public static EffectManager ins;
     //풀링안함
     //이벤트사용
@@ -21,52 +21,59 @@ public class EffectManager : MonoBehaviour
 
     void Awake()
     {
-		ins = this;
-		dicEffects = new Dictionary<string, EFFECT.Effect> ();
-		dicGameObject = new Dictionary<string, GameObject> ();
-		for(int i = 0 ; i < ObjEffects.Length;i++)
-		{
+        ins = this;
+        dicEffects = new Dictionary<string, EFFECT.Effect>();
+        dicGameObject = new Dictionary<string, GameObject>();
+        for (int i = 0; i < ObjEffects.Length; i++)
+        {
             ObjEffects[i].RunningTime = ObjEffects[i].GetComponent<Effect_Object>().RunTime;
 
-            dicEffects.Add (ObjEffects [i].name, ObjEffects [i]);
-			dicGameObject.Add (ObjEffects [i].name, ObjEffects [i].gameObject);
-		}
-		for(int i = 0 ; i < SprEffects.Length;i++)
+            dicEffects.Add(ObjEffects[i].name, ObjEffects[i]);
+            dicGameObject.Add(ObjEffects[i].name, ObjEffects[i].gameObject);
+        }
+        for (int i = 0; i < SprEffects.Length; i++)
         {
             SprEffects[i].RunningTime = SprEffects[i].GetComponent<Effect_Sprite>().RunTime;
 
-            dicEffects.Add (SprEffects [i].name, SprEffects [i]);
-			dicGameObject.Add (SprEffects [i].name, SprEffects [i].gameObject);
-		}
-	}
-	// Use this for initialization
-	public void EffectRun(Vector3 Position,Vector3 Scale, string Name,bool OnUI)
-	{		
-		GameObject LoadObj = Instantiate(dicGameObject[Name],Position,Quaternion.identity) as GameObject;
-		EFFECT.Effect ef = dicEffects [Name];
-		Debug.Log (LoadObj);
-		if (OnUI)
-			LoadObj.transform.parent = UICanvas.transform;
-		else
-			LoadObj.transform.parent = transform;
-        LoadObj.SendMessage("SetTimer", ef.RunningTime);
-        LoadObj.SendMessage("Run");
-	}
-	public void EffectRun(Vector3 Position,Vector3 Scale, string Name,float Timer,bool OnUI)
-	{
-		GameObject LoadObj = Instantiate(dicGameObject[Name],Position,Quaternion.identity) as GameObject;
+            dicEffects.Add(SprEffects[i].name, SprEffects[i]);
+            dicGameObject.Add(SprEffects[i].name, SprEffects[i].gameObject);
+        }
+    }
+    // Use this for initialization
+    public void EffectRun(Transform Parent, Vector3 Scale, string Name, bool OnUI)
+    {
+        GameObject LoadObj = LoadObject(Name, Parent.position, OnUI);
+        LoadObj.transform.parent = Parent;
+        setUpEffect(LoadObj, Scale, dicEffects[Name].RunningTime);
+    }
 
+    public void EffectRun(Vector3 Position, Vector3 Scale, string Name, bool OnUI)
+    {
+        GameObject LoadObj = LoadObject(Name, Position, OnUI);
+       setUpEffect(LoadObj, Scale, dicEffects[Name].RunningTime);
+    }
+    public void EffectRun(Vector3 Position, Vector3 Scale, string Name, float Timer, bool OnUI)
+    {
+        GameObject LoadObj = LoadObject(Name, Position, OnUI);        
+        setUpEffect(LoadObj, Scale, Timer);
+    }
+    public GameObject LoadObject(string Name,Vector3 Pos,bool onui)
+    {
+        GameObject LoadObj = Instantiate(dicGameObject[Name], Pos, Quaternion.identity) as GameObject;
+        if (onui)
+            LoadObj.transform.parent = UICanvas.transform;
+        else
+            LoadObj.transform.parent = transform;
+        return LoadObj;
+    }
+    public void setUpEffect(GameObject gm,Vector3 Scale,float Timer)
+    {
+        gm.transform.localScale = Scale;
+        Debug.Log(gm.transform.localScale);
+        gm.SendMessage("SetTimer", Timer);
+        gm.SendMessage("Run");
+    }
 
-        Debug.Log (LoadObj);
-		if (OnUI)
-			LoadObj.transform.parent = UICanvas.transform;
-		else
-			LoadObj.transform.parent = transform;
-        LoadObj.transform.localScale = Scale;
-        Debug.Log(LoadObj.transform.localScale);
-        LoadObj.SendMessage("SetTimer",Timer);
-		LoadObj.SendMessage("Run");
-	}
     public bool Stop(string Name)
     {
         return false;

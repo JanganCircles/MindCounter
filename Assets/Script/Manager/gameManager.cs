@@ -120,9 +120,23 @@ public class gameManager : MonoBehaviour
         if (UserStatus[Loser].Guard && Damage == 0)
             index = 0;
         string[] Names =  { "Guard","" ,"", "LowAttack", "MidAttack" , "HighAttack" };
-        if(index == 5)
-            EffectManager.ins.EffectRun(LoserPos, Vector3.one, "ObjHighAttack", false);
-        EffectManager.ins.EffectRun(LoserPos, Vector3.one, Names[index], false);
+        switch (index)
+        {
+            case 0:
+                EffectManager.ins.EffectRun(UserStatus[Loser].transform, Vector3.one, Names[index], false);
+                break;
+
+            case 5:
+                EffectManager.ins.EffectRun(LoserPos, Vector3.one, "ObjHighAttack", false);
+                EffectManager.ins.EffectRun(LoserPos, Vector3.one, Names[index], false);
+                break;
+            case 3:
+            case 4:
+                EffectManager.ins.EffectRun(LoserPos, Vector3.one, Names[index], false);
+                break;
+                
+
+        }
     }
     public void AnimationSetting( int step, CharacterAnim.AnimStasis stasis)
     {
