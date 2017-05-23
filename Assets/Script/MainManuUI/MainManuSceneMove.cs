@@ -27,7 +27,11 @@ public class MainManuSceneMove : MonoBehaviour
             {
                 if (v.y > 0 && v.y < 4)
                 {
-                    Menu.Cancel();                    
+                    Menu.Cancel();
+                }
+                else if (v.y == 4)
+                {
+                    Application.Quit();
                 }
                 else
                     GotoScene(Menu.IconTr[(int)v.y].GetComponentInChildren<Image>().name);

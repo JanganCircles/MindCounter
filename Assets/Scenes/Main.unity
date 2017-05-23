@@ -4611,8 +4611,9 @@ GameObject:
   - component: {fileID: 791708284}
   - component: {fileID: 791708286}
   - component: {fileID: 791708285}
+  - component: {fileID: 791708287}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RedPotionCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4675,6 +4676,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 791708283}
+--- !u!114 &791708287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 791708283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ae27ec9791bf642beacd1b3225b491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 
+  useName: 1
+  TargetTxt: {fileID: 0}
 --- !u!1 &802713317
 GameObject:
   m_ObjectHideFlags: 0
@@ -5017,8 +5032,9 @@ GameObject:
   - component: {fileID: 906714435}
   - component: {fileID: 906714437}
   - component: {fileID: 906714436}
+  - component: {fileID: 906714438}
   m_Layer: 5
-  m_Name: Text
+  m_Name: BluePotionCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5081,6 +5097,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 906714434}
+--- !u!114 &906714438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906714434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ae27ec9791bf642beacd1b3225b491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 
+  useName: 1
+  TargetTxt: {fileID: 0}
 --- !u!1 &914774500
 GameObject:
   m_ObjectHideFlags: 0
