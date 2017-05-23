@@ -7109,7 +7109,7 @@ MonoBehaviour:
   SelectItem: ffffffffffffffffffffffffffffffff
   BigSelectEffect:
   - LeftBar
-  - LeftBar
+  - RightBar
   SmallSelectEffect:
   - LeftBar
   - LeftBar
