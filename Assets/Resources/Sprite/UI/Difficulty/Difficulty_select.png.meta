@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: 07f5e8743fc85c24fa10b35be787f1e2
-timeCreated: 1495579193
+guid: 6572152e77418a54d8cc1cab7e461327
+timeCreated: 1495579104
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: charScene_render3_0
-    21300002: charScene_render3_1
+    21300000: Difficulty_select_22
+    21300002: Difficulty_select_23
+    21300004: Difficulty_select_24
+    21300006: Difficulty_select_25
+    21300008: Difficulty_select_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -53,7 +56,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -61,7 +64,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -72,26 +75,65 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: charScene_render3_0
+      name: Difficulty_select_22
       rect:
         serializedVersion: 2
-        x: 19
-        y: 159
-        width: 221
-        height: 47
+        x: 362
+        y: 766
+        width: 423
+        height: 513
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: charScene_render3_1
+      name: Difficulty_select_23
       rect:
         serializedVersion: 2
-        x: 18
-        y: 56
-        width: 222
-        height: 46
+        x: 824
+        y: 764
+        width: 424
+        height: 515
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Difficulty_select_24
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 766
+        width: 423
+        height: 513
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Difficulty_select_25
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 75
+        width: 480
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Difficulty_select_0
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1331
+        width: 247
+        height: 102
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

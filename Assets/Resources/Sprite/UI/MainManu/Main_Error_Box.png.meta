@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 07f5e8743fc85c24fa10b35be787f1e2
-timeCreated: 1495579193
+guid: 16fb90c88f886b04d94148ced28a52b6
+timeCreated: 1495579147
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: charScene_render3_0
-    21300002: charScene_render3_1
+  fileIDToRecycleName: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -36,7 +34,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -53,7 +51,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 1024
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -61,7 +59,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 1024
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -70,33 +68,7 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: charScene_render3_0
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 159
-        width: 221
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: charScene_render3_1
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 56
-        width: 222
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 
