@@ -125,6 +125,7 @@ public class SelectMenu : MonoBehaviour
             {
                 if (!PlayerSelect)//플레이어가 선택이 되있지 않으면
                 {
+                    SoundManager.ins.RunAudio("선택음");
                     PlayerSelect = true;//선택
                 }
             }
@@ -153,6 +154,7 @@ public class SelectMenu : MonoBehaviour
     }
     IEnumerator MoveTarget()//커서변경하는 함수.
     {
+        SoundManager.ins.RunAudio("메뉴 이동시");
         Vector3 Prev = CursorTr.localPosition;
         Vector3 v = new Vector3();
         int CursorIndex = (int)Cursor.x + (int)(Cursor.y * XLength);

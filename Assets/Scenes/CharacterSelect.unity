@@ -10812,6 +10812,63 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1954637790}
+--- !u!1001 &1979358649
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211941022144102, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -25.37713
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211941022144102, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -7.536309
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211941022144102, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 100.296875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211941022144102, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211941022144102, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211941022144102, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211941022144102, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211941022144102, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b1b60c3643fd5184ca60940f0ab746d5, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7dd777859911f1c4da69f1268ab7bd9c, type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1987655810
 GameObject:
   m_ObjectHideFlags: 0

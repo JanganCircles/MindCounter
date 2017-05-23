@@ -5721,7 +5721,7 @@ Prefab:
     - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
         type: 2}
       propertyPath: ClipList.Array.size
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4211941022144102, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -5839,6 +5839,11 @@ Prefab:
       propertyPath: ClipList.Array.data[14]
       value: 
       objectReference: {fileID: 8300000, guid: 61be59b164eee0348b48123eb57b298a, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[16]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1a02f13ad85a44045bbc119cf23a5df7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
   m_IsPrefabParent: 0
@@ -7711,12 +7716,12 @@ Prefab:
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[1]
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[0]
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
