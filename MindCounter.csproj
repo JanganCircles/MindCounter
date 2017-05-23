@@ -139,6 +139,7 @@
     <Compile Include="Assets\Script\CharacterSelectUI\Iconset.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\ItemIconCtrl.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\MapSelect.cs" />
+    <Compile Include="Assets\Script\CharacterSelectUI\SelectItemDes.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\SelectMenu.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\SelectsMenuCtrl.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\TextDuration.cs" />

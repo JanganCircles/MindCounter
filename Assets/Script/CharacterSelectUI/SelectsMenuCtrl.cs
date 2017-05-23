@@ -12,6 +12,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
     SelectMenu[] TempMenu = new SelectMenu[2];//현재 메뉴
     public SelectMenu[] CharacterSelecter; // 캐릭셀렉
     public SelectMenu[] ItemSelecter;      // 아이템 셀렉
+    public SelectItemDes[] ItemDes;        // 아이템 설명
     public int[] Duration;                  //무게
     public float UpMenuY;
     public float DownMenuY;
@@ -75,7 +76,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
         while (TimeNumber > 0)
         {
 
-            UITextSet.UIList["Timer"] = TimeNumber.ToString();
+            UITextSet.UIList["TimerNumber"] = TimeNumber.ToString();
 
             yield return new WaitForSeconds(1f);
             TimeNumber--;
@@ -88,9 +89,11 @@ public class SelectsMenuCtrl : MonoBehaviour {
         RectTransform tr = menu.GetComponent<RectTransform>();
         Vector2 v2 = tr.anchoredPosition;
         v2.y = yValue;
-        for (int i = 0; i < 100; i++)
+        float f = Time.deltaTime * 3;
+        int OneFrame = (int)(1f / f);
+        for (int i = 0; i < OneFrame; i++)
         {
-            tr.anchoredPosition = Vector2.Lerp(tr.anchoredPosition,v2,0.05f); 
+            tr.anchoredPosition = Vector2.Lerp(tr.anchoredPosition,v2, f*2.5f); 
             yield return null;
         }
     }
@@ -129,6 +132,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
         Vector2 v;
 
         yield return StartCoroutine("MoveMenu", new object[] { Sm,  DownMenuY });
+        ItemDes[i].gameObject.SetActive(true);
         while (true)
         {
             if (Sm.isSelect(out v))
@@ -155,10 +159,12 @@ public class SelectsMenuCtrl : MonoBehaviour {
                             Duration[i] += data.weight;
                             ItemsOK[0] = true;
                             Sm.Cancel();
+                            ItemDes[i].gameObject.SetActive(false);
                             yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
                             ItemIconCtrl.switchs[i]();
                             //이미지교체
                             yield return StartCoroutine("MoveMenu", new object[] { Sm, DownMenuY });
+                            ItemDes[i].gameObject.SetActive(true);
                         }
                         else
                         {
@@ -187,6 +193,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
                             CheckingCharacterIndex(i);
                             ItemsOK[1] = true;
 
+                            ItemDes[i].gameObject.SetActive(false);
                             yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
                             ItemIconCtrl.switchs[i]();
                         }
@@ -201,6 +208,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
                     }
                 }
             }
+            ItemDes[i].SetItemIndex((int)(v.x + v.y * TempMenu[i].XLength), ItemsOK[0] ? MenuItemIndex.RESULTTYPE.POTION : MenuItemIndex.RESULTTYPE.EQULPMENT);
             if (Input.GetKeyDown(Sm.KeysData[Sm.KeysData.Length - 1]))
                 //exit눌렀을때
             {
@@ -214,10 +222,12 @@ public class SelectsMenuCtrl : MonoBehaviour {
                         isCancel = true;
                         Item.ItemData data = Item.GetItem(ItemCode[i + 2 * j]);
                         Duration[i] -= data.weight;
+                        ItemDes[i].gameObject.SetActive(false);
                         if (j != 1)
                             yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
                         ItemIconCtrl.switchs[i]();
                         yield return StartCoroutine("MoveMenu", new object[] { Sm, DownMenuY });
+                        ItemDes[i].gameObject.SetActive(true);
                         if (j == 1)
                         {
                             GameData.ins.PotionCode[i] = Item.ITEMCODE.NONE;
@@ -233,6 +243,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
                     PlayerStasis[i]--;
                     Sm.isRun = false;
                     CharacterSelecter[i].Cancel();
+                    ItemDes[i].gameObject.SetActive(false);
                     yield return StartCoroutine("MoveMenu", new object[] { Sm, UpMenuY });
 
                     ItemIconCtrl.switchs[i]();
