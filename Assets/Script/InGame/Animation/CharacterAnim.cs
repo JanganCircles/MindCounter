@@ -51,7 +51,7 @@ public class CharacterAnim : MonoBehaviour {
             Anims[0] = null;
             Anims[1] = null;
         }
-        int index = name[0] == 'B' ? 0 : 1;
+        int index = transform.parent.GetComponent<CharacterStatus>().Controller;
         SkeletonAnimation sklAnim = GetComponent<SkeletonAnimation>(); 
         int TempCharacter = GameData.ins.PlayerCharacter[index];
         sklAnim.skeletonDataAsset = Assets[GameData.ins.PlayerCharacter[index] - 1];

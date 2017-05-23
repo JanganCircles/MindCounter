@@ -324,10 +324,10 @@ public class SelectsMenuCtrl : MonoBehaviour {
 }
 class CharacterDestext
 {
-    public const string Cat = "고양이의 강공격은 적을 출혈상태에 빠지게 한다.\n출혈상태는 3턴동안 30의 데미지를 받는다.";
-    public const string Assassin = "암살자는 상대가 강공격 시 약공격으로 카운터 칠때 빈틈을 노려 약의 데미지가 아니라 강의 데미지가 들어간다.";
-    public const string Herk = "모든공격이 공격+공격*(현재마나/전체마나)가 된다.";
-    public const string Guntlet = "바이는 가드 시 만약 적이 공격한다면 다음턴에 가하는 공격에 강공격의 데미지가 더해져서 데미지를 가한다.(만약 가드 성공 후 회복이나 가드를 한번 더 한다면 이 기회는 박탈된다.)";
+    public const string Cat = "카렌의 강공격은 적을 출혈상태에 빠지게 한다.\n출혈상태는 3턴동안 30의 데미지를 받는다.";
+    public const string Assassin = "카나토는 상대가 강공격 시 약공격으로 카운터 칠때 빈틈을 노려 약의 데미지가 아니라 강의 데미지가 들어간다.";
+    public const string Herk = "헤릭의 몸은 마력이 흐르고 있어서 모든공격이 공격+공격*(현재마나/전체마나)가 된다.";
+    public const string Guntlet = "제인은 가드 성공시 다음턴에 가하는 공격에 강공격데미지가 합쳐진다\n(만약 가드 성공 후 회복이나 가드를 한번 더 한다면 이 기회는 박탈된다.)";
     public static string CharacterDes(int index)
     {
         switch (index)

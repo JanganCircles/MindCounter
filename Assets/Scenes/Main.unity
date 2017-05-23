@@ -4187,6 +4187,11 @@ MonoBehaviour:
   mana: mana
   rush: rush
   slowRush: slow rush
+  Assets:
+  - {fileID: 11400000, guid: 8d41fd91413523b44af580bed9cbe77b, type: 2}
+  - {fileID: 11400000, guid: 6e6c8efe93808e749a43d62e23fd0c0b, type: 2}
+  - {fileID: 11400000, guid: 1f10ae3bb583f3f4884a07157fc656f4, type: 2}
+  - {fileID: 11400000, guid: 2ae8b2ffd6420c349bfd6a35fc279152, type: 2}
 --- !u!114 &742539065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5749,6 +5754,10 @@ Prefab:
     - target: {fileID: 4211941022144102, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137443056860162, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
@@ -7619,7 +7628,7 @@ Prefab:
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[0]
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
@@ -11855,6 +11864,11 @@ MonoBehaviour:
   mana: mana
   rush: rush
   slowRush: slow rush
+  Assets:
+  - {fileID: 11400000, guid: 8d41fd91413523b44af580bed9cbe77b, type: 2}
+  - {fileID: 11400000, guid: 6e6c8efe93808e749a43d62e23fd0c0b, type: 2}
+  - {fileID: 11400000, guid: 1f10ae3bb583f3f4884a07157fc656f4, type: 2}
+  - {fileID: 11400000, guid: 2ae8b2ffd6420c349bfd6a35fc279152, type: 2}
 --- !u!1 &1935388755
 GameObject:
   m_ObjectHideFlags: 0
