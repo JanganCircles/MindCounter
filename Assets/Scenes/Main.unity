@@ -5761,7 +5761,7 @@ Prefab:
         type: 2}
       propertyPath: ClipList.Array.data[15]
       value: 
-      objectReference: {fileID: 8300000, guid: 7a6519f214b6a3a40a9513e81073cc17, type: 3}
+      objectReference: {fileID: 8300000, guid: 055d3022ebd9d6a46a4be95d59627c4b, type: 3}
     - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
         type: 2}
       propertyPath: ClipList.Array.data[0]
@@ -5821,12 +5821,12 @@ Prefab:
         type: 2}
       propertyPath: ClipList.Array.data[11]
       value: 
-      objectReference: {fileID: 8300000, guid: 2a27eca32814d894e8cdb84cf8c45d18, type: 3}
+      objectReference: {fileID: 8300000, guid: 06055655e35da8c4d8839f7376e075ee, type: 3}
     - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
         type: 2}
       propertyPath: ClipList.Array.data[12]
       value: 
-      objectReference: {fileID: 8300000, guid: 8e27e65f935998342a851083d4650d9e, type: 3}
+      objectReference: {fileID: 8300000, guid: 57c64f3cf5d6e024bbb62d0b6ee5687e, type: 3}
     - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
         type: 2}
       propertyPath: ClipList.Array.data[13]
