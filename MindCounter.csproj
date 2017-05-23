@@ -139,6 +139,7 @@
     <Compile Include="Assets\Script\CharacterSelectUI\Iconset.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\ItemIconCtrl.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\MapSelect.cs" />
+    <Compile Include="Assets\Script\CharacterSelectUI\MenuSceneMove.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\SelectItemDes.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\SelectMenu.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\SelectsMenuCtrl.cs" />
@@ -195,7 +196,6 @@
     <Compile Include="Assets\Script\Manager\GameData.cs" />
     <Compile Include="Assets\Script\Manager\SoundManager.cs" />
     <Compile Include="Assets\Script\Manager\gameManager.cs" />
-    <Compile Include="Assets\Script\MenuSceneMove.cs" />
     <Compile Include="Assets\Script\NetWorkingScript\LobbyManager.cs" />
     <Compile Include="Assets\Script\ObjCopy.cs" />
     <Compile Include="Assets\Script\ObjRotate.cs" />

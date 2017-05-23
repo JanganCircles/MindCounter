@@ -69,6 +69,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ItemIconCtrl.ResetThis();
+            UIImageChanger.Release();
             MainManuSceneMove.GotoScene("MainManu");
         }
     }
@@ -319,6 +320,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
             GameData.ins.PotionCode[i] = ItemCode[i + 2];
         }
         ItemIconCtrl.ResetThis();
+        UIImageChanger.Release();
         SceneManager.LoadScene("Main");//씬변경
 
     }

@@ -16,11 +16,10 @@ public class ResultButtonFunc : MonoBehaviour {
 	}
     public void ReTry()
     {
-        Debug.Log("리트라이");
+        SceneManager.LoadScene("Main");
     }
     public void GotoSelect()
     {
-        SceneManager.CreateScene("CharacterSelect");
         SceneManager.LoadScene("CharacterSelect");
     }
     public void ToMain()

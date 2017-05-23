@@ -282,9 +282,10 @@ public class Item  {
         });
         s.AddPassive(delegate (Skill skill)
         {
-            CharacterStatus Stat = skill.GetOrder();
-            Stat.isSuperArmor = true;
-            DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, 0.5f, "SuperArmor");
+            if (skill.PassiveCount["Using"] == 1)
+            {
+                DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, 0.5f, "SuperArmor");
+            }
         }, "Hit");
         s.AddPassive(delegate (Skill skill)
         {
