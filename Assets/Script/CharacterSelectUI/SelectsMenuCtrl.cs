@@ -20,11 +20,12 @@ public class SelectsMenuCtrl : MonoBehaviour {
     private Item.ITEMCODE[] ItemCode = {0,0,0,0};        // 선택한 아이템 인덱스
     private int[] CharacterCode = { -1, -1 };           // 선택한 캐릭터 인덱스
     public int[] SelectItem = { -1, -1, -1, -1 };
-
+    public string[] BigSelectEffect;
+    public string[] SmallSelectEffect;
     private bool[] AllOK = { false,false};
 
     //0 = 1피, 1 = 2피
-    public StasisLevel[] PlayerStasis = { StasisLevel.CHARACTERSELECT, StasisLevel.CHARACTERSELECT };
+    private StasisLevel[] PlayerStasis = { StasisLevel.CHARACTERSELECT, StasisLevel.CHARACTERSELECT };
 
 
     public enum StasisLevel
@@ -134,7 +135,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
         GameData.ins.SetPlayer(TempCharacter, i);//게임데이터에 저장
         UIImageChanger.UIList[strNameTag].ChangeImage(TempCharacter - 1);
         UITextSet.UIList[strDes] = CharacterDestext.CharacterDes(TempCharacter);
-        EffectManager.ins.EffectRun(TempMenu[i].CursorTr.GetComponent<RectTransform>().position, Vector3.one, "LeftBar",0.63f, true);
+        EffectManager.ins.EffectRun(TempMenu[i].CursorTr.GetComponent<RectTransform>().position, Vector3.one, BigSelectEffect[i],0.63f, true);
         PlayerStasis[i]++;
         TempMenu[i].isRun = false;
         CharacterCode[i] = TempCharacter;
@@ -161,7 +162,7 @@ public class SelectsMenuCtrl : MonoBehaviour {
                     continue;
                 }
                 if(!ItemsOK[1])
-                    EffectManager.ins.EffectRun(TempMenu[i].CursorTr.GetComponent<RectTransform>().position, Vector3.one, "LeftBar", 0.63f, true);
+                    EffectManager.ins.EffectRun(TempMenu[i].CursorTr.GetComponent<RectTransform>().position, Vector3.one, SmallSelectEffect[i], 0.63f, true);
 
                 if (!ItemsOK[0])
                 {

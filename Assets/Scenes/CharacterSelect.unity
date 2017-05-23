@@ -7107,7 +7107,12 @@ MonoBehaviour:
   UpMenuY: 733
   DownMenuY: 280
   SelectItem: ffffffffffffffffffffffffffffffff
-  PlayerStasis: 0000000000000000
+  BigSelectEffect:
+  - LeftBar
+  - LeftBar
+  SmallSelectEffect:
+  - LeftBar
+  - LeftBar
 --- !u!4 &1361148961
 Transform:
   m_ObjectHideFlags: 0
@@ -12154,6 +12159,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114978927547671256, guid: 6d7134c9dd7c35744a00b5d718782b42,
+        type: 2}
+      propertyPath: SprEffects.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4084533670850384, guid: 6d7134c9dd7c35744a00b5d718782b42, type: 2}
       propertyPath: m_LocalPosition.x
       value: 177.86436
@@ -12211,6 +12221,42 @@ Prefab:
       propertyPath: UICanvas
       value: 
       objectReference: {fileID: 1404105730}
+    - target: {fileID: 114978927547671256, guid: 6d7134c9dd7c35744a00b5d718782b42,
+        type: 2}
+      propertyPath: SprEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 114009293157189788, guid: 0ce7a1d66e2998140b26cef9d93ea541,
+        type: 2}
+    - target: {fileID: 114978927547671256, guid: 6d7134c9dd7c35744a00b5d718782b42,
+        type: 2}
+      propertyPath: SprEffects.Array.data[3]
+      value: 
+      objectReference: {fileID: 114411981479304042, guid: b594db02f41fa114280406e1e33360ab,
+        type: 2}
+    - target: {fileID: 114978927547671256, guid: 6d7134c9dd7c35744a00b5d718782b42,
+        type: 2}
+      propertyPath: SprEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 114898950016634736, guid: b072a0ffece103f40885ba0f3b5d4eab,
+        type: 2}
+    - target: {fileID: 114978927547671256, guid: 6d7134c9dd7c35744a00b5d718782b42,
+        type: 2}
+      propertyPath: SprEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 114972148491496758, guid: 73eb8fddef4fca343b9cad687d680142,
+        type: 2}
+    - target: {fileID: 114978927547671256, guid: 6d7134c9dd7c35744a00b5d718782b42,
+        type: 2}
+      propertyPath: SprEffects.Array.data[4]
+      value: 
+      objectReference: {fileID: 114850317071456082, guid: 0d0bf3c70bcedfa4880e787158958120,
+        type: 2}
+    - target: {fileID: 114978927547671256, guid: 6d7134c9dd7c35744a00b5d718782b42,
+        type: 2}
+      propertyPath: SprEffects.Array.data[5]
+      value: 
+      objectReference: {fileID: 114965109490164174, guid: 938aa6ebcc52ec940b19d56b03acef84,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d7134c9dd7c35744a00b5d718782b42, type: 2}
   m_IsPrefabParent: 0
