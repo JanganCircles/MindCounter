@@ -99,6 +99,9 @@ public class SelectsMenuCtrl : MonoBehaviour {
     }
     IEnumerator CharacterSelect(int i)
     {
+        string str = i == 0 ? "Blue" : "Red";
+        string strDes = str + "Des";
+        string strNameTag = str + "NameTag";
         TempMenu[i] = CharacterSelecter[i];
         TempMenu[i].isRun = true;
         int TempCharacter = 0;//선택한 캐릭터의 번호  
@@ -110,12 +113,27 @@ public class SelectsMenuCtrl : MonoBehaviour {
             GameData.ins.SetPlayer(TempCharacter, i);//게임데이터에 저장
 
             TempCharacter = (int)(v.x + TempMenu[i].XLength * v.y);
-            if(TempCharacter == 0)
-                UIImage[i].sprite = SpriteImg[Random.Range(1,5)];
+            if (TempCharacter == 0)
+            {
+                UIImageChanger.UIList[strNameTag].ChangeImage(Random.Range(0, 4));
+                UIImage[i].sprite = SpriteImg[Random.Range(1, 5)];
+            }
             else
+            {
+                UIImageChanger.UIList[strNameTag].ChangeImage((int)v.x - 1);
                 UIImage[i].sprite = SpriteImg[TempCharacter];
+            }
+            UITextSet.UIList[strDes] = CharacterDestext.CharacterDes(TempCharacter);
             yield return null;
         }
+        if (TempCharacter == 0)
+        {
+            TempCharacter = Random.Range(1, 5);
+        }
+        UIImage[i].sprite = SpriteImg[TempCharacter];
+        GameData.ins.SetPlayer(TempCharacter, i);//게임데이터에 저장
+        UIImageChanger.UIList[strNameTag].ChangeImage(TempCharacter - 1);
+        UITextSet.UIList[strDes] = CharacterDestext.CharacterDes(TempCharacter);
         EffectManager.ins.EffectRun(TempMenu[i].CursorTr.GetComponent<RectTransform>().position, Vector3.one, "LeftBar",0.63f, true);
         PlayerStasis[i]++;
         TempMenu[i].isRun = false;
@@ -302,5 +320,23 @@ public class SelectsMenuCtrl : MonoBehaviour {
         ItemIconCtrl.ResetThis();
         SceneManager.LoadScene("Main");//씬변경
 
+    }
+}
+class CharacterDestext
+{
+    public const string Cat = "고양이의 강공격은 적을 출혈상태에 빠지게 한다.\n출혈상태는 3턴동안 30의 데미지를 받는다.";
+    public const string Assassin = "암살자는 상대가 강공격 시 약공격으로 카운터 칠때 빈틈을 노려 약의 데미지가 아니라 강의 데미지가 들어간다.";
+    public const string Herk = "모든공격이 공격+공격*(현재마나/전체마나)가 된다.";
+    public const string Guntlet = "바이는 가드 시 만약 적이 공격한다면 다음턴에 가하는 공격에 강공격의 데미지가 더해져서 데미지를 가한다.(만약 가드 성공 후 회복이나 가드를 한번 더 한다면 이 기회는 박탈된다.)";
+    public static string CharacterDes(int index)
+    {
+        switch (index)
+        {
+            case 1: return Cat;
+            case 2: return Guntlet;
+            case 3: return Assassin;
+            case 4: return Herk;
+        }
+        return "";
     }
 }

@@ -127,7 +127,6 @@ public class Item  {
             //파싱한 내용 따라서 구현
 
         }
-        Debug.Log("셋업 아이템" + TempStr[1]);
         item = new ItemData(Code,TempStr[1],TempStr[2],int.Parse(TempStr[3]), TempSkill);
         TempSkill = null;
         return item;
