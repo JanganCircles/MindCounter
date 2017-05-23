@@ -4830,7 +4830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 1f10ae3bb583f3f4884a07157fc656f4, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: c53ae4a79bf40404ebf6049dd433f622, type: 2}
   initialSkinName: default
   separatorSlotNames: []
   zSpacing: 0
@@ -4858,7 +4858,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6ed1e911a3781244895ed7ce6d900e73, type: 2}
+  - {fileID: 2100000, guid: 878f34b79c305404d987a06a7b96172d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4897,8 +4897,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Assets:
   - {fileID: 11400000, guid: 8d41fd91413523b44af580bed9cbe77b, type: 2}
-  - {fileID: 11400000, guid: 6e6c8efe93808e749a43d62e23fd0c0b, type: 2}
-  - {fileID: 11400000, guid: 1f10ae3bb583f3f4884a07157fc656f4, type: 2}
+  - {fileID: 11400000, guid: c53ae4a79bf40404ebf6049dd433f622, type: 2}
+  - {fileID: 11400000, guid: b1212f258a055dc4faa7511e7e59907f, type: 2}
   - {fileID: 11400000, guid: 2ae8b2ffd6420c349bfd6a35fc279152, type: 2}
 --- !u!1 &963528287
 GameObject:
@@ -9638,7 +9638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 1f10ae3bb583f3f4884a07157fc656f4, type: 2}
+  skeletonDataAsset: {fileID: 0}
   initialSkinName: default
   separatorSlotNames: []
   zSpacing: 0
@@ -9666,7 +9666,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6ed1e911a3781244895ed7ce6d900e73, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9705,8 +9705,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Assets:
   - {fileID: 11400000, guid: 8d41fd91413523b44af580bed9cbe77b, type: 2}
-  - {fileID: 11400000, guid: 6e6c8efe93808e749a43d62e23fd0c0b, type: 2}
-  - {fileID: 11400000, guid: 1f10ae3bb583f3f4884a07157fc656f4, type: 2}
+  - {fileID: 11400000, guid: c53ae4a79bf40404ebf6049dd433f622, type: 2}
+  - {fileID: 11400000, guid: b1212f258a055dc4faa7511e7e59907f, type: 2}
   - {fileID: 11400000, guid: 2ae8b2ffd6420c349bfd6a35fc279152, type: 2}
 --- !u!1 &1761974385
 GameObject:

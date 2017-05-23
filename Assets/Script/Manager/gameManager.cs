@@ -89,10 +89,24 @@ public class gameManager : MonoBehaviour
         if (DieCheck() && TotalWinner == -1)
         {
             TotalWinner = UserStatus[CHALLANGER].HP <= 0 ? CHAMPION : CHALLANGER;
-            SaveData.ins.ShowResultData();
             StopAllCoroutines();
+            StartCoroutine(TotalWinnerAnimation());
+            StartCoroutine(TotalLoserAnimation());
+            SaveData.ins.ShowResultData();
         }
 
+    }
+    IEnumerator TotalWinnerAnimation()
+    {
+        CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.WIN, TotalWinner);
+        yield return new WaitForSeconds(CharacterAnim.GetWinDuration(TotalWinner) );
+        CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.WINNING, TotalWinner);
+    }
+    IEnumerator TotalLoserAnimation()
+    {
+        CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.LOSE, 1 - TotalWinner);
+        yield return new WaitForSeconds(CharacterAnim.GetLoseDuration(1 - TotalWinner) - 0.25f);
+        CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.LOSING, 1 - TotalWinner);
     }
     IEnumerator AnimationRun()
     {

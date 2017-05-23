@@ -17,13 +17,17 @@ public class CharacterAnim : MonoBehaviour {
     public string mana;
     public string rush;
     public string slowRush;
+    public string win;
+    public string winning;
+    public string lose;
+    public string losing;
     private string TempName;
 
     public SkeletonDataAsset[] Assets;
     // Use this for initialization
     public enum AnimStasis
     {
-        HIT,LATK,MATK,SATK,GUARD,IDLE,LAND,MANA,RUSH,SRUSH
+        HIT,LATK,MATK,SATK,GUARD,IDLE,LAND,MANA,RUSH,SRUSH,WIN,WINNING,LOSE,LOSING
     }
     private void Reset()
     {
@@ -37,6 +41,10 @@ public class CharacterAnim : MonoBehaviour {
         mana = "mana";
         rush = "rush";
         slowRush = "slow rush";
+        win = "win";
+        winning = "winning";
+        lose = "lose";
+        losing = "losing";
     }
     void Start () {
         if (Anims == null)
@@ -91,6 +99,19 @@ public class CharacterAnim : MonoBehaviour {
     {
         SkelAnim.timeScale = f;
     }
+    public static float GetWinDuration(int index)
+    {
+        CharacterAnim ca = Anims[index];
+
+        return ca.SkelAnim.skeleton.data.FindAnimation("win").duration;
+
+    }
+    public static float GetLoseDuration(int index)
+    {
+        CharacterAnim ca = Anims[index];
+        return ca.SkelAnim.skeleton.data.FindAnimation("lose").duration;
+        
+    }
     public static void ChangeAnimation(AnimStasis stasis,int index)
     {
         CharacterAnim ca = Anims[index];
@@ -107,6 +128,10 @@ public class CharacterAnim : MonoBehaviour {
             case AnimStasis.MANA: ca.TempName = ca.mana; break;
             case AnimStasis.RUSH: ca.TempName = ca.rush; break;
             case AnimStasis.SRUSH: ca.TempName = ca.slowRush; break;
+            case AnimStasis.WIN: ca.TempName = ca.win; break;
+            case AnimStasis.WINNING: ca.TempName = ca.winning; break;
+            case AnimStasis.LOSE: ca.TempName = ca.lose; break;
+            case AnimStasis.LOSING: ca.TempName = ca.losing; break;
         }
     }
     public static float GetTempDuration(int index)

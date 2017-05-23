@@ -70,7 +70,7 @@ public class SaveData : MonoBehaviour {
     }
     IEnumerator SetResultPanel()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2.5f);
         ResultPanel.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         string[] User = { "Champ","Chall" };

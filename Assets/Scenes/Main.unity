@@ -3393,7 +3393,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 1.2744522, y: 194.8}
+  m_AnchoredPosition: {x: 1.2744522, y: 227}
   m_SizeDelta: {x: 248.4, y: 200.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &674363973
@@ -3442,11 +3442,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Champion
-
-
-
-'
+  m_Text: Champion
 --- !u!222 &674363975
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3706,7 +3702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &711475157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4187,10 +4183,14 @@ MonoBehaviour:
   mana: mana
   rush: rush
   slowRush: slow rush
+  win: win
+  winning: winning
+  lose: lose
+  losing: losing
   Assets:
   - {fileID: 11400000, guid: 8d41fd91413523b44af580bed9cbe77b, type: 2}
-  - {fileID: 11400000, guid: 6e6c8efe93808e749a43d62e23fd0c0b, type: 2}
-  - {fileID: 11400000, guid: 1f10ae3bb583f3f4884a07157fc656f4, type: 2}
+  - {fileID: 11400000, guid: c53ae4a79bf40404ebf6049dd433f622, type: 2}
+  - {fileID: 11400000, guid: b1212f258a055dc4faa7511e7e59907f, type: 2}
   - {fileID: 11400000, guid: 2ae8b2ffd6420c349bfd6a35fc279152, type: 2}
 --- !u!114 &742539065
 MonoBehaviour:
@@ -4888,7 +4888,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 1.2744522, y: 213.4}
+  m_AnchoredPosition: {x: 1.2744522, y: 227}
   m_SizeDelta: {x: 248.4, y: 200.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &823144820
@@ -4937,9 +4937,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Challanger
-
-'
+  m_Text: Challanger
 --- !u!222 &823144822
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6141,7 +6139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1048918962
 Transform:
   m_ObjectHideFlags: 0
@@ -7716,7 +7714,7 @@ Prefab:
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: Characters.Array.data[1]
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
@@ -7751,7 +7749,7 @@ Prefab:
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
       propertyPath: PotionCode.Array.data[1]
-      value: 27
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114029078051807404, guid: 80874f8e07c1e674ca538508cc21f01a,
         type: 2}
@@ -11869,7 +11867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 6e6c8efe93808e749a43d62e23fd0c0b, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: c53ae4a79bf40404ebf6049dd433f622, type: 2}
   initialSkinName: default
   separatorSlotNames: []
   zSpacing: 0
@@ -11897,7 +11895,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 60bac180672cad44b919eb7f8e9ced6b, type: 2}
+  - {fileID: 2100000, guid: 878f34b79c305404d987a06a7b96172d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11957,10 +11955,14 @@ MonoBehaviour:
   mana: mana
   rush: rush
   slowRush: slow rush
+  win: win
+  winning: winning
+  lose: lose
+  losing: losing
   Assets:
   - {fileID: 11400000, guid: 8d41fd91413523b44af580bed9cbe77b, type: 2}
-  - {fileID: 11400000, guid: 6e6c8efe93808e749a43d62e23fd0c0b, type: 2}
-  - {fileID: 11400000, guid: 1f10ae3bb583f3f4884a07157fc656f4, type: 2}
+  - {fileID: 11400000, guid: c53ae4a79bf40404ebf6049dd433f622, type: 2}
+  - {fileID: 11400000, guid: b1212f258a055dc4faa7511e7e59907f, type: 2}
   - {fileID: 11400000, guid: 2ae8b2ffd6420c349bfd6a35fc279152, type: 2}
 --- !u!1 &1935388755
 GameObject:
