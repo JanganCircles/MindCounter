@@ -7108,11 +7108,11 @@ MonoBehaviour:
   DownMenuY: 280
   SelectItem: ffffffffffffffffffffffffffffffff
   BigSelectEffect:
-  - LeftBar
-  - RightBar
+  - Big_Blue_UIEffect
+  - Big_Red_UIEffect
   SmallSelectEffect:
-  - LeftBar
-  - LeftBar
+  - Small_Blue_UIEffect
+  - Small_Red_UIEffect
 --- !u!4 &1361148961
 Transform:
   m_ObjectHideFlags: 0
@@ -10871,6 +10871,11 @@ Prefab:
       propertyPath: ClipList.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 7dd777859911f1c4da69f1268ab7bd9c, type: 3}
+    - target: {fileID: 82570627271572702, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
   m_IsPrefabParent: 0
@@ -12225,25 +12230,25 @@ Prefab:
         type: 2}
       propertyPath: SprEffects.Array.data[2]
       value: 
-      objectReference: {fileID: 114009293157189788, guid: 0ce7a1d66e2998140b26cef9d93ea541,
+      objectReference: {fileID: 114731413880444054, guid: b360907e08a5ab144b5f61a3a7f466f7,
         type: 2}
     - target: {fileID: 114978927547671256, guid: 6d7134c9dd7c35744a00b5d718782b42,
         type: 2}
       propertyPath: SprEffects.Array.data[3]
       value: 
-      objectReference: {fileID: 114411981479304042, guid: b594db02f41fa114280406e1e33360ab,
+      objectReference: {fileID: 114800811060243028, guid: e4c2467d11d044c499e632b701681a04,
         type: 2}
     - target: {fileID: 114978927547671256, guid: 6d7134c9dd7c35744a00b5d718782b42,
         type: 2}
       propertyPath: SprEffects.Array.data[0]
       value: 
-      objectReference: {fileID: 114898950016634736, guid: b072a0ffece103f40885ba0f3b5d4eab,
+      objectReference: {fileID: 114065199685269398, guid: 7cecb833797a874489cccc8deb20ffdb,
         type: 2}
     - target: {fileID: 114978927547671256, guid: 6d7134c9dd7c35744a00b5d718782b42,
         type: 2}
       propertyPath: SprEffects.Array.data[1]
       value: 
-      objectReference: {fileID: 114972148491496758, guid: 73eb8fddef4fca343b9cad687d680142,
+      objectReference: {fileID: 114328955219348052, guid: 7ee60cab20e88554eb93c4035f636d42,
         type: 2}
     - target: {fileID: 114978927547671256, guid: 6d7134c9dd7c35744a00b5d718782b42,
         type: 2}
