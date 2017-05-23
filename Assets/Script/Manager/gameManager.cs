@@ -65,21 +65,21 @@ public class gameManager : MonoBehaviour
             UserStatus[i] = players[i].GetComponent<CharacterStatus>();
             UserStatus[i].Controller = i;
             UserSlot[i] = players[i].GetComponent<SkillSlot>();
-            UserSlot[i].UseItem = GameData.ins.PotionCode[i];
-            UserSlot[i].EqulpmentItem = GameData.ins.EquipmentCode[i];
         }
         TimingWeight = new float[2];
 
-        if (ins == null)
-            ins = this;
-        else
-            gameObject.SetActive(false);
+        ins = this;
     }
     void OnEnable()
     {
     }
     void Start()
-	{
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            UserSlot[i].UseItem = GameData.ins.PotionCode[i];
+            UserSlot[i].EqulpmentItem = GameData.ins.EquipmentCode[i];
+        }
         StartCoroutine(GamePlay());
     }
     // Update is called once per frame
@@ -167,7 +167,7 @@ public class gameManager : MonoBehaviour
             {
                 Debug.Log("오프라인");
                 KeyController.SetActive(true);
-                KeyController.GetComponent<OnlineController>().enabled = false;
+              //  KeyController.GetComponent<OnlineController>().enabled = false;
             }
         }
         WallManager.ins.SetPivot();//벽과의 거리 설정

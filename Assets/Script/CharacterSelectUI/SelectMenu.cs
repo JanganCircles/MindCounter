@@ -72,7 +72,6 @@ public class SelectMenu : MonoBehaviour
                 yield return null;
             else
             {
-                int a = 0;
                 if (isRun)
                 {
                     StartCoroutine("CharacterSelect");

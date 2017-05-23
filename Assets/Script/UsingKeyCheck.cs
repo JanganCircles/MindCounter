@@ -21,7 +21,7 @@ public class UsingKeyCheck : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (gameManager.ins.TempStep == gameManager.STEP.KEYCHECK)
+        if (gameManager.ins.TempStep == gameManager.STEP.START)
         {
             for (int i = 0; i < 4; i++)
             {

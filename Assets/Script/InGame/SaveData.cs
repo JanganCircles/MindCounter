@@ -29,7 +29,7 @@ public class SaveData : MonoBehaviour {
     }
     void Awake()
     {
-        Debug.Log("저장데이터");
+
         if (ins == null) ins = this;
         Data = new Dictionary<TYPE, float[]>();
 

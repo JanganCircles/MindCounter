@@ -11,7 +11,6 @@ public class SkillList : MonoBehaviour {
     
     // Use this for initialization
     void Awake()    {
-        Debug.Log("스킬리스트 어웨이크");
         if(ins == null)
             ins = this;
     }
@@ -23,8 +22,7 @@ public class SkillList : MonoBehaviour {
 
     }
     public void AddingDefaultSkill(ref SkillSlot List)//기본스킬추가
-    {
-        Debug.Log("abcd");
+    {   
         AddSkill_Guard(ref List);
         AddSkill_Rock(ref List);
         AddSkill_Scissors(ref List);
@@ -477,7 +475,7 @@ public class Skill {
     }
     virtual public bool RunActive()//액티브함수실행
     {
-        if (Order != -1)
+        if (Order != -1 && TempActive != null)
         {
             TempActive(this);
             return isUseTurn;

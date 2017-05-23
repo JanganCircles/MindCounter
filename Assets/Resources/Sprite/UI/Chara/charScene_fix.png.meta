@@ -1,9 +1,35 @@
 fileFormatVersion: 2
 guid: 9ee558b282400dd45b04f4fabfd10d6e
-timeCreated: 1495404970
+timeCreated: 1495500861
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: charScene_fix_0
+    21300002: charScene_fix_1
+    21300004: charScene_fix_2
+    21300006: charScene_fix_3
+    21300008: charScene_fix_4
+    21300010: charScene_fix_5
+    21300012: charScene_fix_6
+    21300014: charScene_fix_7
+    21300016: charScene_fix_8
+    21300018: charScene_fix_9
+    21300020: charScene_fix_10
+    21300022: charScene_fix_11
+    21300024: charScene_fix_12
+    21300026: charScene_fix_13
+    21300028: charScene_fix_14
+    21300030: charScene_fix_15
+    21300032: charScene_fix_16
+    21300034: charScene_fix_17
+    21300036: charScene_fix_18
+    21300038: charScene_fix_19
+    21300040: charScene_fix_20
+    21300042: charScene_fix_21
+    21300044: charScene_fix_22
+    21300046: charScene_fix_23
+    21300048: charScene_fix_24
+    21300050: charScene_fix_25
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -28,13 +54,13 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: -1
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -44,7 +70,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
@@ -58,9 +84,251 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: charScene_fix_0
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 854
+        width: 234
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_1
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 740
+        width: 154
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_2
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 689
+        width: 238
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_3
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 525
+        width: 238
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_4
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 479
+        width: 154
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_5
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 351
+        width: 329
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_6
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 48
+        width: 137
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_7
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 48
+        width: 137
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_8
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 48
+        width: 137
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_9
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 48
+        width: 137
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_10
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 220
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_13
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 220
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_18
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 116
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_21
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 116
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_11
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 232
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_12
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 232
+        width: 31
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_14
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 125
+        width: 34
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: charScene_fix_15
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 125
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

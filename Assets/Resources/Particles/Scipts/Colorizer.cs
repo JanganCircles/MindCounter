@@ -27,12 +27,13 @@ public class Colorizer : MonoBehaviour {
 
 			#if UNITY_EDITOR 
 			var mat = r.sharedMaterial;
-			#else
-			if(UseInstanceWhenNotEditorMode) var mat = r.material;
-			else mat = r.sharedMaterial;
-			#endif
-		
-			if(mat==null || !mat.HasProperty("_TintColor")) continue;
+#else
+			//if(UseInstanceWhenNotEditorMode) var mat = r.material;
+			//else mat = r.sharedMaterial;
+			var mat = r.sharedMaterial;
+#endif
+
+            if (mat==null || !mat.HasProperty("_TintColor")) continue;
 			var oldColor = mat.GetColor("_TintColor");
 			color.a = oldColor.a;
 			mat.SetColor("_TintColor", color);

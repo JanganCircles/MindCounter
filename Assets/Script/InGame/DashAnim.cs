@@ -41,7 +41,6 @@ public class DashAnim : MonoBehaviour {
     {
         Vector3 PrevPos = MyTr.position;
         float Speed = (MovePos.x - PrevPos.x) / TempTime;
-        Vector3 TempV = PrevPos;
         float MaxSpeed = Speed * 2;
         for (float i = 0.0f; i < TempTime; i += Time.deltaTime)
         {
@@ -69,7 +68,6 @@ public class DashAnim : MonoBehaviour {
     {
         Vector3 PrevPos = MyTr.position;
         float Speed = (MovePos.x - PrevPos.x) / TempTime;
-        Vector3 TempV = PrevPos;
         float MaxSpeed = Speed * 2;
         for (float i = 0.0f; i < TempTime; i += Time.deltaTime)
         {

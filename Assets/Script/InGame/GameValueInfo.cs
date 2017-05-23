@@ -23,6 +23,14 @@ public class CharacterData
     public const int Hp = 1800;
     public const int Mp = 200;
 }
+public class PlayerDes
+{
+    public static string GetCharacterDes(int index)
+    {
+        string result = "";
+        return result;
+    }
+}
 public class KnockBackData
 {
     public const int Guard  = 100;

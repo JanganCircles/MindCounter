@@ -19,12 +19,21 @@ public class GameData : MonoBehaviour {
     {
         PlayerCharacter = null;
     }
-    void OnEnable()
+    private void Awake()
     {
         if (ins == null)
         {
             ins = this;
             DontDestroyOnLoad(this);
+        }
+        else
+        {
+        }
+    }
+    void OnEnable()
+    {
+        if (ins == this)
+        {
             SceneInit(TempSceneName);//씬이름별 대응
         }
         else

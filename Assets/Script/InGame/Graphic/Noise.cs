@@ -6,9 +6,8 @@ public class Noise
     const int B = 256;
     int[] m_perm = new int[B + B];
 
-    public Noise(int seed)
+    public Noise()
     {
-        Random.seed = seed;
 
         int i, j, k;
         for (i = 0; i < B; i++)

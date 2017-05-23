@@ -17,7 +17,6 @@ public class SkillManager : MonoBehaviour {
 
     }
 	void OnEnable () {
-        Debug.Log("FUCK");
         Slots[gameManager.CHALLANGER] = gameManager.ins.UserStatus[gameManager.CHALLANGER].GetComponent<SkillSlot>();
         Slots[gameManager.CHAMPION] = gameManager.ins.UserStatus[gameManager.CHAMPION].GetComponent<SkillSlot>();
     }

@@ -19,11 +19,6 @@ public class CameraController : MonoBehaviour {
         LockPosition = false;
         MyTr = transform;
         cam = GetComponent<Camera>();
-        Character = new Transform[2];
-        for (int i = 0; i < 2; i++)
-        {
-            Character[i] = gameManager.ins.UserStatus[i].transform;
-        }
         CamSize = (Mathf.Abs(Character[0].position.x - Character[1].position.x) + 2.5f) / 16 * 9 / 2;
 
         StartCoroutine(MoveCamPos());

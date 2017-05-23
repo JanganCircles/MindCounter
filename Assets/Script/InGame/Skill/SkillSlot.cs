@@ -32,6 +32,7 @@ public class SkillSlot : MonoBehaviour {
         SlotName[7] = "특수3";
     }
 	void Awake(){
+        selectedSlot = SlotLength;
         PassiveSkillList = new List<Skill>();
         DebuffList = new List<Skill>();
         SlotList = new EmptySlot[SlotLength];
@@ -182,6 +183,10 @@ public class EmptySlot
     {
         if (key == KeyCode.None || TempSkill == null) return false;
         bool keybool = Input.GetKeyDown(key);
+        if (keybool)
+        {
+            UITextSet.UIList["KeyDebug"] = key.ToString();
+        }
         if (gameManager.ins.Simulate)
         {
             if (Random.Range(0, 4) == 0)

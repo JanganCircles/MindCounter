@@ -22,10 +22,7 @@ public class UserKeyData : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
-        if (ins == null)
-        {
-            ins = this;
-        }
+        ins = this;
     }
     public KeyCode[] GetKeyData(string name)
     {
