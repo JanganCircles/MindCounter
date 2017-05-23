@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageData {
     public const int Weak    = 40;
-    public const int Middle  = 8000;
+    public const int Middle  = 80;
     public const int Strong  = 150;
 }
 public class CostData
