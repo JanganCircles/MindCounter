@@ -3131,6 +3131,11 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114337966761242048, guid: d68e843b2059f7a438f0381d7971165e,
+        type: 2}
+      propertyPath: bloomIntensity
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d68e843b2059f7a438f0381d7971165e, type: 2}
   m_IsPrefabParent: 0
