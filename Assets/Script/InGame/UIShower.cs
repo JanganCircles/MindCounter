@@ -23,10 +23,7 @@ public class UIShower : MonoBehaviour {
 	void Update ()
     {
 
-        UITextSet.UIList["Step"] = ((int)gameManager.ins.TempStep).ToString();
-        UITextSet.UIList["WaitingTimer"] = gameManager.ins.Turn.ToString();
-        UITextSet.UIList["Combo"] = (gameManager.ins.ComboContinues == 0 ? "챔피언 " : "챌린저 ") + gameManager.ins.Combo.ToString()+ "콤보" + (gameManager.ins.Combo >=8 ? "!!" : "");         //벽까지 남은 거리
-
+     
         float judgement = gameManager.ins.TimingWeight[status.Controller];
         UITextSet.UIList[ControllerName + "Judgement"] = judgement == gameManager.PERPECT ? "Perfect" : judgement == gameManager.GOOD ? "Good" : judgement == gameManager.BAD? "Bad" : "Miss";
 
