@@ -94,7 +94,6 @@
     <Compile Include="Assets\BlendModes\Scripts\BlendModeEffect.cs" />
     <Compile Include="Assets\BlendModes\Scripts\ObjectType.cs" />
     <Compile Include="Assets\BlendModes\Scripts\RenderMode.cs" />
-    <Compile Include="Assets\EffectSlow.cs" />
     <Compile Include="Assets\Particles\Particle Systems\Ultimate VFX\2 - Expansions\XP - TITLES\Scripts\DemoManager_XPTitles.cs" />
     <Compile Include="Assets\Particles\Particle Systems\_Common\Scripts\AnimatedLight.cs" />
     <Compile Include="Assets\Particles\Particle Systems\_Common\Scripts\DamageEffect.cs" />
@@ -144,6 +143,7 @@
     <Compile Include="Assets\Script\CharacterSelectUI\SelectsMenuCtrl.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\TextDuration.cs" />
     <Compile Include="Assets\Script\CheckingScreenSize.cs" />
+    <Compile Include="Assets\Script\EffectSlow.cs" />
     <Compile Include="Assets\Script\Effects\EffectManager.cs" />
     <Compile Include="Assets\Script\Effects\Effect_Object.cs" />
     <Compile Include="Assets\Script\Effects\Effect_Sprite.cs" />
@@ -199,6 +199,7 @@
     <Compile Include="Assets\Script\ObjRotate.cs" />
     <Compile Include="Assets\Script\OnlineKeyInput.cs" />
     <Compile Include="Assets\Script\SceneChanger.cs" />
+    <Compile Include="Assets\Script\UsingKeyCheck.cs" />
     <Compile Include="Assets\Script\UtilityStandard\ObjectFooling.cs" />
     <Compile Include="Assets\Script\UtilityStandard\UIImageChanger.cs" />
     <Compile Include="Assets\Script\UtilityStandard\UIIsVisible.cs" />
