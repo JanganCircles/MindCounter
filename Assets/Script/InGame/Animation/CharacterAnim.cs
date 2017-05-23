@@ -18,6 +18,8 @@ public class CharacterAnim : MonoBehaviour {
     public string rush;
     public string slowRush;
     private string TempName;
+
+    public SkeletonDataAsset[] Assets;
     // Use this for initialization
     public enum AnimStasis
     {
@@ -49,6 +51,11 @@ public class CharacterAnim : MonoBehaviour {
             Anims[0] = null;
             Anims[1] = null;
         }
+        int index = name[0] == 'B' ? 0 : 1;
+        SkeletonAnimation sklAnim = GetComponent<SkeletonAnimation>(); 
+        int TempCharacter = GameData.ins.PlayerCharacter[index];
+        sklAnim.skeletonDataAsset = Assets[GameData.ins.PlayerCharacter[index] - 1];
+        sklAnim.Initialize(true);
         Anims[transform.parent.name == "Champion" ? 0 : 1] = this;
         SkelAnim =  gameObject.GetComponent<SkeletonAnimation>();
         TempName = idle;

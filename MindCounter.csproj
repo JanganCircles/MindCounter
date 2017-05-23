@@ -144,7 +144,7 @@
     <Compile Include="Assets\Script\CharacterSelectUI\SelectItemDes.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\SelectMenu.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\SelectsMenuCtrl.cs" />
-    <Compile Include="Assets\Script\CharacterSelectUI\SoundManager.cs" />
+    <Compile Include="Assets\Script\Manager\SoundManager.cs" />
     <Compile Include="Assets\Script\CharacterSelectUI\TextDuration.cs" />
     <Compile Include="Assets\Script\CheckingScreenSize.cs" />
     <Compile Include="Assets\Script\EffectSlow.cs" />
@@ -156,7 +156,7 @@
     <Compile Include="Assets\Script\FadeOut.cs" />
     <Compile Include="Assets\Script\InGame\Animation\CharacterAnim.cs" />
     <Compile Include="Assets\Script\InGame\CameraController.cs" />
-    <Compile Include="Assets\Script\InGame\CameraEffectmanager.cs" />
+    <Compile Include="Assets\Script\Manager\CameraEffectmanager.cs" />
     <Compile Include="Assets\Script\InGame\CharacterStatus.cs" />
     <Compile Include="Assets\Script\InGame\CheckingSlow.cs" />
     <Compile Include="Assets\Script\InGame\DamageCalculator.cs" />
