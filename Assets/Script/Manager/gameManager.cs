@@ -105,11 +105,43 @@ public class gameManager : MonoBehaviour
             yield return new WaitForSeconds(0.98f);
         }
     }
+    public IEnumerator WinnerAudioRun(SkillSlot WinnerSlot)
+    {
+        string[] Character = {"", "고양이", "건틀릿", "암살자", "헐크" };
+        int MotionNum = WinnerSlot.selectedSlot;
+        if (MotionNum > 2 ) yield break;
+        string Str = Character[GameData.ins.PlayerCharacter[Winner]] + " ";
+        switch (MotionNum)
+        {
+            case 0:
+                Str += "약";
+                break;
+            case 1:
+                Str += "중";
+                break;
+            case 2:
+                Str += "강";
+                break;
+
+        }
+        switch (Str)
+        {
+            case "암살자 강": case "고양이 강": break;
+            default:
+                yield return new WaitForSeconds(1f);
+                break;
+        }
+        Debug.Log(Str);
+        SoundManager.ins.RunAudio(Str);
+    }
     public void HitEffect(float Damage)
     {
         int Loser = 1 - Winner;
         if (UserStatus[Loser].Guard && Damage == 0)
+        {
+            SoundManager.ins.RunAudio("guard");
             DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.GUARD);
+        }
         else if (Damage == 0)
         {
             SoundManager.ins.RunAudio("miss");
@@ -117,7 +149,6 @@ public class gameManager : MonoBehaviour
         }
         else
         {
-            SoundManager.ins.RunAudio("hit");
             DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.DMG);
         }
         Vector3 LoserPos = UserStatus[Loser].transform.position;
@@ -287,8 +318,9 @@ public class gameManager : MonoBehaviour
 
                 //yield return new WaitForSeconds(CharacterAnim.GetTempDuration(Winner));//애니메이션 딜레이
                 StartCoroutine(AnimationRun());
-                yield return new WaitForSeconds(1f);//애니메이션 딜레이
-                SoundManager.ins.RunAudio("암살자 강");
+                if(damage!=0)
+                StartCoroutine(WinnerAudioRun(UserSlot[Winner])); // 공격자 소리 재생
+                 yield return new WaitForSeconds(1f);//애니메이션 딜레이
                 HitEffect(damage);
                 UITextSet.UIList["Damage"] = damage.ToString();
                 if (!UserStatus[Winner].DontDash) { 
