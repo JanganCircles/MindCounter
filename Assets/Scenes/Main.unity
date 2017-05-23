@@ -5721,7 +5721,7 @@ Prefab:
     - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
         type: 2}
       propertyPath: ClipList.Array.size
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4211941022144102, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -5757,8 +5757,88 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1137443056860162, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[15]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a6519f214b6a3a40a9513e81073cc17, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 847deb02034000848ac6226fc9137357, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 79b50b4fd5c78b14c9cdd1b10cc2d83c, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: da7d1745ce47f4f47b28ec7d762824c2, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 130e54eba5d685b4fa9c85b85c5b1a34, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 35074ad174a179e48b565f6eebeb754f, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 13899e93bfda20e448404c50b344e144, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 44fa0fa4676a62548b4a784a039a97ed, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: f8605ca5243d56f4a92884a303291d19, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6358ba5375b95c34b9d397ba3d8ca97c, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6c18f8c8fe609c04ca129a14442870c3, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 83ae8b58226e42f4b86816cd63749e7d, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2a27eca32814d894e8cdb84cf8c45d18, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8e27e65f935998342a851083d4650d9e, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[13]
+      value: 
+      objectReference: {fileID: 8300000, guid: 92539bd3f024ef74fa0176b16d4d9552, type: 3}
+    - target: {fileID: 114701417122846318, guid: e5cd4982f057a66438c7211a6514b27f,
+        type: 2}
+      propertyPath: ClipList.Array.data[14]
+      value: 
+      objectReference: {fileID: 8300000, guid: 61be59b164eee0348b48123eb57b298a, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5cd4982f057a66438c7211a6514b27f, type: 2}
   m_IsPrefabParent: 0
@@ -6554,6 +6634,7 @@ GameObject:
   - component: {fileID: 1153495785}
   - component: {fileID: 1153495786}
   - component: {fileID: 1153495787}
+  - component: {fileID: 1153495780}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6561,6 +6642,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &1153495780
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1153495779}
+  m_Enabled: 1
 --- !u!124 &1153495781
 Behaviour:
   m_ObjectHideFlags: 0

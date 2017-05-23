@@ -1156,7 +1156,6 @@ GameObject:
   - component: {fileID: 20853675329665308}
   - component: {fileID: 124673595498252226}
   - component: {fileID: 92224736742030446}
-  - component: {fileID: 81209736926688860}
   - component: {fileID: 114337966761242048}
   m_Layer: 0
   m_Name: Camera
@@ -3630,13 +3629,6 @@ Skybox:
   m_GameObject: {fileID: 1870503174136724}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: 8cf3418f3b5e10b4697a0c4b690c9e6e, type: 2}
---- !u!81 &81209736926688860
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1942782568427536}
-  m_Enabled: 1
 --- !u!92 &92224736742030446
 Behaviour:
   m_ObjectHideFlags: 1
@@ -4421,6 +4413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09928f28dc78404419d7c9b355a68ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
 --- !u!114 &114099996381769426
 MonoBehaviour:
   m_ObjectHideFlags: 1

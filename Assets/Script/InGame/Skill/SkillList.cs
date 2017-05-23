@@ -54,6 +54,7 @@ public class SkillList : MonoBehaviour {
                 EffectManager.ins.EffectRun(skl.GetOrder().transform, Vector3.one, "Energy", false);
                 CharacterAnim.ChangeAnimation(CharacterAnim.AnimStasis.MANA, skl.Order);
                 Orderstat.CostPlus((int)(CostData.EnergyRecovery * gameManager.ins.TimingWeight[skl.Order]));
+                SoundManager.ins.RunAudio("마나 채울때");
             }
         }, "Decision");//시작시 발동
         Energy.AddPassive(delegate (Skill skl)

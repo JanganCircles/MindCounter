@@ -111,9 +111,15 @@ public class gameManager : MonoBehaviour
         if (UserStatus[Loser].Guard && Damage == 0)
             DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.GUARD);
         else if (Damage == 0)
+        {
+            SoundManager.ins.RunAudio("miss");
             DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.MISS);
+        }
         else
+        {
+            SoundManager.ins.RunAudio("hit");
             DamageObj.SendMessage("OnDamage", DamageEffect.TargetImage.DMG);
+        }
         Vector3 LoserPos = UserStatus[Loser].transform.position;
         LoserPos.y = 1;
         int index = UserSlot[Winner].GetPriority();
@@ -275,13 +281,14 @@ public class gameManager : MonoBehaviour
 
                 DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, TimingWeight[Winner], "RhythmWeight");
                 int damage = DamageCalculator.ins.Calculate();//데미지 계산
-                //
+
                 Debug.Log(damage + "최종 데미지");
                 Debug.Log((Winner == 0 ? "챔피언" : "챌린저") + "승");
 
                 //yield return new WaitForSeconds(CharacterAnim.GetTempDuration(Winner));//애니메이션 딜레이
                 StartCoroutine(AnimationRun());
                 yield return new WaitForSeconds(1f);//애니메이션 딜레이
+                SoundManager.ins.RunAudio("암살자 강");
                 HitEffect(damage);
                 UITextSet.UIList["Damage"] = damage.ToString();
                 if (!UserStatus[Winner].DontDash) { 
