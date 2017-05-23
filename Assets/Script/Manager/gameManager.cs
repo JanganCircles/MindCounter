@@ -72,14 +72,14 @@ public class gameManager : MonoBehaviour
     }
     void OnEnable()
     {
-    }
-    void Start()
-    {
         for (int i = 0; i < 2; i++)
         {
             UserSlot[i].UseItem = GameData.ins.PotionCode[i];
             UserSlot[i].EqulpmentItem = GameData.ins.EquipmentCode[i];
         }
+    }
+    void Start()
+    {
         StartCoroutine(GamePlay());
     }
     // Update is called once per frame
@@ -187,6 +187,10 @@ public class gameManager : MonoBehaviour
 
 
         SkillManager.ins.RunPassives("GameStart");// 게임처음시작
+        for (int i = 0; i < 2; i++)
+        {
+            UITextSet.UIList[i == 0 ? "Champion" : "Challanger" + "Potion"] = (UserSlot[i].GetSlot("아이템0").GetSkill() as StackSkill).TempStack.ToString();
+        }
         while (true)// 게임시작 루프
         {
             isCounter = false;

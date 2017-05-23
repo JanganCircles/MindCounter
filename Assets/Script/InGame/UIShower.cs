@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class UIShower : MonoBehaviour {
     private CharacterStatus status;
     private SkillSlot Slots;
     private string ControllerName;
+    public Image PotionImgs;
     // Use this for initialization
     void Awake()
     {
@@ -12,8 +13,11 @@ public class UIShower : MonoBehaviour {
         status = gameObject.GetComponent<CharacterStatus>();
     }
 	void Start () {
-        ControllerName = status.Controller == 0 ? "Champion" : "Challanger"; 
-	}
+        ControllerName = status.Controller == 0 ? "Champion" : "Challanger";
+        Item.ItemData idta = Item.GetItem(GameData.ins.PotionCode[status.Controller]);
+        PotionImgs.sprite = idta.GetSprite();
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -26,7 +30,7 @@ public class UIShower : MonoBehaviour {
         float judgement = gameManager.ins.TimingWeight[status.Controller];
         UITextSet.UIList[ControllerName + "Judgement"] = judgement == gameManager.PERPECT ? "Perfect" : judgement == gameManager.GOOD ? "Good" : judgement == gameManager.BAD? "Bad" : "Miss";
 
-//        UITextSet.UIList[ControllerName + "Judgement"] = gameManager.ins.TimingWeight[status.Controller].ToString(); 
+        //        UITextSet.UIList[ControllerName + "Judgement"] = gameManager.ins.TimingWeight[status.Controller].ToString(); 
 
 
         UITextSet.UIList[ControllerName + "Hp"] = status.HP.ToString();                              //체력
@@ -35,8 +39,9 @@ public class UIShower : MonoBehaviour {
 ///        str0 = (status.Disable ? "무력화" : "") + (status.Defence ? "방어" : "") + (status.Down ? "다운" : "");
         UITextSet.UIList[ControllerName + "Debuff"] = str0;                              //디버프 상태
         UITextSet.UIList[ControllerName + "Counter"] = status.Cost.ToString() + " / " + status.MaxCost.ToString();            //남은 코스트
-        if (true)//gameManager.ins.UIOpen)
+        if (gameManager.ins.UIOpen)
         {
+            UITextSet.UIList[ControllerName + "Potion"] = (Slots.GetSlot("아이템0").GetSkill() as StackSkill).TempStack.ToString();
             UITextSet.UIList["InputKey"] = "";                              //입력문구
             UITextSet.UIList[ControllerName + "Stasis"] = SetTempStatis(Slots.GetPriority()); //상태(확인불가)
         }

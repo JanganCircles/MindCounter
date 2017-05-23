@@ -8,11 +8,11 @@ public class Item  {
     public static TextAsset Text = null;
     public enum ITEMCODE
     {
-        aura_S,       // 0
-        manaup_S,
-        hpup_S,
+        hpup_S,       // 0
+        aura_S,       
         focusup_S,
-        superarmor_S, // 4
+        superarmor_S, 
+        manaup_S,     // 4
         shortsword_S, // 5
         armor_S,
         wand_S,
@@ -21,11 +21,11 @@ public class Item  {
         glove_S,
         bible_S,
         russianroulette_S,
-        aura_M,      // 14
-        manaup_M,
-        hpup_M,
+        hpup_M,       //14
+        aura_M,
         focusup_M,
-        superarmor_M,// 18
+        superarmor_M,
+        manaup_M,     //18
         shortsword_M,// 19
         armor_M,
         wand_M,
@@ -34,11 +34,11 @@ public class Item  {
         glove_M,
         bible_M,
         russianroulette_M,
-        aura_L,      // 28
-        manaup_L,
-        hpup_L,
+        hpup_L,       //28
+        aura_L,
         focusup_L,
-        superarmor_L,// 32
+        superarmor_L,
+        manaup_L,     //32
         shortsword_L,// 33
         armor_L,
         wand_L,
@@ -127,6 +127,7 @@ public class Item  {
             //파싱한 내용 따라서 구현
 
         }
+        Debug.Log("셋업 아이템" + TempStr[1]);
         item = new ItemData(Code,TempStr[1],TempStr[2],int.Parse(TempStr[3]), TempSkill);
         TempSkill = null;
         return item;
@@ -274,12 +275,18 @@ public class Item  {
             {
                 skill.PassiveCount["Using"] = 1;
                 CharacterStatus Stat = skill.GetOrder();
+                Stat.isSuperArmor = true;
                 s.StackMinus();
                 Debug.Log("슈아 사용함");
-                Stat.isSuperArmor = true;
 
             }
         });
+        s.AddPassive(delegate (Skill skill)
+        {
+            CharacterStatus Stat = skill.GetOrder();
+            Stat.isSuperArmor = true;
+            DamageCalculator.ins.AddDamage(DamageCalculator.MULTIPLE_s, 0.5f, "SuperArmor");
+        }, "Hit");
         s.AddPassive(delegate (Skill skill)
         {
             CharacterStatus Stat = skill.GetOrder();
@@ -293,7 +300,7 @@ public class Item  {
     {
         StackSkill s = TempSkill as StackSkill;
         if (s == null) return;
-        s.PassiveCount.Add("Using",0);
+        s.PassiveCount.Add("Using", 0);
         s.ActiveSkillSet(delegate (Skill skill)
         {
             if (skill.PassiveCount["Using"] == 1) return;
@@ -305,10 +312,20 @@ public class Item  {
             if (skill.PassiveCount["Using"] == 1)
             {
                 gameManager.ins.TimingWeight[skill.Order] = gameManager.PERPECT;
-                skill.PassiveCount["Using"] = 0;
+                Skill sk = SkillManager.ins.GetSkill(skill.Order, "Critical");
+                sk.PassiveCount["Critical"] = 30f;
             }
         }, "Decision");
+        s.AddPassive(delegate (Skill skill)
+        {
+            if (skill.PassiveCount["Using"] == 1)
+            {
 
+                Skill sk = SkillManager.ins.GetSkill(skill.Order, "Critical");
+                sk.PassiveCount["Critical"] = sk.PassiveCount["BaseCritical"];
+                skill.PassiveCount["Using"] = 0;
+            }
+        }, "End");
     }
     public static void Add_Costheal( int CostHeal)
     {
