@@ -26,7 +26,7 @@ public class UIShower : MonoBehaviour {
         if (gameManager.ins.Turn == 0 && isFirst)
         {
             isFirst = false;
-            UITextSet.UIList[ControllerName + "PotionCount"] = (Slots.GetSlot("아이템0").GetSkill() as StackSkill).TempStack.ToString();
+            UITextSet.UIList[ControllerName + "PotionCount"] =  (Slots.GetSlot("아이템0").GetSkill() as StackSkill).TempStack.ToString();
         }
 
         float judgement = gameManager.ins.TimingWeight[status.Controller];
